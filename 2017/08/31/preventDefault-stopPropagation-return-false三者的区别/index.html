@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。 preventDefault()阻止元素在浏览器中的默认行为1234&amp;lt;a id=&amp;quot;link&amp;quot; href=&amp;quot;http://wuliv.com&amp;quot;&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-31T14:40:04.000Z">
+<meta property="og:updated_time" content="2017-09-01T12:28:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="preventDefault,stopPropagation,return false三者的区别">
 <meta name="twitter:description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。 preventDefault()阻止元素在浏览器中的默认行为1234&amp;lt;a id=&amp;quot;link&amp;quot; href=&amp;quot;http://wuliv.com&amp;quot;&amp;">
@@ -398,7 +398,8 @@
 <li>停止回调函数执行并立即返回</li>
 </ol>
 </blockquote>
-<p>1，2点还好理解，那么第3点是怎么回事？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;a&apos;).click(function()&#123;</div><div class="line">    return false; // return false直接返回了，并不会执行alert</div><div class="line">    alert(&apos;我没有被弹出来&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// preventDefault 和 stopPropagation 并不会阻止回调函数的执行</div></pre></td></tr></table></figure></p>
+<p>1，2点还好理解，那么第3点是怎么回事？<br>return语句会终止函数的执行并返回函数的值。所以不管是否返回false或是其它值，return语句后面的代码都不会执行。而返回false，使它具备了preventDefault和stropPropagation的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;a&apos;).click(function()&#123;</div><div class="line">    return false; // return false直接返回了，并不会执行alert</div><div class="line">    alert(&apos;我没有被弹出来&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// preventDefault 和 stopPropagation 并不会阻止回调函数的执行</div></pre></td></tr></table></figure>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>很多jQuery教程在代码演示中用“return false”来阻止执行浏览器的默认行为。<br>久而久之，很多同学习惯滥用“return false”来代替preventDefault</p>
 <p>大多数情况下，我们仅仅是想要它执行跟preventDefault的功能而已，但它却自作主张地帮你执行了另外两步操作。<br>比较好的编程习惯是，需要用到该事件方法再去调用，否则应该避免冗余事件的执行。<br>就像prevnetDefault完成它该有的工作，并不会阻止父节点继续处理事件，使得代码更加灵活，更易于维护。</p>
 <p>日常开发中还是要慎用“return false”，除非你同时需要preventDefault和stopPropagation，并且确定你的回调函数执行完成后调用，那么你可以使用“return false”，否则还是用preventDefault 或 stopPropagation 更好些。</p>
