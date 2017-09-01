@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kenz&#39;s Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-09-01T12:28:44.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Kenz</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>preventDefault,stopPropagation,return false三者的区别</title>
+    <link href="http://yoursite.com/2017/08/31/preventDefault-stopPropagation-return-false%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/</id>
+    <published>2017-08-31T14:40:04.000Z</published>
+    <updated>2017-09-01T12:28:44.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;逛帖子的时候看到道友发的前端面试题，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;preventDefault(), stopPropagation(), return false三者的区别&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这三者的使用想必大家并不陌生，但是细想之下还
+    
+    </summary>
+    
+      <category term="工作" scheme="http://yoursite.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="WEB" scheme="http://yoursite.com/tags/WEB/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP中GET与POST的区别 99%的错误认识</title>
+    <link href="http://yoursite.com/2017/08/27/HTTP%E4%B8%ADGET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB-99-%E7%9A%84%E9%94%99%E8%AF%AF%E8%AE%A4%E8%AF%86/"/>
+    <id>http://yoursite.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/</id>
+    <published>2017-08-27T01:30:13.000Z</published>
+    <updated>2017-08-27T02:14:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。&lt;br&gt;装逼失败模式：99%的人对GET和POST的认识&lt;br&gt;修炼低调模式：1%不知道的进阶认识&lt;/p&gt;
+&lt;p&gt;GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们
+    
+    </summary>
+    
+      <category term="工作" scheme="http://yoursite.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="WEB" scheme="http://yoursite.com/tags/WEB/"/>
+    
+  </entry>
+  
+</feed>
