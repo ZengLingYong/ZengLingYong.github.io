@@ -313,6 +313,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/04/npm常用命令整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kenz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/04/npm常用命令整理/" itemprop="url">npm常用命令整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-04T10:01:19+08:00">
+                2017-10-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>npm是一个NodeJS包管理跟分发工具，已经成为了非官方的发布node模块（包）的标准。<br>它可以帮助我们解决代码部署上的一些问题，将开发者从繁琐的包管理工作中(版本、依赖等)解放出来，更加专注于功能上的开发，大大提升我们的工作效率。</p>
+<p>以下为日常应用中收集整理的npm常用命令:</p>
+<h4 id="初始化-引导你创建一个package-json文件"><a href="#初始化-引导你创建一个package-json文件" class="headerlink" title="初始化 引导你创建一个package.json文件"></a>初始化 引导你创建一个package.json文件</h4><p><code>npm init</code></p>
+<h4 id="查看package-json文件内容格式"><a href="#查看package-json文件内容格式" class="headerlink" title="查看package.json文件内容格式"></a>查看package.json文件内容格式</h4><p><code>npm help json</code></p>
+<h4 id="安装模块-install-可简写为-i"><a href="#安装模块-install-可简写为-i" class="headerlink" title="安装模块 (install 可简写为 i)"></a>安装模块 (install 可简写为 i)</h4><p><code>npm install moduleName</code><br>(安装到当前目录，仅在当前目录可用)</p>
+<h4 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h4><p><code>npm install moduleName -g</code><br>(全局安装，可在所有目录下使用)</p>
+<h4 id="安装package-json中的模块"><a href="#安装package-json中的模块" class="headerlink" title="安装package.json中的模块"></a>安装package.json中的模块</h4><p><code>npm install</code><br>(目录中存在package.json，将安装package.json配置号的版本模块，install后面可不带模块名)</p>
+<h4 id="安装到开发环境依赖"><a href="#安装到开发环境依赖" class="headerlink" title="安装到开发环境依赖"></a>安装到开发环境依赖</h4><p><code>npm install moduleName --save-dev</code><br>(例如一些预编译包，如sass-loader,less-loader等，仅在开发环境中会用到)</p>
+<h4 id="安装到生成环境依赖"><a href="#安装到生成环境依赖" class="headerlink" title="安装到生成环境依赖"></a>安装到生成环境依赖</h4><p><code>npm install moduleName --save</code></p>
+<h4 id="卸载模块-uninstall-可简写-un"><a href="#卸载模块-uninstall-可简写-un" class="headerlink" title="卸载模块 (uninstall 可简写 un)"></a>卸载模块 (uninstall 可简写 un)</h4><p><code>npm uninstall moduleName</code></p>
+<h4 id="重新安装模块"><a href="#重新安装模块" class="headerlink" title="重新安装模块"></a>重新安装模块</h4><p><code>npm rebuild moduleName</code></p>
+<h4 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h4><p><code>npm help</code></p>
+<h4 id="检查模块是否已经过时"><a href="#检查模块是否已经过时" class="headerlink" title="检查模块是否已经过时"></a>检查模块是否已经过时</h4><p><code>npm outdated</code><br>（列出所有有新版本的模块，方便对包的更新）</p>
+<h4 id="检查npm线上是否存在该模块"><a href="#检查npm线上是否存在该模块" class="headerlink" title="检查npm线上是否存在该模块"></a>检查npm线上是否存在该模块</h4><p><code>npm search moduleName</code><br>（当你想要发布自己写的包时，需查看线上是否有同名的已发布的包）</p>
+<h4 id="查看当前目录模块的安装路径"><a href="#查看当前目录模块的安装路径" class="headerlink" title="查看当前目录模块的安装路径"></a>查看当前目录模块的安装路径</h4><p><code>npm root</code></p>
+<h4 id="查看全局安装模块的安装路径"><a href="#查看全局安装模块的安装路径" class="headerlink" title="查看全局安装模块的安装路径"></a>查看全局安装模块的安装路径</h4><p><code>npm root -g</code></p>
+<h4 id="查看npm安装的版本"><a href="#查看npm安装的版本" class="headerlink" title="查看npm安装的版本"></a>查看npm安装的版本</h4><p><code>npm -v</code></p>
+<h4 id="更新本机npm的版本"><a href="#更新本机npm的版本" class="headerlink" title="更新本机npm的版本"></a>更新本机npm的版本</h4><p><code>npm install -g</code></p>
+<p>更多npm命令请查看<a href="https://docs.npmjs.com/" target="_blank" rel="external">NPM官方文档</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,17 +524,6 @@
           
 
           
-          
-             <span id="/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/" class="leancloud_visitors" data-flag-title="preventDefault,stopPropagation,return false三者的区别">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -570,17 +700,6 @@
 
           
           
-             <span id="/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/" class="leancloud_visitors" data-flag-title="HTTP中GET与POST的区别 99%的错误认识">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -635,6 +754,9 @@
 <p>因为POST需要两步，时间上消耗的多一点，<br>不过网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。<br>网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点</p>
 <p>并不是所有浏览器POST发送两次包，Fiefox就发送一次。</p>
 <p>最后的最后，当你以后被别人问到的时候，你就可以。。。。。。请开始你的表演</p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
 <p>参考文章：<a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd" target="_blank" rel="external">《99%的人都理解错了HTTP中GET与POST的区别》</a></p>
 
           
@@ -717,7 +839,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -739,7 +861,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -943,113 +1065,6 @@
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("uY2wTh3IGYoCW9EC28SXFsEp-gzGzoHsz", "ox7oLubkIeglLK2VGeUE8qNk");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 

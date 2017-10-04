@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-01T12:28:44.000Z</updated>
+  <updated>2017-10-04T02:01:19.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>npm常用命令整理</title>
+    <link href="http://yoursite.com/2017/10/04/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2017/10/04/npm常用命令整理/</id>
+    <published>2017-10-04T02:01:19.000Z</published>
+    <updated>2017-10-04T02:01:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;npm是一个NodeJS包管理跟分发工具，已经成为了非官方的发布node模块（包）的标准。&lt;br&gt;它可以帮助我们解决代码部署上的一些问题，将开发者从繁琐的包管理工作中(版本、依赖等)解放出来，更加专注于功能上的开发，大大提升我们的工作效率。&lt;/p&gt;
+&lt;p&gt;以下为日常应用中收
+    
+    </summary>
+    
+    
+      <category term="WEB" scheme="http://yoursite.com/tags/WEB/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="NodeJS" scheme="http://yoursite.com/tags/NodeJS/"/>
+    
+  </entry>
   
   <entry>
     <title>preventDefault,stopPropagation,return false三者的区别</title>
@@ -48,7 +71,7 @@
     <link href="http://yoursite.com/2017/08/27/HTTP%E4%B8%ADGET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB-99-%E7%9A%84%E9%94%99%E8%AF%AF%E8%AE%A4%E8%AF%86/"/>
     <id>http://yoursite.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/</id>
     <published>2017-08-27T01:30:13.000Z</published>
-    <updated>2017-08-27T02:14:19.000Z</updated>
+    <updated>2017-10-04T02:02:25.000Z</updated>
     
     <summary type="html">
     
