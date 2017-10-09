@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WEB," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kenz's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
+<meta name="keywords" content="WEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP中GET与POST的区别 99%的错误认识">
+<meta property="og:url" content="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/index.html">
+<meta property="og:site_name" content="Kenz&#39;s Blog">
+<meta property="og:description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-04T02:02:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP中GET与POST的区别 99%的错误认识">
+<meta name="twitter:description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'FHMDM3YMN2',
+      apiKey: '220a42a46af7a0d48d39bf3a26cceb70',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/"/>
+
+
+
+
+
+  <title>HTTP中GET与POST的区别 99%的错误认识 | Kenz's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ce4d6999af520bf3c8f319e576ba6832";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kenz's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kenz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTTP中GET与POST的区别 99%的错误认识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T09:30:13+08:00">
+                2017-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。<br>装逼失败模式：99%的人对GET和POST的认识<br>修炼低调模式：1%不知道的进阶认识</p>
+<p>GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。<br>一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；<br>在HTML FROM表单中，可以通过设置method指定提交方式为GET或者POST方式，默认为GET提交方式</p>
+<p>HTTP定义了与服务器交互的不同方法，其中最基本的四种：GET，POST，PUT，DELETE，HEAD；<br>其中GET和HEAD被称为安全方法，因为使用GET和HEAD的HTTP请求不会产生什么动作。不会产生动作意味着GET和HEAD的HTTP请求不会在服务器上产生任何结果。但是安全方法并不是什么动作都不产生，这里的安全方法仅指不会修改信息。</p>
+<p>GET和POST我们比较常用，其它几种实际应用比较少用到，在此仅作了解。</p>
+<hr>
+<h3 id="99-的人所认为的GET和POST"><a href="#99-的人所认为的GET和POST" class="headerlink" title="99%的人所认为的GET和POST"></a>99%的人所认为的GET和POST</h3><h4 id="1-传输方式（自我理解“显示方式”）"><a href="#1-传输方式（自我理解“显示方式”）" class="headerlink" title="1. 传输方式（自我理解“显示方式”）"></a>1. 传输方式（自我理解“显示方式”）</h4><p>GET请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数之间以&amp;连接，<br>如<code>&quot;http://www.xxx.com/product?type=shoe&amp;price=100&amp;sex=male&quot;</code><br>数据格式有以下注意点：</p>
+<ol>
+<li>如果数据是英文字母/数字，原样发送；</li>
+<li>如果是空格，转换为+；</li>
+<li>如果是中文或其他字符，则把数据用Base64加密，<br>如<code>&quot;%E4%BD%A0%E5%A5%BD&quot;</code>其中<code>％XX</code>中的<code>XX</code>为该符号以16进制表示的ASCII码。</li>
+</ol>
+<p>POST请求会把请求的数据放置在HTTP请求包的包体中，GET传输的数据会直接暴露在URL中，而POST请求则不会。</p>
+<h4 id="2-传输数据大小"><a href="#2-传输数据大小" class="headerlink" title="2. 传输数据大小"></a>2. 传输数据大小</h4><p>GET方式传输的数据最多只能是1024字节，<br>因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系，URL本身不存在参数上限的问题，HTTP协议规范也没有对URL长度进行限制。<br>这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
+<p><em>注意：限制是针对整个URL长度，不单是传输的数据长度。</em></p>
+<p>POST方式理论上没有限制，可传较大的数据。起限制作用的是服务器的处理程序的处理能力。Apache, Nigx, IIS服务器自身可配置限制传输大小。</p>
+<h4 id="3-GET在浏览器回退是无害的，而POST会再次提交请求"><a href="#3-GET在浏览器回退是无害的，而POST会再次提交请求" class="headerlink" title="3. GET在浏览器回退是无害的，而POST会再次提交请求"></a>3. GET在浏览器回退是无害的，而POST会再次提交请求</h4><h4 id="4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以"><a href="#4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以" class="headerlink" title="4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以"></a>4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以</h4><h4 id="5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置"><a href="#5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置" class="headerlink" title="5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置"></a>5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置</h4><h4 id="6-安全性"><a href="#6-安全性" class="headerlink" title="6. 安全性"></a>6. 安全性</h4><p>GET传输的数据直接暴露在URL中，如果我们在做用户登录时，需要传输登录帐号及密码到后端做验证，如果用GET方式，那么账户密码直接暴露在URL里面，是极其危险的。<br>而且浏览器缓存的机制，访问过的网站URL会被保存在浏览器历史记录里，其他人可通过历史记录查看访问网站URL，直接获取到传输的数据。<br>很可能受到 “Cross-site request forgery”(中文名称：跨站请求伪造) 攻击。<br>不过POST的数据也是可以被拦截的。</p>
+<p>总结：</p>
+<ol>
+<li>GET请求是用来向服务器发送索取数据的一种请求，实际应用中数据不涉及到安全性，可用GET方式来向后端请求数据，<br>如分页或搜索关键词 <code>&quot;http://www.xxx.com/product?keywords=xxx&amp;page=2&quot;</code>;</li>
+<li>POST请求是向服务器提交数据的一种请求，涉及到安全性的数据，用POST的方式来传输较GET更安全。</li>
+</ol>
+<hr>
+<p>曾经的曾经，我也是那99%的一员，还把自己归纳的文章发给新人同事看，然后装逼失败，被老大引导练成最后的这1%。</p>
+<hr>
+<h3 id="1-的人所拥有的"><a href="#1-的人所拥有的" class="headerlink" title="1%的人所拥有的"></a>1%的人所拥有的</h3><p>GET和POST本质上是没有区别的，它们是HTTP协议中的两种发送请求的方式。<br>HTTP是基于TCP/IP的关于数据如何在万维网中通信的协议，即HTTP的底层是TCP/IP，所以GET和POST的底层也是TCP/IP，也就是说：GET/POST都是TCP链接。<br>给POST带上url参数，给GET加上request body，技术上是可以实现的。</p>
+<p>为了更方便的管理，避免混乱，HTTP给这些请求定义GET，POST，PUT，DELETE。<br>而数据大小，则是因为浏览器的限制造成的。</p>
+<p>所以GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同</p>
+<h4 id="隐藏的Buff"><a href="#隐藏的Buff" class="headerlink" title="隐藏的Buff"></a>隐藏的Buff</h4><p>GET产生一个TCP数据包，而POST产生两个TCP数据包</p>
+<p>GET的请求，浏览器会把http header和data一并发送出去，服务器返回200（返回数据）<br>POST的请求，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200（返回数据）</p>
+<p>因为POST需要两步，时间上消耗的多一点，<br>不过网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。<br>网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点</p>
+<p>并不是所有浏览器POST发送两次包，Fiefox就发送一次。</p>
+<p>最后的最后，当你以后被别人问到的时候，你就可以。。。。。。请开始你的表演</p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+<p>参考文章：<a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd" target="_blank" rel="external">《99%的人都理解错了HTTP中GET与POST的区别》</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="Kenz WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="Kenz Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB/" rel="tag"># WEB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/" rel="prev" title="preventDefault,stopPropagation,return false三者的区别">
+                preventDefault,stopPropagation,return false三者的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+       
+         <div onclick="ShowGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+         <div id="gitment-container" style="display:none"></div>
+       
+      
+    </div>
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Kenz" />
+          <p class="site-author-name" itemprop="name">Kenz</p>
+           
+              <p class="site-description motion-element" itemprop="description">Try · Enjoy · Documentary</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#99-的人所认为的GET和POST"><span class="nav-number">1.</span> <span class="nav-text">99%的人所认为的GET和POST</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-传输方式（自我理解“显示方式”）"><span class="nav-number">1.1.</span> <span class="nav-text">1. 传输方式（自我理解“显示方式”）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-传输数据大小"><span class="nav-number">1.2.</span> <span class="nav-text">2. 传输数据大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GET在浏览器回退是无害的，而POST会再次提交请求"><span class="nav-number">1.3.</span> <span class="nav-text">3. GET在浏览器回退是无害的，而POST会再次提交请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以"><span class="nav-number">1.4.</span> <span class="nav-text">4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置"><span class="nav-number">1.5.</span> <span class="nav-text">5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-安全性"><span class="nav-number">1.6.</span> <span class="nav-text">6. 安全性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-的人所拥有的"><span class="nav-number">2.</span> <span class="nav-text">1%的人所拥有的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏的Buff"><span class="nav-number">2.1.</span> <span class="nav-text">隐藏的Buff</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kenz</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           function ShowGitment(){
+               document.getElementById("gitment-display-button").style.display = "none";
+               document.getElementById("gitment-container").style.display = "block";
+               var gitment = new Gitment({
+                   id: document.location.href, 
+                   owner: 'zenglingyong',
+                   repo: 'zenglingyong.github.io',
+                   oauth: {
+                       client_id: 'a98e3749a7c5c3cec091',
+                       client_secret: '80dbeba1186404835168511e88eda3b24e8606f1',
+                   }});
+               gitment.render('gitment-container');
+           }
+       </script>
+   
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
