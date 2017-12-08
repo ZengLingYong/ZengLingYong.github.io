@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2017-10-04T02:05:58.000Z</updated>
+  <updated>2017-12-08T02:18:55.000Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序爬坑日记</title>
+    <link href="http://www.wuliv.com/2017/12/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E5%9D%91%E6%97%A5%E8%AE%B0/"/>
+    <id>http://www.wuliv.com/2017/12/08/微信小程序爬坑日记/</id>
+    <published>2017-12-08T01:30:13.000Z</published>
+    <updated>2017-12-08T02:18:55.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新公司上手小程序。&lt;br&gt;30天，从入门到现在，还没放弃。。。&lt;/p&gt;
+&lt;p&gt;虽然小程序发布出来快一年了，爬坑的兄弟们大多把坑都踩平了。而我一直停留在“Hello World”的学习阶段。&lt;br&gt;一来没项目，只有项目才是实践学习的根本；&lt;br&gt;二来刚出来，总是有很多坑。爬坑
+    
+    </summary>
+    
+      <category term="工作" scheme="http://www.wuliv.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="WEB 微信小程序" scheme="http://www.wuliv.com/tags/WEB-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>npm常用命令整理</title>

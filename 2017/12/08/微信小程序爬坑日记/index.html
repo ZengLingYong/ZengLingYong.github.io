@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WEB 微信小程序," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kenz's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="新公司上手小程序。30天，从入门到现在，还没放弃。。。 虽然小程序发布出来快一年了，爬坑的兄弟们大多把坑都踩平了。而我一直停留在“Hello World”的学习阶段。一来没项目，只有项目才是实践学习的根本；二来刚出来，总是有很多坑。爬坑总是痛并快乐着。 再多的借口，产品项目需求拍在桌前，都得缴械投降。不要怂撸起袖子，就是干。  初识小程序微信推出小程序，想要实现即开即用，用完即走的用户体验。免去A">
+<meta name="keywords" content="WEB 微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序爬坑日记">
+<meta property="og:url" content="http://www.wuliv.com/2017/12/08/微信小程序爬坑日记/index.html">
+<meta property="og:site_name" content="Kenz&#39;s Blog">
+<meta property="og:description" content="新公司上手小程序。30天，从入门到现在，还没放弃。。。 虽然小程序发布出来快一年了，爬坑的兄弟们大多把坑都踩平了。而我一直停留在“Hello World”的学习阶段。一来没项目，只有项目才是实践学习的根本；二来刚出来，总是有很多坑。爬坑总是痛并快乐着。 再多的借口，产品项目需求拍在桌前，都得缴械投降。不要怂撸起袖子，就是干。  初识小程序微信推出小程序，想要实现即开即用，用完即走的用户体验。免去A">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/72ec38a9gy1fm94qk59f7j21kw0yt42o.jpg">
+<meta property="og:updated_time" content="2017-12-08T02:18:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序爬坑日记">
+<meta name="twitter:description" content="新公司上手小程序。30天，从入门到现在，还没放弃。。。 虽然小程序发布出来快一年了，爬坑的兄弟们大多把坑都踩平了。而我一直停留在“Hello World”的学习阶段。一来没项目，只有项目才是实践学习的根本；二来刚出来，总是有很多坑。爬坑总是痛并快乐着。 再多的借口，产品项目需求拍在桌前，都得缴械投降。不要怂撸起袖子，就是干。  初识小程序微信推出小程序，想要实现即开即用，用完即走的用户体验。免去A">
+<meta name="twitter:image" content="http://wx4.sinaimg.cn/mw690/72ec38a9gy1fm94qk59f7j21kw0yt42o.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'FHMDM3YMN2',
+      apiKey: '220a42a46af7a0d48d39bf3a26cceb70',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wuliv.com/2017/12/08/微信小程序爬坑日记/"/>
+
+
+
+
+
+  <title>微信小程序爬坑日记 | Kenz's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ce4d6999af520bf3c8f319e576ba6832";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kenz's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2017/12/08/微信小程序爬坑日记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kenz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微信小程序爬坑日记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T09:30:13+08:00">
+                2017-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>新公司上手小程序。<br>30天，从入门到现在，还没放弃。。。</p>
+<p>虽然小程序发布出来快一年了，爬坑的兄弟们大多把坑都踩平了。而我一直停留在“Hello World”的学习阶段。<br>一来没项目，只有项目才是实践学习的根本；<br>二来刚出来，总是有很多坑。爬坑总是痛并快乐着。</p>
+<p>再多的借口，产品项目需求拍在桌前，都得缴械投降。<br>不要怂撸起袖子，就是干。</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/72ec38a9gy1fm94qk59f7j21kw0yt42o.jpg" alt="微信小程序"></p>
+<h3 id="初识小程序"><a href="#初识小程序" class="headerlink" title="初识小程序"></a>初识小程序</h3><p>微信推出小程序，想要实现即开即用，用完即走的用户体验。免去APP下载安装繁琐的流程。听起来像谷歌推出的PWA，不过PWA普及到国内还有段时间。而小程序借助于微信的用户群体，植入成本低，容易被用户接受。</p>
+<p>小程序的代码风格跟Vue其实挺像，对于习惯Vue开发模式的同学，上手并没有太大的问题。</p>
+<p>小程序不支持前端主流框架，如Vue，Angular，React，jQuery等，而且小程序有自己的一套视图容器(Dom)的写法，跟平常我们在web上写HTML不一样。不过CSS3那些变化不大。虽然文件名改成了(.wxss)</p>
+<p>本司项目，使用webpack做打包工具，将代码编译成符合小程序的代码目录规范，采用wechat-mina-loader插件，实际开发起来跟在Vue下开发习惯一样。<br>babel完成ES6转ES5，sass编译，压缩转化等工作都放到webpack中去做。</p>
+<h3 id="不支持dom操作"><a href="#不支持dom操作" class="headerlink" title="不支持dom操作"></a>不支持dom操作</h3><p>小程序脚本内不能使用window,document对象，所以无法操作dom。如果想操作节点，可用<code>wx.createSelectorQuery()</code></p>
+<p>另外数据驱动的开发模式，跟Vue相同，只是写法换了（vue: v-if，小程序: wx:if）</p>
+<h3 id="rpx布局"><a href="#rpx布局" class="headerlink" title="rpx布局"></a>rpx布局</h3><blockquote>
+<p>rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。</p>
+</blockquote>
+<p>设计师做设计图以iPhone6作为设计稿基准就可以，基本上可以用rpx替换px，不过在一些表单或者提示页面，使用设计稿上的rpx会让小屏幕手机看着尺寸略小，提示页面可参照weui用px来实现</p>
+<h3 id="路由层级"><a href="#路由层级" class="headerlink" title="路由层级"></a>路由层级</h3><ul>
+<li><code>wx.navigateTo(OBJECT)</code><br>保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面</li>
+<li><code>wx.redirctTo(OBJECT)</code><br>关闭当前页面，跳转到应用内的某个页面</li>
+<li><code>wx.switchTab(OBJECT)</code><br>跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</li>
+<li><code>wx.reLaunch(OBJECT)</code><br>关闭所有页面，打开到应用内的某个页面</li>
+</ul>
+<p>小程序只能同时打开打开5个页面，当打开5个页面后，wx.navigateTo不能正常打开新页面，请避免多层级的交互方式，或者使用wx.redirctTo重定向</p>
+<h3 id="tabBar底部导航栏"><a href="#tabBar底部导航栏" class="headerlink" title="tabBar底部导航栏"></a>tabBar底部导航栏</h3><p>tabBar是一个数组。配置最少2个，最多5个，tab数组按顺序排序</p>
+<h3 id="页面滚动到顶部"><a href="#页面滚动到顶部" class="headerlink" title="页面滚动到顶部"></a>页面滚动到顶部</h3><p>基础库1.4.0支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wx.pageScrollTo(&#123;</div><div class="line">  scrollTop: 0   //滚动到页面的目标位置（单位px）</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="图片资源，CSS中的背景图片"><a href="#图片资源，CSS中的背景图片" class="headerlink" title="图片资源，CSS中的背景图片"></a>图片资源，CSS中的背景图片</h3><p>CSS中无法使用本地资源(开发目录中)的图片作为background-image。可以使用网络图片资源，或base64，或者使用image标签。tabBar的icon资源可使用本地资源</p>
+<h3 id="unionid与openid的区别"><a href="#unionid与openid的区别" class="headerlink" title="unionid与openid的区别"></a>unionid与openid的区别</h3><p>每个用户在每个小程序里面都有唯一的openid，如果想在多个公众号，小程序里面共享用户信息，统一识别该用户，则需要用到unionid。为了获取uniond则需要注册微信开放平台，将需要共享的小程序，公众号进行绑定（不超过10个，超过10个还要申请认证称为第三发平台）。</p>
+<h3 id="textarea在滚动页面中的bug"><a href="#textarea在滚动页面中的bug" class="headerlink" title="textarea在滚动页面中的bug"></a>textarea在滚动页面中的bug</h3><p>textarea,map等组件是由客户端创建的原生组件，它的层级是最高的。如果有遇到定位元素的话。永远在最上面，盖不住。</p>
+<ul>
+<li>请勿在 scroll-view、swiper、picker-view、movable-view 中使用 textarea 组件</li>
+<li>CSS动画对textarea无效</li>
+</ul>
+<p>项目场景：页面底部固定了一个按钮（position:fixed), 页面滚动时，textarea总是在按钮上面，点击按钮就点到了textarea</p>
+<h3 id="可以设置网络请求的超时时间"><a href="#可以设置网络请求的超时时间" class="headerlink" title="可以设置网络请求的超时时间"></a>可以设置网络请求的超时时间</h3><p>app.js中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;networkTimeout&quot;: &#123;</div><div class="line">  &quot;request&quot;: 10000 // 10秒</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="window配置"><a href="#window配置" class="headerlink" title="window配置"></a>window配置</h3><p>navigationBarTextStyle 导航栏标题颜色仅支持black/white<br>状态栏，导航条，标题，窗口背景色支持纯色，不支持渐变色</p>
+<h3 id="参数问题"><a href="#参数问题" class="headerlink" title="参数问题"></a>参数问题</h3><ul>
+<li><p>url中添加参数，<br>如<code>url?a=1&amp;b=2</code>, <code>onLoad(options) options.query.a, options.query.b</code>可获取到</p>
+</li>
+<li><p>扫描小程序码进页面，如果想获取小程序码url中所带的参数，可通过options.scene获取，不过需要对二维码中的scene值进行转换decodeURIComponent(options.scene), 调试阶段可以使用开发工具的条件编译自定义参数 scene=xxxx 进行模拟，开发工具模拟时的 scene 的参数值需要进行 urlencode (启动参数：scene=n%3D1001) 实际为scene=n=1001，参数n=1001</p>
+</li>
+</ul>
+<h3 id="image标签图片"><a href="#image标签图片" class="headerlink" title="image标签图片"></a>image标签图片</h3><p>image默认width: 300px, height: 225px, lazy-load懒加载只对page与scroll-view下的image有效<br>mode缩放模式，mode=”widthFix”比较常用(宽度不变，高度自动变化，保持原图宽高比不变)</p>
+<h3 id="小程序可以监听小程序的关闭后，但是无法阻断"><a href="#小程序可以监听小程序的关闭后，但是无法阻断" class="headerlink" title="小程序可以监听小程序的关闭后，但是无法阻断"></a>小程序可以监听小程序的关闭后，但是无法阻断</h3><p>场景：想在小程序退出时弹出个提示框，并阻止关闭（暂时无法实现）</p>
+<h3 id="小程序码"><a href="#小程序码" class="headerlink" title="小程序码"></a>小程序码</h3><p>小程序码(葵花码)有几种方式，只有发布过小程序才可正常显示小程序码</p>
+<h3 id="小程序第一次提交的审核时间较后面的长"><a href="#小程序第一次提交的审核时间较后面的长" class="headerlink" title="小程序第一次提交的审核时间较后面的长"></a>小程序第一次提交的审核时间较后面的长</h3><p>第一次提交审核一般1天到2天。所以为了能准点上线，建议先上一次临时的版本(放一个提示页面都可以)，过了第一次审核发布再说。日常提交审核，2-3小时就可以。</p>
+<h3 id="频繁地setData会造成性能问题"><a href="#频繁地setData会造成性能问题" class="headerlink" title="频繁地setData会造成性能问题"></a>频繁地setData会造成性能问题</h3><p>频繁地setData操作，会出现卡顿，操作反馈延迟严重，甚至有可能闪退。</p>
+<blockquote>
+<p>场景：原计划用countUp做数字动画，原理就是频繁地改变数字值，setData操作，渲染到模版上。</p>
+</blockquote>
+<h3 id="ES6转ES5，小程序检测目录中的js文件-极少"><a href="#ES6转ES5，小程序检测目录中的js文件-极少" class="headerlink" title="ES6转ES5，小程序检测目录中的js文件(极少)"></a>ES6转ES5，小程序检测目录中的js文件(极少)</h3><p>项目中用了webpack进行ES6转ES5，所以关闭了微信小程序的ES6转ES5功能。这个坑就比较隐蔽了，测试的时候在5S真机上报js错误，发现有个js(使用了ES6，没有转ES5)文件没有使用，微信小程序会去检测目录中的js文件，如果关闭了微信自带的ES6转ES5，检测到目录中js文件不兼容ES5，就报错。这个Bug只在5S真机里出现过，5C都正常。如果开启了微信开发工具中的ES6转ES5，则会自动帮你完成转化工作，不会出现类似问题。</p>
+<p>分享些小程序开发比较常用的第三方库</p>
+<ul>
+<li>weui-wxss(小程序版的weui样式库) Github: <a href="&#39;https://github.com/Tencent/weui-wxss&#39;">https://github.com/Tencent/weui-wxss</a></li>
+<li>wepy(小程序组件化框架) Github: <a href="&#39;https://github.com/Tencent/wepy&#39;">https://github.com/Tencent/wepy</a></li>
+<li>skyvow/vux(小程序组件库) Github: <a href="&#39;https://github.com/skyvow/wux&#39;">https://github.com/skyvow/wux</a></li>
+<li>xiaolin3303/wx-charts(小程序图标) Github: <a href="&#39;https://github.com/xiaolin3303/wx-charts&#39;">https://github.com/xiaolin3303/wx-charts</a></li>
+</ul>
+<blockquote>
+<p>作者：以乐之名<br>  本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="Kenz WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="Kenz Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB-微信小程序/" rel="tag"># WEB 微信小程序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/04/npm常用命令整理/" rel="next" title="npm常用命令整理">
+                <i class="fa fa-chevron-left"></i> npm常用命令整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+       
+         <div onclick="ShowGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+         <div id="gitment-container" style="display:none"></div>
+       
+      
+    </div>
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Kenz" />
+          <p class="site-author-name" itemprop="name">Kenz</p>
+           
+              <p class="site-description motion-element" itemprop="description">Try · Enjoy · Documentary</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#初识小程序"><span class="nav-number">1.</span> <span class="nav-text">初识小程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不支持dom操作"><span class="nav-number">2.</span> <span class="nav-text">不支持dom操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rpx布局"><span class="nav-number">3.</span> <span class="nav-text">rpx布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由层级"><span class="nav-number">4.</span> <span class="nav-text">路由层级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tabBar底部导航栏"><span class="nav-number">5.</span> <span class="nav-text">tabBar底部导航栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面滚动到顶部"><span class="nav-number">6.</span> <span class="nav-text">页面滚动到顶部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片资源，CSS中的背景图片"><span class="nav-number">7.</span> <span class="nav-text">图片资源，CSS中的背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unionid与openid的区别"><span class="nav-number">8.</span> <span class="nav-text">unionid与openid的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textarea在滚动页面中的bug"><span class="nav-number">9.</span> <span class="nav-text">textarea在滚动页面中的bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以设置网络请求的超时时间"><span class="nav-number">10.</span> <span class="nav-text">可以设置网络请求的超时时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window配置"><span class="nav-number">11.</span> <span class="nav-text">window配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数问题"><span class="nav-number">12.</span> <span class="nav-text">参数问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image标签图片"><span class="nav-number">13.</span> <span class="nav-text">image标签图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序可以监听小程序的关闭后，但是无法阻断"><span class="nav-number">14.</span> <span class="nav-text">小程序可以监听小程序的关闭后，但是无法阻断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序码"><span class="nav-number">15.</span> <span class="nav-text">小程序码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序第一次提交的审核时间较后面的长"><span class="nav-number">16.</span> <span class="nav-text">小程序第一次提交的审核时间较后面的长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#频繁地setData会造成性能问题"><span class="nav-number">17.</span> <span class="nav-text">频繁地setData会造成性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6转ES5，小程序检测目录中的js文件-极少"><span class="nav-number">18.</span> <span class="nav-text">ES6转ES5，小程序检测目录中的js文件(极少)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kenz</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           function ShowGitment(){
+               document.getElementById("gitment-display-button").style.display = "none";
+               document.getElementById("gitment-container").style.display = "block";
+               var gitment = new Gitment({
+                   id: document.location.href, 
+                   owner: 'zenglingyong',
+                   repo: 'zenglingyong.github.io',
+                   oauth: {
+                       client_id: 'a98e3749a7c5c3cec091',
+                       client_secret: '80dbeba1186404835168511e88eda3b24e8606f1',
+                   }});
+               gitment.render('gitment-container');
+           }
+       </script>
+   
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
