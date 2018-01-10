@@ -313,6 +313,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kenz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/" itemprop="url">Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T16:32:40+08:00">
+                2018-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。<br>不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？<br>怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业余。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7324444-f4cab57f73b24da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终效果图"></p>
+<p>完成配置后的终端具备功能：</p>
+<ol>
+<li>语法高亮</li>
+<li>命令行tab补全</li>
+<li>自动提示符</li>
+<li>显示Git仓库状态等功能</li>
+<li>⌘+r 快速清空代码面板，跟终端输入clear一样的效果</li>
+</ol>
+<hr>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="1-下载iTerm2"><a href="#1-下载iTerm2" class="headerlink" title="1. 下载iTerm2"></a>1. 下载<a href="http://www.iterm2.com/" target="_blank" rel="external">iTerm2</a></h3><h3 id="2-解压后安装iTerm2并打开"><a href="#2-解压后安装iTerm2并打开" class="headerlink" title="2. 解压后安装iTerm2并打开"></a>2. 解压后安装iTerm2并打开</h3><ol>
+<li>iTerm2 -&gt; Make iTerm2 Default Term<br><img src="http://upload-images.jianshu.io/upload_images/7324444-b3898059dc0f629d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="将iTerm2设置为默认终端"></li>
+<li>打开偏好设置preference，选中Keys，勾选Hotkey下的Show/hide iTerm2 with a system-wide hotkey，将热键设置为 ⌘+. ，这样你就可以通过 ⌘+. 全局热键来打开或关闭iTerm2窗口，非常方便<br><img src="http://upload-images.jianshu.io/upload_images/7324444-57399044e86283ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置Hotkey"><h3 id="3-配色方案"><a href="#3-配色方案" class="headerlink" title="3. 配色方案"></a>3. 配色方案</h3>选用 <a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">solarized</a>，下载解压，然后打开 iTerm2 下的偏好设置 preference ，点开 profiles 下的colors 选项，点击右下角的 Color Presets 选项，选择import ，导入解压到的 solarized 文件下的Solarized Dark.itermcolors<br><img src="http://upload-images.jianshu.io/upload_images/7324444-5790a41170cd8d57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入配色方案"></li>
+</ol>
+<h3 id="4-安装oh-my-zsh"><a href="#4-安装oh-my-zsh" class="headerlink" title="4. 安装oh-my-zsh"></a>4. 安装oh-my-zsh</h3><p>github：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh</a><br>官方提供 curl 和 wget 两种安装方式<br>curl 安装：<br><code>sh -c ``&quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code><br>wget安装：<br><code>sh -c ``&quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</code></p>
+<h3 id="5-配置主题"><a href="#5-配置主题" class="headerlink" title="5. 配置主题"></a>5. 配置主题</h3><p>安装oh-my-zsh成功后</p>
+<ol>
+<li>用 vim 编辑隐藏文件 .zshrc， 终端输入<code>vi ~/.zshrc</code><br><code>ZSH_THEME=&quot;agnoster&quot;</code> 将zsh主题修改为“agnoster”</li>
+<li>应用“agnoster”主题需要特殊的字体支持，否则会出现乱码情况，<br>使用 <a href="https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf" target="_blank" rel="external">Meslo</a> 字体，点开链接点击 view raw 下载字体</li>
+<li>安装字体到系统字体册</li>
+<li><p>在iTerm2中应用字体 iTerm -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; Change Font）<br><img src="http://upload-images.jianshu.io/upload_images/7324444-a52417111fc3018a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iTerm2应用字体"></p>
+</li>
+<li><p>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到字体效果</p>
+</li>
+</ol>
+<h3 id="6-自动提示与命令补全"><a href="#6-自动提示与命令补全" class="headerlink" title="6. 自动提示与命令补全"></a>6. 自动提示与命令补全</h3><p>比iTerm2自带的更强大的命令提示与补全</p>
+<ol>
+<li><p>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下<br><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></p>
+</li>
+<li><p>用 vim 编辑 .zshrc 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></p>
+</li>
+</ol>
+<p>PS：当你重新打开终端时可能看不到变化，可能你的字体颜色太淡了，我们把其改亮一些：</p>
+<ol>
+<li><code>cd ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions</code></li>
+<li>用 vim 编辑 zsh-autosuggestions.zsh 文件，修改<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39;</code></li>
+</ol>
+<h3 id="7-语法高亮效果"><a href="#7-语法高亮效果" class="headerlink" title="7. 语法高亮效果"></a>7. 语法高亮效果</h3><ol>
+<li>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code><br>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
+<li>配置.zshrc文件，插入一行<br><code>source /xxx/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code><br>(注意： /xxx/ 代表.zshrc所在的路径)</li>
+<li>加载.zshrc配置<br><code>source ~/.zshrc</code></li>
+<li>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到效果</li>
+</ol>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><ol>
+<li>iTerm2 默认使用dash改用zsh解决方法：<code>chsh -s /bin/zsh</code></li>
+<li>iTerm2 zsh切换回原来的dash：<code>chsh -s /bin/bash</code></li>
+<li>卸载<code>oh my zsh</code>，在命令行输入：<code>uninstall_oh_my_zsh</code></li>
+<li>路径前缀的XX@XX太长，缩短问题：<br>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</li>
+</ol>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2017/12/08/微信小程序爬坑日记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1059,7 +1253,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1081,7 +1275,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1130,7 +1324,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

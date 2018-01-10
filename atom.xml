@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2017-12-08T02:57:46.000Z</updated>
+  <updated>2018-01-10T08:32:40.475Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）</title>
+    <link href="http://www.wuliv.com/2018/01/10/Mac%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%8CDIY%E4%BD%A0%E7%9A%84Terminal%EF%BC%88iTerm2-Oh-My-Zsh%EF%BC%89/"/>
+    <id>http://www.wuliv.com/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/</id>
+    <published>2018-01-10T08:32:40.000Z</published>
+    <updated>2018-01-10T08:32:40.475Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。&lt;br&gt;不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？&lt;br&gt;怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业
+    
+    </summary>
+    
+      <category term="工作" scheme="http://www.wuliv.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="工具类" scheme="http://www.wuliv.com/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>微信小程序爬坑日记</title>

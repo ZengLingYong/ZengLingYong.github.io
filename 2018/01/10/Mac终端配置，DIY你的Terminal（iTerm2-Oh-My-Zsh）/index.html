@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WEB," />
+  <meta name="keywords" content="工具类," />
 
 
 
@@ -96,18 +96,24 @@
 
 
 
-<meta name="description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
-<meta name="keywords" content="WEB">
+<meta name="description" content="使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业余。  完成配置后的终端具备功能：  语法高亮 命令行tab补全 自动提示符 显示Git仓库状态等功能 ⌘+r 快速清空代码面板，跟终端输入c">
+<meta name="keywords" content="工具类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP中GET与POST的区别 99%的错误认识">
-<meta property="og:url" content="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/index.html">
+<meta property="og:title" content="Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）">
+<meta property="og:url" content="http://www.wuliv.com/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
+<meta property="og:description" content="使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业余。  完成配置后的终端具备功能：  语法高亮 命令行tab补全 自动提示符 显示Git仓库状态等功能 ⌘+r 快速清空代码面板，跟终端输入c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-04T02:02:25.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7324444-f4cab57f73b24da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7324444-b3898059dc0f629d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7324444-57399044e86283ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7324444-5790a41170cd8d57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7324444-a52417111fc3018a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-10T08:32:40.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP中GET与POST的区别 99%的错误认识">
-<meta name="twitter:description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
+<meta name="twitter:title" content="Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）">
+<meta name="twitter:description" content="使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业余。  完成配置后的终端具备功能：  语法高亮 命令行tab补全 自动提示符 显示Git仓库状态等功能 ⌘+r 快速清空代码面板，跟终端输入c">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7324444-f4cab57f73b24da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/"/>
+  <link rel="canonical" href="http://www.wuliv.com/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/"/>
 
 
 
 
 
-  <title>HTTP中GET与POST的区别 99%的错误认识 | Kenz's Blog</title>
+  <title>Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh） | Kenz's Blog</title>
   
 
 
@@ -313,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kenz">
@@ -330,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP中GET与POST的区别 99%的错误认识</h1>
+          <h1 class="post-title" itemprop="name headline">Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）</h1>
         
 
         <div class="post-meta">
@@ -342,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T09:30:13+08:00">
-                2017-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T16:32:40+08:00">
+                2018-01-10
               </time>
             
 
@@ -402,42 +408,59 @@
       
 
       
-        <p>本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。<br>装逼失败模式：99%的人对GET和POST的认识<br>修炼低调模式：1%不知道的进阶认识</p>
-<p>GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。<br>一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；<br>在HTML FROM表单中，可以通过设置method指定提交方式为GET或者POST方式，默认为GET提交方式</p>
-<p>HTTP定义了与服务器交互的不同方法，其中最基本的四种：GET，POST，PUT，DELETE，HEAD；<br>其中GET和HEAD被称为安全方法，因为使用GET和HEAD的HTTP请求不会产生什么动作。不会产生动作意味着GET和HEAD的HTTP请求不会在服务器上产生任何结果。但是安全方法并不是什么动作都不产生，这里的安全方法仅指不会修改信息。</p>
-<p>GET和POST我们比较常用，其它几种实际应用比较少用到，在此仅作了解。</p>
-<hr>
-<h3 id="99-的人所认为的GET和POST"><a href="#99-的人所认为的GET和POST" class="headerlink" title="99%的人所认为的GET和POST"></a>99%的人所认为的GET和POST</h3><h4 id="1-传输方式（自我理解“显示方式”）"><a href="#1-传输方式（自我理解“显示方式”）" class="headerlink" title="1. 传输方式（自我理解“显示方式”）"></a>1. 传输方式（自我理解“显示方式”）</h4><p>GET请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数之间以&amp;连接，<br>如<code>&quot;http://www.xxx.com/product?type=shoe&amp;price=100&amp;sex=male&quot;</code><br>数据格式有以下注意点：</p>
+        <p>使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。<br>不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？<br>怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业余。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7324444-f4cab57f73b24da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终效果图"></p>
+<p>完成配置后的终端具备功能：</p>
 <ol>
-<li>如果数据是英文字母/数字，原样发送；</li>
-<li>如果是空格，转换为+；</li>
-<li>如果是中文或其他字符，则把数据用Base64加密，<br>如<code>&quot;%E4%BD%A0%E5%A5%BD&quot;</code>其中<code>％XX</code>中的<code>XX</code>为该符号以16进制表示的ASCII码。</li>
-</ol>
-<p>POST请求会把请求的数据放置在HTTP请求包的包体中，GET传输的数据会直接暴露在URL中，而POST请求则不会。</p>
-<h4 id="2-传输数据大小"><a href="#2-传输数据大小" class="headerlink" title="2. 传输数据大小"></a>2. 传输数据大小</h4><p>GET方式传输的数据最多只能是1024字节，<br>因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系，URL本身不存在参数上限的问题，HTTP协议规范也没有对URL长度进行限制。<br>这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
-<p><em>注意：限制是针对整个URL长度，不单是传输的数据长度。</em></p>
-<p>POST方式理论上没有限制，可传较大的数据。起限制作用的是服务器的处理程序的处理能力。Apache, Nigx, IIS服务器自身可配置限制传输大小。</p>
-<h4 id="3-GET在浏览器回退是无害的，而POST会再次提交请求"><a href="#3-GET在浏览器回退是无害的，而POST会再次提交请求" class="headerlink" title="3. GET在浏览器回退是无害的，而POST会再次提交请求"></a>3. GET在浏览器回退是无害的，而POST会再次提交请求</h4><h4 id="4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以"><a href="#4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以" class="headerlink" title="4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以"></a>4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以</h4><h4 id="5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置"><a href="#5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置" class="headerlink" title="5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置"></a>5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置</h4><h4 id="6-安全性"><a href="#6-安全性" class="headerlink" title="6. 安全性"></a>6. 安全性</h4><p>GET传输的数据直接暴露在URL中，如果我们在做用户登录时，需要传输登录帐号及密码到后端做验证，如果用GET方式，那么账户密码直接暴露在URL里面，是极其危险的。<br>而且浏览器缓存的机制，访问过的网站URL会被保存在浏览器历史记录里，其他人可通过历史记录查看访问网站URL，直接获取到传输的数据。<br>很可能受到 “Cross-site request forgery”(中文名称：跨站请求伪造) 攻击。<br>不过POST的数据也是可以被拦截的。</p>
-<p>总结：</p>
-<ol>
-<li>GET请求是用来向服务器发送索取数据的一种请求，实际应用中数据不涉及到安全性，可用GET方式来向后端请求数据，<br>如分页或搜索关键词 <code>&quot;http://www.xxx.com/product?keywords=xxx&amp;page=2&quot;</code>;</li>
-<li>POST请求是向服务器提交数据的一种请求，涉及到安全性的数据，用POST的方式来传输较GET更安全。</li>
+<li>语法高亮</li>
+<li>命令行tab补全</li>
+<li>自动提示符</li>
+<li>显示Git仓库状态等功能</li>
+<li>⌘+r 快速清空代码面板，跟终端输入clear一样的效果</li>
 </ol>
 <hr>
-<p>曾经的曾经，我也是那99%的一员，还把自己归纳的文章发给新人同事看，然后装逼失败，被老大引导练成最后的这1%。</p>
-<hr>
-<h3 id="1-的人所拥有的"><a href="#1-的人所拥有的" class="headerlink" title="1%的人所拥有的"></a>1%的人所拥有的</h3><p>GET和POST本质上是没有区别的，它们是HTTP协议中的两种发送请求的方式。<br>HTTP是基于TCP/IP的关于数据如何在万维网中通信的协议，即HTTP的底层是TCP/IP，所以GET和POST的底层也是TCP/IP，也就是说：GET/POST都是TCP链接。<br>给POST带上url参数，给GET加上request body，技术上是可以实现的。</p>
-<p>为了更方便的管理，避免混乱，HTTP给这些请求定义GET，POST，PUT，DELETE。<br>而数据大小，则是因为浏览器的限制造成的。</p>
-<p>所以GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同</p>
-<h4 id="隐藏的Buff"><a href="#隐藏的Buff" class="headerlink" title="隐藏的Buff"></a>隐藏的Buff</h4><p>GET产生一个TCP数据包，而POST产生两个TCP数据包</p>
-<p>GET的请求，浏览器会把http header和data一并发送出去，服务器返回200（返回数据）<br>POST的请求，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200（返回数据）</p>
-<p>因为POST需要两步，时间上消耗的多一点，<br>不过网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。<br>网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点</p>
-<p>并不是所有浏览器POST发送两次包，Fiefox就发送一次。</p>
-<p>最后的最后，当你以后被别人问到的时候，你就可以。。。。。。请开始你的表演</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="1-下载iTerm2"><a href="#1-下载iTerm2" class="headerlink" title="1. 下载iTerm2"></a>1. 下载<a href="http://www.iterm2.com/" target="_blank" rel="external">iTerm2</a></h3><h3 id="2-解压后安装iTerm2并打开"><a href="#2-解压后安装iTerm2并打开" class="headerlink" title="2. 解压后安装iTerm2并打开"></a>2. 解压后安装iTerm2并打开</h3><ol>
+<li>iTerm2 -&gt; Make iTerm2 Default Term<br><img src="http://upload-images.jianshu.io/upload_images/7324444-b3898059dc0f629d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="将iTerm2设置为默认终端"></li>
+<li>打开偏好设置preference，选中Keys，勾选Hotkey下的Show/hide iTerm2 with a system-wide hotkey，将热键设置为 ⌘+. ，这样你就可以通过 ⌘+. 全局热键来打开或关闭iTerm2窗口，非常方便<br><img src="http://upload-images.jianshu.io/upload_images/7324444-57399044e86283ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置Hotkey"><h3 id="3-配色方案"><a href="#3-配色方案" class="headerlink" title="3. 配色方案"></a>3. 配色方案</h3>选用 <a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">solarized</a>，下载解压，然后打开 iTerm2 下的偏好设置 preference ，点开 profiles 下的colors 选项，点击右下角的 Color Presets 选项，选择import ，导入解压到的 solarized 文件下的Solarized Dark.itermcolors<br><img src="http://upload-images.jianshu.io/upload_images/7324444-5790a41170cd8d57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入配色方案"></li>
+</ol>
+<h3 id="4-安装oh-my-zsh"><a href="#4-安装oh-my-zsh" class="headerlink" title="4. 安装oh-my-zsh"></a>4. 安装oh-my-zsh</h3><p>github：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh</a><br>官方提供 curl 和 wget 两种安装方式<br>curl 安装：<br><code>sh -c ``&quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code><br>wget安装：<br><code>sh -c ``&quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</code></p>
+<h3 id="5-配置主题"><a href="#5-配置主题" class="headerlink" title="5. 配置主题"></a>5. 配置主题</h3><p>安装oh-my-zsh成功后</p>
+<ol>
+<li>用 vim 编辑隐藏文件 .zshrc， 终端输入<code>vi ~/.zshrc</code><br><code>ZSH_THEME=&quot;agnoster&quot;</code> 将zsh主题修改为“agnoster”</li>
+<li>应用“agnoster”主题需要特殊的字体支持，否则会出现乱码情况，<br>使用 <a href="https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf" target="_blank" rel="external">Meslo</a> 字体，点开链接点击 view raw 下载字体</li>
+<li>安装字体到系统字体册</li>
+<li><p>在iTerm2中应用字体 iTerm -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; Change Font）<br><img src="http://upload-images.jianshu.io/upload_images/7324444-a52417111fc3018a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iTerm2应用字体"></p>
+</li>
+<li><p>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到字体效果</p>
+</li>
+</ol>
+<h3 id="6-自动提示与命令补全"><a href="#6-自动提示与命令补全" class="headerlink" title="6. 自动提示与命令补全"></a>6. 自动提示与命令补全</h3><p>比iTerm2自带的更强大的命令提示与补全</p>
+<ol>
+<li><p>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下<br><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></p>
+</li>
+<li><p>用 vim 编辑 .zshrc 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></p>
+</li>
+</ol>
+<p>PS：当你重新打开终端时可能看不到变化，可能你的字体颜色太淡了，我们把其改亮一些：</p>
+<ol>
+<li><code>cd ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions</code></li>
+<li>用 vim 编辑 zsh-autosuggestions.zsh 文件，修改<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39;</code></li>
+</ol>
+<h3 id="7-语法高亮效果"><a href="#7-语法高亮效果" class="headerlink" title="7. 语法高亮效果"></a>7. 语法高亮效果</h3><ol>
+<li>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code><br>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
+<li>配置.zshrc文件，插入一行<br><code>source /xxx/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code><br>(注意： /xxx/ 代表.zshrc所在的路径)</li>
+<li>加载.zshrc配置<br><code>source ~/.zshrc</code></li>
+<li>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到效果</li>
+</ol>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><ol>
+<li>iTerm2 默认使用dash改用zsh解决方法：<code>chsh -s /bin/zsh</code></li>
+<li>iTerm2 zsh切换回原来的dash：<code>chsh -s /bin/bash</code></li>
+<li>卸载<code>oh my zsh</code>，在命令行输入：<code>uninstall_oh_my_zsh</code></li>
+<li>路径前缀的XX@XX太长，缩短问题：<br>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</li>
+</ol>
 <blockquote>
 <p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
 </blockquote>
-<p>参考文章：<a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd" target="_blank" rel="external">《99%的人都理解错了HTTP中GET与POST的区别》</a></p>
 
       
     </div>
@@ -486,7 +509,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WEB/" rel="tag"># WEB</a>
+            <a href="/tags/工具类/" rel="tag"># 工具类</a>
           
         </div>
       
@@ -499,15 +522,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/12/08/微信小程序爬坑日记/" rel="next" title="微信小程序爬坑日记">
+                <i class="fa fa-chevron-left"></i> 微信小程序爬坑日记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/" rel="prev" title="preventDefault,stopPropagation,return false三者的区别">
-                preventDefault,stopPropagation,return false三者的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -652,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#99-的人所认为的GET和POST"><span class="nav-number">1.</span> <span class="nav-text">99%的人所认为的GET和POST</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-传输方式（自我理解“显示方式”）"><span class="nav-number">1.1.</span> <span class="nav-text">1. 传输方式（自我理解“显示方式”）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-传输数据大小"><span class="nav-number">1.2.</span> <span class="nav-text">2. 传输数据大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GET在浏览器回退是无害的，而POST会再次提交请求"><span class="nav-number">1.3.</span> <span class="nav-text">3. GET在浏览器回退是无害的，而POST会再次提交请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以"><span class="nav-number">1.4.</span> <span class="nav-text">4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置"><span class="nav-number">1.5.</span> <span class="nav-text">5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-安全性"><span class="nav-number">1.6.</span> <span class="nav-text">6. 安全性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-的人所拥有的"><span class="nav-number">2.</span> <span class="nav-text">1%的人所拥有的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏的Buff"><span class="nav-number">2.1.</span> <span class="nav-text">隐藏的Buff</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载iTerm2"><span class="nav-number">1.1.</span> <span class="nav-text">1. 下载iTerm2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-解压后安装iTerm2并打开"><span class="nav-number">1.2.</span> <span class="nav-text">2. 解压后安装iTerm2并打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配色方案"><span class="nav-number">1.3.</span> <span class="nav-text">3. 配色方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-安装oh-my-zsh"><span class="nav-number">1.4.</span> <span class="nav-text">4. 安装oh-my-zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-配置主题"><span class="nav-number">1.5.</span> <span class="nav-text">5. 配置主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-自动提示与命令补全"><span class="nav-number">1.6.</span> <span class="nav-text">6. 自动提示与命令补全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-语法高亮效果"><span class="nav-number">1.7.</span> <span class="nav-text">7. 语法高亮效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展"><span class="nav-number">2.</span> <span class="nav-text">扩展</span></a></li></ol></div>
             
 
           </div>
