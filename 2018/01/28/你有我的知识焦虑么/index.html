@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WEB," />
+  <meta name="keywords" content="日更协作," />
 
 
 
@@ -96,18 +96,20 @@
 
 
 
-<meta name="description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
-<meta name="keywords" content="WEB">
+<meta name="description" content="”知识焦虑“ 在信息爆炸时代，人们对信息的吸收是呈平方数增长，但面对如此大量的信息，人类的思维模式远没有高速到接受自如的阶段。由此造成一系列的自我强迫和紧张。   我相信我们现处的这个时代，很多人跟我一样，都有一份“知识焦虑”，对自己未知的信息和知识，给予了自己的自我强迫与紧张。面对自己的不努力，懒惰懈怠，都会有或多或少的一份不安全感与恨其不争的无奈。懒散过后，又开始信誓旦旦地制定学习计划，希望通">
+<meta name="keywords" content="日更协作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP中GET与POST的区别 99%的错误认识">
-<meta property="og:url" content="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/index.html">
+<meta property="og:title" content="你有我的知识焦虑么">
+<meta property="og:url" content="http://www.wuliv.com/2018/01/28/你有我的知识焦虑么/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
+<meta property="og:description" content="”知识焦虑“ 在信息爆炸时代，人们对信息的吸收是呈平方数增长，但面对如此大量的信息，人类的思维模式远没有高速到接受自如的阶段。由此造成一系列的自我强迫和紧张。   我相信我们现处的这个时代，很多人跟我一样，都有一份“知识焦虑”，对自己未知的信息和知识，给予了自己的自我强迫与紧张。面对自己的不努力，懒惰懈怠，都会有或多或少的一份不安全感与恨其不争的无奈。懒散过后，又开始信誓旦旦地制定学习计划，希望通">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-04T02:02:25.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7324444-d3c7f681ba77072a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-28T05:20:23.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP中GET与POST的区别 99%的错误认识">
-<meta name="twitter:description" content="本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者PO">
+<meta name="twitter:title" content="你有我的知识焦虑么">
+<meta name="twitter:description" content="”知识焦虑“ 在信息爆炸时代，人们对信息的吸收是呈平方数增长，但面对如此大量的信息，人类的思维模式远没有高速到接受自如的阶段。由此造成一系列的自我强迫和紧张。   我相信我们现处的这个时代，很多人跟我一样，都有一份“知识焦虑”，对自己未知的信息和知识，给予了自己的自我强迫与紧张。面对自己的不努力，懒惰懈怠，都会有或多或少的一份不安全感与恨其不争的无奈。懒散过后，又开始信誓旦旦地制定学习计划，希望通">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7324444-d3c7f681ba77072a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/"/>
+  <link rel="canonical" href="http://www.wuliv.com/2018/01/28/你有我的知识焦虑么/"/>
 
 
 
 
 
-  <title>HTTP中GET与POST的区别 99%的错误认识 | Kenz's Blog</title>
+  <title>你有我的知识焦虑么 | Kenz's Blog</title>
   
 
 
@@ -313,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/01/28/你有我的知识焦虑么/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kenz">
@@ -330,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP中GET与POST的区别 99%的错误认识</h1>
+          <h1 class="post-title" itemprop="name headline">你有我的知识焦虑么</h1>
         
 
         <div class="post-meta">
@@ -342,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T09:30:13+08:00">
-                2017-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T13:18:10+08:00">
+                2018-01-28
               </time>
             
 
@@ -402,42 +404,29 @@
       
 
       
-        <p>本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。<br>装逼失败模式：99%的人对GET和POST的认识<br>修炼低调模式：1%不知道的进阶认识</p>
-<p>GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。<br>一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；<br>在HTML FROM表单中，可以通过设置method指定提交方式为GET或者POST方式，默认为GET提交方式</p>
-<p>HTTP定义了与服务器交互的不同方法，其中最基本的四种：GET，POST，PUT，DELETE，HEAD；<br>其中GET和HEAD被称为安全方法，因为使用GET和HEAD的HTTP请求不会产生什么动作。不会产生动作意味着GET和HEAD的HTTP请求不会在服务器上产生任何结果。但是安全方法并不是什么动作都不产生，这里的安全方法仅指不会修改信息。</p>
-<p>GET和POST我们比较常用，其它几种实际应用比较少用到，在此仅作了解。</p>
-<hr>
-<h3 id="99-的人所认为的GET和POST"><a href="#99-的人所认为的GET和POST" class="headerlink" title="99%的人所认为的GET和POST"></a>99%的人所认为的GET和POST</h3><h4 id="1-传输方式（自我理解“显示方式”）"><a href="#1-传输方式（自我理解“显示方式”）" class="headerlink" title="1. 传输方式（自我理解“显示方式”）"></a>1. 传输方式（自我理解“显示方式”）</h4><p>GET请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数之间以&amp;连接，<br>如<code>&quot;http://www.xxx.com/product?type=shoe&amp;price=100&amp;sex=male&quot;</code><br>数据格式有以下注意点：</p>
-<ol>
-<li>如果数据是英文字母/数字，原样发送；</li>
-<li>如果是空格，转换为+；</li>
-<li>如果是中文或其他字符，则把数据用Base64加密，<br>如<code>&quot;%E4%BD%A0%E5%A5%BD&quot;</code>其中<code>％XX</code>中的<code>XX</code>为该符号以16进制表示的ASCII码。</li>
-</ol>
-<p>POST请求会把请求的数据放置在HTTP请求包的包体中，GET传输的数据会直接暴露在URL中，而POST请求则不会。</p>
-<h4 id="2-传输数据大小"><a href="#2-传输数据大小" class="headerlink" title="2. 传输数据大小"></a>2. 传输数据大小</h4><p>GET方式传输的数据最多只能是1024字节，<br>因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系，URL本身不存在参数上限的问题，HTTP协议规范也没有对URL长度进行限制。<br>这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
-<p><em>注意：限制是针对整个URL长度，不单是传输的数据长度。</em></p>
-<p>POST方式理论上没有限制，可传较大的数据。起限制作用的是服务器的处理程序的处理能力。Apache, Nigx, IIS服务器自身可配置限制传输大小。</p>
-<h4 id="3-GET在浏览器回退是无害的，而POST会再次提交请求"><a href="#3-GET在浏览器回退是无害的，而POST会再次提交请求" class="headerlink" title="3. GET在浏览器回退是无害的，而POST会再次提交请求"></a>3. GET在浏览器回退是无害的，而POST会再次提交请求</h4><h4 id="4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以"><a href="#4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以" class="headerlink" title="4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以"></a>4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以</h4><h4 id="5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置"><a href="#5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置" class="headerlink" title="5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置"></a>5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置</h4><h4 id="6-安全性"><a href="#6-安全性" class="headerlink" title="6. 安全性"></a>6. 安全性</h4><p>GET传输的数据直接暴露在URL中，如果我们在做用户登录时，需要传输登录帐号及密码到后端做验证，如果用GET方式，那么账户密码直接暴露在URL里面，是极其危险的。<br>而且浏览器缓存的机制，访问过的网站URL会被保存在浏览器历史记录里，其他人可通过历史记录查看访问网站URL，直接获取到传输的数据。<br>很可能受到 “Cross-site request forgery”(中文名称：跨站请求伪造) 攻击。<br>不过POST的数据也是可以被拦截的。</p>
-<p>总结：</p>
-<ol>
-<li>GET请求是用来向服务器发送索取数据的一种请求，实际应用中数据不涉及到安全性，可用GET方式来向后端请求数据，<br>如分页或搜索关键词 <code>&quot;http://www.xxx.com/product?keywords=xxx&amp;page=2&quot;</code>;</li>
-<li>POST请求是向服务器提交数据的一种请求，涉及到安全性的数据，用POST的方式来传输较GET更安全。</li>
-</ol>
-<hr>
-<p>曾经的曾经，我也是那99%的一员，还把自己归纳的文章发给新人同事看，然后装逼失败，被老大引导练成最后的这1%。</p>
-<hr>
-<h3 id="1-的人所拥有的"><a href="#1-的人所拥有的" class="headerlink" title="1%的人所拥有的"></a>1%的人所拥有的</h3><p>GET和POST本质上是没有区别的，它们是HTTP协议中的两种发送请求的方式。<br>HTTP是基于TCP/IP的关于数据如何在万维网中通信的协议，即HTTP的底层是TCP/IP，所以GET和POST的底层也是TCP/IP，也就是说：GET/POST都是TCP链接。<br>给POST带上url参数，给GET加上request body，技术上是可以实现的。</p>
-<p>为了更方便的管理，避免混乱，HTTP给这些请求定义GET，POST，PUT，DELETE。<br>而数据大小，则是因为浏览器的限制造成的。</p>
-<p>所以GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同</p>
-<h4 id="隐藏的Buff"><a href="#隐藏的Buff" class="headerlink" title="隐藏的Buff"></a>隐藏的Buff</h4><p>GET产生一个TCP数据包，而POST产生两个TCP数据包</p>
-<p>GET的请求，浏览器会把http header和data一并发送出去，服务器返回200（返回数据）<br>POST的请求，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200（返回数据）</p>
-<p>因为POST需要两步，时间上消耗的多一点，<br>不过网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。<br>网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点</p>
-<p>并不是所有浏览器POST发送两次包，Fiefox就发送一次。</p>
-<p>最后的最后，当你以后被别人问到的时候，你就可以。。。。。。请开始你的表演</p>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+        <h3 id="”知识焦虑“"><a href="#”知识焦虑“" class="headerlink" title="”知识焦虑“"></a>”知识焦虑“</h3><blockquote>
+<p>在信息爆炸时代，人们对信息的吸收是呈平方数增长，但面对如此大量的信息，人类的思维模式远没有高速到接受自如的阶段。由此造成一系列的自我强迫和紧张。</p>
 </blockquote>
-<p>参考文章：<a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd" target="_blank" rel="external">《99%的人都理解错了HTTP中GET与POST的区别》</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7324444-d3c7f681ba77072a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我相信我们现处的这个时代，很多人跟我一样，都有一份“知识焦虑”，对自己未知的信息和知识，给予了自己的自我强迫与紧张。<br>面对自己的不努力，懒惰懈怠，都会有或多或少的一份不安全感与恨其不争的无奈。<br>懒散过后，又开始信誓旦旦地制定学习计划，希望通过学习课程，读书来让自己的内心变得充实些。</p>
+<p>现实中，如果你有个有钱的老爸，让你衣食无忧，光鲜亮丽，些许你会少点焦虑。<br>可惜大多数人如你我，并没有这样足以啃老的臂膀。<br>唯有步履匆匆，用兢兢业业的工作和不敢停歇的学习，来让自己拥有一份份看上去不那么不堪的安全感。<br>因为明白，不学习不努力就意味着不拼爹，不拼高考，你已经没有什么可以跟他们比拼的了。</p>
+<p>但是，你的努力真的对了么？？？<br>你在背的雅思英语，你在看的MBA，你在看的成功学。真的适合你么？？？</p>
+<h3 id="改变你的思维认知"><a href="#改变你的思维认知" class="headerlink" title="改变你的思维认知"></a>改变你的思维认知</h3><blockquote>
+<p>“立场，体验，意见” —— “目标，方法，行动”</p>
+</blockquote>
+<p>思维方式的转变，我们每一个人的大脑里总会产生各种天马行空的想法或创意，每个人有不同的个人体验和对事物的意见。但是真正落实实践自己想法，行动起来的却少之又少。</p>
+<p>投资界有这么个故事，投资人考核一家初创公司，不是看公司第一把手，而是看公司的第二把手。因为公司第一把手大多是公司创意想法的制造者，而公司第二把手则是执行者，如果执行者能力足够胜任，那么证明这家公司可行。因为第一把手已经成功地推销了自己的想法，并且得到其它牛人的认可，并且确保可以正确有效地执行。那么公司可以成功地运营起来。<br>初创公司空有想法创意，不能有效执行实施，终究是空谈。</p>
+<p>我们的思维方式来自从小的生活环境，父母，学校，家庭的耳濡目染。<br>更多的是来自父母，“富爸爸，穷爸爸”的思维方式，把父辈的那一套思维方式传递给了我们。</p>
+<p>随着“阶层危机”的到来，让社会阶层越来越固化，平民阶层与上层阶层的界限，除了资源的比拼，更深层次地是思维认知的差距。“富爸爸，穷爸爸”不是现金存款房车的比拼，而是比拼贫富的思维认知。<br>“贫穷限制了你的思维”这并不是一句调侃的话，而是鲜血淋漓的写照。</p>
+<p>想改变你所处的阶层，想从平民阶层晋升到上层阶层，唯有从改变你的思维认知开始，让你的思维完成从“立场，体验，意见”到“目标，方法，行动”转变。使你的思维认知不再处于贫穷。</p>
+<h3 id="“体验型消费”"><a href="#“体验型消费”" class="headerlink" title="“体验型消费”"></a>“体验型消费”</h3><p>如果你没有知识，出去旅游看见美丽的风景，你只会说“哇靠，太美了”。<br>而有知识的人，当你看到夕阳余晖… 你的脑海浮现的是：“落霞与孤鹜齐飞，秋水共长天一色。” 而不是：“卧槽，好多鸟，好多鸟，卧槽，真TM太好看了！”<br>没有文化积淀的旅行，到哪不过是在你的相机中多留几张照片而已。<br>作为一个俗人，欣赏它的美并不需要任何的门槛。但是没有文化知识的积淀，你就只是在走马观花，到此一游。</p>
+<h3 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h3><p>知识量爆发式增长，知识付费的兴起，各种在线音视频课程，公众号课堂雨后春笋般增长，人们获取知识的成本越来越低。但与之对比是人们的时间却被剧烈分割，时间一点一点被碎片化。不再拥有像学校课堂里，让你整整45分钟坐在课桌前，学完一学期的课程。<br>知识量与学习时间成反比增长，传统的、系统化的学习方法已经不再有效。我们所处的时代，有太多的诱惑纷扰我们的集中力，很多人时不时地去看手机，一刷个朋友圈，一看个头条微博，大半的时间就这样不翼而飞。强迫你拿着本书从头看到尾，这样耗时，又学不牢，估计看完了也就完了，又剩下多少是你自己的。</p>
+<p>因此，如何利用有限的时间来完成自己的知识储备，对当下的我们尤为重要。</p>
+<h4 id="1-20-的时间学习80-的知识"><a href="#1-20-的时间学习80-的知识" class="headerlink" title="1. 20%的时间学习80%的知识"></a>1. 20%的时间学习80%的知识</h4><p>80%的知识并不难学会，但是剩下20%的进阶知识往往需要花费更多的时间精力才可并入囊中。鉴于投入与产出成正比，20%的时间换取80%的知识显然更符合当下，学习过后通过转述或者读书笔记加深自己的理解和记忆，变成自己的知识储备。</p>
+<h4 id="2-找一个牛人，跟着他学"><a href="#2-找一个牛人，跟着他学" class="headerlink" title="2. 找一个牛人，跟着他学"></a>2. 找一个牛人，跟着他学</h4><p>自己摸索前行，总有很多荆棘。避免少走弯路，我们缺少一个领路人。<br>而行业/知识领域界的大牛，他就是我们想要到达的终点，也是我们学习的参考对象。跟着他学，我们将知道自己所要学习哪些知识，朝哪个方向努力，有哪些坑需要跳过。有人给你指明了前方的路，你更容易到达，这样焦虑负担相对小了些。</p>
+<h4 id="3-先搭建概念大厦，再具体学习"><a href="#3-先搭建概念大厦，再具体学习" class="headerlink" title="3. 先搭建概念大厦，再具体学习"></a>3. 先搭建概念大厦，再具体学习</h4><p>我们对于未知的知识或多或少都有抗拒，如果一开始就抗拒，不利于你去接受认可它。<br>学习新知识，可以先了解新知识各种概念名词，再去细化具体每个概念的基础学习。正如我们手中拿起一本未读过的书，先翻阅目录，了解每个章节的概念名词，再去翻阅具体每个章节的知识。减少来自我们自身的抗拒，并在脑海中构建起新知识的骨架，再一点点拼积木完成学习积累。</p>
+<hr>
+<p>从自身做出改变，总是一件很难很难的事情。<br>但是一点点的不同，都是对自身努力的一次美好见证。<br>愿你我终有所得。</p>
 
       
     </div>
@@ -486,7 +475,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WEB/" rel="tag"># WEB</a>
+            <a href="/tags/日更协作/" rel="tag"># 日更协作</a>
           
         </div>
       
@@ -499,15 +488,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/" rel="next" title="Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）">
+                <i class="fa fa-chevron-left"></i> Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/" rel="prev" title="preventDefault,stopPropagation,return false三者的区别">
-                preventDefault,stopPropagation,return false三者的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -652,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#99-的人所认为的GET和POST"><span class="nav-number">1.</span> <span class="nav-text">99%的人所认为的GET和POST</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-传输方式（自我理解“显示方式”）"><span class="nav-number">1.1.</span> <span class="nav-text">1. 传输方式（自我理解“显示方式”）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-传输数据大小"><span class="nav-number">1.2.</span> <span class="nav-text">2. 传输数据大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GET在浏览器回退是无害的，而POST会再次提交请求"><span class="nav-number">1.3.</span> <span class="nav-text">3. GET在浏览器回退是无害的，而POST会再次提交请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以"><span class="nav-number">1.4.</span> <span class="nav-text">4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置"><span class="nav-number">1.5.</span> <span class="nav-text">5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-安全性"><span class="nav-number">1.6.</span> <span class="nav-text">6. 安全性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-的人所拥有的"><span class="nav-number">2.</span> <span class="nav-text">1%的人所拥有的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏的Buff"><span class="nav-number">2.1.</span> <span class="nav-text">隐藏的Buff</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#”知识焦虑“"><span class="nav-number">1.</span> <span class="nav-text">”知识焦虑“</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变你的思维认知"><span class="nav-number">2.</span> <span class="nav-text">改变你的思维认知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“体验型消费”"><span class="nav-number">3.</span> <span class="nav-text">“体验型消费”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习方法"><span class="nav-number">4.</span> <span class="nav-text">学习方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-20-的时间学习80-的知识"><span class="nav-number">4.1.</span> <span class="nav-text">1. 20%的时间学习80%的知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-找一个牛人，跟着他学"><span class="nav-number">4.2.</span> <span class="nav-text">2. 找一个牛人，跟着他学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-先搭建概念大厦，再具体学习"><span class="nav-number">4.3.</span> <span class="nav-text">3. 先搭建概念大厦，再具体学习</span></a></li></ol></li></ol></div>
             
 
           </div>

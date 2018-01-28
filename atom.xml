@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2018-01-10T08:32:40.475Z</updated>
+  <updated>2018-01-28T05:20:23.889Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你有我的知识焦虑么</title>
+    <link href="http://www.wuliv.com/2018/01/28/%E4%BD%A0%E6%9C%89%E6%88%91%E7%9A%84%E7%9F%A5%E8%AF%86%E7%84%A6%E8%99%91%E4%B9%88/"/>
+    <id>http://www.wuliv.com/2018/01/28/你有我的知识焦虑么/</id>
+    <published>2018-01-28T05:18:10.706Z</published>
+    <updated>2018-01-28T05:20:23.889Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;”知识焦虑“&quot;&gt;&lt;a href=&quot;#”知识焦虑“&quot; class=&quot;headerlink&quot; title=&quot;”知识焦虑“&quot;&gt;&lt;/a&gt;”知识焦虑“&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;在信息爆炸时代，人们对信息的吸收是呈平方数增长，但面对如此大量的信息，人类的思维模
+    
+    </summary>
+    
+      <category term="工作" scheme="http://www.wuliv.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="日更协作" scheme="http://www.wuliv.com/tags/%E6%97%A5%E6%9B%B4%E5%8D%8F%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）</title>
