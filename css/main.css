@@ -1488,7 +1488,7 @@ pre .javascript .function {
   margin-top: 2px;
 }
 .post-wordcount {
-  display: inline-block;
+  display: block;
 }
 .post-meta-divider {
   margin: 0 0.5em;
@@ -1865,6 +1865,21 @@ pre .javascript .function {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+  webkit-transition: 1s all;
+  moz-transition: 1s all;
+  ms-transition: 1s all;
+  transition: 1s all;
+}
+.site-author-image:hover {
+  background-color: #55dae1;
+  webkit-transform: rotate(360deg) scale(1.1);
+  moz-transform: rotate(360deg) scale(1.1);
+  ms-transform: rotate(360deg) scale(1.1);
+  -webkit-transform: rotate(360deg) scale(1.1);
+  -moz-transform: rotate(360deg) scale(1.1);
+  -ms-transform: rotate(360deg) scale(1.1);
+  -o-transform: rotate(360deg) scale(1.1);
+  transform: rotate(360deg) scale(1.1);
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -1949,7 +1964,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c3ffff;
+  background: #24ffc6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2486,19 +2501,6 @@ pre .javascript .function {
 .site-uv::after {
   content: "|";
   padding-left: 10px;
-}
-#gitment-display-button {
-  display: inline-block;
-  padding: 0 15px;
-  color: #0a9caf;
-  cursor: pointer;
-  font-size: 14px;
-  border: 1px solid #0a9caf;
-  border-radius: 4px;
-}
-#gitment-display-button:hover {
-  color: #fff;
-  background: #0a9caf;
 }
 .use-motion .post {
   opacity: 0;
