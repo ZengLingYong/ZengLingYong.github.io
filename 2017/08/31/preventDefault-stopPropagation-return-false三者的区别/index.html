@@ -103,18 +103,18 @@
 
 
 
-<meta name="description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。 preventDefault()阻止元素在浏览器中的默认行为1234&amp;lt;a id=&amp;quot;link&amp;quot; href=&amp;quot;http://wuliv.com&amp;quot;&amp;">
+<meta name="description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。">
 <meta name="keywords" content="WEB,Javascript,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="preventDefault,stopPropagation,return false三者的区别">
 <meta property="og:url" content="http://www.wuliv.com/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。 preventDefault()阻止元素在浏览器中的默认行为1234&amp;lt;a id=&amp;quot;link&amp;quot; href=&amp;quot;http://wuliv.com&amp;quot;&amp;">
+<meta property="og:description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-28T12:40:29.856Z">
+<meta property="og:updated_time" content="2018-01-28T15:16:00.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="preventDefault,stopPropagation,return false三者的区别">
-<meta name="twitter:description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。 preventDefault()阻止元素在浏览器中的默认行为1234&amp;lt;a id=&amp;quot;link&amp;quot; href=&amp;quot;http://wuliv.com&amp;quot;&amp;">
+<meta name="twitter:description" content="逛帖子的时候看到道友发的前端面试题，  preventDefault(), stopPropagation(), return false三者的区别  这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。">
 
 
 
@@ -473,6 +473,7 @@
 <p>preventDefault(), stopPropagation(), return false三者的区别</p>
 </blockquote>
 <p>这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。</p>
+<a id="more"></a>
 <h3 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault()"></a>preventDefault()</h3><p>阻止元素在浏览器中的默认行为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;link&quot; href=&quot;http://wuliv.com&quot;&gt;网站&lt;/a&gt;</div><div class="line">$(&apos;#link&apos;).click(function(event)&#123;</div><div class="line">    event.preventDefault(); // 阻止了a链接href的访问或跳转</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h3 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a>stopPropagation()</h3><p>事件冒泡：当一个元素上的事件被触发时，比如鼠标点击了一个按钮，同样的事件将会在该按钮元素的所有父级／祖先元素上触发。这一个过程就被称为事件冒泡。它是由子级元素先触发，父级元素后触发，由内而外（由下往上）的一个流程。与之顺序相反的是事件捕获。  </p>
 <blockquote>
