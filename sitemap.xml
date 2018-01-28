@@ -2,44 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.wuliv.com/2018/01/28/%E4%BD%A0%E6%9C%89%E6%88%91%E7%9A%84%E7%9F%A5%E8%AF%86%E7%84%A6%E8%99%91%E4%B9%88/</loc>
+    <loc>http://www.wuliv.com/about/index.html</loc>
     
-    <lastmod>2018-01-28T12:22:52.977Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/01/10/Mac%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%8CDIY%E4%BD%A0%E7%9A%84Terminal%EF%BC%88iTerm2-Oh-My-Zsh%EF%BC%89/</loc>
-    
-    <lastmod>2018-01-10T08:32:40.475Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2017/12/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E5%9D%91%E6%97%A5%E8%AE%B0/</loc>
-    
-    <lastmod>2017-12-08T02:57:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2017/08/31/preventDefault-stopPropagation-return-false%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
-    
-    <lastmod>2017-10-04T02:06:15.000Z</lastmod>
+    <lastmod>2018-01-28T12:48:54.767Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.wuliv.com/2017/10/04/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</loc>
     
-    <lastmod>2017-10-04T02:05:58.000Z</lastmod>
+    <lastmod>2018-01-28T12:41:24.484Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.wuliv.com/2017/08/27/HTTP%E4%B8%ADGET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB-99-%E7%9A%84%E9%94%99%E8%AF%AF%E8%AE%A4%E8%AF%86/</loc>
     
-    <lastmod>2017-10-04T02:02:25.000Z</lastmod>
+    <lastmod>2018-01-28T12:40:39.874Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wuliv.com/2017/08/31/preventDefault-stopPropagation-return-false%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    
+    <lastmod>2018-01-28T12:40:29.856Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wuliv.com/2018/01/10/Mac%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%8CDIY%E4%BD%A0%E7%9A%84Terminal%EF%BC%88iTerm2-Oh-My-Zsh%EF%BC%89/</loc>
+    
+    <lastmod>2018-01-28T12:40:09.601Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wuliv.com/2017/12/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E5%9D%91%E6%97%A5%E8%AE%B0/</loc>
+    
+    <lastmod>2018-01-28T12:39:28.854Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wuliv.com/2018/01/28/%E4%BD%A0%E6%9C%89%E6%88%91%E7%9A%84%E7%9F%A5%E8%AF%86%E7%84%A6%E8%99%91%E4%B9%88/</loc>
+    
+    <lastmod>2018-01-28T12:38:49.913Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wuliv.com/categories/index.html</loc>
+    
+    <lastmod>2018-01-28T12:37:53.825Z</lastmod>
     
   </url>
   
