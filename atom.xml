@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2018-02-10T09:12:06.301Z</updated>
+  <updated>2018-03-21T13:01:13.676Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杂谈：渐进增强与优雅降级</title>
+    <link href="http://www.wuliv.com/2018/03/21/%E6%9D%82%E8%B0%88%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E4%B8%8E%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7/"/>
+    <id>http://www.wuliv.com/2018/03/21/杂谈：渐进增强与优雅降级/</id>
+    <published>2018-03-21T13:01:13.000Z</published>
+    <updated>2018-03-21T13:01:13.676Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一名前端开发人员，最头疼的莫过于浏览器兼容。远古时期万恶的IE6，到现在CSS3不兼容的IE7/8.为了保证不同版本浏览器都有共同或更优化的用户体验，前端搬砖的我们不得不与浏览器兼容顽强斗争。而&lt;strong&gt;渐进增强&lt;/strong&gt;和&lt;strong&gt;优雅降级&lt;/st
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="WEB" scheme="http://www.wuliv.com/tags/WEB/"/>
+    
+      <category term="常见问题" scheme="http://www.wuliv.com/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="面试" scheme="http://www.wuliv.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>天才迈向传奇 | 《硅谷钢铁侠:埃隆·马斯克》</title>
