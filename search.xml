@@ -1,571 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title><![CDATA[杂谈：前端Web通信]]></title>
-      <url>/2018/03/25/%E6%9D%82%E8%B0%88%EF%BC%9A%E5%89%8D%E7%AB%AFWeb%E9%80%9A%E4%BF%A1/</url>
-      <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/7324444-68e982f25aeb0a0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端Web通信"></p>
-<p>Web2.0以来，Ajax的出世，解决了传统表单提交页面跳转，闪烁白屏等问题。使得Web页面可以实现局部更新，不仅减少了网络带宽，还大大提升了用户体验。</p>
-<p>但Ajax并非是一把万能的钥匙，足以打开Web通信这扇大门，当请求遇到跨域通信时，Ajax就没辙了。</p>
-<p>Web的快速发展让开发走向工程化的同时，要求工作维度进行划分（前端后端分工明细），以便扩展维护日益复杂庞大的项目需求。而前后端分离的开发方式正是这种需求背景下衍生的产物。（以前混编的代码现在是再也不想看到）</p>
-<p>前后端分离的开发方式，如何进行数据通信是开发人员绕不过去的问题。作为开发同学的小伙伴客户端的浏览器，有点小调皮还做了一个同源策略的限制，当我们的数据请求遇到不同源的情况下（跨域），我们就得尝试其它的通信方法，不能Ajax一条道走到黑。</p>
-<h3 id="什么是同源策略及限制"><a href="#什么是同源策略及限制" class="headerlink" title="什么是同源策略及限制"></a>什么是同源策略及限制</h3><blockquote>
-<p>同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。</p>
-</blockquote>
-<p><strong>同源要求协议，域名，端口(默认80)三者都相同，否则为非同源。</strong></p>
-<h4 id="同源策略限制："><a href="#同源策略限制：" class="headerlink" title="同源策略限制："></a>同源策略限制：</h4><ul>
-<li>Cookie， LocalStorage和IndexDB无法读取</li>
-<li>Dom无法获取</li>
-<li>Ajax请求不能发送</li>
-</ul>
-<hr>
-<h3 id="前后端如何通信"><a href="#前后端如何通信" class="headerlink" title="前后端如何通信"></a>前后端如何通信</h3><ol>
-<li>Ajax（仅支持同源）</li>
-<li>WebSocket （不受同源限制）</li>
-<li>CORS （都支持，新的W3C通信标准）</li>
-</ol>
-<h3 id="如何创建Ajax"><a href="#如何创建Ajax" class="headerlink" title="如何创建Ajax"></a>如何创建Ajax</h3><ul>
-<li>XMLHttpRequest对象的工作流程</li>
-<li>兼容性处理</li>
-<li>事件的触发条件</li>
-<li>事件的触发顺序</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var xhr = XMLHttpRequest ? new XMLHttpRequest() : new window.ActiveXObject(&apos;Microsoft&apos;)</div><div class="line">var data = opt.data,</div><div class="line">    url = opt.url,</div><div class="line">    type = opt.type.toUpperCase(),</div><div class="line">    dataArr = [];</div><div class="line">for (var k in data) &#123;</div><div class="line">    dataArr.push(k + &apos;=&apos; + data[k]);</div><div class="line">&#125;</div><div class="line">if (type === &apos;GET&apos;) &#123;</div><div class="line">    url = url + &apos;?&apos; + dataArr.join(&apos;&amp;&apos;);</div><div class="line">    xhr.open(type, url.replace(/\?$/g, &apos;&apos;, true);</div><div class="line">    xhr.send();</div><div class="line">&#125; </div><div class="line">if (type === &apos;POST&apos;) &#123;</div><div class="line">    xhr.open(type, url, true);</div><div class="line">    xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);</div><div class="line">    xhr.send(data.join(&apos;&amp;&apos;));</div><div class="line">&#125;</div><div class="line">xhr.onload = function() &#123;</div><div class="line">    if (xhr.status === 200 || xhr.status === 304) &#123;</div><div class="line">        var res;</div><div class="line">        if (opt.success &amp;&amp; opt.success instanceof Function) &#123;</div><div class="line">            res = xhr.responseText;</div><div class="line">            if (typeof res === &apos;string&apos;) &#123;</div><div class="line">                res = JSON.parse(res);</div><div class="line">                opt.success.call(xhr, res)</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            if (opt.error &amp;&amp; opt.error instanceof Function) &#123;</div><div class="line">                opt.error.call(xhr, res);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同源下，我们可以直接使用Ajax来与后端同学做数据通信，但是遇到跨域请求时，我们就得更换手中这把Ajax的钥匙，来重新配钥匙开锁</p>
-<h3 id="跨域通信的几种方式"><a href="#跨域通信的几种方式" class="headerlink" title="跨域通信的几种方式"></a>跨域通信的几种方式</h3><ol>
-<li>JSONP</li>
-<li>Hash</li>
-<li>postMessage (HTML5)</li>
-<li>WebSocket</li>
-<li>CORS (新的W3C通信标准)</li>
-</ol>
-<h4 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1. JSONP"></a>1. JSONP</h4><p>JSONP原理：客户端通过动态创建script标签异步加载来实现，服务端callback返回客户端定义的方法名，让客户端进行调用获取数据。</p>
-<p><strong>只支持Get请求</strong> (GET与POST的区别这里暂不细讲)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 客户端发送请求</div><div class="line">&lt;script src=&quot;http://www.abc.com?data=name&amp;callback=jsonpname&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">jsonpname(&#123;</div><div class="line">    data: &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h4 id="2-Hash"><a href="#2-Hash" class="headerlink" title="2. Hash"></a>2. Hash</h4><p>Hash原理：通过<code>window.onhashchange</code>事件监听来获取url中hash值来实现数据传输。与Get一样，有Url长度限制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// A中代码</div><div class="line">var B = document.getElementdByTagName(&apos;iframe&apos;);</div><div class="line">B.src = B.src + &apos;#&apos; + &apos;data&apos;;</div><div class="line">// B中代码</div><div class="line">window.onhashchange = function()&#123;</div><div class="line">    var data = window.location.hash;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="3-postMessage"><a href="#3-postMessage" class="headerlink" title="3. postMessage"></a>3. postMessage</h4><p>postMessage是HTML5的API，可参考开发文档<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="external">window.postMessage</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// A.com向B.com发送信息</div><div class="line">Bwindow.postMessage(&apos;data&apos;,&apos;http://B.com&apos;)</div><div class="line">// B中监听</div><div class="line">window.addEventListener(&apos;message&apos;, function(event)&#123;</div><div class="line">    console.log(event.origin); // http://A.com</div><div class="line">    console.log(event.source); // Bwindow</div><div class="line">    console.log(event.data); // data</div><div class="line">&#125;, false)</div></pre></td></tr></table></figure></p>
-<p>项目中应用场景：</p>
-<ol>
-<li>页面和其打开的新窗口的数据传递</li>
-<li>多窗口之间消息传递</li>
-<li>页面与嵌套的iframe消息传递</li>
-<li>上面三个问题的跨域数据传递</li>
-</ol>
-<h4 id="4-WebSocket"><a href="#4-WebSocket" class="headerlink" title="4. WebSocket"></a>4. WebSocket</h4><p>WebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议，本身不受同源限制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// WebSocket代码示例</div><div class="line">var ws = new WebSocket(&apos;wss://echo.websocket.org&apos;);</div><div class="line"></div><div class="line">ws.onopen = function (evt) &#123;</div><div class="line">    console.log(&apos;Connection open ...&apos;);</div><div class="line">    ws.send(&apos;Hello WebSocket!&apos;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onmessage = function (evt) &#123;</div><div class="line">    console.log(&apos;Received Message: &apos; + evt.data);</div><div class="line">    ws.close();</div><div class="line">&#125;</div><div class="line"></div><div class="line">ws.onclose = function (evt) &#123;</div><div class="line">    console.log(&apos;Connection closed.&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="5-CORS"><a href="#5-CORS" class="headerlink" title="5. CORS"></a>5. CORS</h4><p>CORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）。它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。</p>
-<p>浏览器兼容在XHR(IE8/9)及XHR2(&gt;=IE10)下需要做兼容处理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// CORS代码示例</div><div class="line">fetch(&apos;/url&apos;, &#123;</div><div class="line">    method: &apos;get&apos;，</div><div class="line">&#125;).then(function(res)&#123;</div><div class="line">    ...</div><div class="line">&#125;).catch(function(err) &#123;</div><div class="line">    // 错误</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="–-End-–"><a href="#–-End-–" class="headerlink" title="– End –"></a>– End –</h3><p>JSONP有更好的兼容性，能兼容低版本浏览器，但是基于Get传输数据，会因为浏览器Url长度限制而限制数据大小。CORS在不考虑低版本浏览器时，无疑是目前最好前后端通信方案（单向），双向选择WebSocket，而多个页面之间的数据通信，如内嵌iFrame等，则推荐postMessage。</p>
-<p>每种方案有不同的应用场景，解决问题不只有一种解决方案，实际项目开发中，需根据实际需求来挑选最优的方案。</p>
-<hr>
-<p>参考资料</p>
-<ol>
-<li><a href="https://www.cnblogs.com/dolphinX/p/3464056.html" target="_blank" rel="external">html5 postMessage解决跨域、跨窗口消息传递</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDI3MjA5MQ==&amp;mid=2697266201&amp;idx=2&amp;sn=1b2ca738a21c6d899e82fa6fe769446b&amp;chksm=8376fb2db401723b8a88295bfb74f98bddc2eb52dabffe221ec2f06ed49885f3e606231796d5&amp;mpshare=1&amp;scene=1&amp;srcid=0703jbtAFe3qTgBHtxuzBfgt&amp;pass_ticket=ml9eF7+G5p9IAyQPuOX/q0esEXgr51fhWBL88VWLmzU=#rd" target="_blank" rel="external">干货 | 前端常用的通信技术</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">阮一峰 — 跨域资源共享 CORS 详解</a></li>
-<li><a href="https://blog.csdn.net/jlin991/article/details/57083865" target="_blank" rel="external">CORS正确使用姿势</a></li>
-</ol>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 前端 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> WEB </tag>
-            
-            <tag> 常见问题 </tag>
-            
-            <tag> 面试 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[杂谈：渐进增强与优雅降级]]></title>
-      <url>/2018/03/21/%E6%9D%82%E8%B0%88%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E4%B8%8E%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7/</url>
-      <content type="html"><![CDATA[<p>作为一名前端开发人员，最头疼的莫过于浏览器兼容。远古时期万恶的IE6，到现在CSS3不兼容的IE7/8.为了保证不同版本浏览器都有共同或更优化的用户体验，前端搬砖的我们不得不与浏览器兼容顽强斗争。而<strong>渐进增强</strong>和<strong>优雅降级</strong>两种不同的开发流程，也是在我们项目初期做调研选型时会考虑的一个点。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-b08dbfb300a9a3fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="渐进增钱/优雅降级"></p>
-<h3 id="渐进增强（Progressive-Enhancement）"><a href="#渐进增强（Progressive-Enhancement）" class="headerlink" title="渐进增强（Progressive Enhancement）"></a>渐进增强（Progressive Enhancement）</h3><p>一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行效果、交互、追加功能达到更好的体验。</p>
-<h3 id="优雅降级（graceful-degradation）"><a href="#优雅降级（graceful-degradation）" class="headerlink" title="优雅降级（graceful degradation）"></a>优雅降级（graceful degradation）</h3><p>一开始就构建站点的完整功能，然后针对浏览器测试和修复。比如一开始使用 CSS3 的特性构建了一个应用，然后逐步针对各大浏览器进行 hack 使其可以在低版本浏览器上正常浏览。</p>
-<p>初一看这两个概念有点高大上，其实作为开发人员来说，多多少少已经在项目中运用只是你自己不察觉而已。换个词汇就比较好理解了，渐进增强（向上/前兼容），优雅降级（向下兼容），向上兼容高版本浏览器，向下兼容低版本浏览器。</p>
-<h3 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h3><p><strong>渐进增强</strong>和<strong>优雅降级</strong>只是看待同种事物的两种观点。渐进增强和优雅降级都关注于同一网站在不同设备里不同浏览器下的表现程度。关键的区别则在于它们各自关注的着重点不同，以及这种不同的关注点如何影响项目开发的流程。</p>
-<p>优雅降级观点认为应该针对那些最高级、最完善的浏览器来设计网站。而将那些被认为“过时”或有功能缺失的浏览器下的测试工作安排在开发周期的最后阶段，并把测试对象限定为主流浏览器（如 Chrome，Safari，IE、FireFox等）的前一个版本。在这种设计范例下，旧版的浏览器被认为仅能提供“简陋却无妨 (poor, but passable)” 的浏览体验。你可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较大的错误之外，其它的差异将被直接忽略。</p>
-<p>渐进增强观点则认为应关注于内容本身。请注意其中的差别：我甚至连“浏览器”三个字都没提。内容是我们建立网站的诱因。有的网站展示它，有的则收集它，有的寻求，有的操作，还有的网站甚至会包含以上的种种，但相同点是它们全都涉及到内容。这使得渐进增强成为一种更为合理的设计范例。这也是它立即被 Yahoo! 所采纳并用以构建其“分级式浏览器支持 (Graded Browser Support)”策略的原因所在。</p>
-<p><strong>概括：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带</strong></p>
-<h3 id="代码案例"><a href="#代码案例" class="headerlink" title="代码案例"></a>代码案例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.transition &#123; /*渐进增强写法*/</div><div class="line">  -webkit-transition: all .5s;</div><div class="line">     -moz-transition: all .5s;</div><div class="line">       -o-transition: all .5s;</div><div class="line">          transition: all .5s;</div><div class="line">&#125;</div><div class="line">.transition &#123; /*优雅降级写法*/</div><div class="line">          transition: all .5s;</div><div class="line">       -o-transition: all .5s;</div><div class="line">     -moz-transition: all .5s;</div><div class="line">  -webkit-transition: all .5s;</div><div class="line">&#125;</div><div class="line">// -webkit- / -moz- / -o- (浏览器前缀)</div></pre></td></tr></table></figure>
-<ol>
-<li>很久以前：浏览器前缀CSS3和正常CSS3都不支持；</li>
-<li>不久之前：浏览器只支持前缀CSS3，不支持正常CSS3；</li>
-<li>现在：浏览器既支持前缀CSS3，又支持正常CSS3；</li>
-<li>未来：浏览器不支持前缀CSS3，仅支持正常CSS3.</li>
-</ol>
-<p>渐进增强的写法，优先考虑老版本浏览器的可用性，最后才考虑新版本的可用性。在时期3中前缀CSS3和正常CSS3都可用的情况下，正常CSS3会覆盖前缀CSS3。优雅降级的写法，优先考虑新版本浏览器的可用性，最后才考虑老版本的可用性。在时期3中前缀CSS3和正常CSS3都可用的情况下，前缀CSS3会覆盖正常的CSS3。</p>
-<p>现实项目开发中，推荐使用渐进增强的写法（postcss的autofixer也是这种写法），因为前缀CSS3的某些属性在浏览器中的实现效果有可能与正常的CSS3实现效果不太一样，所以最终还是得以正常CSS3为准。</p>
-<p>可参考张鑫旭大神的文章《<a href="http://www.zhangxinxu.com/wordpress/2010/09/%E9%9C%80%E8%AD%A6%E6%83%95css3%E5%B1%9E%E6%80%A7%E7%9A%84%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F/" target="_blank" rel="external">需警惕CSS3属性的书写顺序</a>。</p>
-<h3 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h3><ul>
-<li>低版本浏览器用户占比居多，优先采用渐进增强的开发流程；</li>
-<li>高版本浏览器用户占比居多，优先采用优雅降级的开发流程；</li>
-</ul>
-<p>事实上绝大多数的大公司都是采用渐进增强的方式，因为业务优先，提升用户体验永远不会排在最前面。例如，淘宝，京东，新浪微博等网站前端的更新，不可能追求某个特效而不考虑低版本用户可不可用，一定是确保低版本到高版本的可访问性，再去渐进增强，采用新功能给高版本用户提供更好的用户体验。当然也有一些反例如阿里云，本身就是面向软件开发者，这个群体的人总是喜欢尝试新事物，总是喜欢酷炫的特效，总是喜欢把它们的软件更新到最新版本，而且大多用的是谷歌浏览器，即使用IE浏览器，也是高版本IE浏览器，面对这种情况，优雅降级的开发流程才是更好的选择。</p>
-<hr>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
-<li><a href="http://blog.csdn.net/xiongzhengxiang/article/details/7999525" target="_blank" rel="external">渐进增强、优雅降级</a></li>
-<li><a href="https://www.jianshu.com/p/d313f1108862" target="_blank" rel="external">渐进增强 VS 优雅降级</a></li>
-<li><a href="https://segmentfault.com/q/1010000000264469/a-1020000005988192" target="_blank" rel="external">渐进增强和优雅降级之间的有什么不同?</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2010/09/%E9%9C%80%E8%AD%A6%E6%83%95css3%E5%B1%9E%E6%80%A7%E7%9A%84%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F/" target="_blank" rel="external">需警惕CSS3属性的书写顺序</a></li>
-<li><a href="http://www.cnblogs.com/mofish/p/3822879.html" target="_blank" rel="external">优雅降级和渐进增强的区别</a></li>
-</ol>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 前端 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> WEB </tag>
-            
-            <tag> 常见问题 </tag>
-            
-            <tag> 面试 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[天才迈向传奇 | 《硅谷钢铁侠:埃隆·马斯克》]]></title>
-      <url>/2018/02/10/%E5%A4%A9%E6%89%8D%E8%BF%88%E5%90%91%E4%BC%A0%E5%A5%87-%E7%A1%85%E8%B0%B7%E9%92%A2%E9%93%81%E4%BE%A0-%E5%9F%83%E9%9A%86%E9%A9%AC%E6%96%AF%E5%85%8B/</url>
-      <content type="html"><![CDATA[<p>埃隆·马斯克的名字也许有很多人不熟知，包括未看到这本书的我。可能我们对于硅谷很多传奇名人，听得多的都是比尔盖茨，乔布斯，扎克伯格，但是好像还真没听说过埃隆·马斯克的名字。那么换个词汇，“特斯拉”，相信不少关注极客圈或者喜欢折腾新科技产品的小伙伴，或多或少听过一点吧，而“特斯拉”的创始人兼CEO，正是埃隆·马斯克。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/7324444-83cc79391d1193f7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="5179mrE+WWL.jpg"></p>
-<blockquote>
-<p>埃隆·马斯克是一名风格独具的梦想家，也是眼光独到、一再开创新商业模式的企业家。从PayPal，到特斯拉、Space X、太阳城，他的创业历程中遭遇了无数棘手的事件，但是每一次突破都令全球惊艳。无论钟情于什么领域，他都可以展现出惊人的专注力。44岁的马斯克已经涉足颠覆互联网、 金融、汽车、航空以及能源业。他近乎疯狂的对科技的专注，使他成为目前最成功的连续创业者和科技创业家。 —— 百度百科</p>
-</blockquote>
-<h3 id="时间最贵"><a href="#时间最贵" class="headerlink" title="时间最贵"></a>时间最贵</h3><p>埃隆·马斯克在创立公司时要求员工节约开发成本，拒绝员工采购价格高昂的汽车零件，却可以花9万美元租一架飞机返自己的办公室。一般人看来，这不“有钱没处花么”，其实不然，处于这种职位的人，时间对他们来说更宝贵，他们可以利用时间来处理更多的事情，创造更多的财富。但对于普通人来说，心中的年头可能是“我是缺钱，但不缺时间”。我觉得背后隐藏的另一个词是效率，不管哪种工作成本，时间也是其中一种。记得曾在书中见到这么一个例子，一位高管不理解公司为何要付出额外的开销给他配置司机，他有自行驾车出行的能力，完全没有必要再付出一个人的工资来请司机。但是反过来，他每天上下班时，多出了一个小时来阅读工作汇报，项目计划，公司虽然多支出了一份薪水，但得到了高管更多的工作回报，于公司更有利。我们不可否认，人类的一生是很短暂的。不管多聪明，多优秀的人，也抵不过时间，逃不了生老病死。还在浪费时间的我们，是不是该想想自己剩下的时间，还有多少盈利呢？</p>
-<h3 id="偏执狂梦想家"><a href="#偏执狂梦想家" class="headerlink" title="偏执狂梦想家"></a>偏执狂梦想家</h3><p>梦想每个人都有，就算没有，做个白日梦，还有不会的么。但是能认真思考并实现的，坚持完成的，寥寥无几。而埃隆·马斯克，从天才走向传奇。<br>当然传奇的道路上会有许多荆棘，梦想和野心没有经历挫折的洗礼，注定不够完美。埃隆·马斯克信仰自己的“武士道”精神，情愿切腹，也不愿忍受失败。最后拿柄武士刀成为一件装饰品，因为他战胜了失败。不管是PayPal、特斯拉、SpaceX、太阳城，他都赢了，亲手将自己的梦想一个一个实现。作为一名具有工业专业能力的天才，他相信科技可以改变世界，而现在，他已是硅谷的传奇。</p>
-<h3 id="多核并行"><a href="#多核并行" class="headerlink" title="多核并行"></a>多核并行</h3><p>我曾试想着自己创业时的场景，诘问自己能否做好一个项目，运营好一家公司。未读这本书之前，我认为其它创业成功的人也许同我同我一样，在他们创业时，从一而终，至少是第一家公司走上正轨之前，都不会有精力去折腾第二家，第三家公司。而埃隆·马斯克，就像一个多核的CPU，并行处理不同的任务，同时兼顾着PayPal，特斯拉，SpaceX多家公司，而且还没有宕机重启过。越是压力承肩时，越能做出最好的决策，这不疑需要高度的专注力与毕其功于一役的决心。</p>
-<h3 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h3><p>我自己本身很喜欢小唐尼的《钢铁侠》系列电影，读完埃隆·马斯克，确实有很多钢铁侠的影子，埃隆·马斯克并不是钢铁侠的原型，但个人自身的魅力，性格特征，偏执成狂，强硬做派等，与唐尼的钢铁侠不谋而合。<br>摒弃掉书中很多我未能理解的技术词汇，我觉得作为平凡的我们，即使没有超高的智商和不凡的能力，也不妨将梦想再放大一些，万一哪天真的见鬼实现了呢。当然圆梦的道路上，你可不一定走得顺畅，但不妨迈出脚去走走看，指不定还能得到上火星居住的机会。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 读书笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 读书笔记 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[不曾停歇 | “超级个体”]]></title>
-      <url>/2018/01/29/%E4%B8%8D%E6%9B%BE%E5%81%9C%E6%AD%87-%E8%B6%85%E7%BA%A7%E4%B8%AA%E4%BD%93/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>“你不努力，谁也给不了你想要的生活。欲带皇冠，必承其重。你想过上自己梦想的生活，就应该选择一条属于自己的道路，并为此付出别人无法企及的努力。”<br>——韦娜 《世界不曾亏欠每一个努力的人》</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/7324444-6365a5939d4a674c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="新知识的快感，让知识瘫痪"><a href="#新知识的快感，让知识瘫痪" class="headerlink" title="新知识的快感，让知识瘫痪"></a>新知识的快感，让知识瘫痪</h3><p>当我们尝试去学习新知识时，会有很多的新鲜感。而相比在旧有知识继续升华沉淀，你会感到越来越枯燥，甚至开始厌恶。的确，旧知识的学习遇到瓶颈，需要花费更多的时间精力来沉淀。而新知识，相当于把玩一件新式物件，调起你喜新厌旧的本性。所以很多人，包括我自己，满足于新知识的快感，学得多但不精，略懂皮毛而不深究。久而久之，知识越来越多，不规整，不成体系，根基不稳，最后受不住顶端压力，以崩塌告终。想要知识大厦牢固，逻辑清晰不混乱，合理地利用大脑储藏就是必经之路。抽出时间精力对旧有知识形成体系沉淀，打好地基，再逐步扩展汲取新知识，添砖加瓦。这样你的知识殿堂才足够牢固，又具扩展性。</p>
-<h3 id="成功不是从零开始，而是在其领域中知识能力的积累"><a href="#成功不是从零开始，而是在其领域中知识能力的积累" class="headerlink" title="成功不是从零开始，而是在其领域中知识能力的积累"></a>成功不是从零开始，而是在其领域中知识能力的积累</h3><p>成功不是让你去开创一个你从未接触过的行业，从零开始去做起来，这样你成功的可能性极低。正如我们从小到大的学习生涯，数理化知识的积累，从语数英再到物理，化学，历史，政治等。没有语数英的基础，不会有后面科目的扩展学习。许多人创业当老板，程序员跑去当产品经理，产品经理跑来当投资人，都是利用自己原有的知识和经验，融入到自己新的工作上并取得成功，而不是摒弃掉你之前的果实，重新栽种一颗新的树苗，再拾起浇水驱虫的工作。</p>
-<h3 id="白日梦想家"><a href="#白日梦想家" class="headerlink" title="白日梦想家"></a>白日梦想家</h3><p>乐观无疑是好事，但是过于乐观，你的大脑缺乏压力，没有紧迫感，放松了对问题的思考。居安而思危，对危机要有足够的警惕性，做好危机应对的准备，方可让你离梦想更进一步，不至于危机到来时，一脸懵逼。</p>
-<h3 id="安全感的奴隶"><a href="#安全感的奴隶" class="headerlink" title="安全感的奴隶"></a>安全感的奴隶</h3><p>熟悉的工作岗位，固定的生活方式。会让我们形成一种安全感，对其依赖。不求改变，不敢尝试，不敢跳出自己的舒适圈，觉得自己的人生足够安逸，日复一日直到退休，似乎你已经看到自己退休的样子。殊不知现在企业的寿命比员工的寿命还要更短，世界500强的企业，寿命也不过30-40年左右。很明显，我们为企业工作到退休的时间可远远不止这点时间。所以只有求变，不断适应社会的步伐，不断学习挑战突破自己，提升自己的软技能，职场竞争能力，方可收获真正的安全感。</p>
-<h3 id="什么时候适合陪伴父母亲"><a href="#什么时候适合陪伴父母亲" class="headerlink" title="什么时候适合陪伴父母亲"></a>什么时候适合陪伴父母亲</h3><p>我们总觉得年轻时到大城市打拼，不能常伴父母身旁，特变是中国“百行孝为先”的传统思想，让我们对父母总有一份愧疚。换个角度思考，我们二三十岁时，父母亲的身体都还健壮，生活可以自理，甚至还未到退休年龄，不至于丧失生存能力。而到父母亲七十八十岁左右，年纪比较大了，身体病痛也随之增加，这个时候，我们大概四五十岁左右，作为子女的我们在这个阶段需要花费大量的时间、精力、财力去照顾父母。那么你想在四五十岁阶段具备充裕的时间，财务自由，时间自由，靠的是什么，靠的不就是在你年轻的时候去拼搏去奋斗，到大城市去打拼换取而来，自己四五十岁时的时间及财富么。<br>所以，趁年轻，多出去浪浪。</p>
-<h3 id="适者生存"><a href="#适者生存" class="headerlink" title="适者生存"></a>适者生存</h3><p>这个时代什么样的人会生存下来，智者？强者？都不是，这个时代，不是“智者生存”，也不是“强者生存”，而是“适者生存”，是能够适应自己的生存环境，才不至于被淘汰在任何一个时代的个体。</p>
-<h3 id="乐高式能力组合"><a href="#乐高式能力组合" class="headerlink" title="乐高式能力组合"></a>乐高式能力组合</h3><p>单一的能力并不能使你更强大，在这个快节奏的时代，每个行业的知识都有可能被取代替换，科技带来的行业冲击，生活方式的改变，没有谁可以保证你所在的行业，你的工作不会被其它人或机器所替代。<br>所谓技不压身，多一项能力，多一种技术，就意味着你比别人多一份机会，多一份优势。不断学习将单一的能力拼接合成你自己的软实力。</p>
-<h3 id="结尾-——-成为“超级个体”"><a href="#结尾-——-成为“超级个体”" class="headerlink" title="结尾 —— 成为“超级个体”"></a>结尾 —— 成为“超级个体”</h3><p>每个人都有机会依靠自己的努力和才华成功。<br>这个时代，有才而不成功的几率变小，缺的是怕你没有才华还不努力。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 日更文集 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 日更文集 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[你有我的知识焦虑么？]]></title>
-      <url>/2018/01/28/%E4%BD%A0%E6%9C%89%E6%88%91%E7%9A%84%E7%9F%A5%E8%AF%86%E7%84%A6%E8%99%91%E4%B9%88/</url>
-      <content type="html"><![CDATA[<h3 id="”知识焦虑“"><a href="#”知识焦虑“" class="headerlink" title="”知识焦虑“"></a>”知识焦虑“</h3><blockquote>
-<p>在信息爆炸时代，人们对信息的吸收是呈平方数增长，但面对如此大量的信息，人类的思维模式远没有高速到接受自如的阶段。由此造成一系列的自我强迫和紧张。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/7324444-d3c7f681ba77072a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>我相信我们现处的这个时代，很多人跟我一样，都有一份“知识焦虑”，对自己未知的信息和知识，给予了自己的自我强迫与紧张。<br>面对自己的不努力，懒惰懈怠，都会有或多或少的一份不安全感与恨其不争的无奈。<br>懒散过后，又开始信誓旦旦地制定学习计划，希望通过学习课程，读书来让自己的内心变得充实些。</p>
-<p>现实中，如果你有个有钱的老爸，让你衣食无忧，光鲜亮丽，些许你会少点焦虑。<br>可惜大多数人如你我，并没有这样足以啃老的臂膀。<br>唯有步履匆匆，用兢兢业业的工作和不敢停歇的学习，来让自己拥有一份份看上去不那么不堪的安全感。<br>因为明白，不学习不努力就意味着不拼爹，不拼高考，你已经没有什么可以跟他们比拼的了。</p>
-<p>但是，你的努力真的对了么？？？<br>你在背的雅思英语，你在看的MBA，你在看的成功学。真的适合你么？？？</p>
-<h3 id="改变你的思维认知"><a href="#改变你的思维认知" class="headerlink" title="改变你的思维认知"></a>改变你的思维认知</h3><blockquote>
-<p>“立场，体验，意见” —— “目标，方法，行动”</p>
-</blockquote>
-<p>思维方式的转变，我们每一个人的大脑里总会产生各种天马行空的想法或创意，每个人有不同的个人体验和对事物的意见。但是真正落实实践自己想法，行动起来的却少之又少。</p>
-<p>投资界有这么个故事，投资人考核一家初创公司，不是看公司第一把手，而是看公司的第二把手。因为公司第一把手大多是公司创意想法的制造者，而公司第二把手则是执行者，如果执行者能力足够胜任，那么证明这家公司可行。因为第一把手已经成功地推销了自己的想法，并且得到其它牛人的认可，并且确保可以正确有效地执行。那么公司可以成功地运营起来。<br>初创公司空有想法创意，不能有效执行实施，终究是空谈。</p>
-<p>我们的思维方式来自从小的生活环境，父母，学校，家庭的耳濡目染。<br>更多的是来自父母，“富爸爸，穷爸爸”的思维方式，把父辈的那一套思维方式传递给了我们。</p>
-<p>随着“阶层危机”的到来，让社会阶层越来越固化，平民阶层与上层阶层的界限，除了资源的比拼，更深层次地是思维认知的差距。“富爸爸，穷爸爸”不是现金存款房车的比拼，而是比拼贫富的思维认知。<br>“贫穷限制了你的思维”这并不是一句调侃的话，而是鲜血淋漓的写照。</p>
-<p>想改变你所处的阶层，想从平民阶层晋升到上层阶层，唯有从改变你的思维认知开始，让你的思维完成从“立场，体验，意见”到“目标，方法，行动”转变。使你的思维认知不再处于贫穷。</p>
-<h3 id="“体验型消费”"><a href="#“体验型消费”" class="headerlink" title="“体验型消费”"></a>“体验型消费”</h3><p>如果你没有知识，出去旅游看见美丽的风景，你只会说“哇靠，太美了”。<br>而有知识的人，当你看到夕阳余晖… 你的脑海浮现的是：“落霞与孤鹜齐飞，秋水共长天一色。” 而不是：“卧槽，好多鸟，好多鸟，卧槽，真TM太好看了！”<br>没有文化积淀的旅行，到哪不过是在你的相机中多留几张照片而已。<br>作为一个俗人，欣赏它的美并不需要任何的门槛。但是没有文化知识的积淀，你就只是在走马观花，到此一游。</p>
-<h3 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h3><p>知识量爆发式增长，知识付费的兴起，各种在线音视频课程，公众号课堂雨后春笋般增长，人们获取知识的成本越来越低。但与之对比是人们的时间却被剧烈分割，时间一点一点被碎片化。不再拥有像学校课堂里，让你整整45分钟坐在课桌前，学完一学期的课程。<br>知识量与学习时间成反比增长，传统的、系统化的学习方法已经不再有效。我们所处的时代，有太多的诱惑纷扰我们的集中力，很多人时不时地去看手机，一刷个朋友圈，一看个头条微博，大半的时间就这样不翼而飞。强迫你拿着本书从头看到尾，这样耗时，又学不牢，估计看完了也就完了，又剩下多少是你自己的。</p>
-<p>因此，如何利用有限的时间来完成自己的知识储备，对当下的我们尤为重要。</p>
-<h4 id="1-20-的时间学习80-的知识"><a href="#1-20-的时间学习80-的知识" class="headerlink" title="1. 20%的时间学习80%的知识"></a>1. 20%的时间学习80%的知识</h4><p>80%的知识并不难学会，但是剩下20%的进阶知识往往需要花费更多的时间精力才可并入囊中。鉴于投入与产出成正比，20%的时间换取80%的知识显然更符合当下，学习过后通过转述或者读书笔记加深自己的理解和记忆，变成自己的知识储备。</p>
-<h4 id="2-找一个牛人，跟着他学"><a href="#2-找一个牛人，跟着他学" class="headerlink" title="2. 找一个牛人，跟着他学"></a>2. 找一个牛人，跟着他学</h4><p>自己摸索前行，总有很多荆棘。避免少走弯路，我们缺少一个领路人。<br>而行业/知识领域界的大牛，他就是我们想要到达的终点，也是我们学习的参考对象。跟着他学，我们将知道自己所要学习哪些知识，朝哪个方向努力，有哪些坑需要跳过。有人给你指明了前方的路，你更容易到达，这样焦虑负担相对小了些。</p>
-<h4 id="3-先搭建概念大厦，再具体学习"><a href="#3-先搭建概念大厦，再具体学习" class="headerlink" title="3. 先搭建概念大厦，再具体学习"></a>3. 先搭建概念大厦，再具体学习</h4><p>我们对于未知的知识或多或少都有抗拒，如果一开始就抗拒，不利于你去接受认可它。<br>学习新知识，可以先了解新知识各种概念名词，再去细化具体每个概念的基础学习。正如我们手中拿起一本未读过的书，先翻阅目录，了解每个章节的概念名词，再去翻阅具体每个章节的知识。减少来自我们自身的抗拒，并在脑海中构建起新知识的骨架，再一点点拼积木完成学习积累。</p>
-<hr>
-<p>从自身做出改变，总是一件很难很难的事情。<br>但是一点点的不同，都是对自身努力的一次美好见证。<br>愿你我终有所得。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 日更文集 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 日更文集 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）]]></title>
-      <url>/2018/01/10/Mac%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%8CDIY%E4%BD%A0%E7%9A%84Terminal%EF%BC%88iTerm2-Oh-My-Zsh%EF%BC%89/</url>
-      <content type="html"><![CDATA[<p>使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。<br>不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？<br>怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业余。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/7324444-f4cab57f73b24da9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终效果图"></p>
-<p>完成配置后的终端具备功能：</p>
-<ol>
-<li>语法高亮</li>
-<li>命令行tab补全</li>
-<li>自动提示符</li>
-<li>显示Git仓库状态等功能</li>
-<li>⌘+r 快速清空代码面板，跟终端输入clear一样的效果</li>
-</ol>
-<hr>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="1-下载iTerm2"><a href="#1-下载iTerm2" class="headerlink" title="1. 下载iTerm2"></a>1. 下载<a href="http://www.iterm2.com/" target="_blank" rel="external">iTerm2</a></h3><h3 id="2-解压后安装iTerm2并打开"><a href="#2-解压后安装iTerm2并打开" class="headerlink" title="2. 解压后安装iTerm2并打开"></a>2. 解压后安装iTerm2并打开</h3><ol>
-<li>iTerm2 -&gt; Make iTerm2 Default Term<br><img src="http://upload-images.jianshu.io/upload_images/7324444-b3898059dc0f629d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="将iTerm2设置为默认终端"></li>
-<li>打开偏好设置preference，选中Keys，勾选Hotkey下的Show/hide iTerm2 with a system-wide hotkey，将热键设置为 ⌘+. ，这样你就可以通过 ⌘+. 全局热键来打开或关闭iTerm2窗口，非常方便<br><img src="http://upload-images.jianshu.io/upload_images/7324444-57399044e86283ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置Hotkey"><h3 id="3-配色方案"><a href="#3-配色方案" class="headerlink" title="3. 配色方案"></a>3. 配色方案</h3>选用 <a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">solarized</a>，下载解压，然后打开 iTerm2 下的偏好设置 preference ，点开 profiles 下的colors 选项，点击右下角的 Color Presets 选项，选择import ，导入解压到的 solarized 文件下的Solarized Dark.itermcolors<br><img src="http://upload-images.jianshu.io/upload_images/7324444-5790a41170cd8d57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入配色方案"></li>
-</ol>
-<h3 id="4-安装oh-my-zsh"><a href="#4-安装oh-my-zsh" class="headerlink" title="4. 安装oh-my-zsh"></a>4. 安装oh-my-zsh</h3><p>github：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh</a><br>官方提供 curl 和 wget 两种安装方式<br>curl 安装：<br><code>sh -c ``&quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code><br>wget安装：<br><code>sh -c ``&quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</code></p>
-<h3 id="5-配置主题"><a href="#5-配置主题" class="headerlink" title="5. 配置主题"></a>5. 配置主题</h3><p>安装oh-my-zsh成功后</p>
-<ol>
-<li>用 vim 编辑隐藏文件 .zshrc， 终端输入<code>vi ~/.zshrc</code><br><code>ZSH_THEME=&quot;agnoster&quot;</code> 将zsh主题修改为“agnoster”</li>
-<li>应用“agnoster”主题需要特殊的字体支持，否则会出现乱码情况，<br>使用 <a href="https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf" target="_blank" rel="external">Meslo</a> 字体，点开链接点击 view raw 下载字体</li>
-<li>安装字体到系统字体册</li>
-<li><p>在iTerm2中应用字体 iTerm -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; Change Font）<br><img src="http://upload-images.jianshu.io/upload_images/7324444-a52417111fc3018a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iTerm2应用字体"></p>
-</li>
-<li><p>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到字体效果</p>
-</li>
-</ol>
-<h3 id="6-自动提示与命令补全"><a href="#6-自动提示与命令补全" class="headerlink" title="6. 自动提示与命令补全"></a>6. 自动提示与命令补全</h3><p>比iTerm2自带的更强大的命令提示与补全</p>
-<ol>
-<li><p>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下<br><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></p>
-</li>
-<li><p>用 vim 编辑 .zshrc 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></p>
-</li>
-</ol>
-<p>PS：当你重新打开终端时可能看不到变化，可能你的字体颜色太淡了，我们把其改亮一些：</p>
-<ol>
-<li><code>cd ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions</code></li>
-<li>用 vim 编辑 zsh-autosuggestions.zsh 文件，修改<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39;</code></li>
-</ol>
-<h3 id="7-语法高亮效果"><a href="#7-语法高亮效果" class="headerlink" title="7. 语法高亮效果"></a>7. 语法高亮效果</h3><ol>
-<li>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code><br>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
-<li>配置.zshrc文件，插入一行<br><code>source /xxx/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code><br>(注意： /xxx/ 代表.zshrc所在的路径)</li>
-<li>加载.zshrc配置<br><code>source ~/.zshrc</code></li>
-<li>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到效果</li>
-</ol>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><ol>
-<li>iTerm2 默认使用dash改用zsh解决方法：<code>chsh -s /bin/zsh</code></li>
-<li>iTerm2 zsh切换回原来的dash：<code>chsh -s /bin/bash</code></li>
-<li>卸载<code>oh my zsh</code>，在命令行输入：<code>uninstall_oh_my_zsh</code></li>
-<li>路径前缀的XX@XX太长，缩短问题：<br>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</li>
-</ol>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 工具类 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 工具类 </tag>
-            
-            <tag> mac </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[微信小程序爬坑日记]]></title>
-      <url>/2017/12/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E5%9D%91%E6%97%A5%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<p>新公司上手小程序。<br>30天，从入门到现在，还没放弃。。。</p>
-<p>虽然小程序发布出来快一年了，爬坑的兄弟们大多把坑都踩平了。而我一直停留在“Hello World”的学习阶段。<br>一来没项目，只有项目才是实践学习的根本；<br>二来刚出来，总是有很多坑。爬坑总是痛并快乐着。</p>
-<p>再多的借口，产品项目需求拍在桌前，都得缴械投降。<br>不要怂撸起袖子，就是干。</p>
-<p><img src="http://wx4.sinaimg.cn/mw690/72ec38a9gy1fm94qk59f7j21kw0yt42o.jpg" alt="微信小程序"></p>
-<h3 id="初识小程序"><a href="#初识小程序" class="headerlink" title="初识小程序"></a>初识小程序</h3><p>微信推出小程序，想要实现即开即用，用完即走的用户体验。免去APP下载安装繁琐的流程。听起来像谷歌推出的PWA，不过PWA普及到国内还有段时间。而小程序借助于微信的用户群体，植入成本低，容易被用户接受。</p>
-<p>小程序的代码风格跟Vue其实挺像，对于习惯Vue开发模式的同学，上手并没有太大的问题。</p>
-<p>小程序不支持前端主流框架，如Vue，Angular，React，jQuery等，而且小程序有自己的一套视图容器(Dom)的写法，跟平常我们在web上写HTML不一样。不过CSS3那些变化不大。虽然文件名改成了(.wxss)</p>
-<p>本司项目，使用webpack做打包工具，将代码编译成符合小程序的代码目录规范，采用wechat-mina-loader插件，实际开发起来跟在Vue下开发习惯一样。<br>babel完成ES6转ES5，sass编译，压缩转化等工作都放到webpack中去做。</p>
-<h3 id="不支持dom操作"><a href="#不支持dom操作" class="headerlink" title="不支持dom操作"></a>不支持dom操作</h3><p>小程序脚本内不能使用window,document对象，所以无法操作dom。如果想操作节点，可用<code>wx.createSelectorQuery()</code></p>
-<p>另外数据驱动的开发模式，跟Vue相同，只是写法换了（vue: v-if，小程序: wx:if）</p>
-<h3 id="rpx布局"><a href="#rpx布局" class="headerlink" title="rpx布局"></a>rpx布局</h3><blockquote>
-<p>rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。</p>
-</blockquote>
-<p>设计师做设计图以iPhone6作为设计稿基准就可以，基本上可以用rpx替换px，不过在一些表单或者提示页面，使用设计稿上的rpx会让小屏幕手机看着尺寸略小，提示页面可参照weui用px来实现</p>
-<h3 id="路由层级"><a href="#路由层级" class="headerlink" title="路由层级"></a>路由层级</h3><ul>
-<li><code>wx.navigateTo(OBJECT)</code><br>保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面</li>
-<li><code>wx.redirctTo(OBJECT)</code><br>关闭当前页面，跳转到应用内的某个页面</li>
-<li><code>wx.switchTab(OBJECT)</code><br>跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</li>
-<li><code>wx.reLaunch(OBJECT)</code><br>关闭所有页面，打开到应用内的某个页面</li>
-</ul>
-<p>小程序只能同时打开打开5个页面，当打开5个页面后，wx.navigateTo不能正常打开新页面，请避免多层级的交互方式，或者使用wx.redirctTo重定向</p>
-<h3 id="tabBar底部导航栏"><a href="#tabBar底部导航栏" class="headerlink" title="tabBar底部导航栏"></a>tabBar底部导航栏</h3><p>tabBar是一个数组。配置最少2个，最多5个，tab数组按顺序排序</p>
-<h3 id="页面滚动到顶部"><a href="#页面滚动到顶部" class="headerlink" title="页面滚动到顶部"></a>页面滚动到顶部</h3><p>基础库1.4.0支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wx.pageScrollTo(&#123;</div><div class="line">  scrollTop: 0   //滚动到页面的目标位置（单位px）</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="图片资源，CSS中的背景图片"><a href="#图片资源，CSS中的背景图片" class="headerlink" title="图片资源，CSS中的背景图片"></a>图片资源，CSS中的背景图片</h3><p>CSS中无法使用本地资源(开发目录中)的图片作为background-image。可以使用网络图片资源，或base64，或者使用image标签。tabBar的icon资源可使用本地资源</p>
-<h3 id="unionid与openid的区别"><a href="#unionid与openid的区别" class="headerlink" title="unionid与openid的区别"></a>unionid与openid的区别</h3><p>每个用户在每个小程序里面都有唯一的openid，如果想在多个公众号，小程序里面共享用户信息，统一识别该用户，则需要用到unionid。为了获取uniond则需要注册微信开放平台，将需要共享的小程序，公众号进行绑定（不超过10个，超过10个还要申请认证称为第三发平台）。</p>
-<h3 id="textarea在滚动页面中的bug"><a href="#textarea在滚动页面中的bug" class="headerlink" title="textarea在滚动页面中的bug"></a>textarea在滚动页面中的bug</h3><p>textarea,map等组件是由客户端创建的原生组件，它的层级是最高的。如果有遇到定位元素的话。永远在最上面，盖不住。</p>
-<ul>
-<li>请勿在 scroll-view、swiper、picker-view、movable-view 中使用 textarea 组件</li>
-<li>CSS动画对textarea无效</li>
-</ul>
-<p>项目场景：页面底部固定了一个按钮（position:fixed), 页面滚动时，textarea总是在按钮上面，点击按钮就点到了textarea</p>
-<h3 id="可以设置网络请求的超时时间"><a href="#可以设置网络请求的超时时间" class="headerlink" title="可以设置网络请求的超时时间"></a>可以设置网络请求的超时时间</h3><p>app.js中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;networkTimeout&quot;: &#123;</div><div class="line">  &quot;request&quot;: 10000 // 10秒</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="window配置"><a href="#window配置" class="headerlink" title="window配置"></a>window配置</h3><p>navigationBarTextStyle 导航栏标题颜色仅支持black/white<br>状态栏，导航条，标题，窗口背景色支持纯色，不支持渐变色</p>
-<h3 id="参数问题"><a href="#参数问题" class="headerlink" title="参数问题"></a>参数问题</h3><ul>
-<li><p>url中添加参数，<br>如<code>url?a=1&amp;b=2</code>, <code>onLoad(options) options.query.a, options.query.b</code>可获取到</p>
-</li>
-<li><p>扫描小程序码进页面，如果想获取小程序码url中所带的参数，可通过options.scene获取，不过需要对二维码中的scene值进行转换decodeURIComponent(options.scene), 调试阶段可以使用开发工具的条件编译自定义参数 scene=xxxx 进行模拟，开发工具模拟时的 scene 的参数值需要进行 urlencode (启动参数：scene=n%3D1001) 实际为scene=n=1001，参数n=1001</p>
-</li>
-</ul>
-<h3 id="image标签图片"><a href="#image标签图片" class="headerlink" title="image标签图片"></a>image标签图片</h3><p>image默认width: 300px, height: 225px, lazy-load懒加载只对page与scroll-view下的image有效<br>mode缩放模式，mode=”widthFix”比较常用(宽度不变，高度自动变化，保持原图宽高比不变)</p>
-<h3 id="小程序可以监听小程序的关闭后，但是无法阻断"><a href="#小程序可以监听小程序的关闭后，但是无法阻断" class="headerlink" title="小程序可以监听小程序的关闭后，但是无法阻断"></a>小程序可以监听小程序的关闭后，但是无法阻断</h3><p>场景：想在小程序退出时弹出个提示框，并阻止关闭（暂时无法实现）</p>
-<h3 id="小程序码"><a href="#小程序码" class="headerlink" title="小程序码"></a>小程序码</h3><p>小程序码(葵花码)有几种方式，只有发布过小程序才可正常显示小程序码</p>
-<h3 id="小程序第一次提交的审核时间较后面的长"><a href="#小程序第一次提交的审核时间较后面的长" class="headerlink" title="小程序第一次提交的审核时间较后面的长"></a>小程序第一次提交的审核时间较后面的长</h3><p>第一次提交审核一般1天到2天。所以为了能准点上线，建议先上一次临时的版本(放一个提示页面都可以)，过了第一次审核发布再说。日常提交审核，2-3小时就可以。</p>
-<h3 id="频繁地setData会造成性能问题"><a href="#频繁地setData会造成性能问题" class="headerlink" title="频繁地setData会造成性能问题"></a>频繁地setData会造成性能问题</h3><p>频繁地setData操作，会出现卡顿，操作反馈延迟严重，甚至有可能闪退。</p>
-<blockquote>
-<p>场景：原计划用countUp做数字动画，原理就是频繁地改变数字值，setData操作，渲染到模版上。</p>
-</blockquote>
-<h3 id="ES6转ES5，小程序检测目录中的js文件-极少"><a href="#ES6转ES5，小程序检测目录中的js文件-极少" class="headerlink" title="ES6转ES5，小程序检测目录中的js文件(极少)"></a>ES6转ES5，小程序检测目录中的js文件(极少)</h3><p>项目中用了webpack进行ES6转ES5，所以关闭了微信小程序的ES6转ES5功能。这个坑就比较隐蔽了，测试的时候在5S真机上报js错误，发现有个js(使用了ES6，没有转ES5)文件没有使用，微信小程序会去检测目录中的js文件，如果关闭了微信自带的ES6转ES5，检测到目录中js文件不兼容ES5，就报错。这个Bug只在5S真机里出现过，5C都正常。如果开启了微信开发工具中的ES6转ES5，则会自动帮你完成转化工作，不会出现类似问题。</p>
-<p>分享些小程序开发比较常用的第三方库</p>
-<ul>
-<li>weui-wxss(小程序版的weui样式库) Github: <a href="https://github.com/Tencent/weui-wxss" target="_blank" rel="external">https://github.com/Tencent/weui-wxss</a></li>
-<li>wepy(小程序组件化框架) Github: <a href="https://github.com/Tencent/wepy" target="_blank" rel="external">https://github.com/Tencent/wepy</a></li>
-<li>skyvow/vux(小程序组件库) Github: <a href="https://github.com/skyvow/wux" target="_blank" rel="external">https://github.com/skyvow/wux</a></li>
-<li>xiaolin3303/wx-charts(小程序图标) Github: <a href="https://github.com/xiaolin3303/wx-charts" target="_blank" rel="external">https://github.com/xiaolin3303/wx-charts</a></li>
-</ul>
-<blockquote>
-<p>作者：以乐之名<br>  本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 微信 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> WEB 微信小程序 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[npm常用命令整理]]></title>
-      <url>/2017/10/04/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>npm是一个NodeJS包管理跟分发工具，已经成为了非官方的发布node模块（包）的标准。<br>它可以帮助我们解决代码部署上的一些问题，将开发者从繁琐的包管理工作中(版本、依赖等)解放出来，更加专注于功能上的开发，大大提升我们的工作效率。</p>
-<p>以下为日常应用中收集整理的npm常用命令:</p>
-<h4 id="初始化-引导你创建一个package-json文件"><a href="#初始化-引导你创建一个package-json文件" class="headerlink" title="初始化 引导你创建一个package.json文件"></a>初始化 引导你创建一个package.json文件</h4><p><code>npm init</code></p>
-<h4 id="查看package-json文件内容格式"><a href="#查看package-json文件内容格式" class="headerlink" title="查看package.json文件内容格式"></a>查看package.json文件内容格式</h4><p><code>npm help json</code></p>
-<h4 id="安装模块-install-可简写为-i"><a href="#安装模块-install-可简写为-i" class="headerlink" title="安装模块 (install 可简写为 i)"></a>安装模块 (install 可简写为 i)</h4><p><code>npm install moduleName</code><br>(安装到当前目录，仅在当前目录可用)</p>
-<h4 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h4><p><code>npm install moduleName -g</code><br>(全局安装，可在所有目录下使用)</p>
-<h4 id="安装package-json中的模块"><a href="#安装package-json中的模块" class="headerlink" title="安装package.json中的模块"></a>安装package.json中的模块</h4><p><code>npm install</code><br>(目录中存在package.json，将安装package.json配置号的版本模块，install后面可不带模块名)</p>
-<h4 id="安装到开发环境依赖"><a href="#安装到开发环境依赖" class="headerlink" title="安装到开发环境依赖"></a>安装到开发环境依赖</h4><p><code>npm install moduleName --save-dev</code><br>(例如一些预编译包，如sass-loader,less-loader等，仅在开发环境中会用到)</p>
-<h4 id="安装到生成环境依赖"><a href="#安装到生成环境依赖" class="headerlink" title="安装到生成环境依赖"></a>安装到生成环境依赖</h4><p><code>npm install moduleName --save</code></p>
-<h4 id="卸载模块-uninstall-可简写-un"><a href="#卸载模块-uninstall-可简写-un" class="headerlink" title="卸载模块 (uninstall 可简写 un)"></a>卸载模块 (uninstall 可简写 un)</h4><p><code>npm uninstall moduleName</code></p>
-<h4 id="重新安装模块"><a href="#重新安装模块" class="headerlink" title="重新安装模块"></a>重新安装模块</h4><p><code>npm rebuild moduleName</code></p>
-<h4 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h4><p><code>npm help</code></p>
-<h4 id="检查模块是否已经过时"><a href="#检查模块是否已经过时" class="headerlink" title="检查模块是否已经过时"></a>检查模块是否已经过时</h4><p><code>npm outdated</code><br>（列出所有有新版本的模块，方便对包的更新）</p>
-<h4 id="检查npm线上是否存在该模块"><a href="#检查npm线上是否存在该模块" class="headerlink" title="检查npm线上是否存在该模块"></a>检查npm线上是否存在该模块</h4><p><code>npm search moduleName</code><br>（当你想要发布自己写的包时，需查看线上是否有同名的已发布的包）</p>
-<h4 id="查看当前目录模块的安装路径"><a href="#查看当前目录模块的安装路径" class="headerlink" title="查看当前目录模块的安装路径"></a>查看当前目录模块的安装路径</h4><p><code>npm root</code></p>
-<h4 id="查看全局安装模块的安装路径"><a href="#查看全局安装模块的安装路径" class="headerlink" title="查看全局安装模块的安装路径"></a>查看全局安装模块的安装路径</h4><p><code>npm root -g</code></p>
-<h4 id="查看npm安装的版本"><a href="#查看npm安装的版本" class="headerlink" title="查看npm安装的版本"></a>查看npm安装的版本</h4><p><code>npm -v</code></p>
-<h4 id="更新本机npm的版本"><a href="#更新本机npm的版本" class="headerlink" title="更新本机npm的版本"></a>更新本机npm的版本</h4><p><code>npm install -g</code></p>
-<p>更多npm命令请查看<a href="https://docs.npmjs.com/" target="_blank" rel="external">NPM官方文档</a></p>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 前端 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> WEB </tag>
-            
-            <tag> Javascript </tag>
-            
-            <tag> NodeJS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[preventDefault,stopPropagation,return false三者的区别]]></title>
-      <url>/2017/08/31/preventDefault-stopPropagation-return-false%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-      <content type="html"><![CDATA[<p>逛帖子的时候看到道友发的前端面试题，</p>
-<blockquote>
-<p>preventDefault(), stopPropagation(), return false三者的区别</p>
-</blockquote>
-<p>这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。</p>
-<h3 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault()"></a>preventDefault()</h3><p>阻止元素在浏览器中的默认行为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;link&quot; href=&quot;http://wuliv.com&quot;&gt;网站&lt;/a&gt;</div><div class="line">$(&apos;#link&apos;).click(function(event)&#123;</div><div class="line">    event.preventDefault(); // 阻止了a链接href的访问或跳转</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a>stopPropagation()</h3><p>事件冒泡：当一个元素上的事件被触发时，比如鼠标点击了一个按钮，同样的事件将会在该按钮元素的所有父级／祖先元素上触发。这一个过程就被称为事件冒泡。它是由子级元素先触发，父级元素后触发，由内而外（由下往上）的一个流程。与之顺序相反的是事件捕获。  </p>
-<blockquote>
-<p>事件捕获：父级元素先触发，子级元素后触发，在此仅做了解。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">  &lt;div id=&quot;inner&quot;&gt;</div><div class="line">    &lt;p&gt;事件冒泡例子&lt;/p&gt;</div><div class="line">    &lt;button id=&quot;btn&quot;&gt;我要弹个框&lt;/button&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">$(&apos;#btn&apos;).click(function(event)&#123;</div><div class="line">  event.stopPropagation(); // 阻止了事件冒泡，不会触发&quot;#inner, body&quot;的点击事件  </div><div class="line">  console.log(&apos;#btn&apos;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$(&apos;#inner&apos;).click(function(event)&#123;</div><div class="line">    // #btn 阻止了冒泡，这里不会执行</div><div class="line">    // 如果不使用stopPropagation, 当#btn点击时，这里也会执行</div><div class="line">    console.log(&apos;#inner&apos;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$(&apos;body&apos;).click(function(event)&#123;</div><div class="line">    // #btn 阻止了冒泡，.btn点击不会影响到我</div><div class="line">    // 如果不使用stopPropagation, 当#btn点击时，这里也会执行</div><div class="line">    console.log(&apos;body&apos;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 使用了stopPropagation()输出</div><div class="line">&apos;#btn&apos;</div><div class="line"></div><div class="line">// 不使用stopPropagation()输出</div><div class="line">&apos;#btn&apos;</div><div class="line">&apos;#inner&apos;</div><div class="line">&apos;body&apos;</div></pre></td></tr></table></figure>
-<h3 id="stopImmediatePropagation"><a href="#stopImmediatePropagation" class="headerlink" title="stopImmediatePropagation()"></a>stopImmediatePropagation()</h3><p>阻止对象绑定的剩余的事件处理函数方法的执行，并阻止当前事件的冒泡。<br>可以理解为stopImmediatePropagation是stopPropagation的升级版，除了阻止冒泡，还能阻止结束掉当前对象未执行的其它绑定事件方法。  </p>
-<blockquote>
-<p>jQuery中一个对象可以绑定多个事件方法，执行顺序会按照绑定的先后顺序来执行</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;inner&quot;&gt;</div><div class="line">        &lt;p&gt;stopImmediatePropagation()例子&lt;/p&gt;</div><div class="line">        &lt;button id=&quot;btn&quot;&gt;按钮&lt;/btn&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">$(&apos;body&apos;).click(function(event)&#123;</div><div class="line">    // body 点击</div><div class="line">    console.log(&apos;body&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(&apos;#inner&apos;).click(function(event)&#123;</div><div class="line">    // #inner 点击</div><div class="line">    console.log(&apos;#inner&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$(&apos;#btn&apos;).click(function(event)&#123;</div><div class="line">    // 第一个#btn点击</div><div class="line">    e.stopImmediatePropagation();</div><div class="line">    console.log(&apos;#btn 1&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$(&apos;#btn&apos;).click(function(event)&#123;</div><div class="line">    // 第二个#btn点击</div><div class="line">    console.log(&apos;#btn 2&apos;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 最终输出</div><div class="line">&apos;#btn 1&apos; // (因为stopImmediatePropagation阻止了#btn绑定的剩余未执行的事件方法，并且阻止了冒泡)</div><div class="line"></div><div class="line">// 如果不使用stopImmediatePropagation， 将输出</div><div class="line">&apos;#btn 1&apos;</div><div class="line">&apos;#btn 2&apos;</div><div class="line">&apos;#inner&apos;</div><div class="line">&apos;body&apos;</div><div class="line">同个对象执行顺序按绑定顺序执行，冒泡则由内向外执行</div></pre></td></tr></table></figure>
-<h3 id="return-false"><a href="#return-false" class="headerlink" title="return false"></a>return false</h3><p>“return false” 相信不少同学会用来阻止元素在浏览器中的默认行为，<br>拿它当preventDefault()使用，但其实“return false”做的事情不仅仅只是阻止默认行为</p>
-<p>当调用“return false”时，它执行了以下三件事情</p>
-<blockquote>
-<ol>
-<li>event.preventDefault()</li>
-<li>event.stopPropagation()</li>
-<li>停止回调函数执行并立即返回</li>
-</ol>
-</blockquote>
-<p>1，2点还好理解，那么第3点是怎么回事？<br>return语句会终止函数的执行并返回函数的值。所以不管是否返回false或是其它值，return语句后面的代码都不会执行。而返回false，使它具备了preventDefault和stropPropagation的功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;a&apos;).click(function()&#123;</div><div class="line">    return false; // return false直接返回了，并不会执行alert</div><div class="line">    alert(&apos;我没有被弹出来&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// preventDefault 和 stopPropagation 并不会阻止回调函数的执行</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>很多jQuery教程在代码演示中用“return false”来阻止执行浏览器的默认行为。<br>久而久之，很多同学习惯滥用“return false”来代替preventDefault</p>
-<p>大多数情况下，我们仅仅是想要它执行跟preventDefault的功能而已，但它却自作主张地帮你执行了另外两步操作。<br>比较好的编程习惯是，需要用到该事件方法再去调用，否则应该避免冗余事件的执行。<br>就像prevnetDefault完成它该有的工作，并不会阻止父节点继续处理事件，使得代码更加灵活，更易于维护。</p>
-<p>日常开发中还是要慎用“return false”，除非你同时需要preventDefault和stopPropagation，并且确定你的回调函数执行完成后调用，那么你可以使用“return false”，否则还是用preventDefault 或 stopPropagation 更好些。</p>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-<p>参考文章：<a href="http://www.cnblogs.com/dannyxie/p/5642727.html" target="_blank" rel="external">《preventDefault()、stopPropagation()、return false 之间的区别》</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 前端 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> WEB </tag>
-            
-            <tag> Javascript </tag>
-            
-            <tag> jQuery </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[HTTP中GET与POST的区别 99%的错误认识]]></title>
-      <url>/2017/08/27/HTTP%E4%B8%ADGET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB-99-%E7%9A%84%E9%94%99%E8%AF%AF%E8%AE%A4%E8%AF%86/</url>
-      <content type="html"><![CDATA[<p>本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。<br>装逼失败模式：99%的人对GET和POST的认识<br>修炼低调模式：1%不知道的进阶认识</p>
-<p>GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。<br>一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；<br>在HTML FROM表单中，可以通过设置method指定提交方式为GET或者POST方式，默认为GET提交方式</p>
-<p>HTTP定义了与服务器交互的不同方法，其中最基本的四种：GET，POST，PUT，DELETE，HEAD；<br>其中GET和HEAD被称为安全方法，因为使用GET和HEAD的HTTP请求不会产生什么动作。不会产生动作意味着GET和HEAD的HTTP请求不会在服务器上产生任何结果。但是安全方法并不是什么动作都不产生，这里的安全方法仅指不会修改信息。</p>
-<p>GET和POST我们比较常用，其它几种实际应用比较少用到，在此仅作了解。</p>
-<hr>
-<h3 id="99-的人所认为的GET和POST"><a href="#99-的人所认为的GET和POST" class="headerlink" title="99%的人所认为的GET和POST"></a>99%的人所认为的GET和POST</h3><h4 id="1-传输方式（自我理解“显示方式”）"><a href="#1-传输方式（自我理解“显示方式”）" class="headerlink" title="1. 传输方式（自我理解“显示方式”）"></a>1. 传输方式（自我理解“显示方式”）</h4><p>GET请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数之间以&amp;连接，<br>如<code>&quot;http://www.xxx.com/product?type=shoe&amp;price=100&amp;sex=male&quot;</code><br>数据格式有以下注意点：</p>
-<ol>
-<li>如果数据是英文字母/数字，原样发送；</li>
-<li>如果是空格，转换为+；</li>
-<li>如果是中文或其他字符，则把数据用Base64加密，<br>如<code>&quot;%E4%BD%A0%E5%A5%BD&quot;</code>其中<code>％XX</code>中的<code>XX</code>为该符号以16进制表示的ASCII码。</li>
-</ol>
-<p>POST请求会把请求的数据放置在HTTP请求包的包体中，GET传输的数据会直接暴露在URL中，而POST请求则不会。</p>
-<h4 id="2-传输数据大小"><a href="#2-传输数据大小" class="headerlink" title="2. 传输数据大小"></a>2. 传输数据大小</h4><p>GET方式传输的数据最多只能是1024字节，<br>因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系，URL本身不存在参数上限的问题，HTTP协议规范也没有对URL长度进行限制。<br>这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
-<p><em>注意：限制是针对整个URL长度，不单是传输的数据长度。</em></p>
-<p>POST方式理论上没有限制，可传较大的数据。起限制作用的是服务器的处理程序的处理能力。Apache, Nigx, IIS服务器自身可配置限制传输大小。</p>
-<h4 id="3-GET在浏览器回退是无害的，而POST会再次提交请求"><a href="#3-GET在浏览器回退是无害的，而POST会再次提交请求" class="headerlink" title="3. GET在浏览器回退是无害的，而POST会再次提交请求"></a>3. GET在浏览器回退是无害的，而POST会再次提交请求</h4><h4 id="4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以"><a href="#4-GET产生的URL可以作为标签或存于历史记录中，而POST不可以" class="headerlink" title="4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以"></a>4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以</h4><h4 id="5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置"><a href="#5-GET请求会被浏览器主动cahe，而POST不会，除非手动设置" class="headerlink" title="5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置"></a>5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置</h4><h4 id="6-安全性"><a href="#6-安全性" class="headerlink" title="6. 安全性"></a>6. 安全性</h4><p>GET传输的数据直接暴露在URL中，如果我们在做用户登录时，需要传输登录帐号及密码到后端做验证，如果用GET方式，那么账户密码直接暴露在URL里面，是极其危险的。<br>而且浏览器缓存的机制，访问过的网站URL会被保存在浏览器历史记录里，其他人可通过历史记录查看访问网站URL，直接获取到传输的数据。<br>很可能受到 “Cross-site request forgery”(中文名称：跨站请求伪造) 攻击。<br>不过POST的数据也是可以被拦截的。</p>
-<p>总结：</p>
-<ol>
-<li>GET请求是用来向服务器发送索取数据的一种请求，实际应用中数据不涉及到安全性，可用GET方式来向后端请求数据，<br>如分页或搜索关键词 <code>&quot;http://www.xxx.com/product?keywords=xxx&amp;page=2&quot;</code>;</li>
-<li>POST请求是向服务器提交数据的一种请求，涉及到安全性的数据，用POST的方式来传输较GET更安全。</li>
-</ol>
-<hr>
-<p>曾经的曾经，我也是那99%的一员，还把自己归纳的文章发给新人同事看，然后装逼失败，被老大引导练成最后的这1%。</p>
-<hr>
-<h3 id="1-的人所拥有的"><a href="#1-的人所拥有的" class="headerlink" title="1%的人所拥有的"></a>1%的人所拥有的</h3><p>GET和POST本质上是没有区别的，它们是HTTP协议中的两种发送请求的方式。<br>HTTP是基于TCP/IP的关于数据如何在万维网中通信的协议，即HTTP的底层是TCP/IP，所以GET和POST的底层也是TCP/IP，也就是说：GET/POST都是TCP链接。<br>给POST带上url参数，给GET加上request body，技术上是可以实现的。</p>
-<p>为了更方便的管理，避免混乱，HTTP给这些请求定义GET，POST，PUT，DELETE。<br>而数据大小，则是因为浏览器的限制造成的。</p>
-<p>所以GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同</p>
-<h4 id="隐藏的Buff"><a href="#隐藏的Buff" class="headerlink" title="隐藏的Buff"></a>隐藏的Buff</h4><p>GET产生一个TCP数据包，而POST产生两个TCP数据包</p>
-<p>GET的请求，浏览器会把http header和data一并发送出去，服务器返回200（返回数据）<br>POST的请求，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200（返回数据）</p>
-<p>因为POST需要两步，时间上消耗的多一点，<br>不过网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。<br>网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点</p>
-<p>并不是所有浏览器POST发送两次包，Fiefox就发送一次。</p>
-<p>最后的最后，当你以后被别人问到的时候，你就可以。。。。。。请开始你的表演</p>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-<p>参考文章：<a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd" target="_blank" rel="external">《99%的人都理解错了HTTP中GET与POST的区别》</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> HTTP </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> WEB </tag>
-            
-        </tags>
-        
-    </entry>
-    
-  
-  
+<search>
+  <entry>
+    <title><![CDATA[杂谈：前端Web通信]]></title>
+    <url>%2F2018%2F03%2F25%2F%E6%9D%82%E8%B0%88%EF%BC%9A%E5%89%8D%E7%AB%AFWeb%E9%80%9A%E4%BF%A1%2F</url>
+    <content type="text"><![CDATA[Web2.0以来，Ajax的出世，解决了传统表单提交页面跳转，闪烁白屏等问题。使得Web页面可以实现局部更新，不仅减少了网络带宽，还大大提升了用户体验。 但Ajax并非是一把万能的钥匙，足以打开Web通信这扇大门，当请求遇到跨域通信时，Ajax就没辙了。 Web的快速发展让开发走向工程化的同时，要求工作维度进行划分（前端后端分工明细），以便扩展维护日益复杂庞大的项目需求。而前后端分离的开发方式正是这种需求背景下衍生的产物。（以前混编的代码现在是再也不想看到） 前后端分离的开发方式，如何进行数据通信是开发人员绕不过去的问题。作为开发同学的小伙伴客户端的浏览器，有点小调皮还做了一个同源策略的限制，当我们的数据请求遇到不同源的情况下（跨域），我们就得尝试其它的通信方法，不能Ajax一条道走到黑。 什么是同源策略及限制 同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。 同源要求协议，域名，端口(默认80)三者都相同，否则为非同源。 同源策略限制： Cookie， LocalStorage和IndexDB无法读取 Dom无法获取 Ajax请求不能发送 前后端如何通信 Ajax（仅支持同源） WebSocket （不受同源限制） CORS （都支持，新的W3C通信标准） 如何创建Ajax XMLHttpRequest对象的工作流程 兼容性处理 事件的触发条件 事件的触发顺序 12345678910111213141516171819202122232425262728293031323334var xhr = XMLHttpRequest ? new XMLHttpRequest() : new window.ActiveXObject(&apos;Microsoft&apos;)var data = opt.data, url = opt.url, type = opt.type.toUpperCase(), dataArr = [];for (var k in data) &#123; dataArr.push(k + &apos;=&apos; + data[k]);&#125;if (type === &apos;GET&apos;) &#123; url = url + &apos;?&apos; + dataArr.join(&apos;&amp;&apos;); xhr.open(type, url.replace(/\?$/g, &apos;&apos;, true); xhr.send();&#125; if (type === &apos;POST&apos;) &#123; xhr.open(type, url, true); xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;); xhr.send(data.join(&apos;&amp;&apos;));&#125;xhr.onload = function() &#123; if (xhr.status === 200 || xhr.status === 304) &#123; var res; if (opt.success &amp;&amp; opt.success instanceof Function) &#123; res = xhr.responseText; if (typeof res === &apos;string&apos;) &#123; res = JSON.parse(res); opt.success.call(xhr, res) &#125; &#125; else &#123; if (opt.error &amp;&amp; opt.error instanceof Function) &#123; opt.error.call(xhr, res); &#125; &#125; &#125;&#125; 同源下，我们可以直接使用Ajax来与后端同学做数据通信，但是遇到跨域请求时，我们就得更换手中这把Ajax的钥匙，来重新配钥匙开锁 跨域通信的几种方式 JSONP Hash postMessage (HTML5) WebSocket CORS (新的W3C通信标准) 1. JSONPJSONP原理：客户端通过动态创建script标签异步加载来实现，服务端callback返回客户端定义的方法名，让客户端进行调用获取数据。 只支持Get请求 (GET与POST的区别这里暂不细讲) 123456789// 客户端发送请求&lt;script src=&quot;http://www.abc.com?data=name&amp;callback=jsonpname&quot;&gt;&lt;/script&gt;&lt;script&gt;jsonpname(&#123; data: &#123; ... &#125;&#125;)&lt;/script&gt; 2. HashHash原理：通过window.onhashchange事件监听来获取url中hash值来实现数据传输。与Get一样，有Url长度限制1234567// A中代码var B = document.getElementdByTagName(&apos;iframe&apos;);B.src = B.src + &apos;#&apos; + &apos;data&apos;;// B中代码window.onhashchange = function()&#123; var data = window.location.hash;&#125; 3. postMessagepostMessage是HTML5的API，可参考开发文档window.postMessage12345678// A.com向B.com发送信息Bwindow.postMessage(&apos;data&apos;,&apos;http://B.com&apos;)// B中监听window.addEventListener(&apos;message&apos;, function(event)&#123; console.log(event.origin); // http://A.com console.log(event.source); // Bwindow console.log(event.data); // data&#125;, false) 项目中应用场景： 页面和其打开的新窗口的数据传递 多窗口之间消息传递 页面与嵌套的iframe消息传递 上面三个问题的跨域数据传递 4. WebSocketWebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议，本身不受同源限制。12345678910111213141516// WebSocket代码示例var ws = new WebSocket(&apos;wss://echo.websocket.org&apos;);ws.onopen = function (evt) &#123; console.log(&apos;Connection open ...&apos;); ws.send(&apos;Hello WebSocket!&apos;);&#125;;ws.onmessage = function (evt) &#123; console.log(&apos;Received Message: &apos; + evt.data); ws.close();&#125;ws.onclose = function (evt) &#123; console.log(&apos;Connection closed.&apos;);&#125; 5. CORSCORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）。它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。 浏览器兼容在XHR(IE8/9)及XHR2(&gt;=IE10)下需要做兼容处理。 12345678// CORS代码示例fetch(&apos;/url&apos;, &#123; method: &apos;get&apos;，&#125;).then(function(res)&#123; ...&#125;).catch(function(err) &#123; // 错误&#125;) – End –JSONP有更好的兼容性，能兼容低版本浏览器，但是基于Get传输数据，会因为浏览器Url长度限制而限制数据大小。CORS在不考虑低版本浏览器时，无疑是目前最好前后端通信方案（单向），双向选择WebSocket，而多个页面之间的数据通信，如内嵌iFrame等，则推荐postMessage。 每种方案有不同的应用场景，解决问题不只有一种解决方案，实际项目开发中，需根据实际需求来挑选最优的方案。 参考资料 html5 postMessage解决跨域、跨窗口消息传递 干货 | 前端常用的通信技术 阮一峰 — 跨域资源共享 CORS 详解 CORS正确使用姿势 作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>WEB</tag>
+        <tag>常见问题</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[杂谈：渐进增强与优雅降级]]></title>
+    <url>%2F2018%2F03%2F21%2F%E6%9D%82%E8%B0%88%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E4%B8%8E%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7%2F</url>
+    <content type="text"><![CDATA[作为一名前端开发人员，最头疼的莫过于浏览器兼容。远古时期万恶的IE6，到现在CSS3不兼容的IE7/8.为了保证不同版本浏览器都有共同或更优化的用户体验，前端搬砖的我们不得不与浏览器兼容顽强斗争。而渐进增强和优雅降级两种不同的开发流程，也是在我们项目初期做调研选型时会考虑的一个点。 渐进增强（Progressive Enhancement）一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行效果、交互、追加功能达到更好的体验。 优雅降级（graceful degradation）一开始就构建站点的完整功能，然后针对浏览器测试和修复。比如一开始使用 CSS3 的特性构建了一个应用，然后逐步针对各大浏览器进行 hack 使其可以在低版本浏览器上正常浏览。 初一看这两个概念有点高大上，其实作为开发人员来说，多多少少已经在项目中运用只是你自己不察觉而已。换个词汇就比较好理解了，渐进增强（向上/前兼容），优雅降级（向下兼容），向上兼容高版本浏览器，向下兼容低版本浏览器。 二者区别渐进增强和优雅降级只是看待同种事物的两种观点。渐进增强和优雅降级都关注于同一网站在不同设备里不同浏览器下的表现程度。关键的区别则在于它们各自关注的着重点不同，以及这种不同的关注点如何影响项目开发的流程。 优雅降级观点认为应该针对那些最高级、最完善的浏览器来设计网站。而将那些被认为“过时”或有功能缺失的浏览器下的测试工作安排在开发周期的最后阶段，并把测试对象限定为主流浏览器（如 Chrome，Safari，IE、FireFox等）的前一个版本。在这种设计范例下，旧版的浏览器被认为仅能提供“简陋却无妨 (poor, but passable)” 的浏览体验。你可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较大的错误之外，其它的差异将被直接忽略。 渐进增强观点则认为应关注于内容本身。请注意其中的差别：我甚至连“浏览器”三个字都没提。内容是我们建立网站的诱因。有的网站展示它，有的则收集它，有的寻求，有的操作，还有的网站甚至会包含以上的种种，但相同点是它们全都涉及到内容。这使得渐进增强成为一种更为合理的设计范例。这也是它立即被 Yahoo! 所采纳并用以构建其“分级式浏览器支持 (Graded Browser Support)”策略的原因所在。 概括：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带 代码案例12345678910111213.transition &#123; /*渐进增强写法*/ -webkit-transition: all .5s; -moz-transition: all .5s; -o-transition: all .5s; transition: all .5s;&#125;.transition &#123; /*优雅降级写法*/ transition: all .5s; -o-transition: all .5s; -moz-transition: all .5s; -webkit-transition: all .5s;&#125;// -webkit- / -moz- / -o- (浏览器前缀) 很久以前：浏览器前缀CSS3和正常CSS3都不支持； 不久之前：浏览器只支持前缀CSS3，不支持正常CSS3； 现在：浏览器既支持前缀CSS3，又支持正常CSS3； 未来：浏览器不支持前缀CSS3，仅支持正常CSS3. 渐进增强的写法，优先考虑老版本浏览器的可用性，最后才考虑新版本的可用性。在时期3中前缀CSS3和正常CSS3都可用的情况下，正常CSS3会覆盖前缀CSS3。优雅降级的写法，优先考虑新版本浏览器的可用性，最后才考虑老版本的可用性。在时期3中前缀CSS3和正常CSS3都可用的情况下，前缀CSS3会覆盖正常的CSS3。 现实项目开发中，推荐使用渐进增强的写法（postcss的autofixer也是这种写法），因为前缀CSS3的某些属性在浏览器中的实现效果有可能与正常的CSS3实现效果不太一样，所以最终还是得以正常CSS3为准。 可参考张鑫旭大神的文章《需警惕CSS3属性的书写顺序。 如何选择 低版本浏览器用户占比居多，优先采用渐进增强的开发流程； 高版本浏览器用户占比居多，优先采用优雅降级的开发流程； 事实上绝大多数的大公司都是采用渐进增强的方式，因为业务优先，提升用户体验永远不会排在最前面。例如，淘宝，京东，新浪微博等网站前端的更新，不可能追求某个特效而不考虑低版本用户可不可用，一定是确保低版本到高版本的可访问性，再去渐进增强，采用新功能给高版本用户提供更好的用户体验。当然也有一些反例如阿里云，本身就是面向软件开发者，这个群体的人总是喜欢尝试新事物，总是喜欢酷炫的特效，总是喜欢把它们的软件更新到最新版本，而且大多用的是谷歌浏览器，即使用IE浏览器，也是高版本IE浏览器，面对这种情况，优雅降级的开发流程才是更好的选择。 参考文章 渐进增强、优雅降级 渐进增强 VS 优雅降级 渐进增强和优雅降级之间的有什么不同? 需警惕CSS3属性的书写顺序 优雅降级和渐进增强的区别 作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>WEB</tag>
+        <tag>常见问题</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[天才迈向传奇 | 《硅谷钢铁侠:埃隆·马斯克》]]></title>
+    <url>%2F2018%2F02%2F10%2F%E5%A4%A9%E6%89%8D%E8%BF%88%E5%90%91%E4%BC%A0%E5%A5%87-%E7%A1%85%E8%B0%B7%E9%92%A2%E9%93%81%E4%BE%A0-%E5%9F%83%E9%9A%86%E9%A9%AC%E6%96%AF%E5%85%8B%2F</url>
+    <content type="text"><![CDATA[埃隆·马斯克的名字也许有很多人不熟知，包括未看到这本书的我。可能我们对于硅谷很多传奇名人，听得多的都是比尔盖茨，乔布斯，扎克伯格，但是好像还真没听说过埃隆·马斯克的名字。那么换个词汇，“特斯拉”，相信不少关注极客圈或者喜欢折腾新科技产品的小伙伴，或多或少听过一点吧，而“特斯拉”的创始人兼CEO，正是埃隆·马斯克。 埃隆·马斯克是一名风格独具的梦想家，也是眼光独到、一再开创新商业模式的企业家。从PayPal，到特斯拉、Space X、太阳城，他的创业历程中遭遇了无数棘手的事件，但是每一次突破都令全球惊艳。无论钟情于什么领域，他都可以展现出惊人的专注力。44岁的马斯克已经涉足颠覆互联网、 金融、汽车、航空以及能源业。他近乎疯狂的对科技的专注，使他成为目前最成功的连续创业者和科技创业家。 —— 百度百科 时间最贵埃隆·马斯克在创立公司时要求员工节约开发成本，拒绝员工采购价格高昂的汽车零件，却可以花9万美元租一架飞机返自己的办公室。一般人看来，这不“有钱没处花么”，其实不然，处于这种职位的人，时间对他们来说更宝贵，他们可以利用时间来处理更多的事情，创造更多的财富。但对于普通人来说，心中的年头可能是“我是缺钱，但不缺时间”。我觉得背后隐藏的另一个词是效率，不管哪种工作成本，时间也是其中一种。记得曾在书中见到这么一个例子，一位高管不理解公司为何要付出额外的开销给他配置司机，他有自行驾车出行的能力，完全没有必要再付出一个人的工资来请司机。但是反过来，他每天上下班时，多出了一个小时来阅读工作汇报，项目计划，公司虽然多支出了一份薪水，但得到了高管更多的工作回报，于公司更有利。我们不可否认，人类的一生是很短暂的。不管多聪明，多优秀的人，也抵不过时间，逃不了生老病死。还在浪费时间的我们，是不是该想想自己剩下的时间，还有多少盈利呢？ 偏执狂梦想家梦想每个人都有，就算没有，做个白日梦，还有不会的么。但是能认真思考并实现的，坚持完成的，寥寥无几。而埃隆·马斯克，从天才走向传奇。当然传奇的道路上会有许多荆棘，梦想和野心没有经历挫折的洗礼，注定不够完美。埃隆·马斯克信仰自己的“武士道”精神，情愿切腹，也不愿忍受失败。最后拿柄武士刀成为一件装饰品，因为他战胜了失败。不管是PayPal、特斯拉、SpaceX、太阳城，他都赢了，亲手将自己的梦想一个一个实现。作为一名具有工业专业能力的天才，他相信科技可以改变世界，而现在，他已是硅谷的传奇。 多核并行我曾试想着自己创业时的场景，诘问自己能否做好一个项目，运营好一家公司。未读这本书之前，我认为其它创业成功的人也许同我同我一样，在他们创业时，从一而终，至少是第一家公司走上正轨之前，都不会有精力去折腾第二家，第三家公司。而埃隆·马斯克，就像一个多核的CPU，并行处理不同的任务，同时兼顾着PayPal，特斯拉，SpaceX多家公司，而且还没有宕机重启过。越是压力承肩时，越能做出最好的决策，这不疑需要高度的专注力与毕其功于一役的决心。 题外我自己本身很喜欢小唐尼的《钢铁侠》系列电影，读完埃隆·马斯克，确实有很多钢铁侠的影子，埃隆·马斯克并不是钢铁侠的原型，但个人自身的魅力，性格特征，偏执成狂，强硬做派等，与唐尼的钢铁侠不谋而合。摒弃掉书中很多我未能理解的技术词汇，我觉得作为平凡的我们，即使没有超高的智商和不凡的能力，也不妨将梦想再放大一些，万一哪天真的见鬼实现了呢。当然圆梦的道路上，你可不一定走得顺畅，但不妨迈出脚去走走看，指不定还能得到上火星居住的机会。]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[不曾停歇 | “超级个体”]]></title>
+    <url>%2F2018%2F01%2F29%2F%E4%B8%8D%E6%9B%BE%E5%81%9C%E6%AD%87-%E8%B6%85%E7%BA%A7%E4%B8%AA%E4%BD%93%2F</url>
+    <content type="text"><![CDATA[“你不努力，谁也给不了你想要的生活。欲带皇冠，必承其重。你想过上自己梦想的生活，就应该选择一条属于自己的道路，并为此付出别人无法企及的努力。”——韦娜 《世界不曾亏欠每一个努力的人》 新知识的快感，让知识瘫痪当我们尝试去学习新知识时，会有很多的新鲜感。而相比在旧有知识继续升华沉淀，你会感到越来越枯燥，甚至开始厌恶。的确，旧知识的学习遇到瓶颈，需要花费更多的时间精力来沉淀。而新知识，相当于把玩一件新式物件，调起你喜新厌旧的本性。所以很多人，包括我自己，满足于新知识的快感，学得多但不精，略懂皮毛而不深究。久而久之，知识越来越多，不规整，不成体系，根基不稳，最后受不住顶端压力，以崩塌告终。想要知识大厦牢固，逻辑清晰不混乱，合理地利用大脑储藏就是必经之路。抽出时间精力对旧有知识形成体系沉淀，打好地基，再逐步扩展汲取新知识，添砖加瓦。这样你的知识殿堂才足够牢固，又具扩展性。 成功不是从零开始，而是在其领域中知识能力的积累成功不是让你去开创一个你从未接触过的行业，从零开始去做起来，这样你成功的可能性极低。正如我们从小到大的学习生涯，数理化知识的积累，从语数英再到物理，化学，历史，政治等。没有语数英的基础，不会有后面科目的扩展学习。许多人创业当老板，程序员跑去当产品经理，产品经理跑来当投资人，都是利用自己原有的知识和经验，融入到自己新的工作上并取得成功，而不是摒弃掉你之前的果实，重新栽种一颗新的树苗，再拾起浇水驱虫的工作。 白日梦想家乐观无疑是好事，但是过于乐观，你的大脑缺乏压力，没有紧迫感，放松了对问题的思考。居安而思危，对危机要有足够的警惕性，做好危机应对的准备，方可让你离梦想更进一步，不至于危机到来时，一脸懵逼。 安全感的奴隶熟悉的工作岗位，固定的生活方式。会让我们形成一种安全感，对其依赖。不求改变，不敢尝试，不敢跳出自己的舒适圈，觉得自己的人生足够安逸，日复一日直到退休，似乎你已经看到自己退休的样子。殊不知现在企业的寿命比员工的寿命还要更短，世界500强的企业，寿命也不过30-40年左右。很明显，我们为企业工作到退休的时间可远远不止这点时间。所以只有求变，不断适应社会的步伐，不断学习挑战突破自己，提升自己的软技能，职场竞争能力，方可收获真正的安全感。 什么时候适合陪伴父母亲我们总觉得年轻时到大城市打拼，不能常伴父母身旁，特变是中国“百行孝为先”的传统思想，让我们对父母总有一份愧疚。换个角度思考，我们二三十岁时，父母亲的身体都还健壮，生活可以自理，甚至还未到退休年龄，不至于丧失生存能力。而到父母亲七十八十岁左右，年纪比较大了，身体病痛也随之增加，这个时候，我们大概四五十岁左右，作为子女的我们在这个阶段需要花费大量的时间、精力、财力去照顾父母。那么你想在四五十岁阶段具备充裕的时间，财务自由，时间自由，靠的是什么，靠的不就是在你年轻的时候去拼搏去奋斗，到大城市去打拼换取而来，自己四五十岁时的时间及财富么。所以，趁年轻，多出去浪浪。 适者生存这个时代什么样的人会生存下来，智者？强者？都不是，这个时代，不是“智者生存”，也不是“强者生存”，而是“适者生存”，是能够适应自己的生存环境，才不至于被淘汰在任何一个时代的个体。 乐高式能力组合单一的能力并不能使你更强大，在这个快节奏的时代，每个行业的知识都有可能被取代替换，科技带来的行业冲击，生活方式的改变，没有谁可以保证你所在的行业，你的工作不会被其它人或机器所替代。所谓技不压身，多一项能力，多一种技术，就意味着你比别人多一份机会，多一份优势。不断学习将单一的能力拼接合成你自己的软实力。 结尾 —— 成为“超级个体”每个人都有机会依靠自己的努力和才华成功。这个时代，有才而不成功的几率变小，缺的是怕你没有才华还不努力。]]></content>
+      <categories>
+        <category>日更文集</category>
+      </categories>
+      <tags>
+        <tag>日更文集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[你有我的知识焦虑么？]]></title>
+    <url>%2F2018%2F01%2F28%2F%E4%BD%A0%E6%9C%89%E6%88%91%E7%9A%84%E7%9F%A5%E8%AF%86%E7%84%A6%E8%99%91%E4%B9%88%2F</url>
+    <content type="text"><![CDATA[”知识焦虑“ 在信息爆炸时代，人们对信息的吸收是呈平方数增长，但面对如此大量的信息，人类的思维模式远没有高速到接受自如的阶段。由此造成一系列的自我强迫和紧张。 我相信我们现处的这个时代，很多人跟我一样，都有一份“知识焦虑”，对自己未知的信息和知识，给予了自己的自我强迫与紧张。面对自己的不努力，懒惰懈怠，都会有或多或少的一份不安全感与恨其不争的无奈。懒散过后，又开始信誓旦旦地制定学习计划，希望通过学习课程，读书来让自己的内心变得充实些。 现实中，如果你有个有钱的老爸，让你衣食无忧，光鲜亮丽，些许你会少点焦虑。可惜大多数人如你我，并没有这样足以啃老的臂膀。唯有步履匆匆，用兢兢业业的工作和不敢停歇的学习，来让自己拥有一份份看上去不那么不堪的安全感。因为明白，不学习不努力就意味着不拼爹，不拼高考，你已经没有什么可以跟他们比拼的了。 但是，你的努力真的对了么？？？你在背的雅思英语，你在看的MBA，你在看的成功学。真的适合你么？？？ 改变你的思维认知 “立场，体验，意见” —— “目标，方法，行动” 思维方式的转变，我们每一个人的大脑里总会产生各种天马行空的想法或创意，每个人有不同的个人体验和对事物的意见。但是真正落实实践自己想法，行动起来的却少之又少。 投资界有这么个故事，投资人考核一家初创公司，不是看公司第一把手，而是看公司的第二把手。因为公司第一把手大多是公司创意想法的制造者，而公司第二把手则是执行者，如果执行者能力足够胜任，那么证明这家公司可行。因为第一把手已经成功地推销了自己的想法，并且得到其它牛人的认可，并且确保可以正确有效地执行。那么公司可以成功地运营起来。初创公司空有想法创意，不能有效执行实施，终究是空谈。 我们的思维方式来自从小的生活环境，父母，学校，家庭的耳濡目染。更多的是来自父母，“富爸爸，穷爸爸”的思维方式，把父辈的那一套思维方式传递给了我们。 随着“阶层危机”的到来，让社会阶层越来越固化，平民阶层与上层阶层的界限，除了资源的比拼，更深层次地是思维认知的差距。“富爸爸，穷爸爸”不是现金存款房车的比拼，而是比拼贫富的思维认知。“贫穷限制了你的思维”这并不是一句调侃的话，而是鲜血淋漓的写照。 想改变你所处的阶层，想从平民阶层晋升到上层阶层，唯有从改变你的思维认知开始，让你的思维完成从“立场，体验，意见”到“目标，方法，行动”转变。使你的思维认知不再处于贫穷。 “体验型消费”如果你没有知识，出去旅游看见美丽的风景，你只会说“哇靠，太美了”。而有知识的人，当你看到夕阳余晖… 你的脑海浮现的是：“落霞与孤鹜齐飞，秋水共长天一色。” 而不是：“卧槽，好多鸟，好多鸟，卧槽，真TM太好看了！”没有文化积淀的旅行，到哪不过是在你的相机中多留几张照片而已。作为一个俗人，欣赏它的美并不需要任何的门槛。但是没有文化知识的积淀，你就只是在走马观花，到此一游。 学习方法知识量爆发式增长，知识付费的兴起，各种在线音视频课程，公众号课堂雨后春笋般增长，人们获取知识的成本越来越低。但与之对比是人们的时间却被剧烈分割，时间一点一点被碎片化。不再拥有像学校课堂里，让你整整45分钟坐在课桌前，学完一学期的课程。知识量与学习时间成反比增长，传统的、系统化的学习方法已经不再有效。我们所处的时代，有太多的诱惑纷扰我们的集中力，很多人时不时地去看手机，一刷个朋友圈，一看个头条微博，大半的时间就这样不翼而飞。强迫你拿着本书从头看到尾，这样耗时，又学不牢，估计看完了也就完了，又剩下多少是你自己的。 因此，如何利用有限的时间来完成自己的知识储备，对当下的我们尤为重要。 1. 20%的时间学习80%的知识80%的知识并不难学会，但是剩下20%的进阶知识往往需要花费更多的时间精力才可并入囊中。鉴于投入与产出成正比，20%的时间换取80%的知识显然更符合当下，学习过后通过转述或者读书笔记加深自己的理解和记忆，变成自己的知识储备。 2. 找一个牛人，跟着他学自己摸索前行，总有很多荆棘。避免少走弯路，我们缺少一个领路人。而行业/知识领域界的大牛，他就是我们想要到达的终点，也是我们学习的参考对象。跟着他学，我们将知道自己所要学习哪些知识，朝哪个方向努力，有哪些坑需要跳过。有人给你指明了前方的路，你更容易到达，这样焦虑负担相对小了些。 3. 先搭建概念大厦，再具体学习我们对于未知的知识或多或少都有抗拒，如果一开始就抗拒，不利于你去接受认可它。学习新知识，可以先了解新知识各种概念名词，再去细化具体每个概念的基础学习。正如我们手中拿起一本未读过的书，先翻阅目录，了解每个章节的概念名词，再去翻阅具体每个章节的知识。减少来自我们自身的抗拒，并在脑海中构建起新知识的骨架，再一点点拼积木完成学习积累。 从自身做出改变，总是一件很难很难的事情。但是一点点的不同，都是对自身努力的一次美好见证。愿你我终有所得。]]></content>
+      <categories>
+        <category>日更文集</category>
+      </categories>
+      <tags>
+        <tag>日更文集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）]]></title>
+    <url>%2F2018%2F01%2F10%2FMac%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%8CDIY%E4%BD%A0%E7%9A%84Terminal%EF%BC%88iTerm2-Oh-My-Zsh%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[使用mac osx一年以来，自带的Terminal终端一直都是白底黑字，食之无味，越来越缺乏新鲜感，怎么也得想个法子来刺激下眼球。不然花那么多大洋买你回来是要哪般，难道真是为来学习工作？？？怎么可能，不装逼谁TM买苹果。。。好吧，其实为来工作学习，装逼纯属业余。 完成配置后的终端具备功能： 语法高亮 命令行tab补全 自动提示符 显示Git仓库状态等功能 ⌘+r 快速清空代码面板，跟终端输入clear一样的效果 安装步骤1. 下载iTerm22. 解压后安装iTerm2并打开 iTerm2 -&gt; Make iTerm2 Default Term 打开偏好设置preference，选中Keys，勾选Hotkey下的Show/hide iTerm2 with a system-wide hotkey，将热键设置为 ⌘+. ，这样你就可以通过 ⌘+. 全局热键来打开或关闭iTerm2窗口，非常方便3. 配色方案选用 solarized，下载解压，然后打开 iTerm2 下的偏好设置 preference ，点开 profiles 下的colors 选项，点击右下角的 Color Presets 选项，选择import ，导入解压到的 solarized 文件下的Solarized Dark.itermcolors 4. 安装oh-my-zshgithub：https://github.com/robbyrussell/oh-my-zsh官方提供 curl 和 wget 两种安装方式curl 安装：sh -c ``&quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;wget安装：sh -c ``&quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot; 5. 配置主题安装oh-my-zsh成功后 用 vim 编辑隐藏文件 .zshrc， 终端输入vi ~/.zshrcZSH_THEME=&quot;agnoster&quot; 将zsh主题修改为“agnoster” 应用“agnoster”主题需要特殊的字体支持，否则会出现乱码情况，使用 Meslo 字体，点开链接点击 view raw 下载字体 安装字体到系统字体册 在iTerm2中应用字体 iTerm -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; Change Font） 重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到字体效果 6. 自动提示与命令补全比iTerm2自带的更强大的命令提示与补全 克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 用 vim 编辑 .zshrc 文件，找到插件设置命令，默认是 plugins=(git) ，我们把它修改为plugins=(zsh-autosuggestions git) PS：当你重新打开终端时可能看不到变化，可能你的字体颜色太淡了，我们把其改亮一些： cd ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 用 vim 编辑 zsh-autosuggestions.zsh 文件，修改ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39; 7. 语法高亮效果 使用homebrew包管理工具安装 zsh-syntax-highlighting 插件brew install zsh-syntax-highlighting如果电脑上还没有安装homebrew，请先安装homebrew/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 配置.zshrc文件，插入一行source /xxx/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh(注意： /xxx/ 代表.zshrc所在的路径) 加载.zshrc配置source ~/.zshrc 重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到效果 扩展 iTerm2 默认使用dash改用zsh解决方法：chsh -s /bin/zsh iTerm2 zsh切换回原来的dash：chsh -s /bin/bash 卸载oh my zsh，在命令行输入：uninstall_oh_my_zsh 路径前缀的XX@XX太长，缩短问题：编辑~/.oh-my-zsh/themes/agnoster.zsh-theme主体文件，将里面的build_prompt下的prompt_context字段在前面加#注释掉即可 作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。]]></content>
+      <categories>
+        <category>工具类</category>
+      </categories>
+      <tags>
+        <tag>工具类</tag>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序爬坑日记]]></title>
+    <url>%2F2017%2F12%2F08%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E5%9D%91%E6%97%A5%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[新公司上手小程序。30天，从入门到现在，还没放弃。。。 虽然小程序发布出来快一年了，爬坑的兄弟们大多把坑都踩平了。而我一直停留在“Hello World”的学习阶段。一来没项目，只有项目才是实践学习的根本；二来刚出来，总是有很多坑。爬坑总是痛并快乐着。 再多的借口，产品项目需求拍在桌前，都得缴械投降。不要怂撸起袖子，就是干。 初识小程序微信推出小程序，想要实现即开即用，用完即走的用户体验。免去APP下载安装繁琐的流程。听起来像谷歌推出的PWA，不过PWA普及到国内还有段时间。而小程序借助于微信的用户群体，植入成本低，容易被用户接受。 小程序的代码风格跟Vue其实挺像，对于习惯Vue开发模式的同学，上手并没有太大的问题。 小程序不支持前端主流框架，如Vue，Angular，React，jQuery等，而且小程序有自己的一套视图容器(Dom)的写法，跟平常我们在web上写HTML不一样。不过CSS3那些变化不大。虽然文件名改成了(.wxss) 本司项目，使用webpack做打包工具，将代码编译成符合小程序的代码目录规范，采用wechat-mina-loader插件，实际开发起来跟在Vue下开发习惯一样。babel完成ES6转ES5，sass编译，压缩转化等工作都放到webpack中去做。 不支持dom操作小程序脚本内不能使用window,document对象，所以无法操作dom。如果想操作节点，可用wx.createSelectorQuery() 另外数据驱动的开发模式，跟Vue相同，只是写法换了（vue: v-if，小程序: wx:if） rpx布局 rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。 设计师做设计图以iPhone6作为设计稿基准就可以，基本上可以用rpx替换px，不过在一些表单或者提示页面，使用设计稿上的rpx会让小屏幕手机看着尺寸略小，提示页面可参照weui用px来实现 路由层级 wx.navigateTo(OBJECT)保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面 wx.redirctTo(OBJECT)关闭当前页面，跳转到应用内的某个页面 wx.switchTab(OBJECT)跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面 wx.reLaunch(OBJECT)关闭所有页面，打开到应用内的某个页面 小程序只能同时打开打开5个页面，当打开5个页面后，wx.navigateTo不能正常打开新页面，请避免多层级的交互方式，或者使用wx.redirctTo重定向 tabBar底部导航栏tabBar是一个数组。配置最少2个，最多5个，tab数组按顺序排序 页面滚动到顶部基础库1.4.0支持123wx.pageScrollTo(&#123; scrollTop: 0 //滚动到页面的目标位置（单位px）&#125;) 图片资源，CSS中的背景图片CSS中无法使用本地资源(开发目录中)的图片作为background-image。可以使用网络图片资源，或base64，或者使用image标签。tabBar的icon资源可使用本地资源 unionid与openid的区别每个用户在每个小程序里面都有唯一的openid，如果想在多个公众号，小程序里面共享用户信息，统一识别该用户，则需要用到unionid。为了获取uniond则需要注册微信开放平台，将需要共享的小程序，公众号进行绑定（不超过10个，超过10个还要申请认证称为第三发平台）。 textarea在滚动页面中的bugtextarea,map等组件是由客户端创建的原生组件，它的层级是最高的。如果有遇到定位元素的话。永远在最上面，盖不住。 请勿在 scroll-view、swiper、picker-view、movable-view 中使用 textarea 组件 CSS动画对textarea无效 项目场景：页面底部固定了一个按钮（position:fixed), 页面滚动时，textarea总是在按钮上面，点击按钮就点到了textarea 可以设置网络请求的超时时间app.js中配置123&quot;networkTimeout&quot;: &#123; &quot;request&quot;: 10000 // 10秒&#125; window配置navigationBarTextStyle 导航栏标题颜色仅支持black/white状态栏，导航条，标题，窗口背景色支持纯色，不支持渐变色 参数问题 url中添加参数，如url?a=1&amp;b=2, onLoad(options) options.query.a, options.query.b可获取到 扫描小程序码进页面，如果想获取小程序码url中所带的参数，可通过options.scene获取，不过需要对二维码中的scene值进行转换decodeURIComponent(options.scene), 调试阶段可以使用开发工具的条件编译自定义参数 scene=xxxx 进行模拟，开发工具模拟时的 scene 的参数值需要进行 urlencode (启动参数：scene=n%3D1001) 实际为scene=n=1001，参数n=1001 image标签图片image默认width: 300px, height: 225px, lazy-load懒加载只对page与scroll-view下的image有效mode缩放模式，mode=”widthFix”比较常用(宽度不变，高度自动变化，保持原图宽高比不变) 小程序可以监听小程序的关闭后，但是无法阻断场景：想在小程序退出时弹出个提示框，并阻止关闭（暂时无法实现） 小程序码小程序码(葵花码)有几种方式，只有发布过小程序才可正常显示小程序码 小程序第一次提交的审核时间较后面的长第一次提交审核一般1天到2天。所以为了能准点上线，建议先上一次临时的版本(放一个提示页面都可以)，过了第一次审核发布再说。日常提交审核，2-3小时就可以。 频繁地setData会造成性能问题频繁地setData操作，会出现卡顿，操作反馈延迟严重，甚至有可能闪退。 场景：原计划用countUp做数字动画，原理就是频繁地改变数字值，setData操作，渲染到模版上。 ES6转ES5，小程序检测目录中的js文件(极少)项目中用了webpack进行ES6转ES5，所以关闭了微信小程序的ES6转ES5功能。这个坑就比较隐蔽了，测试的时候在5S真机上报js错误，发现有个js(使用了ES6，没有转ES5)文件没有使用，微信小程序会去检测目录中的js文件，如果关闭了微信自带的ES6转ES5，检测到目录中js文件不兼容ES5，就报错。这个Bug只在5S真机里出现过，5C都正常。如果开启了微信开发工具中的ES6转ES5，则会自动帮你完成转化工作，不会出现类似问题。 分享些小程序开发比较常用的第三方库 weui-wxss(小程序版的weui样式库) Github: https://github.com/Tencent/weui-wxss wepy(小程序组件化框架) Github: https://github.com/Tencent/wepy skyvow/vux(小程序组件库) Github: https://github.com/skyvow/wux xiaolin3303/wx-charts(小程序图标) Github: https://github.com/xiaolin3303/wx-charts 作者：以乐之名 本文原创，有不当的地方欢迎指出。转载请指明出处。]]></content>
+      <categories>
+        <category>微信</category>
+      </categories>
+      <tags>
+        <tag>WEB 微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[npm常用命令整理]]></title>
+    <url>%2F2017%2F10%2F04%2Fnpm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[npm是一个NodeJS包管理跟分发工具，已经成为了非官方的发布node模块（包）的标准。它可以帮助我们解决代码部署上的一些问题，将开发者从繁琐的包管理工作中(版本、依赖等)解放出来，更加专注于功能上的开发，大大提升我们的工作效率。 以下为日常应用中收集整理的npm常用命令: 初始化 引导你创建一个package.json文件npm init 查看package.json文件内容格式npm help json 安装模块 (install 可简写为 i)npm install moduleName(安装到当前目录，仅在当前目录可用) 全局安装npm install moduleName -g(全局安装，可在所有目录下使用) 安装package.json中的模块npm install(目录中存在package.json，将安装package.json配置号的版本模块，install后面可不带模块名) 安装到开发环境依赖npm install moduleName --save-dev(例如一些预编译包，如sass-loader,less-loader等，仅在开发环境中会用到) 安装到生成环境依赖npm install moduleName --save 卸载模块 (uninstall 可简写 un)npm uninstall moduleName 重新安装模块npm rebuild moduleName 查看帮助npm help 检查模块是否已经过时npm outdated（列出所有有新版本的模块，方便对包的更新） 检查npm线上是否存在该模块npm search moduleName（当你想要发布自己写的包时，需查看线上是否有同名的已发布的包） 查看当前目录模块的安装路径npm root 查看全局安装模块的安装路径npm root -g 查看npm安装的版本npm -v 更新本机npm的版本npm install -g 更多npm命令请查看NPM官方文档 作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>WEB</tag>
+        <tag>Javascript</tag>
+        <tag>NodeJS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[preventDefault,stopPropagation,return false三者的区别]]></title>
+    <url>%2F2017%2F08%2F31%2FpreventDefault-stopPropagation-return-false%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[逛帖子的时候看到道友发的前端面试题， preventDefault(), stopPropagation(), return false三者的区别 这三者的使用想必大家并不陌生，但是细想之下还是有可究之处。 preventDefault()阻止元素在浏览器中的默认行为1234&lt;a id=&quot;link&quot; href=&quot;http://wuliv.com&quot;&gt;网站&lt;/a&gt;$(&apos;#link&apos;).click(function(event)&#123; event.preventDefault(); // 阻止了a链接href的访问或跳转&#125;) stopPropagation()事件冒泡：当一个元素上的事件被触发时，比如鼠标点击了一个按钮，同样的事件将会在该按钮元素的所有父级／祖先元素上触发。这一个过程就被称为事件冒泡。它是由子级元素先触发，父级元素后触发，由内而外（由下往上）的一个流程。与之顺序相反的是事件捕获。 事件捕获：父级元素先触发，子级元素后触发，在此仅做了解。 12345678910111213141516171819202122232425262728293031&lt;body&gt; &lt;div id=&quot;inner&quot;&gt; &lt;p&gt;事件冒泡例子&lt;/p&gt; &lt;button id=&quot;btn&quot;&gt;我要弹个框&lt;/button&gt; &lt;/div&gt;&lt;/div&gt;$(&apos;#btn&apos;).click(function(event)&#123; event.stopPropagation(); // 阻止了事件冒泡，不会触发&quot;#inner, body&quot;的点击事件 console.log(&apos;#btn&apos;)&#125;)$(&apos;#inner&apos;).click(function(event)&#123; // #btn 阻止了冒泡，这里不会执行 // 如果不使用stopPropagation, 当#btn点击时，这里也会执行 console.log(&apos;#inner&apos;)&#125;)$(&apos;body&apos;).click(function(event)&#123; // #btn 阻止了冒泡，.btn点击不会影响到我 // 如果不使用stopPropagation, 当#btn点击时，这里也会执行 console.log(&apos;body&apos;)&#125;)// 使用了stopPropagation()输出&apos;#btn&apos;// 不使用stopPropagation()输出&apos;#btn&apos;&apos;#inner&apos;&apos;body&apos; stopImmediatePropagation()阻止对象绑定的剩余的事件处理函数方法的执行，并阻止当前事件的冒泡。可以理解为stopImmediatePropagation是stopPropagation的升级版，除了阻止冒泡，还能阻止结束掉当前对象未执行的其它绑定事件方法。 jQuery中一个对象可以绑定多个事件方法，执行顺序会按照绑定的先后顺序来执行 12345678910111213141516171819202122232425262728293031323334353637&lt;body&gt; &lt;div id=&quot;inner&quot;&gt; &lt;p&gt;stopImmediatePropagation()例子&lt;/p&gt; &lt;button id=&quot;btn&quot;&gt;按钮&lt;/btn&gt; &lt;/div&gt;&lt;/body&gt;$(&apos;body&apos;).click(function(event)&#123; // body 点击 console.log(&apos;body&apos;);&#125;);$(&apos;#inner&apos;).click(function(event)&#123; // #inner 点击 console.log(&apos;#inner&apos;);&#125;)$(&apos;#btn&apos;).click(function(event)&#123; // 第一个#btn点击 e.stopImmediatePropagation(); console.log(&apos;#btn 1&apos;);&#125;)$(&apos;#btn&apos;).click(function(event)&#123; // 第二个#btn点击 console.log(&apos;#btn 2&apos;)&#125;)// 最终输出&apos;#btn 1&apos; // (因为stopImmediatePropagation阻止了#btn绑定的剩余未执行的事件方法，并且阻止了冒泡)// 如果不使用stopImmediatePropagation， 将输出&apos;#btn 1&apos;&apos;#btn 2&apos;&apos;#inner&apos;&apos;body&apos;同个对象执行顺序按绑定顺序执行，冒泡则由内向外执行 return false“return false” 相信不少同学会用来阻止元素在浏览器中的默认行为，拿它当preventDefault()使用，但其实“return false”做的事情不仅仅只是阻止默认行为 当调用“return false”时，它执行了以下三件事情 event.preventDefault() event.stopPropagation() 停止回调函数执行并立即返回 1，2点还好理解，那么第3点是怎么回事？return语句会终止函数的执行并返回函数的值。所以不管是否返回false或是其它值，return语句后面的代码都不会执行。而返回false，使它具备了preventDefault和stropPropagation的功能 123456$(&apos;a&apos;).click(function()&#123; return false; // return false直接返回了，并不会执行alert alert(&apos;我没有被弹出来&apos;);&#125;)// preventDefault 和 stopPropagation 并不会阻止回调函数的执行 总结很多jQuery教程在代码演示中用“return false”来阻止执行浏览器的默认行为。久而久之，很多同学习惯滥用“return false”来代替preventDefault 大多数情况下，我们仅仅是想要它执行跟preventDefault的功能而已，但它却自作主张地帮你执行了另外两步操作。比较好的编程习惯是，需要用到该事件方法再去调用，否则应该避免冗余事件的执行。就像prevnetDefault完成它该有的工作，并不会阻止父节点继续处理事件，使得代码更加灵活，更易于维护。 日常开发中还是要慎用“return false”，除非你同时需要preventDefault和stopPropagation，并且确定你的回调函数执行完成后调用，那么你可以使用“return false”，否则还是用preventDefault 或 stopPropagation 更好些。 作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。 参考文章：《preventDefault()、stopPropagation()、return false 之间的区别》]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>WEB</tag>
+        <tag>Javascript</tag>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HTTP中GET与POST的区别 99%的错误认识]]></title>
+    <url>%2F2017%2F08%2F27%2FHTTP%E4%B8%ADGET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB-99-%E7%9A%84%E9%94%99%E8%AF%AF%E8%AE%A4%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[本篇文章分两部分，第一部分可以列为初为新人的装逼失败模式，第二部分列为修炼低调模式。装逼失败模式：99%的人对GET和POST的认识修炼低调模式：1%不知道的进阶认识 GET和POST，在我们日常WEB开发中，是最常用的数据传输方式。面试中我们也经常会遇到。一般我们在浏览器输入一个网址URL访问网站都是GET方式请求；在HTML FROM表单中，可以通过设置method指定提交方式为GET或者POST方式，默认为GET提交方式 HTTP定义了与服务器交互的不同方法，其中最基本的四种：GET，POST，PUT，DELETE，HEAD；其中GET和HEAD被称为安全方法，因为使用GET和HEAD的HTTP请求不会产生什么动作。不会产生动作意味着GET和HEAD的HTTP请求不会在服务器上产生任何结果。但是安全方法并不是什么动作都不产生，这里的安全方法仅指不会修改信息。 GET和POST我们比较常用，其它几种实际应用比较少用到，在此仅作了解。 99%的人所认为的GET和POST1. 传输方式（自我理解“显示方式”）GET请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数之间以&amp;连接，如&quot;http://www.xxx.com/product?type=shoe&amp;price=100&amp;sex=male&quot;数据格式有以下注意点： 如果数据是英文字母/数字，原样发送； 如果是空格，转换为+； 如果是中文或其他字符，则把数据用Base64加密，如&quot;%E4%BD%A0%E5%A5%BD&quot;其中％XX中的XX为该符号以16进制表示的ASCII码。 POST请求会把请求的数据放置在HTTP请求包的包体中，GET传输的数据会直接暴露在URL中，而POST请求则不会。 2. 传输数据大小GET方式传输的数据最多只能是1024字节，因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系，URL本身不存在参数上限的问题，HTTP协议规范也没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。 注意：限制是针对整个URL长度，不单是传输的数据长度。 POST方式理论上没有限制，可传较大的数据。起限制作用的是服务器的处理程序的处理能力。Apache, Nigx, IIS服务器自身可配置限制传输大小。 3. GET在浏览器回退是无害的，而POST会再次提交请求4. GET产生的URL可以作为标签或存于历史记录中，而POST不可以5. GET请求会被浏览器主动cahe，而POST不会，除非手动设置6. 安全性GET传输的数据直接暴露在URL中，如果我们在做用户登录时，需要传输登录帐号及密码到后端做验证，如果用GET方式，那么账户密码直接暴露在URL里面，是极其危险的。而且浏览器缓存的机制，访问过的网站URL会被保存在浏览器历史记录里，其他人可通过历史记录查看访问网站URL，直接获取到传输的数据。很可能受到 “Cross-site request forgery”(中文名称：跨站请求伪造) 攻击。不过POST的数据也是可以被拦截的。 总结： GET请求是用来向服务器发送索取数据的一种请求，实际应用中数据不涉及到安全性，可用GET方式来向后端请求数据，如分页或搜索关键词 &quot;http://www.xxx.com/product?keywords=xxx&amp;page=2&quot;; POST请求是向服务器提交数据的一种请求，涉及到安全性的数据，用POST的方式来传输较GET更安全。 曾经的曾经，我也是那99%的一员，还把自己归纳的文章发给新人同事看，然后装逼失败，被老大引导练成最后的这1%。 1%的人所拥有的GET和POST本质上是没有区别的，它们是HTTP协议中的两种发送请求的方式。HTTP是基于TCP/IP的关于数据如何在万维网中通信的协议，即HTTP的底层是TCP/IP，所以GET和POST的底层也是TCP/IP，也就是说：GET/POST都是TCP链接。给POST带上url参数，给GET加上request body，技术上是可以实现的。 为了更方便的管理，避免混乱，HTTP给这些请求定义GET，POST，PUT，DELETE。而数据大小，则是因为浏览器的限制造成的。 所以GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同 隐藏的BuffGET产生一个TCP数据包，而POST产生两个TCP数据包 GET的请求，浏览器会把http header和data一并发送出去，服务器返回200（返回数据）POST的请求，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200（返回数据） 因为POST需要两步，时间上消耗的多一点，不过网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点 并不是所有浏览器POST发送两次包，Fiefox就发送一次。 最后的最后，当你以后被别人问到的时候，你就可以。。。。。。请开始你的表演 作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。 参考文章：《99%的人都理解错了HTTP中GET与POST的区别》]]></content>
+      <categories>
+        <category>HTTP</category>
+      </categories>
+      <tags>
+        <tag>WEB</tag>
+      </tags>
+  </entry>
 </search>
