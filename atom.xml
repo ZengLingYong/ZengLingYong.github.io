@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2018-03-21T13:01:13.676Z</updated>
+  <updated>2018-03-25T02:54:10.431Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杂谈：前端Web通信</title>
+    <link href="http://www.wuliv.com/2018/03/25/%E6%9D%82%E8%B0%88%EF%BC%9A%E5%89%8D%E7%AB%AFWeb%E9%80%9A%E4%BF%A1/"/>
+    <id>http://www.wuliv.com/2018/03/25/杂谈：前端Web通信/</id>
+    <published>2018-03-25T02:54:10.000Z</published>
+    <updated>2018-03-25T02:54:10.431Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/7324444-68e982f25aeb0a0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="WEB" scheme="http://www.wuliv.com/tags/WEB/"/>
+    
+      <category term="常见问题" scheme="http://www.wuliv.com/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="面试" scheme="http://www.wuliv.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>杂谈：渐进增强与优雅降级</title>

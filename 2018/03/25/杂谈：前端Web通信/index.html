@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="WEB,常见问题,面试," />
 
 
 
@@ -103,16 +103,20 @@
 
 
 
-<meta name="description" content="Try · Enjoy · Documentary">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kenz&#39;s Blog">
-<meta property="og:url" content="http://www.wuliv.com/archives/2018/01/index.html">
+<meta name="description" content="Web2.0以来，Ajax的出世，解决了传统表单提交页面跳转，闪烁白屏等问题。使得Web页面可以实现局部更新，不仅减少了网络带宽，还大大提升了用户体验。 但Ajax并非是一把万能的钥匙，足以打开Web通信这扇大门，当请求遇到跨域通信时，Ajax就没辙了。 Web的快速发展让开发走向工程化的同时，要求工作维度进行划分（前端后端分工明细），以便扩展维护日益复杂庞大的项目需求。而前后端分离的开发方式正">
+<meta name="keywords" content="WEB,常见问题,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杂谈：前端Web通信">
+<meta property="og:url" content="http://www.wuliv.com/2018/03/25/杂谈：前端Web通信/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="Try · Enjoy · Documentary">
+<meta property="og:description" content="Web2.0以来，Ajax的出世，解决了传统表单提交页面跳转，闪烁白屏等问题。使得Web页面可以实现局部更新，不仅减少了网络带宽，还大大提升了用户体验。 但Ajax并非是一把万能的钥匙，足以打开Web通信这扇大门，当请求遇到跨域通信时，Ajax就没辙了。 Web的快速发展让开发走向工程化的同时，要求工作维度进行划分（前端后端分工明细），以便扩展维护日益复杂庞大的项目需求。而前后端分离的开发方式正">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-68e982f25aeb0a0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-25T02:54:10.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kenz&#39;s Blog">
-<meta name="twitter:description" content="Try · Enjoy · Documentary">
+<meta name="twitter:title" content="杂谈：前端Web通信">
+<meta name="twitter:description" content="Web2.0以来，Ajax的出世，解决了传统表单提交页面跳转，闪烁白屏等问题。使得Web页面可以实现局部更新，不仅减少了网络带宽，还大大提升了用户体验。 但Ajax并非是一把万能的钥匙，足以打开Web通信这扇大门，当请求遇到跨域通信时，Ajax就没辙了。 Web的快速发展让开发走向工程化的同时，要求工作维度进行划分（前端后端分工明细），以便扩展维护日益复杂庞大的项目需求。而前后端分离的开发方式正">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-68e982f25aeb0a0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -141,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuliv.com/archives/2018/01/"/>
+  <link rel="canonical" href="http://www.wuliv.com/2018/03/25/杂谈：前端Web通信/"/>
 
 
 
 
 
-  <title>归档 | Kenz's Blog</title>
+  <title>杂谈：前端Web通信 | Kenz's Blog</title>
   
 
 
@@ -182,7 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,148 +324,310 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/03/25/杂谈：前端Web通信/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">杂谈：前端Web通信</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T10:54:10+08:00">
+                2018-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 10 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2018/03/25/杂谈：前端Web通信/" class="leancloud_visitors" data-flag-title="杂谈：前端Web通信">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/29/不曾停歇-超级个体/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">不曾停歇 | “超级个体”</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,334
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-29T14:46:14+08:00"
-              content="2018-01-29" >
-          01-29
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/28/你有我的知识焦虑么/" itemprop="url">
-              
-                <span itemprop="name">你有我的知识焦虑么？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-28T23:06:45+08:00"
-              content="2018-01-28" >
-          01-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/10/Mac终端配置，DIY你的Terminal（iTerm2-Oh-My-Zsh）/" itemprop="url">
-              
-                <span itemprop="name">Mac终端配置，DIY你的Terminal（iTerm2 + Oh-My-Zsh）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-10T16:32:40+08:00"
-              content="2018-01-10" >
-          01-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-68e982f25aeb0a0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端Web通信"></p>
+<p>Web2.0以来，Ajax的出世，解决了传统表单提交页面跳转，闪烁白屏等问题。使得Web页面可以实现局部更新，不仅减少了网络带宽，还大大提升了用户体验。</p>
+<p>但Ajax并非是一把万能的钥匙，足以打开Web通信这扇大门，当请求遇到跨域通信时，Ajax就没辙了。</p>
+<p>Web的快速发展让开发走向工程化的同时，要求工作维度进行划分（前端后端分工明细），以便扩展维护日益复杂庞大的项目需求。而前后端分离的开发方式正是这种需求背景下衍生的产物。（以前混编的代码现在是再也不想看到）</p>
+<p>前后端分离的开发方式，如何进行数据通信是开发人员绕不过去的问题。作为开发同学的小伙伴客户端的浏览器，有点小调皮还做了一个同源策略的限制，当我们的数据请求遇到不同源的情况下（跨域），我们就得尝试其它的通信方法，不能Ajax一条道走到黑。</p>
+<h3 id="什么是同源策略及限制"><a href="#什么是同源策略及限制" class="headerlink" title="什么是同源策略及限制"></a>什么是同源策略及限制</h3><blockquote>
+<p>同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。</p>
+</blockquote>
+<p><strong>同源要求协议，域名，端口(默认80)三者都相同，否则为非同源。</strong></p>
+<h4 id="同源策略限制："><a href="#同源策略限制：" class="headerlink" title="同源策略限制："></a>同源策略限制：</h4><ul>
+<li>Cookie， LocalStorage和IndexDB无法读取</li>
+<li>Dom无法获取</li>
+<li>Ajax请求不能发送</li>
+</ul>
+<hr>
+<h3 id="前后端如何通信"><a href="#前后端如何通信" class="headerlink" title="前后端如何通信"></a>前后端如何通信</h3><ol>
+<li>Ajax（仅支持同源）</li>
+<li>WebSocket （不受同源限制）</li>
+<li>CORS （都支持，新的W3C通信标准）</li>
+</ol>
+<h3 id="如何创建Ajax"><a href="#如何创建Ajax" class="headerlink" title="如何创建Ajax"></a>如何创建Ajax</h3><ul>
+<li>XMLHttpRequest对象的工作流程</li>
+<li>兼容性处理</li>
+<li>事件的触发条件</li>
+<li>事件的触发顺序</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var xhr = XMLHttpRequest ? new XMLHttpRequest() : new window.ActiveXObject(&apos;Microsoft&apos;)</div><div class="line">var data = opt.data,</div><div class="line">    url = opt.url,</div><div class="line">    type = opt.type.toUpperCase(),</div><div class="line">    dataArr = [];</div><div class="line">for (var k in data) &#123;</div><div class="line">    dataArr.push(k + &apos;=&apos; + data[k]);</div><div class="line">&#125;</div><div class="line">if (type === &apos;GET&apos;) &#123;</div><div class="line">    url = url + &apos;?&apos; + dataArr.join(&apos;&amp;&apos;);</div><div class="line">    xhr.open(type, url.replace(/\?$/g, &apos;&apos;, true);</div><div class="line">    xhr.send();</div><div class="line">&#125; </div><div class="line">if (type === &apos;POST&apos;) &#123;</div><div class="line">    xhr.open(type, url, true);</div><div class="line">    xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);</div><div class="line">    xhr.send(data.join(&apos;&amp;&apos;));</div><div class="line">&#125;</div><div class="line">xhr.onload = function() &#123;</div><div class="line">    if (xhr.status === 200 || xhr.status === 304) &#123;</div><div class="line">        var res;</div><div class="line">        if (opt.success &amp;&amp; opt.success instanceof Function) &#123;</div><div class="line">            res = xhr.responseText;</div><div class="line">            if (typeof res === &apos;string&apos;) &#123;</div><div class="line">                res = JSON.parse(res);</div><div class="line">                opt.success.call(xhr, res)</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            if (opt.error &amp;&amp; opt.error instanceof Function) &#123;</div><div class="line">                opt.error.call(xhr, res);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同源下，我们可以直接使用Ajax来与后端同学做数据通信，但是遇到跨域请求时，我们就得更换手中这把Ajax的钥匙，来重新配钥匙开锁</p>
+<h3 id="跨域通信的几种方式"><a href="#跨域通信的几种方式" class="headerlink" title="跨域通信的几种方式"></a>跨域通信的几种方式</h3><ol>
+<li>JSONP</li>
+<li>Hash</li>
+<li>postMessage (HTML5)</li>
+<li>WebSocket</li>
+<li>CORS (新的W3C通信标准)</li>
+</ol>
+<h4 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1. JSONP"></a>1. JSONP</h4><p>JSONP原理：客户端通过动态创建script标签异步加载来实现，服务端callback返回客户端定义的方法名，让客户端进行调用获取数据。</p>
+<p><strong>只支持Get请求</strong> (GET与POST的区别这里暂不细讲)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 客户端发送请求</div><div class="line">&lt;script src=&quot;http://www.abc.com?data=name&amp;callback=jsonpname&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">jsonpname(&#123;</div><div class="line">    data: &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="2-Hash"><a href="#2-Hash" class="headerlink" title="2. Hash"></a>2. Hash</h4><p>Hash原理：通过<code>window.onhashchange</code>事件监听来获取url中hash值来实现数据传输。与Get一样，有Url长度限制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// A中代码</div><div class="line">var B = document.getElementdByTagName(&apos;iframe&apos;);</div><div class="line">B.src = B.src + &apos;#&apos; + &apos;data&apos;;</div><div class="line">// B中代码</div><div class="line">window.onhashchange = function()&#123;</div><div class="line">    var data = window.location.hash;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="3-postMessage"><a href="#3-postMessage" class="headerlink" title="3. postMessage"></a>3. postMessage</h4><p>postMessage是HTML5的API，可参考开发文档<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="external">window.postMessage</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// A.com向B.com发送信息</div><div class="line">Bwindow.postMessage(&apos;data&apos;,&apos;http://B.com&apos;)</div><div class="line">// B中监听</div><div class="line">window.addEventListener(&apos;message&apos;, function(event)&#123;</div><div class="line">    console.log(event.origin); // http://A.com</div><div class="line">    console.log(event.source); // Bwindow</div><div class="line">    console.log(event.data); // data</div><div class="line">&#125;, false)</div></pre></td></tr></table></figure></p>
+<p>项目中应用场景：</p>
+<ol>
+<li>页面和其打开的新窗口的数据传递</li>
+<li>多窗口之间消息传递</li>
+<li>页面与嵌套的iframe消息传递</li>
+<li>上面三个问题的跨域数据传递</li>
+</ol>
+<h4 id="4-WebSocket"><a href="#4-WebSocket" class="headerlink" title="4. WebSocket"></a>4. WebSocket</h4><p>WebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议，本身不受同源限制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// WebSocket代码示例</div><div class="line">var ws = new WebSocket(&apos;wss://echo.websocket.org&apos;);</div><div class="line"></div><div class="line">ws.onopen = function (evt) &#123;</div><div class="line">    console.log(&apos;Connection open ...&apos;);</div><div class="line">    ws.send(&apos;Hello WebSocket!&apos;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onmessage = function (evt) &#123;</div><div class="line">    console.log(&apos;Received Message: &apos; + evt.data);</div><div class="line">    ws.close();</div><div class="line">&#125;</div><div class="line"></div><div class="line">ws.onclose = function (evt) &#123;</div><div class="line">    console.log(&apos;Connection closed.&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="5-CORS"><a href="#5-CORS" class="headerlink" title="5. CORS"></a>5. CORS</h4><p>CORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）。它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。</p>
+<p>浏览器兼容在XHR(IE8/9)及XHR2(&gt;=IE10)下需要做兼容处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// CORS代码示例</div><div class="line">fetch(&apos;/url&apos;, &#123;</div><div class="line">    method: &apos;get&apos;，</div><div class="line">&#125;).then(function(res)&#123;</div><div class="line">    ...</div><div class="line">&#125;).catch(function(err) &#123;</div><div class="line">    // 错误</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="–-End-–"><a href="#–-End-–" class="headerlink" title="– End –"></a>– End –</h3><p>JSONP有更好的兼容性，能兼容低版本浏览器，但是基于Get传输数据，会因为浏览器Url长度限制而限制数据大小。CORS在不考虑低版本浏览器时，无疑是目前最好前后端通信方案（单向），双向选择WebSocket，而多个页面之间的数据通信，如内嵌iFrame等，则推荐postMessage。</p>
+<p>每种方案有不同的应用场景，解决问题不只有一种解决方案，实际项目开发中，需根据实际需求来挑选最优的方案。</p>
+<hr>
+<p>参考资料</p>
+<ol>
+<li><a href="https://www.cnblogs.com/dolphinX/p/3464056.html" target="_blank" rel="external">html5 postMessage解决跨域、跨窗口消息传递</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDI3MjA5MQ==&amp;mid=2697266201&amp;idx=2&amp;sn=1b2ca738a21c6d899e82fa6fe769446b&amp;chksm=8376fb2db401723b8a88295bfb74f98bddc2eb52dabffe221ec2f06ed49885f3e606231796d5&amp;mpshare=1&amp;scene=1&amp;srcid=0703jbtAFe3qTgBHtxuzBfgt&amp;pass_ticket=ml9eF7+G5p9IAyQPuOX/q0esEXgr51fhWBL88VWLmzU=#rd" target="_blank" rel="external">干货 | 前端常用的通信技术</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">阮一峰 — 跨域资源共享 CORS 详解</a></li>
+<li><a href="https://blog.csdn.net/jlin991/article/details/57083865" target="_blank" rel="external">CORS正确使用姿势</a></li>
+</ol>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB/" rel="tag"># WEB</a>
+          
+            <a href="/tags/常见问题/" rel="tag"># 常见问题</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/21/杂谈：渐进增强与优雅降级/" rel="next" title="杂谈：渐进增强与优雅降级">
+                <i class="fa fa-chevron-left"></i> 杂谈：渐进增强与优雅降级
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -469,6 +635,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzY0OS8xMDIwNA"></div>
+      
+    </div>
+  
         </div>
         
           
@@ -488,8 +660,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -627,6 +808,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是同源策略及限制"><span class="nav-number">1.</span> <span class="nav-text">什么是同源策略及限制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同源策略限制："><span class="nav-number">1.1.</span> <span class="nav-text">同源策略限制：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前后端如何通信"><span class="nav-number">2.</span> <span class="nav-text">前后端如何通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何创建Ajax"><span class="nav-number">3.</span> <span class="nav-text">如何创建Ajax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域通信的几种方式"><span class="nav-number">4.</span> <span class="nav-text">跨域通信的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-JSONP"><span class="nav-number">4.1.</span> <span class="nav-text">1. JSONP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Hash"><span class="nav-number">4.2.</span> <span class="nav-text">2. Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-postMessage"><span class="nav-number">4.3.</span> <span class="nav-text">3. postMessage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-WebSocket"><span class="nav-number">4.4.</span> <span class="nav-text">4. WebSocket</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-CORS"><span class="nav-number">4.5.</span> <span class="nav-text">5. CORS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–-End-–"><span class="nav-number">5.</span> <span class="nav-text">– End –</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -733,11 +930,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -767,6 +962,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
