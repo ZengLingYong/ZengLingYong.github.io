@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2018-04-09T05:41:13.631Z</updated>
+  <updated>2018-04-09T05:42:58.210Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -20,12 +20,22 @@
     <link href="http://www.wuliv.com/2018/04/09/%E4%B8%80%E9%81%93JS%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BC%95%E5%8F%91%E7%9A%84%E8%A1%80%E6%A1%88/"/>
     <id>http://www.wuliv.com/2018/04/09/一道JS面试题引发的血案/</id>
     <published>2018-04-09T05:41:13.000Z</published>
-    <updated>2018-04-09T05:41:13.631Z</updated>
+    <updated>2018-04-09T05:42:58.210Z</updated>
     
     <summary type="html">
     
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/7324444-2e356f337318789a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
+    
     </summary>
     
+      <category term="前端" scheme="http://www.wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="WEB" scheme="http://www.wuliv.com/tags/WEB/"/>
+    
+      <category term="常见问题" scheme="http://www.wuliv.com/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="面试" scheme="http://www.wuliv.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   

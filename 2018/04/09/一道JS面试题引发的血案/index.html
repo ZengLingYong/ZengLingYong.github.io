@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="WEB,常见问题,面试," />
 
 
 
@@ -103,17 +103,20 @@
 
 
 
-<meta name="description" content="Try · Enjoy · Documentary">
+<meta name="description" content="刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。BI项目组长给我看了一道面试别人的JS面试题。 虽然答对了，但把理由说错了，照样不及格。 话不多说，直接上题： 123456789101112var a = 1;switch (a) &amp;#123;    case 2:        console.log(2)    break;    case 1, 2, 3:  // 这里cas">
+<meta name="keywords" content="WEB,常见问题,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一道JS面试题引发的血案">
 <meta property="og:url" content="http://www.wuliv.com/2018/04/09/一道JS面试题引发的血案/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="Try · Enjoy · Documentary">
+<meta property="og:description" content="刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。BI项目组长给我看了一道面试别人的JS面试题。 虽然答对了，但把理由说错了，照样不及格。 话不多说，直接上题： 123456789101112var a = 1;switch (a) &amp;#123;    case 2:        console.log(2)    break;    case 1, 2, 3:  // 这里cas">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-09T05:41:13.631Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-2e356f337318789a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-09T05:42:58.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一道JS面试题引发的血案">
-<meta name="twitter:description" content="Try · Enjoy · Documentary">
+<meta name="twitter:description" content="刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。BI项目组长给我看了一道面试别人的JS面试题。 虽然答对了，但把理由说错了，照样不及格。 话不多说，直接上题： 123456789101112var a = 1;switch (a) &amp;#123;    case 2:        console.log(2)    break;    case 1, 2, 3:  // 这里cas">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-2e356f337318789a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -375,6 +378,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -408,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  395
                 </span>
               
 
@@ -445,7 +470,68 @@
       
 
       
-        
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-2e356f337318789a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="逗号表达式"></p>
+<p>刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。<br>BI项目组长给我看了一道面试别人的JS面试题。</p>
+<p>虽然答对了，但把理由说错了，照样不及格。</p>
+<p>话不多说，直接上题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">switch (a) &#123;</div><div class="line">    case 2:</div><div class="line">        console.log(2)</div><div class="line">    break;</div><div class="line">    case 1, 2, 3:  // 这里case是对比几呢？</div><div class="line">        console.log(1)</div><div class="line">    break;</div><div class="line">    default: </div><div class="line">    break;</div><div class="line">&#125;</div><div class="line">// result：最后什么都不会输出</div></pre></td></tr></table></figure>
+<p>看完题如果答对并且知道理由的小伙伴，仅当加深印象；如果你也像我一样不明所以，请仔细往下看。</p>
+<h3 id="逗号表达式"><a href="#逗号表达式" class="headerlink" title="逗号表达式"></a>逗号表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">表达式1，表达式2，表达式3，...... ，表达式n</div></pre></td></tr></table></figure>
+<h4 id="逗号表达式的要领："><a href="#逗号表达式的要领：" class="headerlink" title="逗号表达式的要领："></a>逗号表达式的要领：</h4><ol>
+<li>逗号表达式的运算过程为：从左往右逐个计算表达式</li>
+<li>逗号表达式作为一个整体，它的值为最后一个表达式（也即表达式n）的值</li>
+<li>逗号运算符的优先级别在所有运算符中最低</li>
+</ol>
+<p>有了上述的概念，再回过头来看面试题就很清晰了。</p>
+<p>打铁趁热，再来一道题来加深下理解。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var i, j, k;</div><div class="line">for (i = 0, j = 0; i &lt; 10, j &lt; 6; i++, j++) &#123;</div><div class="line">    k = i+j;</div><div class="line">&#125;</div><div class="line">console.log(k); </div><div class="line"></div><div class="line">// result：10</div></pre></td></tr></table></figure>
+<p>执行步骤如下表</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>j</th>
+<th>k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>一直埋头写代码，没用到的知识总是容易忘记，刚好碰到，索性做下笔记加深印象，努力学习知识，仅为装X。</p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
       
     </div>
     
@@ -490,6 +576,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB/" rel="tag"># WEB</a>
+          
+            <a href="/tags/常见问题/" rel="tag"># 常见问题</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
       
 
       
@@ -561,8 +657,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -700,6 +805,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#逗号表达式"><span class="nav-number">1.</span> <span class="nav-text">逗号表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#逗号表达式的要领："><span class="nav-number">1.1.</span> <span class="nav-text">逗号表达式的要领：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -724,7 +845,7 @@
 </div>
 
 <div>
-  <span class="post-count">博客全站共13.2k字</span> - 
+  <span class="post-count">博客全站共13.6k字</span> - 
   <div style="display:inline-block">Hosted by <a href="https://pages.coding.me" target="_blank">Coding Pages</a></div>
 </div>
 
