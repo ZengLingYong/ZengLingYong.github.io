@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WEB,常见问题,面试," />
+  <meta name="keywords" content="WEB,Javascript," />
 
 
 
@@ -103,20 +103,20 @@
 
 
 
-<meta name="description" content="刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。BI项目组长给我看了一道面试别人的JS面试题。 虽然答对了，但把理由说错了，照样不及格。 话不多说，直接上题： 123456789101112var a = 1;switch (a) &amp;#123;    case 2:        console.log(2)    break;    case 1, 2, 3:  // 这里cas">
-<meta name="keywords" content="WEB,常见问题,面试">
+<meta name="description" content="说说烂大街的if/if...else...，程序中用得最多的流程判断语句。 对着曾经满屏的if/if...else...，心想能不能搞点事情，折腾点浪花浪里呀浪。 对顶着“这个需求很简单，怎么实现我不管，明天上线”的程序猿，答案必须YES。 “Write Less, Do More”，学习进步的本质就是为了更有效率地偷懒。 废话说完，直接上方法汇总，让我们来一窥究竟： switch改写if123">
+<meta name="keywords" content="WEB,Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一道JS面试题引发的血案">
-<meta property="og:url" content="http://www.wuliv.com/2018/04/09/一道JS面试题引发的血案/index.html">
+<meta property="og:title" content="JS 中 if &#x2F; if...else...替换方式">
+<meta property="og:url" content="http://www.wuliv.com/2018/07/14/JS-中-if-if-else-替换方式/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。BI项目组长给我看了一道面试别人的JS面试题。 虽然答对了，但把理由说错了，照样不及格。 话不多说，直接上题： 123456789101112var a = 1;switch (a) &amp;#123;    case 2:        console.log(2)    break;    case 1, 2, 3:  // 这里cas">
+<meta property="og:description" content="说说烂大街的if/if...else...，程序中用得最多的流程判断语句。 对着曾经满屏的if/if...else...，心想能不能搞点事情，折腾点浪花浪里呀浪。 对顶着“这个需求很简单，怎么实现我不管，明天上线”的程序猿，答案必须YES。 “Write Less, Do More”，学习进步的本质就是为了更有效率地偷懒。 废话说完，直接上方法汇总，让我们来一窥究竟： switch改写if123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-2e356f337318789a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-09T05:42:58.210Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-d2f5af033e9a4f64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-14T02:11:11.737Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一道JS面试题引发的血案">
-<meta name="twitter:description" content="刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。BI项目组长给我看了一道面试别人的JS面试题。 虽然答对了，但把理由说错了，照样不及格。 话不多说，直接上题： 123456789101112var a = 1;switch (a) &amp;#123;    case 2:        console.log(2)    break;    case 1, 2, 3:  // 这里cas">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-2e356f337318789a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="JS 中 if &#x2F; if...else...替换方式">
+<meta name="twitter:description" content="说说烂大街的if/if...else...，程序中用得最多的流程判断语句。 对着曾经满屏的if/if...else...，心想能不能搞点事情，折腾点浪花浪里呀浪。 对顶着“这个需求很简单，怎么实现我不管，明天上线”的程序猿，答案必须YES。 “Write Less, Do More”，学习进步的本质就是为了更有效率地偷懒。 废话说完，直接上方法汇总，让我们来一窥究竟： switch改写if123">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-d2f5af033e9a4f64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuliv.com/2018/04/09/一道JS面试题引发的血案/"/>
+  <link rel="canonical" href="http://www.wuliv.com/2018/07/14/JS-中-if-if-else-替换方式/"/>
 
 
 
 
 
-  <title>一道JS面试题引发的血案 | Kenz's Blog</title>
+  <title>JS 中 if / if...else...替换方式 | Kenz's Blog</title>
   
 
 
@@ -338,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/04/09/一道JS面试题引发的血案/">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/07/14/JS-中-if-if-else-替换方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -355,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一道JS面试题引发的血案</h1>
+          <h1 class="post-title" itemprop="name headline">JS 中 if / if...else...替换方式</h1>
         
 
         <div class="post-meta">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T13:41:13+08:00">
-                2018-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T10:11:11+08:00">
+                2018-07-14
               </time>
             
 
@@ -407,7 +407,7 @@
 
           
           
-             <span id="/2018/04/09/一道JS面试题引发的血案/" class="leancloud_visitors" data-flag-title="一道JS面试题引发的血案">
+             <span id="/2018/07/14/JS-中-if-if-else-替换方式/" class="leancloud_visitors" data-flag-title="JS 中 if / if...else...替换方式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  395
+                  1,595
                 </span>
               
 
@@ -449,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  7
                 </span>
               
             </div>
@@ -470,64 +470,85 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-2e356f337318789a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="逗号表达式"></p>
-<p>刚入职新公司，属于公司萌新一枚，一天下午对着屏幕看代码架构时。<br>BI项目组长给我看了一道面试别人的JS面试题。</p>
-<p>虽然答对了，但把理由说错了，照样不及格。</p>
-<p>话不多说，直接上题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">switch (a) &#123;</div><div class="line">    case 2:</div><div class="line">        console.log(2)</div><div class="line">    break;</div><div class="line">    case 1, 2, 3:  // 这里case是对比几呢？</div><div class="line">        console.log(1)</div><div class="line">    break;</div><div class="line">    default: </div><div class="line">    break;</div><div class="line">&#125;</div><div class="line">// result：最后什么都不会输出</div></pre></td></tr></table></figure>
-<p>看完题如果答对并且知道理由的小伙伴，仅当加深印象；如果你也像我一样不明所以，请仔细往下看。</p>
-<h3 id="逗号表达式"><a href="#逗号表达式" class="headerlink" title="逗号表达式"></a>逗号表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">表达式1，表达式2，表达式3，...... ，表达式n</div></pre></td></tr></table></figure>
-<h4 id="逗号表达式的要领："><a href="#逗号表达式的要领：" class="headerlink" title="逗号表达式的要领："></a>逗号表达式的要领：</h4><ol>
-<li>逗号表达式的运算过程为：从左往右逐个计算表达式</li>
-<li>逗号表达式作为一个整体，它的值为最后一个表达式（也即表达式n）的值</li>
-<li>逗号运算符的优先级别在所有运算符中最低</li>
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-d2f5af033e9a4f64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="if/if...else...替换方式"></p>
+<p>说说烂大街的<code>if/if...else...</code>，程序中用得最多的流程判断语句。</p>
+<p>对着曾经满屏的<code>if/if...else...</code>，心想能不能搞点事情，折腾点浪花浪里呀浪。</p>
+<p>对顶着“这个需求很简单，怎么实现我不管，明天上线”的程序猿，答案必须YES。</p>
+<p><strong>“Write Less, Do More”</strong>，学习进步的本质就是为了更有效率地偷懒。</p>
+<p>废话说完，直接上方法汇总，让我们来一窥究竟：</p>
+<h3 id="switch改写if"><a href="#switch改写if" class="headerlink" title="switch改写if"></a>switch改写if</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// if 版本</div><div class="line">var a = 1;</div><div class="line">if(a &gt; 1 &amp;&amp; a &lt; 5) &#123;</div><div class="line">    return 1</div><div class="line">&#125; else if(a &gt; 5 &amp;&amp; a &lt; 10)&#123;</div><div class="line">    return 5</div><div class="line">&#125;else&#123;</div><div class="line">    return 10</div><div class="line">&#125;</div><div class="line"></div><div class="line">// switch 改版</div><div class="line">switch(true)&#123;</div><div class="line">    case (a &gt; 1 &amp;&amp; a &lt; 5):</div><div class="line">        return 1</div><div class="line">    case (a &gt; 5 &amp;&amp; a &lt; 10):</div><div class="line">        return 5</div><div class="line">    default:</div><div class="line">        return 10</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上代码的<code>switch...case...</code>的用法实际使用不多，仅供参考。<br>一般case为常量时<code>switch...case...</code>用得较多。</p>
+<p>选择分支较多时，建议选用<code>switch…case</code>可提高程序的效率，但<code>switch...case</code>不足的地方在于只能处理字符或者数字类型的变量，<code>if…else</code>更加灵活，可用于判断表达式是否成立，比如<code>if(a+b&gt;c)</code>,<code>if…else</code>的应用范围更广。</p>
+<h3 id="三元运算符改写if"><a href="#三元运算符改写if" class="headerlink" title="三元运算符改写if"></a>三元运算符改写if</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// if 版本</div><div class="line">if (bool) &#123;</div><div class="line">    value = 1;</div><div class="line">&#125; else &#123;</div><div class="line">    value = 2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 三元运算符 版本</div><div class="line">value = bool ? 1 : 2;</div><div class="line">// 三元预算符 多个运算需要括号包裹 此处用了逗号表达式</div><div class="line">return typeof foo === &apos;object&apos;?(console.log(1),1):(console.log(2),2);</div></pre></td></tr></table></figure>
+<p>优点：代码简化，更加清爽，write less</p>
+<p>缺点：复杂的三元运算符可读性较差，需友好注释</p>
+<p>TIPS:  三元运算符后面不能带return</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 错误用法，运算符号后不能带return</div><div class="line">bool ? return 1 : return 2;</div></pre></td></tr></table></figure>
+<h3 id="逻辑判断-and-amp-amp-和or-改写if"><a href="#逻辑判断-and-amp-amp-和or-改写if" class="headerlink" title="逻辑判断 and(&amp;&amp;)和or(||) 改写if"></a>逻辑判断 and(&amp;&amp;)和or(||) 改写if</h3><p>原理：利用逻辑判断的短路运算来实现</p>
+<blockquote>
+<p>短路：<code>&amp;&amp;</code> 中第一个表达式为假就不会去处理第二个表达式，<code>||</code> 则相反</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// if为真</div><div class="line">if (bool) &#123;</div><div class="line">    value = getYes();</div><div class="line">&#125;</div><div class="line">// &amp;&amp;改版</div><div class="line">bool &amp;&amp; (value = getYes());</div><div class="line"></div><div class="line">// if为假</div><div class="line">if (!bool) &#123;</div><div class="line">    value = getNo();</div><div class="line">&#125;</div><div class="line">bool || (value = getNo());</div></pre></td></tr></table></figure>
+<p>优点：代码简化，更加清爽，write less</p>
+<p>缺点：适用于简单判断逻辑，复杂的判断运算可读性较差，需友好注释</p>
+<p>TIPS：适用于没有else的场景, 逻辑运算符后面不能带return</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 错误用法，运算符号后不能带return</div><div class="line">boll || return true;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="知识点插播-——-1"><a href="#知识点插播-——-1" class="headerlink" title="知识点插播 —— (1)"></a>知识点插播 —— (1)</h4><ol>
+<li><p>三元运算符和逻辑运算符都有一层return作用，但不可作用于函数return语句，所以像以下这种用法都是错误的；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 错误用法</div><div class="line">function getResult(value) &#123;</div><div class="line">    value ? &apos;yes&apos; : &apos;no&apos;;</div><div class="line">&#125;</div><div class="line">var result = getResult(true); // 并不会有值返回</div></pre></td></tr></table></figure>
+</li>
+<li><p>js逻辑运算中，<code>0/&quot;&quot;/null/false/undefined/NaN</code>都会判为<code>false</code>，其它都为<code>true</code>；</p>
+</li>
+<li>很多开源代码中可见<code>if(!!attr)</code>，为什么不直接写<code>if(attr)</code>， 其实这是一种更严谨的写法，<code>!!attr</code>会强制转化为boolean类型。<code>typeof !!attr == true</code> 比 <code>typeof attr == true</code> 更加严谨。</li>
 </ol>
-<p>有了上述的概念，再回过头来看面试题就很清晰了。</p>
-<p>打铁趁热，再来一道题来加深下理解。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var i, j, k;</div><div class="line">for (i = 0, j = 0; i &lt; 10, j &lt; 6; i++, j++) &#123;</div><div class="line">    k = i+j;</div><div class="line">&#125;</div><div class="line">console.log(k); </div><div class="line"></div><div class="line">// result：10</div></pre></td></tr></table></figure>
-<p>执行步骤如下表</p>
-<table>
-<thead>
-<tr>
-<th>i</th>
-<th>j</th>
-<th>k</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>4</td>
-</tr>
-<tr>
-<td>3</td>
-<td>3</td>
-<td>6</td>
-</tr>
-<tr>
-<td>4</td>
-<td>4</td>
-<td>8</td>
-</tr>
-<tr>
-<td>5</td>
-<td>5</td>
-<td>10</td>
-</tr>
-</tbody>
-</table>
-<p>一直埋头写代码，没用到的知识总是容易忘记，刚好碰到，索性做下笔记加深印象，努力学习知识，仅为装X。</p>
+<hr>
+<h3 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// if版本</div><div class="line">if (a == 1) &#123;</div><div class="line">    return &apos;one&apos;;</div><div class="line">&#125; else if (a == 2) &#123;</div><div class="line">    return &apos;two&apos;;</div><div class="line">&#125; else if (a == 3) &#123;</div><div class="line">    return &apos;three&apos;;</div><div class="line">&#125; else &#123;</div><div class="line">    return &apos;&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 对象属性 改版</div><div class="line">var ret = &#123;</div><div class="line">    1: &apos;one&apos;,</div><div class="line">    2: &apos;two&apos;,</div><div class="line">    3: &apos;three&apos;</div><div class="line">&#125;;</div><div class="line">return ret[a] ? ret[a] : &apos;&apos;;</div></pre></td></tr></table></figure>
+<p>TIPS：</p>
+<ol>
+<li>判断值需为确定值，如<code>==</code> ，其它如<code>&gt;=/&lt;=/&gt;/&lt;</code>不适用</li>
+<li>条件作为对象属性，需要注意对象属性的读取方式</li>
+</ol>
+<hr>
+<h4 id="知识点插播-——-2"><a href="#知识点插播-——-2" class="headerlink" title="知识点插播 —— (2)"></a>知识点插播 —— (2)</h4><h5 id="JS的命名规则（变量的命名规则）"><a href="#JS的命名规则（变量的命名规则）" class="headerlink" title="JS的命名规则（变量的命名规则）"></a>JS的命名规则（变量的命名规则）</h5><ul>
+<li>标识符只能由字母、数字、下划线和‘$’组成</li>
+<li>数字不可以作为标识符的首字符</li>
+</ul>
+<h5 id="对象属性的命名规则"><a href="#对象属性的命名规则" class="headerlink" title="对象属性的命名规则"></a>对象属性的命名规则</h5><ul>
+<li>通过<code>[]</code>操作符为对象添加属性时，属性名可以是任何字符串（包括只包含空格的字符串和空字符串）；</li>
+<li>通过<code>.</code>操作符为对象添加属性时，属性名必须是合法的标识符名称；</li>
+<li>如果属性名包含非法的标识符字符，则只能采用<code>obj[“propertyName”]</code>的形式；</li>
+<li>如果属性名是合法的标识符，读取时可采用<code>obj.propertyName</code>或<code>obj[“propertyName”]</code>的形式；</li>
+</ul>
+<hr>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><blockquote>
+<p>策略模式：定义一系列的算法，把它们一个个封装起来，目的就是将算法的使用与算法的实现分离开来</p>
+</blockquote>
+<p>以下为常见的表单验证，用策略模式来构建，替换<code>if...else</code>的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line">// html</div><div class="line">&lt;form id = &quot;registerForm&quot; method=&quot;post&quot; action=&quot;http://xxxx.com/api/register&quot;&gt;</div><div class="line">    用户名：&lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;</div><div class="line">    密码：&lt;input type=&quot;text&quot; name=&quot;password&quot;&gt;</div><div class="line">    手机号码：&lt;input type=&quot;text&quot; name=&quot;phoneNumber&quot;&gt;</div><div class="line">    &lt;button type=&quot;submit&quot;&gt;提交&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div><div class="line"></div><div class="line">// js</div><div class="line">// 策略对象</div><div class="line">var strategies = &#123;</div><div class="line">    isNoEmpty: function (value, errorMsg) &#123;</div><div class="line">        if (value === &apos;&apos;) &#123;</div><div class="line">            return errorMsg;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    isNoSpace: function (value, errorMsg) &#123;</div><div class="line">        if (value.trim() === &apos;&apos;) &#123;</div><div class="line">            return errorMsg;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    minLength: function (value, length, errorMsg) &#123;</div><div class="line">        if (value.trim().length &lt; length) &#123;</div><div class="line">            return errorMsg;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    maxLength: function (value, length, errorMsg) &#123;</div><div class="line">        if (value.length &gt; length) &#123;</div><div class="line">            return errorMsg;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    isMobile: function (value, errorMsg) &#123;</div><div class="line">        if (!/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|17[7]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$/.test(value)) &#123;</div><div class="line">            return errorMsg;</div><div class="line">        &#125;                </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 验证类</div><div class="line">var Validator = function() &#123;</div><div class="line">    this.cache = [];</div><div class="line">&#125;</div><div class="line">Validator.prototype.add = function(dom, rules) &#123;</div><div class="line">    var self = this;</div><div class="line">    for(var i = 0, rule; rule = rules[i++];) &#123;</div><div class="line">        (function(rule) &#123;</div><div class="line">            var strategyAry = rule.strategy.split(&apos;:&apos;);</div><div class="line">            var errorMsg = rule.errorMsg;</div><div class="line">            self.cache.push(function() &#123;</div><div class="line">            var strategy = strategyAry.shift();</div><div class="line">            strategyAry.unshift(dom.value);</div><div class="line">            strategyAry.push(errorMsg);</div><div class="line">            return strategies[strategy].apply(dom, strategyAry);</div><div class="line">            &#125;)</div><div class="line">        &#125;)(rule)</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">Validator.prototype.start = function() &#123;</div><div class="line">    for(var i = 0, validatorFunc; validatorFunc = this.cache[i++];) &#123;</div><div class="line">        var errorMsg = validatorFunc();</div><div class="line">        if (errorMsg) &#123;</div><div class="line">            return errorMsg;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 调用代码</div><div class="line">var registerForm = document.getElementById(&apos;registerForm&apos;);</div><div class="line"></div><div class="line">var validataFunc = function() &#123;</div><div class="line">    var validator = new Validator();</div><div class="line">    validator.add(registerForm.userName, [&#123;</div><div class="line">        strategy: &apos;isNoEmpty&apos;,</div><div class="line">        errorMsg: &apos;用户名不可为空&apos;</div><div class="line">    &#125;, &#123;</div><div class="line">        strategy: &apos;isNoSpace&apos;,</div><div class="line">        errorMsg: &apos;不允许以空白字符命名&apos;</div><div class="line">    &#125;, &#123;</div><div class="line">        strategy: &apos;minLength:2&apos;,</div><div class="line">        errorMsg: &apos;用户名长度不能小于2位&apos;</div><div class="line">    &#125;]);</div><div class="line">    validator.add(registerForm.password, [ &#123;</div><div class="line">        strategy: &apos;minLength:6&apos;,</div><div class="line">        errorMsg: &apos;密码长度不能小于6位&apos;</div><div class="line">    &#125;]);</div><div class="line">    validator.add(registerForm.phoneNumber, [&#123;</div><div class="line">        strategy: &apos;isMobile&apos;,</div><div class="line">        errorMsg: &apos;请输入正确的手机号码格式&apos;</div><div class="line">    &#125;]);</div><div class="line">    var errorMsg = validator.start();</div><div class="line">    return errorMsg;</div><div class="line">&#125;</div><div class="line"></div><div class="line">registerForm.onsubmit = function() &#123;</div><div class="line">    var errorMsg = validataFunc();</div><div class="line">    if (errorMsg) &#123;</div><div class="line">        alert(errorMsg);</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>第一个部分是一组策略类，策略类封装了具体的算法，并负责具体的计算过程;</li>
+<li>第二个部分是环境类Context，该Context接收客户端的请求，随后把请求委托给某一个策略类;</li>
+</ul>
+<p>优点： </p>
+<ol>
+<li>有效避免多重条件选择语句</li>
+<li>提供了对外开放 - 封装原则的完美支持，将方法封装在独立的strategy中，使得它们易于切换、易于理解、易于扩展。</li>
+<li>复用性</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>增加了策略类/对象的使用</li>
+<li>使用策略模式，必须先了解所有的strategy，违反了最少知识原则</li>
+</ol>
+<hr>
+<p>参考资料</p>
+<ol>
+<li><a href="https://segmentfault.com/a/1190000006899198" target="_blank" rel="external">JavaScript设计模式之策略模式</a></li>
+<li><a href="https://segmentfault.com/q/1010000007013419" target="_blank" rel="external">js减少if语句的技巧</a></li>
+<li><a href="https://www.cnblogs.com/canger/p/6382944.html" target="_blank" rel="external">js对象属性的命名规则</a></li>
+<li><a href="https://www.cnblogs.com/kester/p/6231328.html" target="_blank" rel="external">javascript中||和&amp;&amp;代替if</a></li>
+</ol>
 <blockquote>
 <p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
 </blockquote>
@@ -581,9 +602,7 @@
           
             <a href="/tags/WEB/" rel="tag"># WEB</a>
           
-            <a href="/tags/常见问题/" rel="tag"># 常见问题</a>
-          
-            <a href="/tags/面试/" rel="tag"># 面试</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -596,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/25/杂谈：前端Web通信/" rel="next" title="杂谈：前端Web通信">
-                <i class="fa fa-chevron-left"></i> 杂谈：前端Web通信
+              <a href="/2018/04/09/一道JS面试题引发的血案/" rel="next" title="一道JS面试题引发的血案">
+                <i class="fa fa-chevron-left"></i> 一道JS面试题引发的血案
               </a>
             
           </div>
@@ -605,10 +624,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/14/JS-中-if-if-else-替换方式/" rel="prev" title="JS 中 if / if...else...替换方式">
-                JS 中 if / if...else...替换方式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -818,7 +833,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#逗号表达式"><span class="nav-number">1.</span> <span class="nav-text">逗号表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#逗号表达式的要领："><span class="nav-number">1.1.</span> <span class="nav-text">逗号表达式的要领：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#switch改写if"><span class="nav-number">1.</span> <span class="nav-text">switch改写if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元运算符改写if"><span class="nav-number">2.</span> <span class="nav-text">三元运算符改写if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑判断-and-amp-amp-和or-改写if"><span class="nav-number">3.</span> <span class="nav-text">逻辑判断 and(&&)和or(||) 改写if</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识点插播-——-1"><span class="nav-number">3.1.</span> <span class="nav-text">知识点插播 —— (1)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象属性"><span class="nav-number">4.</span> <span class="nav-text">对象属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识点插播-——-2"><span class="nav-number">4.1.</span> <span class="nav-text">知识点插播 —— (2)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JS的命名规则（变量的命名规则）"><span class="nav-number">4.1.1.</span> <span class="nav-text">JS的命名规则（变量的命名规则）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象属性的命名规则"><span class="nav-number">4.1.2.</span> <span class="nav-text">对象属性的命名规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式"><span class="nav-number">5.</span> <span class="nav-text">策略模式</span></a></li></ol></div>
             
 
           </div>

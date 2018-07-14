@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2018-04-09T05:42:58.210Z</updated>
+  <updated>2018-07-14T02:11:11.737Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS 中 if / if...else...替换方式</title>
+    <link href="http://www.wuliv.com/2018/07/14/JS-%E4%B8%AD-if-if-else-%E6%9B%BF%E6%8D%A2%E6%96%B9%E5%BC%8F/"/>
+    <id>http://www.wuliv.com/2018/07/14/JS-中-if-if-else-替换方式/</id>
+    <published>2018-07-14T02:11:11.000Z</published>
+    <updated>2018-07-14T02:11:11.737Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/7324444-d2f5af033e9a4f64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="WEB" scheme="http://www.wuliv.com/tags/WEB/"/>
+    
+      <category term="Javascript" scheme="http://www.wuliv.com/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>一道JS面试题引发的血案</title>
