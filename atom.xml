@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2018-07-14T02:11:11.737Z</updated>
+  <updated>2018-08-04T04:02:47.219Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杂谈：HTTP1.1 与 HTTP2.0 知多少？</title>
+    <link href="http://www.wuliv.com/2018/08/04/%E6%9D%82%E8%B0%88%EF%BC%9AHTTP1-1-%E4%B8%8E-HTTP2-0-%E7%9F%A5%E5%A4%9A%E5%B0%91%EF%BC%9F/"/>
+    <id>http://www.wuliv.com/2018/08/04/杂谈：HTTP1-1-与-HTTP2-0-知多少？/</id>
+    <published>2018-08-04T04:02:47.000Z</published>
+    <updated>2018-08-04T04:02:47.219Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HTTP是应用层协议，是基于TCP底层协议而来。&lt;/p&gt;
+&lt;p&gt;TCP的机制限定，每建立一个连接需要3次握手，断开连接则需要4次挥手。&lt;/p&gt;
+&lt;p&gt;HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="WEB" scheme="http://www.wuliv.com/tags/WEB/"/>
+    
+      <category term="HTTP" scheme="http://www.wuliv.com/tags/HTTP/"/>
+    
+  </entry>
   
   <entry>
     <title>JS 中 if / if...else...替换方式</title>

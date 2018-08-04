@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="WEB,HTTP," />
 
 
 
@@ -103,14 +103,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kenz&#39;s Blog">
-<meta property="og:url" content="http://www.wuliv.com/404.html">
+<meta name="description" content="HTTP是应用层协议，是基于TCP底层协议而来。 TCP的机制限定，每建立一个连接需要3次握手，断开连接则需要4次挥手。 HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，完成之后立即断开连接。如果有新的请求，则要重新创建请求连接（HTTP协议为无连接的协议）。 这样不免造成了网络传输数据一定的延迟，1999年推出HTTP1">
+<meta name="keywords" content="WEB,HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杂谈：HTTP1.1 与 HTTP2.0 知多少？">
+<meta property="og:url" content="http://www.wuliv.com/2018/08/04/杂谈：HTTP1-1-与-HTTP2-0-知多少？/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
+<meta property="og:description" content="HTTP是应用层协议，是基于TCP底层协议而来。 TCP的机制限定，每建立一个连接需要3次握手，断开连接则需要4次挥手。 HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，完成之后立即断开连接。如果有新的请求，则要重新创建请求连接（HTTP协议为无连接的协议）。 这样不免造成了网络传输数据一定的延迟，1999年推出HTTP1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-27T02:04:08.000Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-83d4cb235ce8f922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-04T04:02:47.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kenz&#39;s Blog">
+<meta name="twitter:title" content="杂谈：HTTP1.1 与 HTTP2.0 知多少？">
+<meta name="twitter:description" content="HTTP是应用层协议，是基于TCP底层协议而来。 TCP的机制限定，每建立一个连接需要3次握手，断开连接则需要4次挥手。 HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，完成之后立即断开连接。如果有新的请求，则要重新创建请求连接（HTTP协议为无连接的协议）。 这样不免造成了网络传输数据一定的延迟，1999年推出HTTP1">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-83d4cb235ce8f922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -139,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuliv.com/404.html"/>
+  <link rel="canonical" href="http://www.wuliv.com/2018/08/04/杂谈：HTTP1-1-与-HTTP2-0-知多少？/"/>
 
 
 
 
 
-  <title> | Kenz's Blog</title>
+  <title>杂谈：HTTP1.1 与 HTTP2.0 知多少？ | Kenz's Blog</title>
   
 
 
@@ -320,48 +326,313 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/08/04/杂谈：HTTP1-1-与-HTTP2-0-知多少？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="robots" content="all">
-  <meta name="robots" content="index,follow">
-  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
-</head>
-<body>
-  <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
-  </script>
-  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
-</body>
-</html>
+          <h1 class="post-title" itemprop="name headline">杂谈：HTTP1.1 与 HTTP2.0 知多少？</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T12:02:47+08:00">
+                2018-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/04/杂谈：HTTP1-1-与-HTTP2-0-知多少？/" class="leancloud_visitors" data-flag-title="杂谈：HTTP1.1 与 HTTP2.0 知多少？">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,810
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>HTTP是应用层协议，是基于TCP底层协议而来。</p>
+<p>TCP的机制限定，每建立一个连接需要3次握手，断开连接则需要4次挥手。</p>
+<p>HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，完成之后立即断开连接。如果有新的请求，则要重新创建请求连接（HTTP协议为无连接的协议）。</p>
+<p>这样不免造成了网络传输数据一定的延迟，1999年推出HTTP1.1，虽然可以通过设置延迟时间，让连接延迟关闭。但仍然有线头阻塞，max-connection最大连接限制了并行请求数量等痛点，难以应对日益增长的大数据实时传输。</p>
+<p>新一代HTTP2.0协议应运而生，提高HTTP应对高并发场景下的数据传输能力。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-83d4cb235ce8f922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="杂谈：HTTP1.1 与 HTTP2.0 知多少？"></p>
+<h3 id="「-HTTP1-1」"><a href="#「-HTTP1-1」" class="headerlink" title="「 HTTP1.1」"></a>「 HTTP1.1」</h3><h4 id="Pipelining管道化"><a href="#Pipelining管道化" class="headerlink" title="Pipelining管道化"></a>Pipelining管道化</h4><p>提出管道化方案解决连接延迟，服务端可设置Keep-Alive来让连接延迟关闭时间，但因为浏览器自身的Max-Connection最大连接限制，同一个域名 (host) 下的请求连接限制（同域下谷歌浏览器是一次限制最多6个连接），只能通过多开域名来实现，这也就是我们的静态资源选择放到CDN上或其它域名下，来提高资源加载速度。</p>
+<p>pipelining方案需要前后端支持，但绝大部分的HTTP代理器对pipelining的支持并不友好。</p>
+<h4 id="只支持GET-HEAD"><a href="#只支持GET-HEAD" class="headerlink" title="只支持GET/HEAD"></a>只支持GET/HEAD</h4><p>pipelining只支持GET/HEAD方式传送数据，不支持POST等其它方式传输。</p>
+<h4 id="头部信息冗余"><a href="#头部信息冗余" class="headerlink" title="头部信息冗余"></a>头部信息冗余</h4><p>HTTP是无状态的，客户端/服务端只能通过HEAD的数据维护获取状态信息，这样就造成每次连接请求时都会携带大量冗余的头部信息，头部信息包括COOKIE信息等。</p>
+<h4 id="超文本协议"><a href="#超文本协议" class="headerlink" title="超文本协议"></a>超文本协议</h4><p>HTTP1.X是超文本协议传输。超文本协议传输，发送请求时会找出数据的开头和结尾帧的位置，并去除多余空格，选择最优方式传输。如果使用了HTTPS，那么还会对数据进行加密处理，一定程度上会造成传输速度上的损耗。</p>
+<h4 id="线头阻塞"><a href="#线头阻塞" class="headerlink" title="线头阻塞"></a>线头阻塞</h4><p>pipelining通过延迟连接关闭的方案，虽然可同时发起对服务端的多个请求，但服务端的response依旧遵循FIFO（first in first out)规则 依次返回。</p>
+<p>举个例子客户端发送了1、2、3、4四个请求，如果1没返回给客户端，那么2，3，4也不会返回。这就是所谓的线头阻塞。高并发高延迟的场景下阻塞明显。</p>
+<h4 id="HTTP1-X传输优化方法"><a href="#HTTP1-X传输优化方法" class="headerlink" title="HTTP1.X传输优化方法"></a>HTTP1.X传输优化方法</h4><ol>
+<li>多个资源合并成一个请求连接，如前端Spriting雪碧图，JS/CSS压缩成一个文件等</li>
+<li>Inlining内联的方式，采用inline css/inline js等并入html中，减少对css/js文件的请求</li>
+<li>CDN资源多域名转发，静态资源分布存储在多个域下。</li>
+</ol>
+<p>以上三种三种方法虽然能使HTTP1.X协议传输速度提高，但也有对应的不足。</p>
+<ol>
+<li>如雪碧图，将多个小图合并成一张大图，降低多张小图请求的高延迟，但是如果我只想要两个icon小图，却需要加载一整张大图，就会造成资源冗余。合并的JS/CSS文件也有类似的问题。</li>
+<li>内联的方式，会让我们的代码变得难以维护，让html文件变得更大，代码混合严重。</li>
+<li>多域名下可缓解Max-Connection，但不同域会让Cookie信息无法彼此共享。</li>
+</ol>
+<hr>
+<p>了解完HTTP1.1的痛点，接下来就是我们新一代的HTTP协议HTTP2.0</p>
+<hr>
+<h3 id="「-HTTP2-0」"><a href="#「-HTTP2-0」" class="headerlink" title="「 HTTP2.0」"></a>「 HTTP2.0」</h3><h4 id="前身SPDY"><a href="#前身SPDY" class="headerlink" title="前身SPDY"></a>前身SPDY</h4><p>SPDY是2012年谷歌推出的是基于SSL/TLS的传输协议，SPDY有降低延迟，多路复用，头部压缩，服务端推送等特点，这些特点也称为了后续HTTP2.0的功能基石，HTTP2.0是SPDY/3 draft的优化版。</p>
+<p>HTTP2.0 与 SPDY的区别：</p>
+<ol>
+<li>HTTP2.0 头部压缩采用HPACK， 而SPDY采用DELEFT。</li>
+<li>HTTP2.0 理论上支持明文HTTP传输，而SPDY强制使用HTTPS。</li>
+</ol>
+<h4 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h4><p>（一个域只要一个TCP连接）实现真正的并发请求，降低延时，提高了带宽的利用率。</p>
+<h4 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h4><p>客户端/服务端进行渐进更新维护，采用HPACK压缩，节省了报文头占用流量。</p>
+<ol>
+<li>相同的头部信息不会通过请求发送，延用之前请求携带的头部信息。</li>
+<li>新增/修改的头部信息会被加入到HEAD中，两端渐进更新。</li>
+</ol>
+<p>两端会共同维护一个head list，每次请求时都会进行检查。<br>该list包括：</p>
+<ol>
+<li>static (既定的头部信息)</li>
+<li>dynamic (自定义的头部信息)</li>
+</ol>
+<h4 id="请求优先级"><a href="#请求优先级" class="headerlink" title="请求优先级"></a>请求优先级</h4><p>每个流都有自己的优先级别，客户端可指定优先级。并可以做流量控制。因为HTTP2.0的传世允许请求并发，但是应用场景中我们要处理一些主要文件的优先级权重，以及资源模块依赖等。所以我们可通过设置优先级来提高主要文件的权重，使其优先加载请求。</p>
+<h4 id="服务端推送"><a href="#服务端推送" class="headerlink" title="服务端推送"></a>服务端推送</h4><p>请求不是来自客户端“明确”的请求，是从服务端PUSH_PROMISE帧中提供。例如我们加载index.html, 我们可能还需要index.js, index.css等文件。传统的请求只有当拿到index.html，解析html中对index.js/index.css的引入才会再请求资源加载，但是通过服务端数据，可以提前将资源推送给客户端，这样客户端要用到的时候直接调用即可，不用再发送请求。</p>
+<ul>
+<li>push的资源能缓存在浏览器中</li>
+<li>不同的网页能使用该缓存，不用重新发起</li>
+<li>push的资源通过multiplexed进行传输</li>
+<li>push的资源能够进行priority标识</li>
+<li>client有权取消push资源的加载</li>
+<li>push的资源必须同域</li>
+</ul>
+<h4 id="二进制协议"><a href="#二进制协议" class="headerlink" title="二进制协议"></a>二进制协议</h4><p>HTTP2.0 传输协议采用二进制协议，区别与HTTP1.X的超文本协议。更易于帧，数据包的发送接收。HTTP2.0是运行在TCP连接上的应用层协议，接受服务器或发送请求时，会自动将头部信息/request body分成HEAD帧和DATA帧。</p>
+<p>客户端/服务端发送/接收数据时，会将数据打散乱序发送，接收数据时接收一端再通过streamID标识来将数据合并。</p>
+<h4 id="HTTP2-0环境要求"><a href="#HTTP2-0环境要求" class="headerlink" title="HTTP2.0环境要求"></a>HTTP2.0环境要求</h4><p>HTTP2.0理论上支持明文HTTP传输，但因为其前身SPDY是在TLS上，他们的主人Google 和 Firefox 都支持TLS架构，所以需要搭建HTTP2.0 + TLS成了标准。</p>
+<ol>
+<li>Nginx &gt; 1.10</li>
+<li>OpenSSL &gt; 1.0.2</li>
+<li>CA证书</li>
+</ol>
+<p>参考文档</p>
+<ul>
+<li><a href="https://blog.csdn.net/charleslei/article/details/50621912" target="_blank" rel="external">HTTP协议头部与Keep-Alive模式详解</a></li>
+<li><a href="http://www.alloyteam.com/2016/07/httphttp2-0spdyhttps-reading-this-is-enough/" target="_blank" rel="external">HTTP,HTTP2.0,SPDY,HTTPS你应该知道的一些事</a></li>
+<li><a href="https://segmentfault.com/a/1190000005085636" target="_blank" rel="external">前端应该了解的HTTP2</a></li>
+<li><a href="https://tech.upyun.com/article/227/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%20HTTP%2F2%20%E7%89%B9%E6%80%A7.html" target="_blank" rel="external">一文读懂 HTTP/2 特性</a></li>
+</ul>
+<blockquote>
+<p>作者：以乐之名<br>  本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB/" rel="tag"># WEB</a>
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/14/JS-中-if-if-else-替换方式/" rel="next" title="JS 中 if / if...else...替换方式">
+                <i class="fa fa-chevron-left"></i> JS 中 if / if...else...替换方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -395,8 +666,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -534,6 +814,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#「-HTTP1-1」"><span class="nav-number">1.</span> <span class="nav-text">「 HTTP1.1」</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pipelining管道化"><span class="nav-number">1.1.</span> <span class="nav-text">Pipelining管道化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#只支持GET-HEAD"><span class="nav-number">1.2.</span> <span class="nav-text">只支持GET/HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头部信息冗余"><span class="nav-number">1.3.</span> <span class="nav-text">头部信息冗余</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超文本协议"><span class="nav-number">1.4.</span> <span class="nav-text">超文本协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线头阻塞"><span class="nav-number">1.5.</span> <span class="nav-text">线头阻塞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP1-X传输优化方法"><span class="nav-number">1.6.</span> <span class="nav-text">HTTP1.X传输优化方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#「-HTTP2-0」"><span class="nav-number">2.</span> <span class="nav-text">「 HTTP2.0」</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前身SPDY"><span class="nav-number">2.1.</span> <span class="nav-text">前身SPDY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多路复用"><span class="nav-number">2.2.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头部压缩"><span class="nav-number">2.3.</span> <span class="nav-text">头部压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求优先级"><span class="nav-number">2.4.</span> <span class="nav-text">请求优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端推送"><span class="nav-number">2.5.</span> <span class="nav-text">服务端推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制协议"><span class="nav-number">2.6.</span> <span class="nav-text">二进制协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP2-0环境要求"><span class="nav-number">2.7.</span> <span class="nav-text">HTTP2.0环境要求</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -640,10 +936,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
