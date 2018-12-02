@@ -5,7 +5,8 @@
     <entry>
       <title><![CDATA[读书笔记(01) - JSON - JavaScript高级程序设计]]></title>
       <url>/2018/12/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-01-JSON-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
-      <content type="html"><![CDATA[<h3 id="JSON与JavaScript对象"><a href="#JSON与JavaScript对象" class="headerlink" title="JSON与JavaScript对象"></a>JSON与JavaScript对象</h3><p>JSON是一种表示结构化数据的存储格式，语法格式上与JavasScript对象有些类似。</p>
+      <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/7324444-c9c583de82f7b80f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="coding"></p>
+<h3 id="JSON与JavaScript对象"><a href="#JSON与JavaScript对象" class="headerlink" title="JSON与JavaScript对象"></a>JSON与JavaScript对象</h3><p>JSON是一种表示结构化数据的存储格式，语法格式上与JavasScript对象有些类似。</p>
 <p>TIPS: 与JavaScript对象的格式区别</p>
 <ol>
 <li>不支持变量、函数或对象实例</li>
