@@ -1,144 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/12/04/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-03-%E6%80%A7%E8%83%BD-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
-    
-    <lastmod>2018-12-04T00:43:47.632Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/12/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-02-%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
-    
-    <lastmod>2018-12-03T07:00:53.688Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/12/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-01-JSON-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
-    
-    <lastmod>2018-12-02T06:32:29.787Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/08/04/%E6%9D%82%E8%B0%88%EF%BC%9AHTTP1-1-%E4%B8%8E-HTTP2-0-%E7%9F%A5%E5%A4%9A%E5%B0%91%EF%BC%9F/</loc>
-    
-    <lastmod>2018-08-04T04:02:47.219Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/07/14/JS-%E4%B8%AD-if-if-else-%E6%9B%BF%E6%8D%A2%E6%96%B9%E5%BC%8F/</loc>
-    
-    <lastmod>2018-07-14T02:11:11.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/04/09/%E4%B8%80%E9%81%93JS%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BC%95%E5%8F%91%E7%9A%84%E8%A1%80%E6%A1%88/</loc>
-    
-    <lastmod>2018-04-09T05:42:58.210Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/03/21/%E6%9D%82%E8%B0%88%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E4%B8%8E%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7/</loc>
-    
-    <lastmod>2018-03-25T02:56:42.189Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/03/25/%E6%9D%82%E8%B0%88%EF%BC%9A%E5%89%8D%E7%AB%AFWeb%E9%80%9A%E4%BF%A1/</loc>
-    
-    <lastmod>2018-03-25T02:54:10.431Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/02/10/%E5%A4%A9%E6%89%8D%E8%BF%88%E5%90%91%E4%BC%A0%E5%A5%87-%E7%A1%85%E8%B0%B7%E9%92%A2%E9%93%81%E4%BE%A0-%E5%9F%83%E9%9A%86%E9%A9%AC%E6%96%AF%E5%85%8B/</loc>
-    
-    <lastmod>2018-02-10T09:12:06.301Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/about/index.html</loc>
-    
-    <lastmod>2018-01-29T14:03:50.074Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2017/12/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E5%9D%91%E6%97%A5%E8%AE%B0/</loc>
-    
-    <lastmod>2018-01-29T12:39:10.666Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/01/28/%E4%BD%A0%E6%9C%89%E6%88%91%E7%9A%84%E7%9F%A5%E8%AF%86%E7%84%A6%E8%99%91%E4%B9%88/</loc>
-    
-    <lastmod>2018-01-29T12:39:06.774Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/01/29/%E4%B8%8D%E6%9B%BE%E5%81%9C%E6%AD%87-%E8%B6%85%E7%BA%A7%E4%B8%AA%E4%BD%93/</loc>
-    
-    <lastmod>2018-01-29T12:39:02.084Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2017/08/31/preventDefault-stopPropagation-return-false%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
-    
-    <lastmod>2018-01-29T12:38:58.544Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2017/10/04/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</loc>
-    
-    <lastmod>2018-01-29T12:38:54.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2018/01/10/Mac%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%8CDIY%E4%BD%A0%E7%9A%84Terminal%EF%BC%88iTerm2-Oh-My-Zsh%EF%BC%89/</loc>
-    
-    <lastmod>2018-01-29T12:38:48.241Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/2017/08/27/HTTP%E4%B8%ADGET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB-99-%E7%9A%84%E9%94%99%E8%AF%AF%E8%AE%A4%E8%AF%86/</loc>
-    
-    <lastmod>2018-01-29T12:38:40.743Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/categories/index.html</loc>
-    
-    <lastmod>2018-01-28T12:37:53.825Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/tags/index.html</loc>
-    
-    <lastmod>2017-08-27T02:15:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wuliv.com/404.html</loc>
-    
-    <lastmod>2017-08-27T02:04:08.000Z</lastmod>
-    
-  </url>
-  
-</urlset>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <sitemap>
+        <loc>http://www.wuliv.com/post-sitemap.xml</loc>
+        <lastmod>2018-12-04T03:35:37.385Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>http://www.wuliv.com/page-sitemap.xml</loc>
+        <lastmod>2018-01-29T14:03:50.074Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>http://www.wuliv.com/category-sitemap.xml</loc>
+        <lastmod>2018-01-29T12:38:40.743Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>http://www.wuliv.com/tag-sitemap.xml</loc>
+        <lastmod>2018-01-29T12:38:48.241Z</lastmod>
+    </sitemap>
+
+</sitemapindex>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
