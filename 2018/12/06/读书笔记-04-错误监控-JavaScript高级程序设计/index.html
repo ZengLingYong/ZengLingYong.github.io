@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端 Javascript WEB," />
 
 
 
@@ -103,17 +103,23 @@
 
 
 
-<meta name="description" content="Try · Enjoy · Documentary">
+<meta name="description" content="错误类型 即时运行错误 (代码错误)  资源加载错误   常见的错误1. 类型转换错误建议使用全等===操作符 2.数据类型错误建议加强类型判断 123456789// 数组倒序function reverseSort(value) &amp;#123;    if (value instanceof Array) &amp;#123;         // 使用instanceof验证数据类型">
+<meta name="keywords" content="前端 Javascript WEB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
 <meta property="og:url" content="http://www.wuliv.com/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="Try · Enjoy · Documentary">
+<meta property="og:description" content="错误类型 即时运行错误 (代码错误)  资源加载错误   常见的错误1. 类型转换错误建议使用全等===操作符 2.数据类型错误建议加强类型判断 123456789// 数组倒序function reverseSort(value) &amp;#123;    if (value instanceof Array) &amp;#123;         // 使用instanceof验证数据类型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T04:02:30.776Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-f8f97ce928eeb707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-1144b99ced9ba124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7324444-a6ea0a33adb562fc?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-d494ca159f7da111.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-06T04:11:19.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
-<meta name="twitter:description" content="Try · Enjoy · Documentary">
+<meta name="twitter:description" content="错误类型 即时运行错误 (代码错误)  资源加载错误   常见的错误1. 类型转换错误建议使用全等===操作符 2.数据类型错误建议加强类型判断 123456789// 数组倒序function reverseSort(value) &amp;#123;    if (value instanceof Array) &amp;#123;         // 使用instanceof验证数据类型">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-f8f97ce928eeb707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -375,6 +381,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -408,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  931
                 </span>
               
 
@@ -424,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -445,7 +473,77 @@
       
 
       
-        
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-f8f97ce928eeb707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="coding"></p>
+<h4 id="错误类型"><a href="#错误类型" class="headerlink" title="错误类型"></a>错误类型</h4><ol>
+<li><p>即时运行错误 (代码错误)</p>
+</li>
+<li><p>资源加载错误</p>
+</li>
+</ol>
+<h4 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h4><h5 id="1-类型转换错误"><a href="#1-类型转换错误" class="headerlink" title="1. 类型转换错误"></a>1. 类型转换错误</h5><p>建议使用全等<code>===</code>操作符</p>
+<h5 id="2-数据类型错误"><a href="#2-数据类型错误" class="headerlink" title="2.数据类型错误"></a>2.数据类型错误</h5><p>建议加强类型判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 数组倒序</div><div class="line">function reverseSort(value) &#123;</div><div class="line">    if (value instanceof Array) &#123; </div><div class="line">        // 使用instanceof验证数据类型 </div><div class="line">        // (基础类型用typeof, 引用类型用instanceof)</div><div class="line">        value.sort();</div><div class="line">        value.revere()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-通信错误"><a href="#3-通信错误" class="headerlink" title="3. 通信错误"></a>3. 通信错误</h5><p>url参数编码错误造成，建议使用<code>encodeURIComponent()</code>对url参数数据进行编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 错误的url参数</div><div class="line">// http://www.xxx.com/?redir=http://www.xxx.com?a=b&amp;c=d</div><div class="line"></div><div class="line">// 针对redir后面的参数字符串进行编码</div><div class="line"></div><div class="line">// 封装一个处理方法（摘自书中代码）</div><div class="line">function addQueryStringArg(url, name, value) &#123;</div><div class="line">    if (url.indexOf(&apos;?&apos;) &lt; 0) &#123;</div><div class="line">        url += &apos;?&apos;;        </div><div class="line">    &#125; else &#123;</div><div class="line">        url += &apos;&amp;&apos;;</div><div class="line">    &#125;</div><div class="line">    url += encodeURIComponent(name) + &quot;=&quot; + encodeURIComponent(value);</div><div class="line">    return url;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="错误的捕获方式"><a href="#错误的捕获方式" class="headerlink" title="错误的捕获方式"></a>错误的捕获方式</h4><h5 id="针对即时运行错误"><a href="#针对即时运行错误" class="headerlink" title="针对即时运行错误"></a>针对即时运行错误</h5><ol>
+<li><p><code>try-catch</code>（代码可疑区域可增加<code>try-catch</code>）</p>
+</li>
+<li><p><code>window.onerror</code> (全局监控js错误异常)</p>
+</li>
+</ol>
+<h5 id="1-try-catch"><a href="#1-try-catch" class="headerlink" title="1. try-catch"></a>1. <code>try-catch</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">    // 可能会导致错误的代码</div><div class="line">&#125; catch (error) &#123;</div><div class="line">    // 错误发生时处理</div><div class="line">    console.log(error.message);</div><div class="line">&#125; finally &#123;</div><div class="line">    // 一定会执行(无论是否发生错误)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>TIPS: 使用了<code>finally</code>，<code>try</code>跟<code>catch</code>的<code>return</code>语句都会被忽略</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function testFinally() &#123;</div><div class="line">    try &#123;</div><div class="line">        return 2;</div><div class="line">    &#125; catch (error) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; finally &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// testFinally 最终返回 0</div></pre></td></tr></table></figure>
+<p><strong>TIPS: <code>try-catch</code>只能捕获同步运行的代码错误，无法检测语法和异步错误</strong></p>
+<p>（语法可借助ESlint工具在开发阶段提示解决）</p>
+<h5 id="2-window-onerror"><a href="#2-window-onerror" class="headerlink" title="2. window.onerror"></a>2. <code>window.onerror</code></h5><p>遵循DOM0级事件，<code>window.onerror</code>事件处理程序不会创建<code>event</code>对象，但可以接收三个参数<code>message</code>(错误信息), <code>url</code>(错误文件url), <code>line</code>(行号)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.onerror = function(message, url, line)&#123;</div><div class="line">    console.log(message, ulr, line);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在事件处理程序中返回false，可以阻止浏览器报告错误的默认行为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.onerror = function(message, url, line) &#123;</div><div class="line">    return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="针对资源加载错误"><a href="#针对资源加载错误" class="headerlink" title="针对资源加载错误"></a>针对资源加载错误</h5><ol>
+<li><p><code>object.onerror</code></p>
+</li>
+<li><p><code>performance.getEntries()</code></p>
+</li>
+<li><p><code>Error</code>事件捕获 （全局监控静态资源异常）</p>
+</li>
+</ol>
+<h5 id="1-object-onerror"><a href="#1-object-onerror" class="headerlink" title="1. object.onerror"></a>1. <code>object.onerror</code></h5><p>如script，image等标签src引用，会返回一个<code>event</code>对象</p>
+<p><strong>TIPS: <code>object.onerror</code>不会冒泡到<code>window</code>对象，所以window.onerror无法监控资源加载错误</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var img = new Image();</div><div class="line">img.src = &apos;http://xxx.com/xxx.jpg&apos;;</div><div class="line">img.onerror = function(event) &#123;</div><div class="line">    console.log(event);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-1144b99ced9ba124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="object.onerror"><img src="http://upload-images.jianshu.io/upload_images/7324444-a6ea0a33adb562fc?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="object.onerror"> </p>
+<h5 id="2-window-performance-getEntires"><a href="#2-window-performance-getEntires" class="headerlink" title="2. window.performance.getEntires()"></a>2. <code>window.performance.getEntires()</code></h5><p>适用高版本浏览器，返回已成功加载的资源列表，然后自行做比对差集运算，核实哪些文件没有加载成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var result = [];</div><div class="line">window.performance.getEntries().forEach(function (perf) &#123;</div><div class="line">    result.push(&#123;</div><div class="line">        &apos;url&apos;: perf.name,</div><div class="line">        &apos;entryType&apos;: perf.entryType,</div><div class="line">        &apos;type&apos;: perf.initiatorType,</div><div class="line">        &apos;duration(ms)&apos;: perf.duration</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">console.log(result);</div></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-d494ca159f7da111.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.performance.getEntires"></p>
+<h5 id="3-Error事件捕获"><a href="#3-Error事件捕获" class="headerlink" title="3. Error事件捕获"></a>3. Error事件捕获</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;error&apos;, function(error)&#123;</div><div class="line">    //...（全局监控静态资源异常）</div><div class="line">    console.log(error);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="跨域的js错误捕获"><a href="#跨域的js错误捕获" class="headerlink" title="跨域的js错误捕获"></a>跨域的js错误捕获</h4><p>一般涉及跨域的js运行错误时会抛出错误提示<code>script error</code>，但没有具体信息（如出错文件，行列号提示等）, 可利用资源共享策略来捕获跨域js错误</p>
+<ol>
+<li><p>客户端：在script标签增加crossorigin属性（客户端）</p>
+</li>
+<li><p>服务端：js资源响应头<code>Access-Control-Allow-Origin: *</code></p>
+</li>
+</ol>
+<h4 id="错误上报"><a href="#错误上报" class="headerlink" title="错误上报"></a>错误上报</h4><ol>
+<li><p>Ajax请求 (会有跨域问题)</p>
+</li>
+<li><p>动态创建Image标签 (兼容完美，代码简洁，需要注意浏览器url长度限制)</p>
+</li>
+</ol>
+<h5 id="Image标签"><a href="#Image标签" class="headerlink" title="Image标签"></a>Image标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(new Image()).src= &apos;http://xxx.com/error?code=1002&apos;</div></pre></td></tr></table></figure>
+<h5 id="上报频率"><a href="#上报频率" class="headerlink" title="上报频率"></a>上报频率</h5><p>错误信息频繁发送上报请求，会对后端服务器造成压力。<br>项目中我们可通过设置采集率，或对规定时间内数据汇总再上报，减少请求数量，从而缓解服务端压力。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 借鉴别人的一个例子</div><div class="line">Reporter.send=function(data) &#123;</div><div class="line">    // 只采集30%</div><div class="line">    if（Math.random() &lt; 0.3) &#123;</div><div class="line">        send(data); // 上报错误</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>参考文档</p>
+<ul>
+<li><p><a href="http://www.ituring.com.cn/book/946" target="_blank" rel="external">《JavaScript高级程序设计》</a></p>
+</li>
+<li><p><a href="http://jartto.wang/2018/11/20/js-exception-handling/" target="_blank" rel="external">《如何优雅处理前端异常》</a></p>
+</li>
+</ul>
+<blockquote>
+<p>作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
       
     </div>
     
@@ -490,6 +588,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端-Javascript-WEB/" rel="tag"># 前端 Javascript WEB</a>
+          
+        </div>
       
 
       
@@ -561,8 +665,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -599,7 +712,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -700,6 +813,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误类型"><span class="nav-number">1.</span> <span class="nav-text">错误类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的错误"><span class="nav-number">2.</span> <span class="nav-text">常见的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-类型转换错误"><span class="nav-number">2.1.</span> <span class="nav-text">1. 类型转换错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数据类型错误"><span class="nav-number">2.2.</span> <span class="nav-text">2.数据类型错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-通信错误"><span class="nav-number">2.3.</span> <span class="nav-text">3. 通信错误</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误的捕获方式"><span class="nav-number">3.</span> <span class="nav-text">错误的捕获方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#针对即时运行错误"><span class="nav-number">3.1.</span> <span class="nav-text">针对即时运行错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-try-catch"><span class="nav-number">3.2.</span> <span class="nav-text">1. try-catch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-window-onerror"><span class="nav-number">3.3.</span> <span class="nav-text">2. window.onerror</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#针对资源加载错误"><span class="nav-number">3.4.</span> <span class="nav-text">针对资源加载错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-object-onerror"><span class="nav-number">3.5.</span> <span class="nav-text">1. object.onerror</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-window-performance-getEntires"><span class="nav-number">3.6.</span> <span class="nav-text">2. window.performance.getEntires()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Error事件捕获"><span class="nav-number">3.7.</span> <span class="nav-text">3. Error事件捕获</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域的js错误捕获"><span class="nav-number">4.</span> <span class="nav-text">跨域的js错误捕获</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误上报"><span class="nav-number">5.</span> <span class="nav-text">错误上报</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Image标签"><span class="nav-number">5.1.</span> <span class="nav-text">Image标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#上报频率"><span class="nav-number">5.2.</span> <span class="nav-text">上报频率</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -724,7 +853,7 @@
 </div>
 
 <div>
-  <span class="post-count">博客全站共20.5k字</span> - 
+  <span class="post-count">博客全站共21.4k字</span> - 
   <div style="display:inline-block">Hosted by <a href="https://pages.coding.me" target="_blank">Coding Pages</a></div>
 </div>
 
