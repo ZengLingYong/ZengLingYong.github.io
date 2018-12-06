@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WEB,常见问题,面试," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -103,20 +103,17 @@
 
 
 
-<meta name="description" content="作为一名前端开发人员，最头疼的莫过于浏览器兼容。远古时期万恶的IE6，到现在CSS3不兼容的IE7/8.为了保证不同版本浏览器都有共同或更优化的用户体验，前端搬砖的我们不得不与浏览器兼容顽强斗争。而渐进增强和优雅降级两种不同的开发流程，也是在我们项目初期做调研选型时会考虑的一个点。  渐进增强（Progressive Enhancement）一开始就针对低版本浏览器进行构建页面，完成基本的功能，然">
-<meta name="keywords" content="WEB,常见问题,面试">
+<meta name="description" content="Try · Enjoy · Documentary">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂谈：渐进增强与优雅降级">
-<meta property="og:url" content="http://www.wuliv.com/2018/03/21/杂谈：渐进增强与优雅降级/index.html">
+<meta property="og:title" content="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
+<meta property="og:url" content="http://www.wuliv.com/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="作为一名前端开发人员，最头疼的莫过于浏览器兼容。远古时期万恶的IE6，到现在CSS3不兼容的IE7/8.为了保证不同版本浏览器都有共同或更优化的用户体验，前端搬砖的我们不得不与浏览器兼容顽强斗争。而渐进增强和优雅降级两种不同的开发流程，也是在我们项目初期做调研选型时会考虑的一个点。  渐进增强（Progressive Enhancement）一开始就针对低版本浏览器进行构建页面，完成基本的功能，然">
+<meta property="og:description" content="Try · Enjoy · Documentary">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-b08dbfb300a9a3fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-25T02:56:42.189Z">
+<meta property="og:updated_time" content="2018-12-06T04:02:30.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂谈：渐进增强与优雅降级">
-<meta name="twitter:description" content="作为一名前端开发人员，最头疼的莫过于浏览器兼容。远古时期万恶的IE6，到现在CSS3不兼容的IE7/8.为了保证不同版本浏览器都有共同或更优化的用户体验，前端搬砖的我们不得不与浏览器兼容顽强斗争。而渐进增强和优雅降级两种不同的开发流程，也是在我们项目初期做调研选型时会考虑的一个点。  渐进增强（Progressive Enhancement）一开始就针对低版本浏览器进行构建页面，完成基本的功能，然">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-b08dbfb300a9a3fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
+<meta name="twitter:description" content="Try · Enjoy · Documentary">
 
 
 
@@ -145,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuliv.com/2018/03/21/杂谈：渐进增强与优雅降级/"/>
+  <link rel="canonical" href="http://www.wuliv.com/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/"/>
 
 
 
 
 
-  <title>杂谈：渐进增强与优雅降级 | Kenz's Blog</title>
+  <title>读书笔记(04) - 错误监控 - JavaScript高级程序设计 | Kenz's Blog</title>
   
 
 
@@ -338,7 +335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/03/21/杂谈：渐进增强与优雅降级/">
+    <link itemprop="mainEntityOfPage" href="http://www.wuliv.com/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -355,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">杂谈：渐进增强与优雅降级</h1>
+          <h1 class="post-title" itemprop="name headline">读书笔记(04) - 错误监控 - JavaScript高级程序设计</h1>
         
 
         <div class="post-meta">
@@ -367,8 +364,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T21:01:13+08:00">
-                2018-03-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T12:02:30+08:00">
+                2018-12-06
               </time>
             
 
@@ -378,28 +375,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -407,7 +382,7 @@
 
           
           
-             <span id="/2018/03/21/杂谈：渐进增强与优雅降级/" class="leancloud_visitors" data-flag-title="杂谈：渐进增强与优雅降级">
+             <span id="/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/" class="leancloud_visitors" data-flag-title="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,631
+                  0
                 </span>
               
 
@@ -449,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  1
                 </span>
               
             </div>
@@ -470,42 +445,7 @@
       
 
       
-        <p>作为一名前端开发人员，最头疼的莫过于浏览器兼容。远古时期万恶的IE6，到现在CSS3不兼容的IE7/8.为了保证不同版本浏览器都有共同或更优化的用户体验，前端搬砖的我们不得不与浏览器兼容顽强斗争。而<strong>渐进增强</strong>和<strong>优雅降级</strong>两种不同的开发流程，也是在我们项目初期做调研选型时会考虑的一个点。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-b08dbfb300a9a3fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="渐进增钱/优雅降级"></p>
-<h3 id="渐进增强（Progressive-Enhancement）"><a href="#渐进增强（Progressive-Enhancement）" class="headerlink" title="渐进增强（Progressive Enhancement）"></a>渐进增强（Progressive Enhancement）</h3><p>一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行效果、交互、追加功能达到更好的体验。</p>
-<h3 id="优雅降级（graceful-degradation）"><a href="#优雅降级（graceful-degradation）" class="headerlink" title="优雅降级（graceful degradation）"></a>优雅降级（graceful degradation）</h3><p>一开始就构建站点的完整功能，然后针对浏览器测试和修复。比如一开始使用 CSS3 的特性构建了一个应用，然后逐步针对各大浏览器进行 hack 使其可以在低版本浏览器上正常浏览。</p>
-<p>初一看这两个概念有点高大上，其实作为开发人员来说，多多少少已经在项目中运用只是你自己不察觉而已。换个词汇就比较好理解了，渐进增强（向上/前兼容），优雅降级（向下兼容），向上兼容高版本浏览器，向下兼容低版本浏览器。</p>
-<h3 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h3><p><strong>渐进增强</strong>和<strong>优雅降级</strong>只是看待同种事物的两种观点。渐进增强和优雅降级都关注于同一网站在不同设备里不同浏览器下的表现程度。关键的区别则在于它们各自关注的着重点不同，以及这种不同的关注点如何影响项目开发的流程。</p>
-<p>优雅降级观点认为应该针对那些最高级、最完善的浏览器来设计网站。而将那些被认为“过时”或有功能缺失的浏览器下的测试工作安排在开发周期的最后阶段，并把测试对象限定为主流浏览器（如 Chrome，Safari，IE、FireFox等）的前一个版本。在这种设计范例下，旧版的浏览器被认为仅能提供“简陋却无妨 (poor, but passable)” 的浏览体验。你可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较大的错误之外，其它的差异将被直接忽略。</p>
-<p>渐进增强观点则认为应关注于内容本身。请注意其中的差别：我甚至连“浏览器”三个字都没提。内容是我们建立网站的诱因。有的网站展示它，有的则收集它，有的寻求，有的操作，还有的网站甚至会包含以上的种种，但相同点是它们全都涉及到内容。这使得渐进增强成为一种更为合理的设计范例。这也是它立即被 Yahoo! 所采纳并用以构建其“分级式浏览器支持 (Graded Browser Support)”策略的原因所在。</p>
-<p><strong>概括：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带</strong></p>
-<h3 id="代码案例"><a href="#代码案例" class="headerlink" title="代码案例"></a>代码案例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.transition &#123; /*渐进增强写法*/</div><div class="line">  -webkit-transition: all .5s;</div><div class="line">     -moz-transition: all .5s;</div><div class="line">       -o-transition: all .5s;</div><div class="line">          transition: all .5s;</div><div class="line">&#125;</div><div class="line">.transition &#123; /*优雅降级写法*/</div><div class="line">          transition: all .5s;</div><div class="line">       -o-transition: all .5s;</div><div class="line">     -moz-transition: all .5s;</div><div class="line">  -webkit-transition: all .5s;</div><div class="line">&#125;</div><div class="line">// -webkit- / -moz- / -o- (浏览器前缀)</div></pre></td></tr></table></figure>
-<ol>
-<li>很久以前：浏览器前缀CSS3和正常CSS3都不支持；</li>
-<li>不久之前：浏览器只支持前缀CSS3，不支持正常CSS3；</li>
-<li>现在：浏览器既支持前缀CSS3，又支持正常CSS3；</li>
-<li>未来：浏览器不支持前缀CSS3，仅支持正常CSS3.</li>
-</ol>
-<p>渐进增强的写法，优先考虑老版本浏览器的可用性，最后才考虑新版本的可用性。在时期3中前缀CSS3和正常CSS3都可用的情况下，正常CSS3会覆盖前缀CSS3。优雅降级的写法，优先考虑新版本浏览器的可用性，最后才考虑老版本的可用性。在时期3中前缀CSS3和正常CSS3都可用的情况下，前缀CSS3会覆盖正常的CSS3。</p>
-<p>现实项目开发中，推荐使用渐进增强的写法（postcss的autofixer也是这种写法），因为前缀CSS3的某些属性在浏览器中的实现效果有可能与正常的CSS3实现效果不太一样，所以最终还是得以正常CSS3为准。</p>
-<p>可参考张鑫旭大神的文章《<a href="http://www.zhangxinxu.com/wordpress/2010/09/%E9%9C%80%E8%AD%A6%E6%83%95css3%E5%B1%9E%E6%80%A7%E7%9A%84%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F/" target="_blank" rel="external">需警惕CSS3属性的书写顺序</a>。</p>
-<h3 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h3><ul>
-<li>低版本浏览器用户占比居多，优先采用渐进增强的开发流程；</li>
-<li>高版本浏览器用户占比居多，优先采用优雅降级的开发流程；</li>
-</ul>
-<p>事实上绝大多数的大公司都是采用渐进增强的方式，因为业务优先，提升用户体验永远不会排在最前面。例如，淘宝，京东，新浪微博等网站前端的更新，不可能追求某个特效而不考虑低版本用户可不可用，一定是确保低版本到高版本的可访问性，再去渐进增强，采用新功能给高版本用户提供更好的用户体验。当然也有一些反例如阿里云，本身就是面向软件开发者，这个群体的人总是喜欢尝试新事物，总是喜欢酷炫的特效，总是喜欢把它们的软件更新到最新版本，而且大多用的是谷歌浏览器，即使用IE浏览器，也是高版本IE浏览器，面对这种情况，优雅降级的开发流程才是更好的选择。</p>
-<hr>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
-<li><a href="http://blog.csdn.net/xiongzhengxiang/article/details/7999525" target="_blank" rel="external">渐进增强、优雅降级</a></li>
-<li><a href="https://www.jianshu.com/p/d313f1108862" target="_blank" rel="external">渐进增强 VS 优雅降级</a></li>
-<li><a href="https://segmentfault.com/q/1010000000264469/a-1020000005988192" target="_blank" rel="external">渐进增强和优雅降级之间的有什么不同?</a></li>
-<li><a href="http://www.zhangxinxu.com/wordpress/2010/09/%E9%9C%80%E8%AD%A6%E6%83%95css3%E5%B1%9E%E6%80%A7%E7%9A%84%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F/" target="_blank" rel="external">需警惕CSS3属性的书写顺序</a></li>
-<li><a href="http://www.cnblogs.com/mofish/p/3822879.html" target="_blank" rel="external">优雅降级和渐进增强的区别</a></li>
-</ol>
-<blockquote>
-<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
-</blockquote>
-
+        
       
     </div>
     
@@ -551,16 +491,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/WEB/" rel="tag"># WEB</a>
-          
-            <a href="/tags/常见问题/" rel="tag"># 常见问题</a>
-          
-            <a href="/tags/面试/" rel="tag"># 面试</a>
-          
-        </div>
-      
 
       
       
@@ -570,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/10/天才迈向传奇-硅谷钢铁侠-埃隆马斯克/" rel="next" title="天才迈向传奇 | 《硅谷钢铁侠:埃隆·马斯克》">
-                <i class="fa fa-chevron-left"></i> 天才迈向传奇 | 《硅谷钢铁侠:埃隆·马斯克》
+              <a href="/2018/12/04/读书笔记-03-性能-JavaScript高级程序设计/" rel="next" title="读书笔记(03) - 性能 - JavaScript高级程序设计">
+                <i class="fa fa-chevron-left"></i> 读书笔记(03) - 性能 - JavaScript高级程序设计
               </a>
             
           </div>
@@ -579,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/25/杂谈：前端Web通信/" rel="prev" title="杂谈：前端Web通信">
-                杂谈：前端Web通信 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -635,17 +561,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -782,22 +699,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进增强（Progressive-Enhancement）"><span class="nav-number">1.</span> <span class="nav-text">渐进增强（Progressive Enhancement）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优雅降级（graceful-degradation）"><span class="nav-number">2.</span> <span class="nav-text">优雅降级（graceful degradation）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二者区别"><span class="nav-number">3.</span> <span class="nav-text">二者区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码案例"><span class="nav-number">4.</span> <span class="nav-text">代码案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何选择"><span class="nav-number">5.</span> <span class="nav-text">如何选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">6.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
