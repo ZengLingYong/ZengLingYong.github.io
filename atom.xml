@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuliv.com/"/>
-  <updated>2018-12-10T10:48:29.996Z</updated>
+  <updated>2018-12-11T03:59:46.056Z</updated>
   <id>http://www.wuliv.com/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://www.wuliv.com/2018/12/10/test/"/>
-    <id>http://www.wuliv.com/2018/12/10/test/</id>
-    <published>2018-12-10T10:48:29.996Z</published>
-    <updated>2018-12-10T10:48:29.996Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>读书笔记(05) - 事件 - JavaScript高级程序设计</title>
