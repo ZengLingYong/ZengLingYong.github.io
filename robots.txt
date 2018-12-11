@@ -5,3 +5,4 @@ Disallow:
 User-agent: *
 Disallow: 
 Sitemap: http://www.wuliv.com/sitemap.xml
+Sitemap: http://www.wuliv.com/baidusitemap.xml
