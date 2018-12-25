@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WEB,Javascript,读书笔记," />
+  <meta name="keywords" content="工具类,编辑器," />
 
 
 
@@ -103,22 +103,20 @@
 
 
 
-<meta name="description" content="作用域链查找作用域链的查找是逐层向上查找。查找的层次越多，速度越慢。随着硬件性能的提升和浏览器引擎的优化，这个慢我们基本可以忽略。 除了层级查找损耗的问题，变量的修改应只在局部环境进行，尽量避免在局部环境下去操作修改父级变量的值。（react/vue 单向数据流的数据传输方式） 优化方法：声明一个变量存储引用（该方法应用甚多） 不必要的属性查找1234567// 未优化（window.locat">
-<meta name="keywords" content="WEB,Javascript,读书笔记">
+<meta name="description" content="年底了，故事总是会有很多。  刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。 对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。 Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数L">
+<meta name="keywords" content="工具类,编辑器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记(03) - 性能 - JavaScript高级程序设计">
-<meta property="og:url" content="http://wuliv.com/2018/12/04/读书笔记-03-性能-JavaScript高级程序设计/index.html">
+<meta property="og:title" content="Vim 利剑常磨，见血封喉">
+<meta property="og:url" content="http://wuliv.com/2018/12/25/Vim-利剑常磨，见血封喉/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="作用域链查找作用域链的查找是逐层向上查找。查找的层次越多，速度越慢。随着硬件性能的提升和浏览器引擎的优化，这个慢我们基本可以忽略。 除了层级查找损耗的问题，变量的修改应只在局部环境进行，尽量避免在局部环境下去操作修改父级变量的值。（react/vue 单向数据流的数据传输方式） 优化方法：声明一个变量存储引用（该方法应用甚多） 不必要的属性查找1234567// 未优化（window.locat">
+<meta property="og:description" content="年底了，故事总是会有很多。  刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。 对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。 Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数L">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-cd88edf91da4bdee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-ee9950e6ad5be98a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-4b78e22a65ec2c73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-10T02:22:55.272Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-12577f429c8c6142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-25T01:00:31.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记(03) - 性能 - JavaScript高级程序设计">
-<meta name="twitter:description" content="作用域链查找作用域链的查找是逐层向上查找。查找的层次越多，速度越慢。随着硬件性能的提升和浏览器引擎的优化，这个慢我们基本可以忽略。 除了层级查找损耗的问题，变量的修改应只在局部环境进行，尽量避免在局部环境下去操作修改父级变量的值。（react/vue 单向数据流的数据传输方式） 优化方法：声明一个变量存储引用（该方法应用甚多） 不必要的属性查找1234567// 未优化（window.locat">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-cd88edf91da4bdee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Vim 利剑常磨，见血封喉">
+<meta name="twitter:description" content="年底了，故事总是会有很多。  刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。 对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。 Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数L">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-12577f429c8c6142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -147,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2018/12/04/读书笔记-03-性能-JavaScript高级程序设计/"/>
+  <link rel="canonical" href="http://wuliv.com/2018/12/25/Vim-利剑常磨，见血封喉/"/>
 
 
 
 
 
-  <title>读书笔记(03) - 性能 - JavaScript高级程序设计 | Kenz's Blog</title>
+  <title>Vim 利剑常磨，见血封喉 | Kenz's Blog</title>
   
 
 
@@ -340,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2018/12/04/读书笔记-03-性能-JavaScript高级程序设计/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2018/12/25/Vim-利剑常磨，见血封喉/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -357,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">读书笔记(03) - 性能 - JavaScript高级程序设计</h1>
+          <h1 class="post-title" itemprop="name headline">Vim 利剑常磨，见血封喉</h1>
         
 
         <div class="post-meta">
@@ -369,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-04T08:43:47+08:00">
-                2018-12-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T09:00:31+08:00">
+                2018-12-25
               </time>
             
 
@@ -392,8 +390,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
+                  <a href="/categories/工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">工具类</span>
                   </a>
                 </span>
 
@@ -409,7 +407,7 @@
 
           
           
-             <span id="/2018/12/04/读书笔记-03-性能-JavaScript高级程序设计/" class="leancloud_visitors" data-flag-title="读书笔记(03) - 性能 - JavaScript高级程序设计">
+             <span id="/2018/12/25/Vim-利剑常磨，见血封喉/" class="leancloud_visitors" data-flag-title="Vim 利剑常磨，见血封喉">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -435,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,460
+                  1,226
                 </span>
               
 
@@ -451,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  5
                 </span>
               
             </div>
@@ -472,67 +470,438 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-cd88edf91da4bdee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="coding"></p>
-<h3 id="作用域链查找"><a href="#作用域链查找" class="headerlink" title="作用域链查找"></a>作用域链查找</h3><p>作用域链的查找是逐层向上查找。查找的层次越多，速度越慢。随着硬件性能的提升和浏览器引擎的优化，这个慢我们基本可以忽略。</p>
-<p>除了层级查找损耗的问题，变量的修改应只在局部环境进行，尽量避免在局部环境下去操作修改父级变量的值。（react/vue 单向数据流的数据传输方式）</p>
-<p>优化方法：声明一个变量存储引用（该方法应用甚多）</p>
-<h3 id="不必要的属性查找"><a href="#不必要的属性查找" class="headerlink" title="不必要的属性查找"></a>不必要的属性查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 未优化（window.location.href 3*2 6次）</div><div class="line">var query = window.location.href.substring(window.location.href.indexOf(&apos;?&apos;));</div><div class="line"></div><div class="line">// 优化后（3次，以后多次调用url，查询次数不会增加）</div><div class="line">var url = window.location.href;</div><div class="line">var query = url.substring(url.indexOf(&apos;?&apos;));</div><div class="line">url = null;</div></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-ee9950e6ad5be98a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.location.href"></p>
-<p>函数里面声明的变量，在函数调用栈执行后退出时，会自动清除引用。而全局变量和闭包则会与之相反，继续保存，所以使用用后需手动标记清除，以免造成内存泄漏。</p>
-<h3 id="优化循环"><a href="#优化循环" class="headerlink" title="优化循环"></a>优化循环</h3><ol>
-<li>减值迭代</li>
-<li>简化终止条件</li>
-<li>简化循环体</li>
-<li>使用后测试循环</li>
-</ol>
-<h4 id="减值迭代"><a href="#减值迭代" class="headerlink" title="减值迭代"></a>减值迭代</h4><p>日常应用不多，与增值迭代的区别，就在i存储的值。减值迭代i的值不断在变小，存储的空间也在变小。</p>
-<p>但在前端极少需要遍历上万次上亿次的数据，上千上百都很少，所以这个优化可忽略。而且我们遍历的顺序一般都是从数组头部开始，所以增值迭代应用的更多。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 增值迭代（用的较多）</div><div class="line">for(var i = 0; i &lt; len; i++) &#123;</div><div class="line">    //...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 减值迭代</div><div class="line">for(var i = len - 1; i &gt;= 0 ; i--) &#123;</div><div class="line">    //...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="简化终止条件-常用"><a href="#简化终止条件-常用" class="headerlink" title="简化终止条件 (常用)"></a>简化终止条件 (常用)</h4><p>终止条件应该是一个固定值判断，应避免在终止条件上做其他运算（属性查找等）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 未优化，每次循环都会去计算数组长度</div><div class="line">var arr = [&apos;HTML&apos;, &apos;CSS&apos;, &apos;JavaScript&apos;];</div><div class="line">for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">    //...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 优化后</div><div class="line">for (var i = 0, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">    //...</div><div class="line">&#125;</div><div class="line">// 声明了一个变量len用于储存数组长度，只会计算一次</div></pre></td></tr></table></figure></p>
-<h4 id="简化循环体"><a href="#简化循环体" class="headerlink" title="简化循环体"></a>简化循环体</h4><p>循环体的代码应该着重于只需要遍历处理的代码，其他无关代码应放置到循环体外面。</p>
-<h4 id="后测试循环"><a href="#后测试循环" class="headerlink" title="后测试循环"></a>后测试循环</h4><blockquote>
-<p>最常用的for循环和while循环都是前测试循环。而do-while这种后测试循环，可以避免最初终止条件的计算，因此运行更快。</p>
-<p>前测试循环（for/while），可能一次都不会执行循环体</p>
-<p>后测试循环（do…while），至少执行一次</p>
-</blockquote>
-<h4 id="用确定索引值更快"><a href="#用确定索引值更快" class="headerlink" title="用确定索引值更快"></a>用确定索引值更快</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// for循环遍历</div><div class="line">var arr = [&apos;HTML&apos;, &apos;CSS&apos;, &apos;JavaScript&apos;];</div><div class="line">for (let i = 0, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">    arr[i];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 确定索引值</div><div class="line">arr[0]; </div><div class="line">arr[1]; </div><div class="line">arr[2];</div></pre></td></tr></table></figure>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
-<li>原生方法较快（Math)</li>
-<li>switch语句较快 (多个if情况下)</li>
-<li>位运算符较快</li>
-</ol>
-<p><strong>TIPS: 判断优化，最可能的到最不可能的顺序组织（<code>if/switch</code>)</strong></p>
-<h3 id="最小语句数"><a href="#最小语句数" class="headerlink" title="最小语句数"></a>最小语句数</h3><p>符合 <strong>write less, do more</strong> 的代码追求</p>
-<h4 id="多个变量声明合并"><a href="#多个变量声明合并" class="headerlink" title="多个变量声明合并"></a>多个变量声明合并</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 多个var声明</div><div class="line">var name = &apos;KenTsang&apos;;</div><div class="line">var age = 28;</div><div class="line">var job = &apos;Developer&apos;;</div><div class="line"></div><div class="line">// 合并一个var声明</div><div class="line">var name = &apos;KenTsang&apos;,</div><div class="line">    age = 27,</div><div class="line">    job = &apos;Developer&apos;;</div></pre></td></tr></table></figure>
-<h4 id="插入迭代值"><a href="#插入迭代值" class="headerlink" title="插入迭代值"></a>插入迭代值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 优化前</div><div class="line">var name = value[i];</div><div class="line">i++;</div><div class="line"></div><div class="line">// 优化后</div><div class="line">var name = value[i++];</div></pre></td></tr></table></figure>
-<h4 id="数组-对象字面量"><a href="#数组-对象字面量" class="headerlink" title="数组/对象字面量"></a>数组/对象字面量</h4><p>创建引用类型可以使用构造函数和字面量两种方式，不过日常习惯都使用字面量，因为语句更简洁，写起来更像数据封装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 字面量</div><div class="line">var arr = [1, 2, 3, 4];</div><div class="line">var obj = &#123;</div><div class="line">    name: &apos;KenTsang&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 构造函数</div><div class="line">var arr = new Array(1, 2, 3, 4);</div><div class="line">var obj = new Object();</div><div class="line">obj.name = &apos;KenTsang&apos;;</div></pre></td></tr></table></figure></p>
-<h3 id="DOM优化交互"><a href="#DOM优化交互" class="headerlink" title="DOM优化交互"></a>DOM优化交互</h3><h4 id="最小现场更新"><a href="#最小现场更新" class="headerlink" title="最小现场更新"></a>最小现场更新</h4><blockquote>
-<p>现场更新：一旦你需要访问的 DOM 部分是已经显示的页面的一部分，那么你就是在进行一个现场更新</p>
-</blockquote>
-<h4 id="文档片段"><a href="#文档片段" class="headerlink" title="文档片段"></a>文档片段</h4><p>文档片段相当一个临时的占位符，只有片段中的内容会被添加到DOM上，片段本身并不会被添加。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 代码片段标签</div><div class="line">var ele  = document.getElementById(&apos;ul&apos;);</div><div class="line">var fragment = document.createDocumentFragment();</div><div class="line">var browsers = [&apos;Firefox&apos;, &apos;Chrome&apos;, &apos;Opera&apos;, </div><div class="line">    &apos;Safari&apos;, &apos;IE&apos;];</div><div class="line"></div><div class="line">browsers.forEach(function(browser) &#123;</div><div class="line">    var li = document.createElement(&apos;li&apos;);</div><div class="line">    li.textContent = browser;</div><div class="line">    fragment.appendChild(li);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 只会操作一次DOM</div><div class="line">ele.appendChild(fragment);</div></pre></td></tr></table></figure>
-<h4 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h4><p>合并插入代码一次性设置innerHTML。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 优化前：操作多次DOM</div><div class="line">var list = document.getElementById(&quot;myList&quot;);</div><div class="line">for (var i=0; i &lt; 10; i++) &#123;</div><div class="line">    list.innerHTML += &quot;&lt;li&gt;Item &quot; + i + &quot;&lt;/li&gt;&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 优化后：操作一次DOM</div><div class="line">var innerHtml = &apos;&apos;;</div><div class="line">for (var i = 0; i &lt; 10; i++) &#123;</div><div class="line">    innerHtml += &apos;&lt;li&gt;Item&apos; + i + &apos;&lt;/li&gt;&apos;;</div><div class="line">&#125;</div><div class="line">list.innerHTML = innerHtml;</div></pre></td></tr></table></figure>
-<h4 id="事件代理（事件委托）"><a href="#事件代理（事件委托）" class="headerlink" title="事件代理（事件委托）"></a>事件代理（事件委托）</h4><p>通过事件流——冒泡机制实现代理，子元素事件触发冒泡到父元素，由父元素绑定一个事件进行统一处理，避免多个事件绑定影响性能。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-4b78e22a65ec2c73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="事件冒泡"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;list&quot;&gt;</div><div class="line">    &lt;li class=&quot;item&quot;&gt;HTML&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item&quot;&gt;CSS&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item&quot;&gt;JavaScript&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">var listEle = document.getElementById(&apos;list&apos;);</div><div class="line"></div><div class="line">listEle.addEventListener(&apos;click&apos;, function(event) &#123;</div><div class="line">    if (event.target.className.indexOf(&apos;item&apos;) &gt; -1) &#123;</div><div class="line">        console.log(event.target.innerHTML); </div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// jquery</div><div class="line">$(&apos;#list&apos;).on(&apos;click&apos;, &apos;.item&apos;, function(event)&#123;</div><div class="line">    console.log($(this).html());</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="注意HTMLCollection"><a href="#注意HTMLCollection" class="headerlink" title="注意HTMLCollection"></a>注意HTMLCollection</h4><blockquote>
-<p>任何时候要访问 HTMLCollection，不管它是一个属性还是一个方法，都是在文档上进行一个查询，这个查询开销很昂贵。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 一个死循环例子</div><div class="line">&lt;a href=&quot;&quot;&gt;link&lt;/a&gt;</div><div class="line">    </div><div class="line">var existLinkEle = document.getElementsByTagName(&apos;a&apos;);</div><div class="line">for (var i = 0; i &lt; existLinkEle.length; i++) &#123;     </div><div class="line">    console.log(i);</div><div class="line">    var linkEle = document.createElement(&apos;a&apos;);</div><div class="line">    document.body.appendChild(linkEle);</div><div class="line">&#125;</div><div class="line">// body会不断地插入a标签</div></pre></td></tr></table></figure>
-<p>因为<code>existLinkEle.length</code>每次循环都会重新计算页面a节点的数量，而得到的值一直递增。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 优化（一个变量存储引用）</div><div class="line">var len = existLinkEle.length;</div><div class="line">for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">    //...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>返回<code>HTMLCollection</code>对象情况有：</p>
-<ol>
-<li><code>document.getElementByTagName()</code>。</li>
-<li>获取元素的<code>childNodes</code>属性</li>
-<li>获取元素的<code>attributes</code>属性</li>
-<li><code>document.forms</code>,<code>document.images</code>等</li>
-</ol>
+        <p>年底了，故事总是会有很多。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-12577f429c8c6142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim 利剑常磨，见血封喉"></p>
+<p>刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。</p>
+<p>对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。</p>
+<p>Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数Linux系统已附带，开箱即用，终端直接使用，无需多开一个应用窗口</p>
+<p>Vim学习的过程不是两三天即可入境，懒惰如笔者，几天不敲，命令忘的七八。时不时还得翻出来看看，至今仍以新手自居。</p>
+<p>作为一名前端开发工程师，如果你想秀操作用Vim来写HTML/CSS/JavaScript，我只想说一句，“小伙子，你很6啊！”。</p>
+<h4 id="前言-vi-vim的区别"><a href="#前言-vi-vim的区别" class="headerlink" title="前言 vi/vim的区别"></a>前言 vi/vim的区别</h4><p>vim 是 vi 的升级版本，它不仅兼容vi的所有指令，还有新增了一些新的特性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi filename</div><div class="line">vim filename</div><div class="line">// 两者同样的功能，能少敲一个字母，所以我们就用vi吧</div></pre></td></tr></table></figure></p>
+<p>“工具总须多磨，方才用的趁手。”</p>
+<p>Mac 终端键入 <code>vimtutor</code> 即可进入Vim入门教程，30分钟足以让你应对Vim日常操作。</p>
+<h4 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>删除光标下的字符</td>
+</tr>
+<tr>
+<td>X</td>
+<td>删除光标左边的字符</td>
+</tr>
+<tr>
+<td>s</td>
+<td>修改一个字符(与r的区别，修改后直接进入Insert模式)</td>
+</tr>
+<tr>
+<td>i</td>
+<td>光标前插入字符</td>
+</tr>
+<tr>
+<td>a</td>
+<td>光标后插入字符</td>
+</tr>
+<tr>
+<td>A</td>
+<td>行尾插入字符</td>
+</tr>
+<tr>
+<td>o</td>
+<td>光标下方新建一行并进入Insert模式</td>
+</tr>
+<tr>
+<td>O (字母)</td>
+<td>光标上方新建一行并进入Insert模式</td>
+</tr>
+<tr>
+<td>r</td>
+<td>替换字符(单个)</td>
+</tr>
+<tr>
+<td>R</td>
+<td>替换字符(多个)</td>
+</tr>
+<tr>
+<td>cw</td>
+<td>替换文本直到单词末尾(ce也可)</td>
+</tr>
+<tr>
+<td>c$</td>
+<td>替换文本直到行尾</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>删除单词 (de, d2w)</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>删除到行尾</td>
+</tr>
+<tr>
+<td>D</td>
+<td>删除到行尾</td>
+</tr>
+<tr>
+<td>S</td>
+<td>删除到行为，并进入Insert模式</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除整行</td>
+</tr>
+<tr>
+<td>y</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制整行 （yw, ye)</td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴到光标之后</td>
+</tr>
+<tr>
+<td>P</td>
+<td>粘贴到光标之前</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销</td>
+</tr>
+<tr>
+<td>.</td>
+<td>重复上一次操作</td>
+</tr>
+<tr>
+<td>:!</td>
+<td>执行外部名 (:!dir/:ls)</td>
+</tr>
+<tr>
+<td>%</td>
+<td>查找配对的括号 ), }, ]</td>
+</tr>
+<tr>
+<td>v motion :w</td>
+<td>选择性保存</td>
+</tr>
+<tr>
+<td>Ctrl + D</td>
+<td>查看可能的补全</td>
+</tr>
+</tbody>
+</table>
+<h4 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>左</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下</td>
+</tr>
+<tr>
+<td>0 (数字)</td>
+<td>行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>行尾</td>
+</tr>
+<tr>
+<td>w</td>
+<td>下一个单词起始处</td>
+</tr>
+<tr>
+<td>nw (2w)</td>
+<td>n可为数字，表示移动两个单词</td>
+</tr>
+<tr>
+<td>e</td>
+<td>单词末尾（与w的区别）</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>文件起始处</td>
+</tr>
+<tr>
+<td>G</td>
+<td>文件末尾处</td>
+</tr>
+</tbody>
+</table>
+<h4 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:wq</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>ZZ</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>丢弃修改并退出 (q退出，有修改的话q不能退出)</td>
+</tr>
+<tr>
+<td>:e!</td>
+<td>丢弃修改并打开原文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="查找并替换"><a href="#查找并替换" class="headerlink" title="查找并替换"></a>查找并替换</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:s/old/new/g</td>
+<td>查找old并替换为new，g代表整行匹配</td>
+</tr>
+<tr>
+<td>:#, #s/old/new</td>
+<td>#, #代表首尾行号</td>
+</tr>
+<tr>
+<td>:%s/old/new/g</td>
+<td>全文匹配替换</td>
+</tr>
+<tr>
+<td>:%s/old/new/gc</td>
+<td>全文匹配替换，并每次替换会弹出确认提示</td>
+</tr>
+</tbody>
+</table>
+<h4 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + e</td>
+<td>向下滚动一行</td>
+</tr>
+<tr>
+<td>Ctrl + y</td>
+<td>向上滚动一行</td>
+</tr>
+<tr>
+<td>Ctrl + f</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td>Ctrl + b</td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td>Ctrl + u</td>
+<td>向上翻半页</td>
+</tr>
+<tr>
+<td>Ctrl + d</td>
+<td>向下翻半页</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:e + filename</td>
+<td>打开新文件</td>
+</tr>
+<tr>
+<td>:r + filename</td>
+<td>读取文件并插入到当前文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="选项设置"><a href="#选项设置" class="headerlink" title="选项设置"></a>选项设置</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:set ic</td>
+<td>忽略大小写</td>
+</tr>
+<tr>
+<td>:set is</td>
+<td>部分匹配（like)</td>
+</tr>
+<tr>
+<td>:set hls</td>
+<td>高亮匹配</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>显示行号</td>
+</tr>
+</tbody>
+</table>
+<h4 id="分屏启动vim"><a href="#分屏启动vim" class="headerlink" title="分屏启动vim"></a>分屏启动vim</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vim -on file1 file2…</td>
+<td>水平分屏</td>
+</tr>
+<tr>
+<td>vim -On file1 file2…</td>
+<td>垂直分屏</td>
+</tr>
+</tbody>
+</table>
+<h4 id="关闭分屏"><a href="#关闭分屏" class="headerlink" title="关闭分屏"></a>关闭分屏</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + w  c</td>
+<td>关闭当前窗口（如果是最后一个，无法关闭）</td>
+</tr>
+<tr>
+<td>Ctrl + w q</td>
+<td>关闭当前窗口（如果是最后一个，则退出vim)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + w s</td>
+<td>上下分屏</td>
+</tr>
+<tr>
+<td>Ctrl + w v</td>
+<td>左右分屏</td>
+</tr>
+<tr>
+<td>:sp filename</td>
+<td>左右分屏，且打开一个新的文件</td>
+</tr>
+<tr>
+<td>:vsp filename</td>
+<td>上下分屏，且打开一个新的文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="切换分屏（光标切换）"><a href="#切换分屏（光标切换）" class="headerlink" title="切换分屏（光标切换）"></a>切换分屏（光标切换）</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + w l</td>
+<td>右边</td>
+</tr>
+<tr>
+<td>Ctrl + w h</td>
+<td>左边</td>
+</tr>
+<tr>
+<td>Ctrl + w j</td>
+<td>上边</td>
+</tr>
+<tr>
+<td>Ctrl + w k</td>
+<td>下边</td>
+</tr>
+</tbody>
+</table>
+<h4 id="分屏尺寸调整"><a href="#分屏尺寸调整" class="headerlink" title="分屏尺寸调整"></a>分屏尺寸调整</h4><p><em>TIPS: (上下分屏生效)</em></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + w =</td>
+<td>所有屏一样高度</td>
+</tr>
+<tr>
+<td>Ctrl + w +</td>
+<td>增加高度</td>
+</tr>
+<tr>
+<td>Ctrl + w -</td>
+<td>减少高度</td>
+</tr>
+</tbody>
+</table>
+<h4 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h4><p>这么多命令要记，想对Vim说喜欢真不容易，按耐不住就新开VScode。<br>少年莫慌，很多事情，难在开头，当你学会了，才会感谢当初的付出。</p>
+<p>本文仅对常用的一些命令做了汇总，Vim的玩法还有很多。在此推荐易水博客的<a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">《Vim使用进阶》</a>系列，干货满满。</p>
+<p>寒梅飘香，这个寒冬，与诸君互勉。</p>
 <hr>
-<p>参考文档</p>
+<p>参考文档：</p>
 <ul>
-<li><a href="http://www.ituring.com.cn/book/946" target="_blank" rel="external">《JavaScript高级程序设计》</a></li>
+<li><a href="https://www.cnblogs.com/KiraEXA/p/5994078.html" target="_blank" rel="external">vi和vim的区别</a></li>
+<li><a href="https://www.cnblogs.com/yangjig/p/6014198.html" target="_blank" rel="external">vim常用命令总结</a></li>
+<li><a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">vi/vim使用进阶</a></li>
 </ul>
 <blockquote>
 <p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
@@ -585,11 +954,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WEB/" rel="tag"># WEB</a>
+            <a href="/tags/工具类/" rel="tag"># 工具类</a>
           
-            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
-          
-            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+            <a href="/tags/编辑器/" rel="tag"># 编辑器</a>
           
         </div>
       
@@ -602,8 +969,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/03/读书笔记-02-可维护性-JavaScript高级程序设计/" rel="next" title="读书笔记(02) - 可维护性 - JavaScript高级程序设计">
-                <i class="fa fa-chevron-left"></i> 读书笔记(02) - 可维护性 - JavaScript高级程序设计
+              <a href="/2018/12/10/读书笔记-05-事件-JavaScript高级程序设计/" rel="next" title="读书笔记(05) - 事件 - JavaScript高级程序设计">
+                <i class="fa fa-chevron-left"></i> 读书笔记(05) - 事件 - JavaScript高级程序设计
               </a>
             
           </div>
@@ -611,10 +978,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/" rel="prev" title="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
-                读书笔记(04) - 错误监控 - JavaScript高级程序设计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -824,7 +1187,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链查找"><span class="nav-number">1.</span> <span class="nav-text">作用域链查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不必要的属性查找"><span class="nav-number">2.</span> <span class="nav-text">不必要的属性查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化循环"><span class="nav-number">3.</span> <span class="nav-text">优化循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#减值迭代"><span class="nav-number">3.1.</span> <span class="nav-text">减值迭代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简化终止条件-常用"><span class="nav-number">3.2.</span> <span class="nav-text">简化终止条件 (常用)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简化循环体"><span class="nav-number">3.3.</span> <span class="nav-text">简化循环体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后测试循环"><span class="nav-number">3.4.</span> <span class="nav-text">后测试循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用确定索引值更快"><span class="nav-number">3.5.</span> <span class="nav-text">用确定索引值更快</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小语句数"><span class="nav-number">5.</span> <span class="nav-text">最小语句数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多个变量声明合并"><span class="nav-number">5.1.</span> <span class="nav-text">多个变量声明合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入迭代值"><span class="nav-number">5.2.</span> <span class="nav-text">插入迭代值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组-对象字面量"><span class="nav-number">5.3.</span> <span class="nav-text">数组/对象字面量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM优化交互"><span class="nav-number">6.</span> <span class="nav-text">DOM优化交互</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最小现场更新"><span class="nav-number">6.1.</span> <span class="nav-text">最小现场更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档片段"><span class="nav-number">6.2.</span> <span class="nav-text">文档片段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#innerHTML"><span class="nav-number">6.3.</span> <span class="nav-text">innerHTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件代理（事件委托）"><span class="nav-number">6.4.</span> <span class="nav-text">事件代理（事件委托）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意HTMLCollection"><span class="nav-number">6.5.</span> <span class="nav-text">注意HTMLCollection</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言-vi-vim的区别"><span class="nav-number">1.</span> <span class="nav-text">前言 vi/vim的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常规操作"><span class="nav-number">2.</span> <span class="nav-text">常规操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#光标移动"><span class="nav-number">3.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出"><span class="nav-number">4.</span> <span class="nav-text">退出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找并替换"><span class="nav-number">5.</span> <span class="nav-text">查找并替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#翻页"><span class="nav-number">6.</span> <span class="nav-text">翻页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件操作"><span class="nav-number">7.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选项设置"><span class="nav-number">8.</span> <span class="nav-text">选项设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分屏启动vim"><span class="nav-number">9.</span> <span class="nav-text">分屏启动vim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭分屏"><span class="nav-number">10.</span> <span class="nav-text">关闭分屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分屏"><span class="nav-number">11.</span> <span class="nav-text">分屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切换分屏（光标切换）"><span class="nav-number">12.</span> <span class="nav-text">切换分屏（光标切换）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分屏尺寸调整"><span class="nav-number">13.</span> <span class="nav-text">分屏尺寸调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写在结尾"><span class="nav-number">14.</span> <span class="nav-text">写在结尾</span></a></li></ol></div>
             
 
           </div>
