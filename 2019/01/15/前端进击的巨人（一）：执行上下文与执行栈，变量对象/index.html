@@ -103,21 +103,21 @@
 
 
 
-<meta name="description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   理解执行上下文 执行上下文(Execution Context): 函数执行前进行的准备工作（也称执行上下文环境）  运行JavaScript代码时，当代码执行进入一个环境时，就会为该环">
+<meta name="description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
 <meta name="keywords" content="JavaScript,前端进击的巨人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
 <meta property="og:url" content="http://wuliv.com/2019/01/15/前端进击的巨人（一）：执行上下文与执行栈，变量对象/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   理解执行上下文 执行上下文(Execution Context): 函数执行前进行的准备工作（也称执行上下文环境）  运行JavaScript代码时，当代码执行进入一个环境时，就会为该环">
+<meta property="og:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-33396577c0faf675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/599584-b12fef30803a0c53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-15T04:53:29.032Z">
+<meta property="og:updated_time" content="2019-01-15T06:06:41.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
-<meta name="twitter:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   理解执行上下文 执行上下文(Execution Context): 函数执行前进行的准备工作（也称执行上下文环境）  运行JavaScript代码时，当代码执行进入一个环境时，就会为该环">
+<meta name="twitter:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-33396577c0faf675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,822
+                  1,835
                 </span>
               
 
@@ -478,6 +478,7 @@
 <p>进击巨人系列开篇，不忘初心，砥砺前行。</p>
 <hr>
 <p><img src="https://upload-images.jianshu.io/upload_images/7324444-33396577c0faf675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端进击的巨人（一）：执行上下文与执行栈，变量对象"></p>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <h3 id="理解执行上下文"><a href="#理解执行上下文" class="headerlink" title="理解执行上下文"></a>理解执行上下文</h3><blockquote>
 <p>执行上下文(Execution Context): 函数执行前进行的准备工作（也称执行上下文环境）</p>
 </blockquote>
