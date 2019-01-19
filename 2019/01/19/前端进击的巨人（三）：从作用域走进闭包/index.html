@@ -113,10 +113,10 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-8583913cf7c3f16b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-91070fb020260fc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-cd7c318284d7be05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-f607589258cdd0e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-0beea06722023c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-19T03:38:50.484Z">
+<meta property="og:updated_time" content="2019-01-19T05:12:35.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（三）：从作用域走进闭包">
 <meta name="twitter:description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
@@ -512,7 +512,7 @@
 </blockquote>
 <p><strong>“在当前执行环境开始查找使用到的变量，如果找到，则返回其值。如果找不到，会逐层往上级（父作用域）查找，直到全局作用域”</strong>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var money = 100;</div><div class="line">function foo() &#123;</div><div class="line">    function bar() &#123;</div><div class="line">        console.log(money);</div><div class="line">    &#125;</div><div class="line">    bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-cd7c318284d7be05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="作用域链上的变量查找"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-f607589258cdd0e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="作用域链上的变量查找"></p>
 <h3 id="自由变量"><a href="#自由变量" class="headerlink" title="自由变量"></a>自由变量</h3><p>变量我们见的不少，但”自由变量”听着是不是挺唬人的。其实对它，我们并不陌生。</p>
 <p><strong>“自由变量：当前执行环境使用到，但并未在当前执行环境声明的变量（函数参数arguments排除）”</strong></p>
 <p>函数调用时，进入执行上下文创建阶段，会对<code>argument</code>进行隐式的变量声明。</p>

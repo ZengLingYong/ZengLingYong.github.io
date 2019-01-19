@@ -28,13 +28,6 @@
     </url>
 
     <url>
-        <loc>http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/</loc>
-        <lastmod>2018-08-04T04:02:47.219Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://wuliv.com/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/</loc>
         <lastmod>2018-12-25T03:39:20.528Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -44,6 +37,13 @@
     <url>
         <loc>http://wuliv.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
         <lastmod>2018-12-26T08:52:03.861Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+        <lastmod>2019-01-19T05:12:35.511Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
