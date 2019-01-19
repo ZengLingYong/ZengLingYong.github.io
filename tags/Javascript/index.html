@@ -339,6 +339,34 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/01/19/前端进击的巨人（三）：从作用域走进闭包/" itemprop="url">
+              
+                <span itemprop="name">前端进击的巨人（三）：从作用域走进闭包</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-19T11:38:19+08:00"
+              content="2019-01-19" >
+          01-19
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/2019/01/15/前端进击的巨人（二）：栈、堆、队列、内存空间/" itemprop="url">
               
                 <span itemprop="name">前端进击的巨人（二）：栈、堆、队列、内存空间</span>
@@ -438,7 +466,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +613,7 @@
 </div>
 
 <div>
-  <span class="post-count">博客全站共30.3k字</span> - 
+  <span class="post-count">博客全站共32.9k字</span> - 
   <div style="display:inline-block">Hosted by <a href="https://pages.coding.me" target="_blank">Coding Pages</a></div>
 </div>
 
@@ -1169,33 +1197,7 @@
   <script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 </html>
-       // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
+houldDismissSearchPopup) {
         onPopupClose();
       }
     });

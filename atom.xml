@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-01-15T06:06:59.091Z</updated>
+  <updated>2019-01-19T03:38:50.484Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端进击的巨人（三）：从作用域走进闭包</title>
+    <link href="http://wuliv.com/2019/01/19/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%B5%B0%E8%BF%9B%E9%97%AD%E5%8C%85/"/>
+    <id>http://wuliv.com/2019/01/19/前端进击的巨人（三）：从作用域走进闭包/</id>
+    <published>2019-01-19T03:38:19.000Z</published>
+    <updated>2019-01-19T03:38:50.484Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/7324444-8583913cf7c3f16b.png?imageMogr2
+    
+    </summary>
+    
+      <category term="前端" scheme="http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://wuliv.com/tags/JavaScript/"/>
+    
+      <category term="前端进击的巨人" scheme="http://wuliv.com/tags/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>前端进击的巨人（二）：栈、堆、队列、内存空间</title>

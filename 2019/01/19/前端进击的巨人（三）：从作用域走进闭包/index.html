@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="工具类,编辑器," />
+  <meta name="keywords" content="JavaScript,前端进击的巨人," />
 
 
 
@@ -103,20 +103,24 @@
 
 
 
-<meta name="description" content="年底了，故事总是会有很多。  刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。 对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。 Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数L">
-<meta name="keywords" content="工具类,编辑器">
+<meta name="description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
+<meta name="keywords" content="JavaScript,前端进击的巨人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim 利剑常磨，见血封喉">
-<meta property="og:url" content="http://wuliv.com/2018/12/25/Vim-利剑常磨，见血封喉/index.html">
+<meta property="og:title" content="前端进击的巨人（三）：从作用域走进闭包">
+<meta property="og:url" content="http://wuliv.com/2019/01/19/前端进击的巨人（三）：从作用域走进闭包/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="年底了，故事总是会有很多。  刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。 对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。 Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数L">
+<meta property="og:description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-12577f429c8c6142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-25T03:39:20.528Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-8583913cf7c3f16b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-91070fb020260fc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-cd7c318284d7be05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-0beea06722023c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-19T03:38:50.484Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim 利剑常磨，见血封喉">
-<meta name="twitter:description" content="年底了，故事总是会有很多。  刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。 对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。 Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数L">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-12577f429c8c6142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="前端进击的巨人（三）：从作用域走进闭包">
+<meta name="twitter:description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-8583913cf7c3f16b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -145,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2018/12/25/Vim-利剑常磨，见血封喉/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/01/19/前端进击的巨人（三）：从作用域走进闭包/"/>
 
 
 
 
 
-  <title>Vim 利剑常磨，见血封喉 | Kenz's Blog</title>
+  <title>前端进击的巨人（三）：从作用域走进闭包 | Kenz's Blog</title>
   
 
 
@@ -338,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2018/12/25/Vim-利剑常磨，见血封喉/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/01/19/前端进击的巨人（三）：从作用域走进闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -355,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vim 利剑常磨，见血封喉</h1>
+          <h1 class="post-title" itemprop="name headline">前端进击的巨人（三）：从作用域走进闭包</h1>
         
 
         <div class="post-meta">
@@ -367,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T09:00:31+08:00">
-                2018-12-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-19T11:38:19+08:00">
+                2019-01-19
               </time>
             
 
@@ -390,8 +394,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具类/" itemprop="url" rel="index">
-                    <span itemprop="name">工具类</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -407,7 +411,7 @@
 
           
           
-             <span id="/2018/12/25/Vim-利剑常磨，见血封喉/" class="leancloud_visitors" data-flag-title="Vim 利剑常磨，见血封喉">
+             <span id="/2019/01/19/前端进击的巨人（三）：从作用域走进闭包/" class="leancloud_visitors" data-flag-title="前端进击的巨人（三）：从作用域走进闭包">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,227
+                  2,626
                 </span>
               
 
@@ -449,7 +453,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5
+                  10
                 </span>
               
             </div>
@@ -470,439 +474,102 @@
       
 
       
-        <p>年底了，故事总是会有很多。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-12577f429c8c6142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim 利剑常磨，见血封喉"></p>
-<p>刚了一波通宵加班，趁着有时间，过了一遍Vim教程，顺便汇总下常用命令。</p>
-<p>对于以 OSX / Linux为开发环境的伙伴们，应该并不陌生。因其轻便，扩展性，可定制化，一直很受开发者追捧。高阶大神，袖中必有深藏。</p>
-<p>Vim编辑器简洁易用，在终端上可用来快速查看修改文档。虽然与其他编辑器如WebStrom, VScode相比，功能扩展相对欠缺，对新手朋友不太友好。但胜在多数Linux系统已附带，开箱即用，终端直接使用，无需再多开一个应用窗口。</p>
-<p>作为一名前端开发工程师，如果你想秀操作用Vim来写HTML/CSS/JavaScript，我只想说一句，“小伙子，你很6啊！”。</p>
-<p>Vim学习的过程不是两三天即可入境，懒惰如笔者，几天不敲，命令忘了七八。时不时还得翻出来看看，至今仍以新手自居。</p>
-<h4 id="前言-vi-vim的区别"><a href="#前言-vi-vim的区别" class="headerlink" title="前言 vi/vim的区别"></a>前言 vi/vim的区别</h4><p>vim 是 vi 的升级版本，它不仅兼容vi的所有指令，还有新增了一些新的特性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi filename</div><div class="line">vim filename</div><div class="line">// 两者同样的功能，能少敲一个字母，所以我们就用vi吧</div></pre></td></tr></table></figure></p>
-<p>“工具总须多磨，方才用的趁手。”</p>
-<p>Mac 终端键入 <code>vimtutor</code> 即可进入Vim入门教程，30分钟足以让你应对Vim日常操作。</p>
-<h4 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x</td>
-<td>删除光标下的字符</td>
-</tr>
-<tr>
-<td>X</td>
-<td>删除光标左边的字符</td>
-</tr>
-<tr>
-<td>s</td>
-<td>修改一个字符(与r的区别，修改后直接进入Insert模式)</td>
-</tr>
-<tr>
-<td>i</td>
-<td>光标前插入字符</td>
-</tr>
-<tr>
-<td>a</td>
-<td>光标后插入字符</td>
-</tr>
-<tr>
-<td>A</td>
-<td>行尾插入字符</td>
-</tr>
-<tr>
-<td>o</td>
-<td>光标下方新建一行并进入Insert模式</td>
-</tr>
-<tr>
-<td>O (字母)</td>
-<td>光标上方新建一行并进入Insert模式</td>
-</tr>
-<tr>
-<td>r</td>
-<td>替换字符(单个)</td>
-</tr>
-<tr>
-<td>R</td>
-<td>替换字符(多个)</td>
-</tr>
-<tr>
-<td>cw</td>
-<td>替换文本直到单词末尾(ce也可)</td>
-</tr>
-<tr>
-<td>c$</td>
-<td>替换文本直到行尾</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>删除单词 (de, d2w)</td>
-</tr>
-<tr>
-<td>d$</td>
-<td>删除到行尾</td>
-</tr>
-<tr>
-<td>D</td>
-<td>删除到行尾</td>
-</tr>
-<tr>
-<td>S</td>
-<td>删除到行为，并进入Insert模式</td>
-</tr>
-<tr>
-<td>dd</td>
-<td>删除整行</td>
-</tr>
-<tr>
-<td>y</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>yy</td>
-<td>复制整行 （yw, ye)</td>
-</tr>
-<tr>
-<td>p</td>
-<td>粘贴到光标之后</td>
-</tr>
-<tr>
-<td>P</td>
-<td>粘贴到光标之前</td>
-</tr>
-<tr>
-<td>u</td>
-<td>撤销</td>
-</tr>
-<tr>
-<td>.</td>
-<td>重复上一次操作</td>
-</tr>
-<tr>
-<td>:!</td>
-<td>执行外部名 (:!dir/:ls)</td>
-</tr>
-<tr>
-<td>%</td>
-<td>查找配对的括号 ), }, ]</td>
-</tr>
-<tr>
-<td>v motion :w</td>
-<td>选择性保存</td>
-</tr>
-<tr>
-<td>Ctrl + D</td>
-<td>查看可能的补全</td>
-</tr>
-</tbody>
-</table>
-<h4 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>h</td>
-<td>左</td>
-</tr>
-<tr>
-<td>l</td>
-<td>右</td>
-</tr>
-<tr>
-<td>k</td>
-<td>上</td>
-</tr>
-<tr>
-<td>j</td>
-<td>下</td>
-</tr>
-<tr>
-<td>0 (数字)</td>
-<td>行首</td>
-</tr>
-<tr>
-<td>$</td>
-<td>行尾</td>
-</tr>
-<tr>
-<td>w</td>
-<td>下一个单词起始处</td>
-</tr>
-<tr>
-<td>nw (2w)</td>
-<td>n可为数字，表示移动两个单词</td>
-</tr>
-<tr>
-<td>e</td>
-<td>单词末尾（与w的区别）</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>文件起始处</td>
-</tr>
-<tr>
-<td>G</td>
-<td>文件末尾处</td>
-</tr>
-</tbody>
-</table>
-<h4 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:wq</td>
-<td>保存并退出</td>
-</tr>
-<tr>
-<td>ZZ</td>
-<td>保存并退出</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>丢弃修改并退出 (q退出，有修改的话q不能退出)</td>
-</tr>
-<tr>
-<td>:e!</td>
-<td>丢弃修改并打开原文件</td>
-</tr>
-</tbody>
-</table>
-<h4 id="查找并替换"><a href="#查找并替换" class="headerlink" title="查找并替换"></a>查找并替换</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:s/old/new/g</td>
-<td>查找old并替换为new，g代表整行匹配</td>
-</tr>
-<tr>
-<td>:#, #s/old/new</td>
-<td>#, #代表首尾行号</td>
-</tr>
-<tr>
-<td>:%s/old/new/g</td>
-<td>全文匹配替换</td>
-</tr>
-<tr>
-<td>:%s/old/new/gc</td>
-<td>全文匹配替换，并每次替换会弹出确认提示</td>
-</tr>
-</tbody>
-</table>
-<h4 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + e</td>
-<td>向下滚动一行</td>
-</tr>
-<tr>
-<td>Ctrl + y</td>
-<td>向上滚动一行</td>
-</tr>
-<tr>
-<td>Ctrl + f</td>
-<td>向下翻一页</td>
-</tr>
-<tr>
-<td>Ctrl + b</td>
-<td>向上翻一页</td>
-</tr>
-<tr>
-<td>Ctrl + u</td>
-<td>向上翻半页</td>
-</tr>
-<tr>
-<td>Ctrl + d</td>
-<td>向下翻半页</td>
-</tr>
-</tbody>
-</table>
-<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:e + filename</td>
-<td>打开新文件</td>
-</tr>
-<tr>
-<td>:r + filename</td>
-<td>读取文件并插入到当前文件</td>
-</tr>
-</tbody>
-</table>
-<h4 id="选项设置"><a href="#选项设置" class="headerlink" title="选项设置"></a>选项设置</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:set ic</td>
-<td>忽略大小写</td>
-</tr>
-<tr>
-<td>:set is</td>
-<td>部分匹配（like)</td>
-</tr>
-<tr>
-<td>:set hls</td>
-<td>高亮匹配</td>
-</tr>
-<tr>
-<td>:set nu</td>
-<td>显示行号</td>
-</tr>
-</tbody>
-</table>
-<h4 id="分屏启动vim"><a href="#分屏启动vim" class="headerlink" title="分屏启动vim"></a>分屏启动vim</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vim -on file1 file2…</td>
-<td>水平分屏</td>
-</tr>
-<tr>
-<td>vim -On file1 file2…</td>
-<td>垂直分屏</td>
-</tr>
-</tbody>
-</table>
-<h4 id="关闭分屏"><a href="#关闭分屏" class="headerlink" title="关闭分屏"></a>关闭分屏</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + w  c</td>
-<td>关闭当前窗口（如果是最后一个，无法关闭）</td>
-</tr>
-<tr>
-<td>Ctrl + w q</td>
-<td>关闭当前窗口（如果是最后一个，则退出vim)</td>
-</tr>
-</tbody>
-</table>
-<h4 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + w s</td>
-<td>上下分屏</td>
-</tr>
-<tr>
-<td>Ctrl + w v</td>
-<td>左右分屏</td>
-</tr>
-<tr>
-<td>:sp filename</td>
-<td>左右分屏，且打开一个新的文件</td>
-</tr>
-<tr>
-<td>:vsp filename</td>
-<td>上下分屏，且打开一个新的文件</td>
-</tr>
-</tbody>
-</table>
-<h4 id="切换分屏（光标切换）"><a href="#切换分屏（光标切换）" class="headerlink" title="切换分屏（光标切换）"></a>切换分屏（光标切换）</h4><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + w l</td>
-<td>右边</td>
-</tr>
-<tr>
-<td>Ctrl + w h</td>
-<td>左边</td>
-</tr>
-<tr>
-<td>Ctrl + w j</td>
-<td>上边</td>
-</tr>
-<tr>
-<td>Ctrl + w k</td>
-<td>下边</td>
-</tr>
-</tbody>
-</table>
-<h4 id="分屏尺寸调整"><a href="#分屏尺寸调整" class="headerlink" title="分屏尺寸调整"></a>分屏尺寸调整</h4><p><em>TIPS: (上下分屏生效)</em></p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + w =</td>
-<td>所有屏一样高度</td>
-</tr>
-<tr>
-<td>Ctrl + w +</td>
-<td>增加高度</td>
-</tr>
-<tr>
-<td>Ctrl + w -</td>
-<td>减少高度</td>
-</tr>
-</tbody>
-</table>
-<h4 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h4><p>这么多命令要记，想对Vim说喜欢真不容易，按耐不住就新开VScode。<br>少年莫慌，很多事情，难在开头，当你学会了，才会感谢当初的付出。</p>
-<p>本文仅对常用的一些命令做了汇总，Vim的玩法还有很多。在此推荐易水博客的<a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">《Vim使用进阶》</a>系列，干货满满。</p>
-<p>寒梅飘香，这个寒冬，与诸君互勉。</p>
+        <p>进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-8583913cf7c3f16b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端进击的巨人（三）：从作用域走进闭包"></p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><blockquote>
+<p>作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限</p>
+<p>——《你不知道的JavaScript上卷》</p>
+</blockquote>
+<p>作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var globaValue = &apos;我是全局作用域&apos;;</div><div class="line">function foo() &#123;</div><div class="line">    var fooValue = &apos;我是foo作用域&apos;;</div><div class="line">    function bar() &#123;</div><div class="line">        var barValue = &apos;我是bar作用域&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function other() &#123;</div><div class="line">    var otherValue = &apos;我是other作用域&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-91070fb020260fc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="作用域"></p>
+<h3 id="作用域的变量声明"><a href="#作用域的变量声明" class="headerlink" title="作用域的变量声明"></a>作用域的变量声明</h3><p>不同作用域下命名相同的变量不会发生冲突，<strong>“就近原则”</strong>选取。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var name = &apos;任何名字&apos;;</div><div class="line">function getName() &#123;</div><div class="line">    var name = &apos;以乐之名&apos;;</div><div class="line">    console.log(name);    // &apos;以乐之名&apos;</div><div class="line">&#125;</div><div class="line">console.log(name);        // &apos;任何名字&apos;</div></pre></td></tr></table></figure>
+<h3 id="作用域的类型"><a href="#作用域的类型" class="headerlink" title="作用域的类型"></a>作用域的类型</h3><p>执行上下文环境有：全局、函数、eval。那么作用域也有三种，ES6新增了块级作用域。</p>
+<ol>
+<li>全局作用域</li>
+<li>函数作用域</li>
+<li>eval作用域（不推荐使用eval，暂时忽略）</li>
+<li>块级作用域（ES6新增）</li>
+</ol>
+<h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>JavaScript中全局环境只有一个，对应的全局作用域也只有一个。没有用<code>var/let/const</code>声明的变量默认都会成为全局变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    a = 10;</div><div class="line">&#125;;</div><div class="line">console.log(a);    // 10 变全局变量（意外由此发生）</div></pre></td></tr></table></figure>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>ES6之前，想要实现局部作用域的方式，都是是通过在函数中声明变量来实现的，所以也称函数作用域，支持嵌套多个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = 20;</div><div class="line">function foo() &#123;</div><div class="line">    var a = 10;</div><div class="line">    console.log(a);    // 10;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>函数中声明变量时，建议在函数起始部分声明所有变量，方便查看，切记要用<code>var/let/const</code>声明，防止手抖将局部变量变成成全局变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getClient() &#123;</div><div class="line">    var name;</div><div class="line">    var phone;</div><div class="line">    var sex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h4><p>我们先来理解什么是块？所谓块，其实就是被大括号<code>{}</code>包裹的代码部分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (true) &#123;</div><div class="line">    // 这里就是块了，也可称代码块</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>ES6前没有块级作用域的概念，所以<code>{}</code>中并没有自己的作用域。如果我们想在ES5的环境下构建块级作用域，一般都是是通过立即执行函数来实现的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var name = &apos;任何名字&apos;;</div><div class="line">(function(window) &#123;</div><div class="line">    var name = &apos;以乐之名&apos;;</div><div class="line">    console.log(name);    // &apos;以乐之名&apos;</div><div class="line">&#125;(window));</div><div class="line">console.log(name);        // &apos;任何名字&apos;</div></pre></td></tr></table></figure>
+<p>ES5借助函数作用域来实现块级作用域的方式，会让我们的代码充斥大量的立即执行函数(IIFE)，不便于代码的阅读。好的代码的就跟好的文章一样，让阅读的人读来舒畅明了。</p>
+<p>为此，ES6新增块级作用域的概念，使用<code>let/const</code>声明变量的方式，即可将其作用域指定在代码块中，跟函数作用域一样支持嵌套。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let i = 0;</div><div class="line">for (let i = 0; i &lt; 10; i++)&#123;</div><div class="line">    console.log(i);</div><div class="line">&#125;</div><div class="line">i;    // 0</div></pre></td></tr></table></figure>
+<p><code>let/const</code>不允许变量提升，必须<strong>“先声明再使用”</strong>。这种限制，称为<strong>“暂时性死区”</strong>。这也能让我们在代码编写阶段变得更加规范化，执行跟书写顺序保持一致。</p>
+<h3 id="作用域链（变量查询规则）"><a href="#作用域链（变量查询规则）" class="headerlink" title="作用域链（变量查询规则）"></a>作用域链（变量查询规则）</h3><p>变量被作用域所管理，那么变量在作用域中的查找规则，就是所谓的作用域链。</p>
+<blockquote>
+<p>作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问</p>
+<p>——《JavaScript高级程序涉及》</p>
+</blockquote>
+<p><strong>“在当前执行环境开始查找使用到的变量，如果找到，则返回其值。如果找不到，会逐层往上级（父作用域）查找，直到全局作用域”</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var money = 100;</div><div class="line">function foo() &#123;</div><div class="line">    function bar() &#123;</div><div class="line">        console.log(money);</div><div class="line">    &#125;</div><div class="line">    bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-cd7c318284d7be05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="作用域链上的变量查找"></p>
+<h3 id="自由变量"><a href="#自由变量" class="headerlink" title="自由变量"></a>自由变量</h3><p>变量我们见的不少，但”自由变量”听着是不是挺唬人的。其实对它，我们并不陌生。</p>
+<p><strong>“自由变量：当前执行环境使用到，但并未在当前执行环境声明的变量（函数参数arguments排除）”</strong></p>
+<p>函数调用时，进入执行上下文创建阶段，会对<code>argument</code>进行隐式的变量声明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var outer = &apos;我是外面变量&apos;;</div><div class="line">function foo() &#123;</div><div class="line">    var inner = &apos;我是里面变量，不是自由变量&apos;;</div><div class="line">    console.log(outer);   </div><div class="line">    // 这里用到了outer，但outer并不在函数foo中声明，所以outer就是foo中的自由变量</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>“自由变量的作用域由词法环境决定，也就是它的作用域在代码书写阶段就已经确定了，而不是在代码编译执行阶段确定。”</strong></p>
+<p><strong>“自由变量的值是在代码执行时确定的，变量变量变量，值肯定要变，所以自由变量的值只有在程序运行阶段才能确定。”</strong></p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>开篇第一文我们就执行环境，执行栈做出了详解，有所遗忘的可再温习。执行栈是我们理解闭包原理基础中的基础。</p>
+<p>函数调用栈过程的图再晒出来，顺便温习下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo () &#123;</div><div class="line">    function bar () &#123;</div><div class="line">        return &apos;I am bar&apos;;</div><div class="line">    &#125;</div><div class="line">    return bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正常出入栈过程"></p>
+<p>函数调用时入栈，调用结束出栈。执行函数时，会创建一个变量对象去存储函数中的变量，方法，参数<code>arguments</code>等，结束调用时，该变量对象就会被销毁。(理想的情况下，不理想的情况就是出现<strong>“闭包”</strong>调用了)。</p>
+<h4 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h4><blockquote>
+<p>闭包是指有权访问另外一个函数作用域的变量的函数。</p>
+<p>——《JavaScript高级程序设计》</p>
+<p>闭包是指那些能够访问自由变量的函数。</p>
+<p>——MDN</p>
+</blockquote>
+<p>闭包的特点首先是函数，其次是它可以访问到父级作用域的变量对象，即使父级函数完成调用后<strong>“理应出栈销毁”</strong>。</p>
+<h4 id="判定闭包出现"><a href="#判定闭包出现" class="headerlink" title="判定闭包出现"></a>判定闭包出现</h4><ol>
+<li>函数作为参数传递</li>
+<li>函数作为返回值传递</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    var fooVal = &apos;2019&apos;;</div><div class="line">    var bar = function() &#123;</div><div class="line">        console.log(fooVal);    // bar中使用到了自由变量fooVal</div><div class="line">    &#125;</div><div class="line">    return bar;                 // 函数作为参数返回</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getValue = foo();</div><div class="line">getValue();                     // 2019</div></pre></td></tr></table></figure>
+<p>对函数中谁是闭包，各文档解释不一。在此我们遵照Chrome的方式，暂且称<code>foo</code>是闭包。</p>
+<p>因为作用域和作用域链规则的限定，子环境的自由变量只能逐层向上到父环境查找。</p>
+<p>但是通过闭包，我们在外部环境也可以获取到变量<code>fooVal</code>，虽然<code>foo()</code>函数执行完成了，但它并没从函数调用栈中销毁，其变量对象存储仍然能被访问到。</p>
+<p>实际执行过程请看图：<br><img src="https://upload-images.jianshu.io/upload_images/7324444-0beea06722023c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="存在闭包的出入栈过程"></p>
+<p>把上述代码改以下，接着看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line"> var fooVal = &apos;2019&apos;;</div><div class="line"> var bar = function() &#123;</div><div class="line"> console.log(fooVal);     // bar中使用到了自由变量fooVal</div><div class="line"> &#125;</div><div class="line"> return bar;              // 函数作为参数返回</div><div class="line">&#125;</div><div class="line">var getValue = foo();</div><div class="line">var fooVal = &apos;2018&apos;;      // 这里的fooVal是全局作用域的变量</div><div class="line">getValue();               // 2019</div></pre></td></tr></table></figure></p>
+<p>答案与结果不符的小伙伴要回头理解下自由变量了。<strong>“自由变量的作用域在代码书写时（函数创建时）就确定了”</strong>，所以函数中<code>getValue()</code>使用的<code>fooVal</code>在<code>foo</code>的作用域下，而不是在全局作用域下。</p>
+<p>答对的小伙伴们再来一道题，加深你的记忆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function fn() &#123;</div><div class="line">    var max = 10;</div><div class="line">    function bar(x) &#123;</div><div class="line">        if (x &gt; max) &#123;    </div><div class="line">            console.log(x)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return bar;</div><div class="line">&#125;</div><div class="line">var f1 = fn();</div><div class="line">var max = 100;</div><div class="line"></div><div class="line">f1(20);                 // 输出20</div></pre></td></tr></table></figure>
+<p>题目解析：<code>max</code>作为函数<code>bar</code>中的自由变量，它的作用域在函数<code>bar</code>创建的时候就确定了，就是函数<code>fn</code>中的<code>max</code>，所以它的作用域链查找到<code>fn</code>中已经结束并返回了，不会再向上找到全局作用域。</p>
+<p><strong>注意：栈中存储的不只是闭包中使用到的自由变量，而是父级函数的整个变量对象（父级函数作用域中声明的方法，变量，参数等）</strong></p>
+<h4 id="闭包的应用场景"><a href="#闭包的应用场景" class="headerlink" title="闭包的应用场景"></a>闭包的应用场景</h4><p>上文中已经阐述了闭包的特点，就是能够让我们跨作用域取值（不局限于父子作用域）。列举两个实际开放中常用的栗子：</p>
+<ol>
+<li><p>封装回调保存作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">for(var i = 1; i &lt; 5; i++) &#123;</div><div class="line">    setTimeout((function(i)&#123;</div><div class="line">       return function() &#123;</div><div class="line">           console.log(i);        </div><div class="line">       &#125; </div><div class="line">    &#125;)(i), i * 1000)</div><div class="line">&#125;</div><div class="line">// 原理：通过自执行函数传参i，然后返回一个函数（闭包）中使用i，使父函数的变量对象一直存在</div></pre></td></tr></table></figure>
+</li>
+<li><p>私有变量和方法实现模块化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var makePeople = function () &#123;</div><div class="line">    var _name = &apos;以乐之名&apos;;</div><div class="line">    return &#123;</div><div class="line">        getName: function () &#123;</div><div class="line">            console.log(_name);</div><div class="line">        &#125;,</div><div class="line">        setName: function (name) &#123;</div><div class="line">            if (name != &apos;Hello world&apos;) &#123;</div><div class="line">                _name = name;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var me = makePeople();</div><div class="line">me.getName();                   // &apos;以乐之名&apos;</div><div class="line">me.setName(&apos;KenTsang&apos;);         </div><div class="line">me.getName();                   // &apos;KenTsang&apos;</div><div class="line"></div><div class="line">// 原理：私有变量_name没有对外访问权限，但通过闭包使其一直保留在内存中，可以被外部调用</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>闭包的应用场景还有很多，具体实际情况还需具体分析。</p>
+<h4 id="闭包造成的内存泄露"><a href="#闭包造成的内存泄露" class="headerlink" title="闭包造成的内存泄露"></a>闭包造成的内存泄露</h4><p>闭包的使用，破坏了函数的出栈过程。解释执行栈的时候，讲到同个函数即使调用自身，创建的变量对象也并非同一个，其内存存储是各自独立的。</p>
+<p>栈中只入不出，函数的变量对象没有被有效回收，就会造成浏览器内存占用逐步增加，内存占用过高的情况下，就会导致页面卡顿，甚至浏览器崩溃。这就是我们常说的闭包造成的<strong>“内存泄露”</strong>。</p>
+<p>所以，一名合格的前端，除了会用闭包，还要正确的解除闭包引用。<br>垃圾回收机制讲解时，通过设置变量值为<code>null</code>时可已解除变量的引用，以便下一次垃圾回收销毁它。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line"> var fooVal = &apos;2019&apos;;</div><div class="line"> var bar = function() &#123;</div><div class="line"> console.log(fooVal);     </div><div class="line"> &#125;</div><div class="line"> return bar;              </div><div class="line">&#125;</div><div class="line">var getValue = foo();</div><div class="line">var fooVal = &apos;2018&apos;;     </div><div class="line">getValue();</div><div class="line">getValue = null;         // 解除引用，下一次垃圾回收就会回收了</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h3><p>闭包算是前端初学者的一个难点，能解释清除并不容易，涉及到作用域，执行上下文环境、变量对象等等。</p>
+<p>零散知识的内聚汇总，正是是系列更文的初衷所在。</p>
+<p>知识不是小段子，听完笑过就忘，唯有形成体系，达成闭环，才能深植入记忆中。</p>
 <hr>
 <p>参考文档：</p>
 <ul>
-<li><a href="https://www.cnblogs.com/KiraEXA/p/5994078.html" target="_blank" rel="external">vi和vim的区别</a></li>
-<li><a href="https://www.cnblogs.com/yangjig/p/6014198.html" target="_blank" rel="external">vim常用命令总结</a></li>
-<li><a href="https://blog.easwy.com/archives/advanced-vim-skills-catalog/" target="_blank" rel="external">vi/vim使用进阶</a></li>
+<li><a href="https://www.cnblogs.com/wangfupeng1988/p/3994065.html" target="_blank" rel="external">深入理解javascript原型和闭包</a></li>
 </ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <blockquote>
 <p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
 </blockquote>
@@ -954,9 +621,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/工具类/" rel="tag"># 工具类</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/编辑器/" rel="tag"># 编辑器</a>
+            <a href="/tags/前端进击的巨人/" rel="tag"># 前端进击的巨人</a>
           
         </div>
       
@@ -969,8 +636,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/10/读书笔记-05-事件-JavaScript高级程序设计/" rel="next" title="读书笔记(05) - 事件 - JavaScript高级程序设计">
-                <i class="fa fa-chevron-left"></i> 读书笔记(05) - 事件 - JavaScript高级程序设计
+              <a href="/2019/01/15/前端进击的巨人（二）：栈、堆、队列、内存空间/" rel="next" title="前端进击的巨人（二）：栈、堆、队列、内存空间">
+                <i class="fa fa-chevron-left"></i> 前端进击的巨人（二）：栈、堆、队列、内存空间
               </a>
             
           </div>
@@ -978,10 +645,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/26/读书笔记-06-语法基础-JavaScript高级程序设计/" rel="prev" title="读书笔记(06) - 语法基础 - JavaScript高级程序设计">
-                读书笔记(06) - 语法基础 - JavaScript高级程序设计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1191,7 +854,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言-vi-vim的区别"><span class="nav-number">1.</span> <span class="nav-text">前言 vi/vim的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常规操作"><span class="nav-number">2.</span> <span class="nav-text">常规操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#光标移动"><span class="nav-number">3.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出"><span class="nav-number">4.</span> <span class="nav-text">退出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找并替换"><span class="nav-number">5.</span> <span class="nav-text">查找并替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#翻页"><span class="nav-number">6.</span> <span class="nav-text">翻页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件操作"><span class="nav-number">7.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选项设置"><span class="nav-number">8.</span> <span class="nav-text">选项设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分屏启动vim"><span class="nav-number">9.</span> <span class="nav-text">分屏启动vim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭分屏"><span class="nav-number">10.</span> <span class="nav-text">关闭分屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分屏"><span class="nav-number">11.</span> <span class="nav-text">分屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切换分屏（光标切换）"><span class="nav-number">12.</span> <span class="nav-text">切换分屏（光标切换）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分屏尺寸调整"><span class="nav-number">13.</span> <span class="nav-text">分屏尺寸调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写在结尾"><span class="nav-number">14.</span> <span class="nav-text">写在结尾</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域的变量声明"><span class="nav-number">2.</span> <span class="nav-text">作用域的变量声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域的类型"><span class="nav-number">3.</span> <span class="nav-text">作用域的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局作用域"><span class="nav-number">3.1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">3.2.</span> <span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#块级作用域"><span class="nav-number">3.3.</span> <span class="nav-text">块级作用域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链（变量查询规则）"><span class="nav-number">4.</span> <span class="nav-text">作用域链（变量查询规则）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自由变量"><span class="nav-number">5.</span> <span class="nav-text">自由变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">6.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是闭包？"><span class="nav-number">6.1.</span> <span class="nav-text">什么是闭包？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判定闭包出现"><span class="nav-number">6.2.</span> <span class="nav-text">判定闭包出现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包的应用场景"><span class="nav-number">6.3.</span> <span class="nav-text">闭包的应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包造成的内存泄露"><span class="nav-number">6.4.</span> <span class="nav-text">闭包造成的内存泄露</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在结尾"><span class="nav-number">7.</span> <span class="nav-text">写在结尾</span></a></li></ol></div>
             
 
           </div>
