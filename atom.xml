@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-01-19T05:12:35.511Z</updated>
+  <updated>2019-01-21T06:53:51.945Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端进击的巨人（四）：略知函数式编程</title>
+    <link href="http://wuliv.com/2019/01/21/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E7%95%A5%E7%9F%A5%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    <id>http://wuliv.com/2019/01/21/前端进击的巨人（四）：略知函数式编程/</id>
+    <published>2019-01-21T06:53:11.000Z</published>
+    <updated>2019-01-21T06:53:51.945Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;系列更文前三篇文章，围绕了一个重要的知识点：&lt;strong&gt;“函数”&lt;/strong&gt;。&lt;br&gt;函数调用栈、函数执行上下文、函数作用域到闭包。可见不理解函数式编程，代码都撸不好。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.
+    
+    </summary>
+    
+      <category term="前端" scheme="http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://wuliv.com/tags/JavaScript/"/>
+    
+      <category term="前端进击的巨人" scheme="http://wuliv.com/tags/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>前端进击的巨人（三）：从作用域走进闭包</title>
