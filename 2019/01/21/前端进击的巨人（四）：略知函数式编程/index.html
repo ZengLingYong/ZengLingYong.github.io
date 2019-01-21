@@ -112,7 +112,7 @@
 <meta property="og:description" content="系列更文前三篇文章，围绕了一个重要的知识点：“函数”。函数调用栈、函数执行上下文、函数作用域到闭包。可见不理解函数式编程，代码都撸不好。  函数是一等公民函数与其它数据类型一样，可以作为值赋给变量，作为参数传递或返回值返回，也可以像对象一样给函数创建属性（不推荐给函数加属性，虽然可用）。 函数在实际开发中应用： 函数声明 函数表达式 匿名函数 自执行函数  12345678910111213141">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-90737ee980666b96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-21T06:53:51.945Z">
+<meta property="og:updated_time" content="2019-01-21T06:57:01.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（四）：略知函数式编程">
 <meta name="twitter:description" content="系列更文前三篇文章，围绕了一个重要的知识点：“函数”。函数调用栈、函数执行上下文、函数作用域到闭包。可见不理解函数式编程，代码都撸不好。  函数是一等公民函数与其它数据类型一样，可以作为值赋给变量，作为参数传递或返回值返回，也可以像对象一样给函数创建属性（不推荐给函数加属性，虽然可用）。 函数在实际开发中应用： 函数声明 函数表达式 匿名函数 自执行函数  12345678910111213141">
@@ -510,10 +510,10 @@
 <li>公有变量</li>
 <li>公有方法</li>
 </ol>
-<p>上篇中《前端进击的巨人（三）：从作用域走进闭包》我们讲解了作用域、闭包的原理机制。</p>
+<p>上篇中<a href="http://wuliv.com/2019/01/19/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%B5%B0%E8%BF%9B%E9%97%AD%E5%8C%85/">《前端进击的巨人（三）：从作用域走进闭包》</a>我们讲解了作用域、闭包的原理机制。</p>
 <p><strong>“自执行函数可实现块级作用域，而闭包则可实现外部环境对函数作用域内部数据的访问。”</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 自执行函数 + 闭包实现模块化</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">MakeModule</span>(<span class="params">window</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> name = <span class="string">'以乐之名'</span>;</div><div class="line">    <span class="keyword">var</span> age = <span class="number">28</span>;</div><div class="line">    <span class="keyword">var</span> job = <span class="string">'程序员'</span>;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">changeJob</span>(<span class="params">newJob</span>) </span>&#123;</div><div class="line">        job = newJob;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">   <span class="built_in">window</span>.modulePublic = &#123;</div><div class="line">        changeJob: changeJob,</div><div class="line">        getName: getName</div><div class="line">    &#125;</div><div class="line">&#125;)(<span class="built_in">window</span>);</div><div class="line"></div><div class="line"><span class="built_in">window</span>.modulePublic.getName();</div><div class="line"><span class="built_in">window</span>.modulePublic.changeJob(<span class="string">'产品经理'</span>);</div></pre></td></tr></table></figure>
-<p>对作用域，以及闭包知识还没掌握的小伙伴，可回阅《前端进击的巨人（三）：从作用域走进闭包》。</p>
+<p>对作用域，以及闭包知识还没掌握的小伙伴，可回阅<a href="http://wuliv.com/2019/01/19/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E4%BB%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%B5%B0%E8%BF%9B%E9%97%AD%E5%8C%85/">《前端进击的巨人（三）：从作用域走进闭包》</a>。</p>
 <h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><blockquote>
 <p>高阶函数是一个函数，它接收函数作为参数或将函数作为输出返回</p>
 </blockquote>
