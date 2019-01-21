@@ -112,7 +112,7 @@
 <meta property="og:description" content="系列更文前三篇文章，围绕了一个重要的知识点：“函数”。函数调用栈、函数执行上下文、函数作用域到闭包。可见不理解函数式编程，代码都撸不好。  函数是一等公民函数与其它数据类型一样，可以作为值赋给变量，作为参数传递或返回值返回，也可以像对象一样给函数创建属性（不推荐给函数加属性，虽然可用）。 函数在实际开发中应用： 函数声明 函数表达式 匿名函数 自执行函数  12345678910111213141">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-90737ee980666b96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-21T06:57:01.223Z">
+<meta property="og:updated_time" content="2019-01-21T08:44:44.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（四）：略知函数式编程">
 <meta name="twitter:description" content="系列更文前三篇文章，围绕了一个重要的知识点：“函数”。函数调用栈、函数执行上下文、函数作用域到闭包。可见不理解函数式编程，代码都撸不好。  函数是一等公民函数与其它数据类型一样，可以作为值赋给变量，作为参数传递或返回值返回，也可以像对象一样给函数创建属性（不推荐给函数加属性，虽然可用）。 函数在实际开发中应用： 函数声明 函数表达式 匿名函数 自执行函数  12345678910111213141">
@@ -527,7 +527,7 @@
 </li>
 </ol>
 <p>除了内置的高阶函数，我们实际开放中，高阶函数应用的最多就是回调函数了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getOrder(url, datas, callBack) &#123;</div><div class="line">    return $.post(url, datas, callBack(orderInfo));</div><div class="line">&#125;</div><div class="line"></div><div class="line">// getOrder就是一个高阶函数，接收callBack函数作为参数</div></pre></td></tr></table></figure></p>
-<p>高阶函数的概念很简单，<strong>“本身是函数，参数是函数，或返回值是函数””</strong>。</p>
+<p>高阶函数的概念很简单，<strong>“本身是函数，参数是函数，或返回值是函数”</strong>。</p>
 <p>参考文档：</p>
 <ul>
 <li><a href="https://www.cnblogs.com/wswq/p/6282920.html" target="_blank" rel="external">JavaScript利用闭包实现模块化</a></li>
