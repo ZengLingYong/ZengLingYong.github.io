@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WEB,Javascript,读书笔记," />
+  <meta name="keywords" content="JavaScript,前端进击的巨人," />
 
 
 
@@ -103,20 +103,20 @@
 
 
 
-<meta name="description" content="JSON与JavaScript对象JSON是一种表示结构化数据的存储格式，语法格式上与JavasScript对象有些类似。 TIPS: 与JavaScript对象的格式区别  不支持变量、函数或对象实例 字符串，属性名必须使用双引号 无需定义变量存储引用  12345678910111213// JSON对象&amp;#123;    &amp;quot;name&amp;quot;: &amp;quot;KenTsang&amp;q">
-<meta name="keywords" content="WEB,Javascript,读书笔记">
+<meta name="description" content="柯里化（Curring, 以逻辑学家Haskell Curry命名)  写在开头柯里化理解的基础来源于我们前几篇文章构建的知识，如果还未能掌握闭包，建议回阅前文。 代码例子会用到 apply/call ，一般用来实现对象冒充，例如字符串冒充数组对象，让字符串拥有数组的方法。待对象讲解篇会细分解析。在此先了解，两者功能相同，区别在于参数传递方式的不同， apply 参数以数组方式传递，call">
+<meta name="keywords" content="JavaScript,前端进击的巨人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记(01) - JSON - JavaScript高级程序设计">
-<meta property="og:url" content="http://wuliv.com/2018/12/02/读书笔记-01-JSON-JavaScript高级程序设计/index.html">
+<meta property="og:title" content="前端进击的巨人（五）：学会函数柯里化（curry)">
+<meta property="og:url" content="http://wuliv.com/2019/01/22/前端进击的巨人（五）：学会函数柯里化（curry/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="JSON与JavaScript对象JSON是一种表示结构化数据的存储格式，语法格式上与JavasScript对象有些类似。 TIPS: 与JavaScript对象的格式区别  不支持变量、函数或对象实例 字符串，属性名必须使用双引号 无需定义变量存储引用  12345678910111213// JSON对象&amp;#123;    &amp;quot;name&amp;quot;: &amp;quot;KenTsang&amp;q">
+<meta property="og:description" content="柯里化（Curring, 以逻辑学家Haskell Curry命名)  写在开头柯里化理解的基础来源于我们前几篇文章构建的知识，如果还未能掌握闭包，建议回阅前文。 代码例子会用到 apply/call ，一般用来实现对象冒充，例如字符串冒充数组对象，让字符串拥有数组的方法。待对象讲解篇会细分解析。在此先了解，两者功能相同，区别在于参数传递方式的不同， apply 参数以数组方式传递，call">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-c9c583de82f7b80f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-02T06:32:29.787Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-d630b9f5589fa5c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-22T08:15:49.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记(01) - JSON - JavaScript高级程序设计">
-<meta name="twitter:description" content="JSON与JavaScript对象JSON是一种表示结构化数据的存储格式，语法格式上与JavasScript对象有些类似。 TIPS: 与JavaScript对象的格式区别  不支持变量、函数或对象实例 字符串，属性名必须使用双引号 无需定义变量存储引用  12345678910111213// JSON对象&amp;#123;    &amp;quot;name&amp;quot;: &amp;quot;KenTsang&amp;q">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-c9c583de82f7b80f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="前端进击的巨人（五）：学会函数柯里化（curry)">
+<meta name="twitter:description" content="柯里化（Curring, 以逻辑学家Haskell Curry命名)  写在开头柯里化理解的基础来源于我们前几篇文章构建的知识，如果还未能掌握闭包，建议回阅前文。 代码例子会用到 apply/call ，一般用来实现对象冒充，例如字符串冒充数组对象，让字符串拥有数组的方法。待对象讲解篇会细分解析。在此先了解，两者功能相同，区别在于参数传递方式的不同， apply 参数以数组方式传递，call">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-d630b9f5589fa5c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2018/12/02/读书笔记-01-JSON-JavaScript高级程序设计/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/01/22/前端进击的巨人（五）：学会函数柯里化（curry/"/>
 
 
 
 
 
-  <title>读书笔记(01) - JSON - JavaScript高级程序设计 | Kenz's Blog</title>
+  <title>前端进击的巨人（五）：学会函数柯里化（curry) | Kenz's Blog</title>
   
 
 
@@ -338,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2018/12/02/读书笔记-01-JSON-JavaScript高级程序设计/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/01/22/前端进击的巨人（五）：学会函数柯里化（curry/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -355,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">读书笔记(01) - JSON - JavaScript高级程序设计</h1>
+          <h1 class="post-title" itemprop="name headline">前端进击的巨人（五）：学会函数柯里化（curry)</h1>
         
 
         <div class="post-meta">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-02T14:18:13+08:00">
-                2018-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T16:15:15+08:00">
+                2019-01-22
               </time>
             
 
@@ -390,8 +390,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -407,7 +407,7 @@
 
           
           
-             <span id="/2018/12/02/读书笔记-01-JSON-JavaScript高级程序设计/" class="leancloud_visitors" data-flag-title="读书笔记(01) - JSON - JavaScript高级程序设计">
+             <span id="/2019/01/22/前端进击的巨人（五）：学会函数柯里化（curry/" class="leancloud_visitors" data-flag-title="前端进击的巨人（五）：学会函数柯里化（curry)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  880
+                  2,516
                 </span>
               
 
@@ -449,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4
+                  10
                 </span>
               
             </div>
@@ -470,64 +470,83 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-c9c583de82f7b80f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="coding"></p>
-<h3 id="JSON与JavaScript对象"><a href="#JSON与JavaScript对象" class="headerlink" title="JSON与JavaScript对象"></a>JSON与JavaScript对象</h3><p>JSON是一种表示结构化数据的存储格式，语法格式上与JavasScript对象有些类似。</p>
-<p>TIPS: 与JavaScript对象的格式区别</p>
-<ol>
-<li>不支持变量、函数或对象实例</li>
-<li>字符串，属性名必须使用双引号</li>
-<li>无需定义变量存储引用</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// JSON对象</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: &quot;KenTsang&quot;,</div><div class="line">    &quot;age&quot;: 27,</div><div class="line">    &quot;job&quot;: &quot;Developer&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// js对象(该对象将作在后续例子引用)</div><div class="line">let person = &#123;</div><div class="line">    name: &apos;KenTsang&apos;,</div><div class="line">    age: 27,</div><div class="line">    job: &apos;Developer&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>ES5定义了一个全局对象JSON，IE8+以上支持，该对象提供来<code>stringify</code>和<code>parse</code>两个方法用于JSON数据解析和序列化。</p>
-<h3 id="stringify"><a href="#stringify" class="headerlink" title="stringify()"></a>stringify()</h3><p>stringify用于把JavaScript对象序列化JSON字符串，</p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-d630b9f5589fa5c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端进击的巨人（五）：学会函数柯里化（curry)"></p>
 <blockquote>
-<p>在序列化JavaScript对象时，所有函数及原型成员都会被有意忽略，不体现在结果中。此外，值为undefined的任何属性也都会被跳过。</p>
+<p>柯里化（Curring, 以逻辑学家Haskell Curry命名)</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JSON.stringify(</div><div class="line">    value: Object, </div><div class="line">    replace: Array | function(key,value) &#123;&#125;,</div><div class="line">    space: number | string</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>该方法接受三个参数</p>
-<ol>
-<li>参数：接收传入的js对象</li>
-<li>参数：过滤器（数组/函数）</li>
-<li>参数：字符串缩进（数值/字符串）</li>
-</ol>
-<h4 id="参数2-过滤器"><a href="#参数2-过滤器" class="headerlink" title="参数2 - 过滤器"></a>参数2 - 过滤器</h4><p>TIPS1: 过滤器是一个数组时，序列化结果只包含数组中列出的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let result = JSON.stringify(person, [&quot;name&quot;, &quot;job&quot;]);</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">// &#123;&quot;name&quot;:&quot;KenTsang&quot;,&quot;job&quot;:&quot;Developer&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>TIPS2: 过滤器是一个函数时（替换函数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var jsonStr = JSON.stringify(Person, function(key, value)&#123;</div><div class="line">    if (key == &apos;age&apos;) &#123;</div><div class="line">        return &apos;secret&apos;;</div><div class="line">    &#125; else &#123;</div><div class="line">        return value;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">// &#123;&quot;name&quot;:&quot;KenTsang&quot;,&quot;age&quot;:&quot;secret&quot;,&quot;job&quot;:&quot;Developer&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>如果替换函数返回的是<code>undefined</code>，则该属性不会被包含在序列化结果中。</p>
-<h4 id="参数3-字符串缩进"><a href="#参数3-字符串缩进" class="headerlink" title="参数3 - 字符串缩进"></a>参数3 - 字符串缩进</h4><p>用于控制序列化结果中的缩进和空白符，输出序列结果带缩进格式，方便预览查看。实际应用开发不多。</p>
-<ol>
-<li>为数值时，表示每个级别缩进的空格数（最大10）</li>
-<li>为字符串时，则作为缩进字符（替换默认的空格，最大10个字符）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let result = JSON.stringify(person, null, &apos;--&apos;);</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">/*</div><div class="line">&#123;</div><div class="line">--&quot;name&quot;: &quot;KenTsang&quot;,</div><div class="line">--&quot;age&quot;: 27,</div><div class="line">--&quot;job&quot;: &quot;Developer&quot;</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="toJSON-方法"><a href="#toJSON-方法" class="headerlink" title="toJSON()方法"></a>toJSON()方法</h4><p>应对更复杂的一些需求，我们可以通过toJSON()对某些对象进行自定义序列化的需求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">let person = &#123;</div><div class="line">    name: &quot;KenTsang&quot;,</div><div class="line">    age: 27,</div><div class="line">    job: &apos;Developer&apos;,</div><div class="line">    toJSON: function() &#123;</div><div class="line">        return &#123;</div><div class="line">            &quot;name&quot;: &quot;KT&quot;,</div><div class="line">            &quot;age&quot;: &quot;2*&quot;,</div><div class="line">            &quot;job&quot;: &quot;DP&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">let result = JSON.stringify(person);</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">// &#123;&quot;name&quot;:&quot;KT&quot;,&quot;age&quot;:&quot;2*&quot;,&quot;job&quot;:&quot;DP&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>TIPS: 序列化顺序</strong></p>
-<blockquote>
-<ol>
-<li>如果存着toJSON方法而且能通过它取得有效的值，则调用该方法。否则，返回对象本身。</li>
-<li>如果提供了第二个参数，应用这个函数过滤器。传入函数过滤器的值是第(1)步的值。</li>
-<li>对第(2)步返回的每个值进行相应的序列化。</li>
-<li>如果提供了第三个参数，执行相应的格式化。</li>
-</ol>
-<p>– 摘自《JavaScript高级程序设计》–</p>
-</blockquote>
-<h3 id="parse"><a href="#parse" class="headerlink" title="parse()"></a>parse()</h3><p>parse用于把JSON字符串解析成JavaScript对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">JSON.parse(text: string, reviver: function(key, value) &#123;&#125;)</div></pre></td></tr></table></figure></p>
-<p>该方法接受三个参数</p>
-<ol>
-<li>参数：接收传入的json字符串</li>
-<li>参数：还原函数</li>
-</ol>
-<h4 id="还原函数"><a href="#还原函数" class="headerlink" title="还原函数"></a>还原函数</h4><ol>
-<li>返回undefined, 结果中删除相应的键 </li>
-<li>返回其它值，则将值插入到结果中</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">let Person = &#123;</div><div class="line">    name: &quot;KenTsang&quot;,</div><div class="line">    age: 27,</div><div class="line">    job: &quot;Developer&quot;,</div><div class="line">    birth: new Date(1991, 3, 19)</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var jsonStr = JSON.stringify(Person);</div><div class="line">var jsObj = JSON.parse(jsonStr, function(key, value) &#123;</div><div class="line">    if (key == &apos;birth&apos;) &#123;</div><div class="line">        return new Date(value);</div><div class="line">    &#125; else &#123;</div><div class="line">        return value);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">jsObj.birth.getFullYearh(); </div><div class="line"></div><div class="line">// 输出结果： 1991</div></pre></td></tr></table></figure>
-<p>例子中通过还原函数，重新实例一个Date对象，所以可以用到<code>getFullYear()</code>方法。</p>
+<h3 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h3><p>柯里化理解的基础来源于我们前几篇文章构建的知识，如果还未能掌握闭包，建议回阅前文。</p>
+<p>代码例子会用到 <code>apply/call</code> ，一般用来实现对象冒充，例如字符串冒充数组对象，让字符串拥有数组的方法。待对象讲解篇会细分解析。在此先了解，两者功能相同，区别在于参数传递方式的不同， <code>apply</code> 参数以数组方式传递，<code>call</code> 多个参数则是逗号隔开。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apply(context, [arguments]);</div><div class="line">call(context, arg1, arg2, arg3, ....);</div></pre></td></tr></table></figure>
+<p>代码例子中使用到了ES6语法，对ES6还不熟悉的话，可学习社区这篇文章：<a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="external">《30分钟掌握ES6/ES2015核心内容（上）》</a></p>
 <hr>
-<p>参考文档</p>
+<h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><p>函数柯里化在JavaScript中其实是高阶函数的一种应用，上篇文章我们简略介绍了高阶函数（可以作为参数传递，或作为返回值）。</p>
+<p>理论知识太枯燥，来个生活小例子，”存款买房”（富二代绕道）。假设买房是我们存钱的终极目标。那么在买房前，存在卡里的钱（老婆本）就不能动。等到够钱买房了，钱从银行卡取出来，开始买买买。。。</p>
+<p>函数柯里化就像我们往卡里存钱，存够了，才能执行买房操作，存不够，接着存。</p>
+<h4 id="函数柯里化公式"><a href="#函数柯里化公式" class="headerlink" title="函数柯里化公式"></a>函数柯里化公式</h4><p>先上几个公式（左边是普通函数，右边就是转化后柯里化函数支持的调用方式）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 公式类型一</div><div class="line">fn(a,b,c,d) =&gt; fn(a)(b)(c)(d);</div><div class="line">fn(a,b,c,d) =&gt; fn(a, b)(c)(d);</div><div class="line">fn(a,b,c,d) =&gt; fn(a)(b,c,d);</div><div class="line"></div><div class="line">// 公式类型二</div><div class="line">fn(a,b,c,d) =&gt; fn(a)(b)(c)(d)();</div><div class="line">fn(a,b,c,d) =&gt; fn(a);fn(b);fn(c);fn(d);fn();</div></pre></td></tr></table></figure>
+<p>两种公式类型的区别 —— 函数触发执行的机制不同：</p>
 <ul>
-<li><a href="http://www.ituring.com.cn/book/946" target="_blank" rel="external">《JavaScript高级程序设计》</a></li>
+<li>公式一当传入参数等于函数参数数量时开始执行</li>
+<li>公式二当没有参数传入时（且参数数量满足）开始执行</li>
 </ul>
+<p>通过公式，我们先来理解这行代码 <code>fn(a)(b)(c)(d)</code>, 执行 <code>fn(a)</code> 时返回的是一个<strong>函数</strong>，并且支持<strong>传参</strong>。何时返回的是值而不是函数的触发机制控制权在我们手里，我们可以为函数制定不同的触发机制。</p>
+<p>普通的函数调用，一次性传入参数就执行。而通过柯里化，它可以帮我们实现函数部分参数传入执行（并未立即执行原始函数，钱没存够接着存），这就是函数柯里化的特点：<strong>“延迟执行和部分求值”</strong></p>
+<p><strong>“函数柯里化：指封装一个函数，接收原始函数作为参数传入，并返回一个能够接收并处理剩余参数的函数”</strong></p>
+<h4 id="函数柯里化的例子"><a href="#函数柯里化的例子" class="headerlink" title="函数柯里化的例子"></a>函数柯里化的例子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 等待我们柯里化实现的方法add</div><div class="line">function add(a, b, c, d) &#123;</div><div class="line">    return a + b + c + d;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 最简单地实现函数add的柯里化</div><div class="line">// 有点low，有助于理解</div><div class="line">function add(a, b, c, d) &#123;</div><div class="line">    return function(a) &#123;</div><div class="line">        return function(b) &#123;</div><div class="line">            return function(c) &#123;</div><div class="line">                return a + b + c + d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>分析代码知识点：</p>
+<ol>
+<li>函数作为返回值返回，闭包形成，外部环境可访问函数内部作用域</li>
+<li>子函数可访问父函数的作用域，作用域由内而外的作用域链查找规则，作用域嵌套形成</li>
+<li>在函数参数数量不满足时，返回一个函数（该函数可接收并处理剩余参数）</li>
+<li>当函数数量满足我们的触发机制（可自由制定），触发原始函数执行</li>
+</ol>
+<p>前几篇文章的知识点此时刚好。可见基础知识的重要性，高阶的东西始终要靠小砖头堆砌出来。</p>
+<p>弄清原理后，接下来就是将代码写得更通用些（高大上些）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// 公式类型一: 参数数量满足函数参数要求，触发执行</div><div class="line">// fn(a,b,c,d) =&gt; fn(a)(b)(c)(d);</div><div class="line"></div><div class="line">const createCurry = (fn, ...args) &#123;</div><div class="line">    let _args = args || [];</div><div class="line">    let length = fn.length; // fn.length代码函数参数数量</div><div class="line"></div><div class="line">    return (...rest) =&gt; &#123;</div><div class="line">        let _allArgs = _args.slice(0);  </div><div class="line">        // 深拷贝闭包共用对象_args，避免后续操作影响（引用类型）</div><div class="line">        _allArgs.push(...rest);</div><div class="line">        if (_allArgs.length &lt; length) &#123;</div><div class="line">            // 参数数量不满足原始函数数量，返回curry函数</div><div class="line">            return createCurry.call(this, fn, ..._allArgs);</div><div class="line">        &#125; else &#123;</div><div class="line">            // 参数数量满足原始函数数量，触发执行</div><div class="line">            return fn.apply(this, _allArgs);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const curryAdd = createCurry(2);</div><div class="line">let sum = curryAdd(3)(4)(5);    // 14</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 公式类型二: 无参数传入时并且参数数量已经满足函数要求</div><div class="line">// fn(a, b, c, d) =&gt; fn(a)(b)(c)(d)();</div><div class="line">// fn(a, b, c, d) =&gt; fn(a);fn(b);fn(c);fn(d);fn();</div><div class="line"></div><div class="line">const createCurry = (fn, ...args) =&gt; &#123;</div><div class="line">    let all = args || [];</div><div class="line">    let length = fn.length;</div><div class="line"></div><div class="line">    return (...rest) =&gt; &#123;</div><div class="line">        let _allArgs = all.slice(0);</div><div class="line">        _allArgs.push(...rest);</div><div class="line">        if (rest.length &gt; 0 || _allArgs.length &lt; length) &#123;</div><div class="line">            // 调用时参数不为空或存储的参数不满足原始函数参数数量时，返回curry函数</div><div class="line">            return createCurry.call(this, fn, ..._allArgs);</div><div class="line">        &#125; else &#123;</div><div class="line">            // 调用参数为空(),且参数数量满足时，触发执行</div><div class="line">            return fn.apply(this, _allArgs);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">const curryAdd = createCurry(2);</div><div class="line">let sum = curryAdd(3)(4)(5)();  // 14</div></pre></td></tr></table></figure>
+<p>为实现公式中不同的两种调用公式，两个createCurry方法制定了两种不同的触发机制。记住一个点，函数触发机制可根据需求自行制定。</p>
+<h3 id="偏函数与柯里化的区别"><a href="#偏函数与柯里化的区别" class="headerlink" title="偏函数与柯里化的区别"></a>偏函数与柯里化的区别</h3><p>先上个公式看对比：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 函数柯里化：参数数量完整</div><div class="line">fn(a,b,c,d) =&gt; fn(a)(b)(c)(d);</div><div class="line">fn(a,b,c,d) =&gt; fn(a,b)(c)(d);</div><div class="line"></div><div class="line">// 偏函数：只执行了部分参数</div><div class="line">fn(a,b,c,d) =&gt; fn(a);</div><div class="line">fn(a,b,c,d) =&gt; fn(a, b);</div></pre></td></tr></table></figure>
+<p><strong>“函数柯里化中，当你传入部分参数时，返回的并不是原始函数的执行结果，而是一个可以继续支持后续参数的函数。而偏函数的调用方式更像是普通函数的调用方式，只调用一次，它通过原始函数内部来实现不定参数的支持。”</strong></p>
+<p>如果已经看懂上述柯里化的代码例子，那么改写支持偏函数的代码，并不难。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 公式：</div><div class="line">// fn(a, b, c, d) =&gt; fn(a);</div><div class="line">// fn(a, b, c, d) =&gt; fn(a,b,c);</div><div class="line"></div><div class="line">const partialAdd = (a = 0, b = 0, c = 0, d = 0) =&gt; &#123;</div><div class="line">    return a + b + c +d;</div><div class="line">&#125;</div><div class="line"></div><div class="line">partialAdd(6);      // 6</div><div class="line">partialAdd(2, 3);   // 5</div></pre></td></tr></table></figure>
+<p>使用ES6函数参数默认值，为没有传入参数，指定默认值为0，支持无参数或不定参数传入。</p>
+<h3 id="柯里化的特点："><a href="#柯里化的特点：" class="headerlink" title="柯里化的特点："></a>柯里化的特点：</h3><ol>
+<li>参数复用（固定易变因素）</li>
+<li>延迟执行</li>
+<li>提前返回</li>
+</ol>
+<h3 id="柯里化的缺点"><a href="#柯里化的缺点" class="headerlink" title="柯里化的缺点"></a>柯里化的缺点</h3><p>柯里化是牺牲了部分性能来实现的，可能带来的性能损耗：</p>
+<ol>
+<li>存取 <code>arguments</code> 对象要比存取命名参数要慢一些</li>
+<li>老版本浏览器在 <code>arguments.lengths</code> 的实现相当慢(新版本浏览器忽略)</li>
+<li><code>fn.apply()</code> 和 <code>fn.call()</code> 要比直接调用 <code>fn()</code> 慢</li>
+<li>大量嵌套的作用域和闭包会带来开销，影响内存占用和作用域链查找速度</li>
+</ol>
+<h3 id="柯里化的应用"><a href="#柯里化的应用" class="headerlink" title="柯里化的应用"></a>柯里化的应用</h3><ul>
+<li>利用柯里化制定约束条件，管控触发机制</li>
+<li>处理浏览器兼容（参数复用实现一次性判断）</li>
+<li>函数节流防抖（延迟执行）</li>
+<li>ES5前bind方法的实现</li>
+</ul>
+<h4 id="一个应用例子：浏览器事件绑定的兼容处理"><a href="#一个应用例子：浏览器事件绑定的兼容处理" class="headerlink" title="一个应用例子：浏览器事件绑定的兼容处理"></a>一个应用例子：浏览器事件绑定的兼容处理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 普通事件绑定函数</div><div class="line">var addEvent = function(ele, type, fn, isCapture) &#123;</div><div class="line">    if(window.addEventListener) &#123;</div><div class="line">        ele.addEventListener(type, fn, isCapture)</div><div class="line">    &#125; else if(window.attachEvent) &#123;</div><div class="line"></div><div class="line">        ele.attachEvent(&quot;on&quot; + type, fn)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 弊端：每次调用addEvent都会进行判断</div><div class="line"></div><div class="line">// 柯里化事件绑定函数</div><div class="line">var addEvent = (function() &#123;</div><div class="line">    if(window.addEventListener) &#123;</div><div class="line">        return function(ele, type, fn, isCapture) &#123;</div><div class="line">            ele.addEventListener(type, fn, isCapture)</div><div class="line">        &#125;</div><div class="line">    &#125; else if(window.attachEvent) &#123;</div><div class="line">        return function(ele, type, fn) &#123;</div><div class="line">             ele.attachEvent(&quot;on&quot; + type, fn)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)()</div><div class="line">// 优势：判断只执行一次，通过闭包保留了父级作用域的判断结果</div></pre></td></tr></table></figure>
+<h3 id="秒懂反柯里化"><a href="#秒懂反柯里化" class="headerlink" title="秒懂反柯里化"></a>秒懂反柯里化</h3><p>先上公式，从来没有这么喜欢写公式，简明易懂。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 反柯里化公式：</div><div class="line">curryFn(a)(b)(c)(d) = fn(a, b, c, d);</div><div class="line">curryFn(a) = fn(a);</div></pre></td></tr></table></figure></p>
+<p>看完公式，是不是似曾相识，这不就是我们日常敲码的普通函数么？没错的，函数柯里化就是把普通函数变成成一个复杂的函数，而反柯里化其就是柯里化的逆反，把复杂变得简单。</p>
+<p>函数柯里化是把支持多个参数的函数变成接收单一参数的函数，并返回一个函数能接收处理剩余参数：<code>fn(a,b,c,d) =&gt; fn(a)(b)(c)(d)</code>，而反柯里化就是把参数全部释放出来：<code>fn(a)(b)(c)(d) =&gt; fn(a,b,c,d)</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 反柯里化：最简单的反柯里化（普通函数）</div><div class="line">function add(a, b, c, d) &#123;</div><div class="line">    return a + b + c + d;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="反思：为何要使用柯里化"><a href="#反思：为何要使用柯里化" class="headerlink" title="反思：为何要使用柯里化"></a>反思：为何要使用柯里化</h3><p>函数柯里化是函数编程中的一个重要的基础，它为我们提供了一种编程的思维方式。显然，它让我们的函数处理变得复杂，代码调用方式并不直观，还加入了闭包，多层作用域嵌套，会有一些性能上的影响。</p>
+<p>但在一些复杂的业务逻辑封装中，函数柯里化能够为我们提供更好的应对方案，让我们的函数更具自由度和灵活性。</p>
+<p>实际开发中，如果你的逻辑处理相对复杂，不妨换个思维，用函数柯里化来实现，技能包不嫌多。<br>说到底，程序员就是解决问题的那群人。</p>
+<hr>
+<h3 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h3><p>本篇函数柯里化知识点的理解确实存在难度，暂时跳过这章也无妨，可以先了解再深入。耐得主寂寞的小伙伴回头多啃几遍，没准春季面试就遇到了。</p>
+<hr>
+<p>参考文档：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/yifeng555/p/8878474.html" target="_blank" rel="external">js高阶函数应用—函数柯里化和反柯里化</a></li>
+<li><a href="https://www.jianshu.com/p/5e1899fe7d6b" target="_blank" rel="external">前端基础进阶（八）：深入详解函数的柯里化</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <blockquote>
 <p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
 </blockquote>
@@ -579,11 +598,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WEB/" rel="tag"># WEB</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
-          
-            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+            <a href="/tags/前端进击的巨人/" rel="tag"># 前端进击的巨人</a>
           
         </div>
       
@@ -596,8 +613,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/04/杂谈：HTTP1-1-与-HTTP2-0-知多少？/" rel="next" title="杂谈：HTTP1.1 与 HTTP2.0 知多少？">
-                <i class="fa fa-chevron-left"></i> 杂谈：HTTP1.1 与 HTTP2.0 知多少？
+              <a href="/2019/01/21/前端进击的巨人（四）：略知函数式编程/" rel="next" title="前端进击的巨人（四）：略知函数式编程">
+                <i class="fa fa-chevron-left"></i> 前端进击的巨人（四）：略知函数式编程
               </a>
             
           </div>
@@ -605,10 +622,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/03/读书笔记-02-可维护性-JavaScript高级程序设计/" rel="prev" title="读书笔记(02) - 可维护性 - JavaScript高级程序设计">
-                读书笔记(02) - 可维护性 - JavaScript高级程序设计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -818,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON与JavaScript对象"><span class="nav-number">1.</span> <span class="nav-text">JSON与JavaScript对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stringify"><span class="nav-number">2.</span> <span class="nav-text">stringify()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数2-过滤器"><span class="nav-number">2.1.</span> <span class="nav-text">参数2 - 过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数3-字符串缩进"><span class="nav-number">2.2.</span> <span class="nav-text">参数3 - 字符串缩进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toJSON-方法"><span class="nav-number">2.3.</span> <span class="nav-text">toJSON()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parse"><span class="nav-number">3.</span> <span class="nav-text">parse()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#还原函数"><span class="nav-number">3.1.</span> <span class="nav-text">还原函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在开头"><span class="nav-number">1.</span> <span class="nav-text">写在开头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化"><span class="nav-number">2.</span> <span class="nav-text">函数柯里化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数柯里化公式"><span class="nav-number">2.1.</span> <span class="nav-text">函数柯里化公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数柯里化的例子"><span class="nav-number">2.2.</span> <span class="nav-text">函数柯里化的例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏函数与柯里化的区别"><span class="nav-number">3.</span> <span class="nav-text">偏函数与柯里化的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#柯里化的特点："><span class="nav-number">4.</span> <span class="nav-text">柯里化的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#柯里化的缺点"><span class="nav-number">5.</span> <span class="nav-text">柯里化的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#柯里化的应用"><span class="nav-number">6.</span> <span class="nav-text">柯里化的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个应用例子：浏览器事件绑定的兼容处理"><span class="nav-number">6.1.</span> <span class="nav-text">一个应用例子：浏览器事件绑定的兼容处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#秒懂反柯里化"><span class="nav-number">7.</span> <span class="nav-text">秒懂反柯里化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反思：为何要使用柯里化"><span class="nav-number">8.</span> <span class="nav-text">反思：为何要使用柯里化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在结尾"><span class="nav-number">9.</span> <span class="nav-text">写在结尾</span></a></li></ol></div>
             
 
           </div>
