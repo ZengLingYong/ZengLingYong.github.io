@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-01-22T08:15:49.924Z</updated>
+  <updated>2019-01-29T09:53:06.518Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端进击的巨人（六）：知否知否，须知this</title>
+    <link href="http://wuliv.com/2019/01/29/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E7%9F%A5%E5%90%A6%E7%9F%A5%E5%90%A6%EF%BC%8C%E9%A1%BB%E7%9F%A5this/"/>
+    <id>http://wuliv.com/2019/01/29/前端进击的巨人（六）：知否知否，须知this/</id>
+    <published>2019-01-29T09:52:29.000Z</published>
+    <updated>2019-01-29T09:53:06.518Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/7324444-c069f6dc12500ad6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://wuliv.com/tags/JavaScript/"/>
+    
+      <category term="前端进击的巨人" scheme="http://wuliv.com/tags/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>前端进击的巨人（五）：学会函数柯里化（curry)</title>

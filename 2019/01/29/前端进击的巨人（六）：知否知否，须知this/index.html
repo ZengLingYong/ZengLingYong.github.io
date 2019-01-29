@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WEB,Javascript,读书笔记," />
+  <meta name="keywords" content="JavaScript,前端进击的巨人," />
 
 
 
@@ -103,22 +103,20 @@
 
 
 
-<meta name="description" content="错误类型 即时运行错误 (代码错误)  资源加载错误   常见的错误1. 类型转换错误建议使用全等===操作符 2.数据类型错误建议加强类型判断 123456789// 数组倒序function reverseSort(value) &amp;#123;    if (value instanceof Array) &amp;#123;         // 使用instanceof验证数据类型">
-<meta name="keywords" content="WEB,Javascript,读书笔记">
+<meta name="description" content="常见this的误解 指向函数自身（源于this英文意思的误解） 指向函数的词法作用域（部分情况）  this的应用环境 全局环境无论是否在严格模式下，全局执行环境中（任何函数体外部）this都指向全局对象 12var name = &amp;apos;以乐之名&amp;apos;;this.name;  // 以乐之名  函数（运行内）环境函数内部，this的值取决于函数被调用的方式（被谁调用） 1234567">
+<meta name="keywords" content="JavaScript,前端进击的巨人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
-<meta property="og:url" content="http://wuliv.com/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/index.html">
+<meta property="og:title" content="前端进击的巨人（六）：知否知否，须知this">
+<meta property="og:url" content="http://wuliv.com/2019/01/29/前端进击的巨人（六）：知否知否，须知this/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="错误类型 即时运行错误 (代码错误)  资源加载错误   常见的错误1. 类型转换错误建议使用全等===操作符 2.数据类型错误建议加强类型判断 123456789// 数组倒序function reverseSort(value) &amp;#123;    if (value instanceof Array) &amp;#123;         // 使用instanceof验证数据类型">
+<meta property="og:description" content="常见this的误解 指向函数自身（源于this英文意思的误解） 指向函数的词法作用域（部分情况）  this的应用环境 全局环境无论是否在严格模式下，全局执行环境中（任何函数体外部）this都指向全局对象 12var name = &amp;apos;以乐之名&amp;apos;;this.name;  // 以乐之名  函数（运行内）环境函数内部，this的值取决于函数被调用的方式（被谁调用） 1234567">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-f8f97ce928eeb707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-1144b99ced9ba124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-d494ca159f7da111.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-10T02:22:53.702Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-c069f6dc12500ad6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-29T09:53:06.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
-<meta name="twitter:description" content="错误类型 即时运行错误 (代码错误)  资源加载错误   常见的错误1. 类型转换错误建议使用全等===操作符 2.数据类型错误建议加强类型判断 123456789// 数组倒序function reverseSort(value) &amp;#123;    if (value instanceof Array) &amp;#123;         // 使用instanceof验证数据类型">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-f8f97ce928eeb707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="前端进击的巨人（六）：知否知否，须知this">
+<meta name="twitter:description" content="常见this的误解 指向函数自身（源于this英文意思的误解） 指向函数的词法作用域（部分情况）  this的应用环境 全局环境无论是否在严格模式下，全局执行环境中（任何函数体外部）this都指向全局对象 12var name = &amp;apos;以乐之名&amp;apos;;this.name;  // 以乐之名  函数（运行内）环境函数内部，this的值取决于函数被调用的方式（被谁调用） 1234567">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-c069f6dc12500ad6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -147,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/01/29/前端进击的巨人（六）：知否知否，须知this/"/>
 
 
 
 
 
-  <title>读书笔记(04) - 错误监控 - JavaScript高级程序设计 | Kenz's Blog</title>
+  <title>前端进击的巨人（六）：知否知否，须知this | Kenz's Blog</title>
   
 
 
@@ -340,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/01/29/前端进击的巨人（六）：知否知否，须知this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -357,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">读书笔记(04) - 错误监控 - JavaScript高级程序设计</h1>
+          <h1 class="post-title" itemprop="name headline">前端进击的巨人（六）：知否知否，须知this</h1>
         
 
         <div class="post-meta">
@@ -369,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T12:02:30+08:00">
-                2018-12-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T17:52:29+08:00">
+                2019-01-29
               </time>
             
 
@@ -392,8 +390,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -409,7 +407,7 @@
 
           
           
-             <span id="/2018/12/06/读书笔记-04-错误监控-JavaScript高级程序设计/" class="leancloud_visitors" data-flag-title="读书笔记(04) - 错误监控 - JavaScript高级程序设计">
+             <span id="/2019/01/29/前端进击的巨人（六）：知否知否，须知this/" class="leancloud_visitors" data-flag-title="前端进击的巨人（六）：知否知否，须知this">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -435,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  950
+                  2,509
                 </span>
               
 
@@ -451,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4
+                  10
                 </span>
               
             </div>
@@ -472,75 +470,108 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-f8f97ce928eeb707.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="coding"></p>
-<h4 id="错误类型"><a href="#错误类型" class="headerlink" title="错误类型"></a>错误类型</h4><ol>
-<li><p>即时运行错误 (代码错误)</p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-c069f6dc12500ad6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端进击的巨人（六）：知否知否，须知this"></p>
+<h3 id="常见this的误解"><a href="#常见this的误解" class="headerlink" title="常见this的误解"></a>常见this的误解</h3><ol>
+<li>指向函数自身（源于this英文意思的误解）</li>
+<li>指向函数的词法作用域（部分情况）</li>
+</ol>
+<h3 id="this的应用环境"><a href="#this的应用环境" class="headerlink" title="this的应用环境"></a>this的应用环境</h3><ol>
+<li><p>全局环境<br>无论是否在严格模式下，全局执行环境中（任何函数体外部）<code>this</code>都指向全局对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var name = &apos;以乐之名&apos;;</div><div class="line">this.name;  // 以乐之名</div></pre></td></tr></table></figure>
 </li>
-<li><p>资源加载错误</p>
+<li><p>函数（运行内）环境<br>函数内部，this的值取决于函数被调用的方式（被谁调用）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = &apos;无名氏&apos;;</div><div class="line">function getName() &#123;</div><div class="line"> console.log(this.name);</div><div class="line">&#125;</div><div class="line">getName();         // 无名氏 调用者是全局对象</div><div class="line"></div><div class="line">var myInfo = &#123;</div><div class="line">  name: &apos;以乐之名&apos;,</div><div class="line">  getName: getName</div><div class="line">&#125;;</div><div class="line">myInfo.getName();  // 以乐之名 调用者是myInfo对象</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h4><h5 id="1-类型转换错误"><a href="#1-类型转换错误" class="headerlink" title="1. 类型转换错误"></a>1. 类型转换错误</h5><p>建议使用全等<code>===</code>操作符</p>
-<h5 id="2-数据类型错误"><a href="#2-数据类型错误" class="headerlink" title="2.数据类型错误"></a>2.数据类型错误</h5><p>建议加强类型判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 数组倒序</div><div class="line">function reverseSort(value) &#123;</div><div class="line">    if (value instanceof Array) &#123; </div><div class="line">        // 使用instanceof验证数据类型 </div><div class="line">        // (基础类型用typeof, 引用类型用instanceof)</div><div class="line">        value.sort();</div><div class="line">        value.revere()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="3-通信错误"><a href="#3-通信错误" class="headerlink" title="3. 通信错误"></a>3. 通信错误</h5><p>url参数编码错误造成，建议使用<code>encodeURIComponent()</code>对url参数数据进行编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 错误的url参数</div><div class="line">// http://www.xxx.com/?redir=http://www.xxx.com?a=b&amp;c=d</div><div class="line"></div><div class="line">// 针对redir后面的参数字符串进行编码</div><div class="line"></div><div class="line">// 封装一个处理方法（摘自书中代码）</div><div class="line">function addQueryStringArg(url, name, value) &#123;</div><div class="line">    if (url.indexOf(&apos;?&apos;) &lt; 0) &#123;</div><div class="line">        url += &apos;?&apos;;        </div><div class="line">    &#125; else &#123;</div><div class="line">        url += &apos;&amp;&apos;;</div><div class="line">    &#125;</div><div class="line">    url += encodeURIComponent(name) + &quot;=&quot; + encodeURIComponent(value);</div><div class="line">    return url;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="错误的捕获方式"><a href="#错误的捕获方式" class="headerlink" title="错误的捕获方式"></a>错误的捕获方式</h4><h5 id="针对即时运行错误"><a href="#针对即时运行错误" class="headerlink" title="针对即时运行错误"></a>针对即时运行错误</h5><ol>
-<li><p><code>try-catch</code>（代码可疑区域可增加<code>try-catch</code>）</p>
-</li>
-<li><p><code>window.onerror</code> (全局监控js错误异常)</p>
-</li>
+<h3 id="this的正解"><a href="#this的正解" class="headerlink" title="this的正解"></a>this的正解</h3><p><strong>“this的指向是在运行时进行绑定的，而不是代码书写（函数声明）时确定！！！”</strong></p>
+<p><strong>“看谁用”</strong>，this的指向取决于调用者，这也是很多文章提到过的观点。<strong>“谁调用，this指向谁”</strong>，只是这句话稍有偏颇，某些情况不见得都适用。</p>
+<p>生活栗子：你的钱并不一定是你的钱，只有当你使用消费了才是你的钱 。<br>（<strong>“看谁用”</strong>），借出去的钱就不是你的了。。。</p>
+<p>回到征文，我们先通过栈，来理解什么是调用位置：JavaScript中函数的调用是以栈的方式来存储，栈顶是正在运行的函数，函数调用时入栈，执行完成后出栈。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">  // 此时的栈：全局 -&gt; foo，调用位置在foo</div><div class="line">  bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function bar() &#123;</div><div class="line">  // 此时的栈：全局 -&gt; foo -&gt; bar，调用位置在bar</div><div class="line">  baz();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function baz() &#123;</div><div class="line">  // 此时的栈：全局 -&gt; foo -&gt; bar -&gt; baz，调用位置在baz</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();</div></pre></td></tr></table></figure></p>
+<p>代码中虽然函数存在多次嵌套使用，但处于栈顶的只有正在执行的函数，也即调用者只有顶层的那一个（或最后一个）。理清调用位置（调用者）有助于我们理解<code>this</code>。</p>
+<h3 id="this的绑定规则"><a href="#this的绑定规则" class="headerlink" title="this的绑定规则"></a>this的绑定规则</h3><ol>
+<li>默认绑定（函数单独调用）</li>
+<li>隐式绑定（作为对象的属性方法调用，带有执行上下文）</li>
+<li>显示绑定（<code>call/apply/bind</code>）</li>
+<li><code>new</code>绑定（<code>new</code>创建实例）</li>
+<li>箭头函数绑定（ES6新增，基于词法作用域）</li>
 </ol>
-<h5 id="1-try-catch"><a href="#1-try-catch" class="headerlink" title="1. try-catch"></a>1. <code>try-catch</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">    // 可能会导致错误的代码</div><div class="line">&#125; catch (error) &#123;</div><div class="line">    // 错误发生时处理</div><div class="line">    console.log(error.message);</div><div class="line">&#125; finally &#123;</div><div class="line">    // 一定会执行(无论是否发生错误)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>TIPS: 使用了<code>finally</code>，<code>try</code>跟<code>catch</code>的<code>return</code>语句都会被忽略</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function testFinally() &#123;</div><div class="line">    try &#123;</div><div class="line">        return 2;</div><div class="line">    &#125; catch (error) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; finally &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// testFinally 最终返回 0</div></pre></td></tr></table></figure>
-<p><strong>TIPS: <code>try-catch</code>只能捕获同步运行的代码错误，无法检测语法和异步错误</strong></p>
-<p>（语法可借助ESlint工具在开发阶段提示解决）</p>
-<h5 id="2-window-onerror"><a href="#2-window-onerror" class="headerlink" title="2. window.onerror"></a>2. <code>window.onerror</code></h5><p>遵循DOM0级事件，<code>window.onerror</code>事件处理程序不会创建<code>event</code>对象，但可以接收三个参数<code>message</code>(错误信息), <code>url</code>(错误文件url), <code>line</code>(行号)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.onerror = function(message, url, line)&#123;</div><div class="line">    console.log(message, ulr, line);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>在事件处理程序中返回false，可以阻止浏览器报告错误的默认行为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.onerror = function(message, url, line) &#123;</div><div class="line">    return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="针对资源加载错误"><a href="#针对资源加载错误" class="headerlink" title="针对资源加载错误"></a>针对资源加载错误</h5><ol>
-<li><p><code>object.onerror</code></p>
-</li>
-<li><p><code>performance.getEntries()</code></p>
-</li>
-<li><p><code>Error</code>事件捕获 （全局监控静态资源异常）</p>
-</li>
-</ol>
-<h5 id="1-object-onerror"><a href="#1-object-onerror" class="headerlink" title="1. object.onerror"></a>1. <code>object.onerror</code></h5><p>如script，image等标签src引用，会返回一个<code>event</code>对象</p>
-<p><strong>TIPS: <code>object.onerror</code>不会冒泡到<code>window</code>对象，所以window.onerror无法监控资源加载错误</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var img = new Image();</div><div class="line">img.src = &apos;http://xxx.com/xxx.jpg&apos;;</div><div class="line">img.onerror = function(event) &#123;</div><div class="line">    console.log(event);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-1144b99ced9ba124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="object.onerror"></p>
-<h5 id="2-window-performance-getEntires"><a href="#2-window-performance-getEntires" class="headerlink" title="2. window.performance.getEntires()"></a>2. <code>window.performance.getEntires()</code></h5><p>适用高版本浏览器，返回已成功加载的资源列表，然后自行做比对差集运算，核实哪些文件没有加载成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var result = [];</div><div class="line">window.performance.getEntries().forEach(function (perf) &#123;</div><div class="line">    result.push(&#123;</div><div class="line">        &apos;url&apos;: perf.name,</div><div class="line">        &apos;entryType&apos;: perf.entryType,</div><div class="line">        &apos;type&apos;: perf.initiatorType,</div><div class="line">        &apos;duration(ms)&apos;: perf.duration</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">console.log(result);</div></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-d494ca159f7da111.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.performance.getEntires"></p>
-<h5 id="3-Error事件捕获"><a href="#3-Error事件捕获" class="headerlink" title="3. Error事件捕获"></a>3. Error事件捕获</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;error&apos;, function(error)&#123;</div><div class="line">    //...（全局监控静态资源异常）</div><div class="line">    console.log(error);</div><div class="line">&#125;, true);  // 默认false为冒泡阶段触发，true为捕获阶段触发</div></pre></td></tr></table></figure>
-<h4 id="跨域的js错误捕获"><a href="#跨域的js错误捕获" class="headerlink" title="跨域的js错误捕获"></a>跨域的js错误捕获</h4><p>一般涉及跨域的js运行错误时会抛出错误提示<code>script error</code>，但没有具体信息（如出错文件，行列号提示等）, 可利用资源共享策略来捕获跨域js错误</p>
-<ol>
-<li><p>客户端：在script标签增加crossorigin属性（客户端）</p>
-</li>
-<li><p>服务端：js资源响应头<code>Access-Control-Allow-Origin: *</code></p>
-</li>
-</ol>
-<h4 id="错误上报"><a href="#错误上报" class="headerlink" title="错误上报"></a>错误上报</h4><ol>
-<li><p>Ajax请求 (会有跨域问题)</p>
-</li>
-<li><p>动态创建Image标签 (兼容完美，代码简洁，需要注意浏览器url长度限制)</p>
-</li>
-</ol>
-<h5 id="Image标签"><a href="#Image标签" class="headerlink" title="Image标签"></a>Image标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(new Image()).src= &apos;http://xxx.com/error?code=1002&apos;</div></pre></td></tr></table></figure>
-<h5 id="上报频率"><a href="#上报频率" class="headerlink" title="上报频率"></a>上报频率</h5><p>错误信息频繁发送上报请求，会对后端服务器造成压力。<br>项目中我们可通过设置采集率，或对规定时间内数据汇总再上报，减少请求数量，从而缓解服务端压力。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 借鉴别人的一个例子</div><div class="line">Reporter.send=function(data) &#123;</div><div class="line">    // 只采集30%</div><div class="line">    if（Math.random() &lt; 0.3) &#123;</div><div class="line">        send(data); // 上报错误</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<p>参考文档</p>
-<ul>
-<li><p><a href="http://www.ituring.com.cn/book/946" target="_blank" rel="external">《JavaScript高级程序设计》</a></p>
-</li>
-<li><p><a href="http://jartto.wang/2018/11/20/js-exception-handling/" target="_blank" rel="external">《如何优雅处理前端异常》</a></p>
-</li>
+<h3 id="默认绑定下（函数单独调用）区分严格模式"><a href="#默认绑定下（函数单独调用）区分严格模式" class="headerlink" title="默认绑定下（函数单独调用）区分严格模式"></a>默认绑定下（函数单独调用）区分严格模式</h3><ul>
+<li>非严格模式，<code>this</code>会指向全局对象（浏览器全局对象是<code>window</code>，NodeJS全局对象是<code>global</code>）；</li>
+<li>严格模式，<code>this</code>指向<code>undefined</code></li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 非严格模式</div><div class="line">function getName() &#123;</div><div class="line">  console.log(this.name);  // this指向全局对象</div><div class="line">&#125;</div><div class="line">getName();  // &quot;&quot;，并不会报错，如果外部有全局变量name，则会输出对应值</div><div class="line"></div><div class="line">// 严格模式</div><div class="line">function getName() &#123;</div><div class="line">  &quot;use strict&quot;</div><div class="line"> console.log(this.name);   // this指向undefined</div><div class="line">&#125;</div><div class="line">getName();  // TypeError: Cannot read property &apos;name&apos; of undefined</div></pre></td></tr></table></figure>
+<p><strong>TIPS: 严格模式中，对函数中this的影响，只在函数内声明了严格模式才会存在，如果是调用时声明严格模式则不会影响。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function getName() &#123;</div><div class="line">  console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 调用时声明严格模式</div><div class="line">&quot;use strict&quot;;</div><div class="line">getName();  // &quot;&quot;</div></pre></td></tr></table></figure>
+<h3 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h3><p>隐式绑定中，函数一般作为对象的属性调用，带有调用者的执行上下文。因此<code>this</code>值取决于调用者的上下文环境。<strong>如果存在多层级属性引用，只有对象属性引用链中最顶层（最后一层）会影响调用位置</strong>，而<code>this</code>的值取决于调用位置。文章开头以栈来理解调用者的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function getName() &#123;</div><div class="line">  return this.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var myInfo = &#123;</div><div class="line">  name: &apos;以乐之名&apos;,</div><div class="line">  getName: getName</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var leader = &#123;</div><div class="line">  name: &apos;大神组长&apos;</div><div class="line">  man: myInfo</div><div class="line">&#125;;</div><div class="line">leader.man.getName();  // &apos;以乐之名&apos;</div><div class="line">// man 指向 myInfo，最顶层（最后一层）对象为 myInfo</div></pre></td></tr></table></figure>
+<h3 id="apply-call的区别"><a href="#apply-call的区别" class="headerlink" title="apply/call的区别"></a>apply/call的区别</h3><p><code>apply/call</code>方法两者类似，都可以显示绑定<code>this</code>，两者的区别是参数传递的方式不同。<code>apply/call</code>第一个参数都为要指定<code>this</code>的对象，不同的是<code>apply</code>第二个参数接受的是一个参数数组，而<code>call</code>从第二个参数开始接受的是参数列表。</p>
 <blockquote>
-<p>作者：以乐之名本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+<p>apply语法：func.apply(thisArg, [argsArray])</p>
+<p>call语法：func.apply(thisArg, arg1, arg2, …)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var numbers = [5, 6, 2, 3, 7];</div><div class="line"></div><div class="line">// 求numbers的最大值</div><div class="line"></div><div class="line">// apply</div><div class="line">var max = Math.max.apply(null, numbers);</div><div class="line"></div><div class="line">// call</div><div class="line">var max = Math.max.apply(null, ...numbers); // ...展开运算符</div></pre></td></tr></table></figure>
+<p><strong>TIPS: 如果thisArg为原始值（数字，字符串，布尔值），<code>this</code>会指向该原始值的自动包装对象，如<code>Number</code>, <code>String</code>, <code>Boolean</code>等</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">func.apply(1);</div><div class="line">// func中的this -&gt; Number对象;</div></pre></td></tr></table></figure>
+<h3 id="bind的特别（柯里化的应用）"><a href="#bind的特别（柯里化的应用）" class="headerlink" title="bind的特别（柯里化的应用）"></a>bind的特别（柯里化的应用）</h3><p><code>bind</code>是ES5新增的方法，跟<code>apply/call</code>功能一样，可以显示绑定this。</p>
+<blockquote>
+<p>bind语法：function.bind(thisArg[, arg1[, arg2[, …]]])</p>
+<p>bind()方法创建一个新的函数，在调用时设置this关键字为提供的值，并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。</p>
+<p> – 《Function.prototype.bind() | MDN》</p>
+</blockquote>
+<p><strong>“bind与apply/call的区别：apply/call传入this并立即执行函数，而bind传入this则返回一个函数，并不会立即执行，只有调用返回的函数才会执行原始函数”</strong>。</p>
+<p><code>bind</code>方法是函数柯里化的一种应用，看过上篇<a href="https://www.jianshu.com/p/ad102d658863" target="_blank" rel="external">《前端进击的巨人（五）：学会函数柯里化（curry) 》</a>的小伙伴，应该还记得<strong>“函数柯里化的特点：延迟执行，部分传参，返回一个可处理剩余参数的函数”</strong>。</p>
+<p><code>bind</code>相较<code>apply/call</code>的优点，可以通过部分传参提前对this进行一次”永久绑定”，也就是说<code>this</code>只需绑定一次，省却每次执行都要进行<code>this</code>绑定的操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function getName() &#123;</div><div class="line">  return this.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var myInfo = &#123;</div><div class="line">  name: &apos;以乐之名&apos;,</div><div class="line">  job: &apos;前端工程师&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var getName = getName.bind(myInfo);</div><div class="line">getName();  // &apos;以乐之名&apos;;</div><div class="line">getName(); //  &apos;以乐之名&apos;;</div><div class="line"></div><div class="line">// 一次性绑定，之后调用无需再修改this</div></pre></td></tr></table></figure>
+<p><strong>TIPS: 函数柯里化可以用于参数预设，像一次性操作（判断/绑定）等。</strong></p>
+<p>有关函数柯里化的详解，请回阅：<a href="https://www.jianshu.com/p/ad102d658863" target="_blank" rel="external">《前端进击的巨人（五）：学会函数柯里化（curry) 》</a>。</p>
+<h3 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h3><p>通过<code>new</code>操作符可以实现对函数的构造调用。JavaScript中本身并没有”构造函数”，一个函数如果没有使用<code>new</code>操作符调用，那么它就是个普通函数，<code>new Func()</code>实际上是对函数<code>Func</code>的”构造调用”。</p>
+<p>在了解构造函数中的<code>this</code>前，有必要先了解下<code>new</code>实例化对象的过程。</p>
+<h4 id="new实例过程"><a href="#new实例过程" class="headerlink" title="new实例过程"></a>new实例过程</h4><ol>
+<li>创建（构造）一个全新的空对象</li>
+<li>这个新对象会被执行”原型”链接（新对象的<code>__proto__</code>会指向函数的<code>prototype</code>)</li>
+<li>构造函数的<code>this</code>会指向这个新对象，并对this属性进行赋值</li>
+<li>如果函数没有返回其他对象，则返回这个新对象（注意构造函数的<code>return</code>，一般不会有<code>return</code>)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 正常不带return的构造函数</div><div class="line">function People(name, sex) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.sex = sex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var man = new People(&apos;亚当&apos;, &apos;男&apos;);</div><div class="line">var woman = new People(&apos;夏娃&apos;, &apos;女&apos;);</div><div class="line">// 实例化对象成功</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 构造函数带了return</div><div class="line">function People(name, sex) &#123;</div><div class="line">  return 1;  // 返回的是Number对象</div><div class="line">&#125;</div><div class="line">function People(name, sex) &#123;</div><div class="line">  return &apos;hello world&apos;;  // 返回的是String对象</div><div class="line">&#125;</div><div class="line">function People(name, sex) &#123;</div><div class="line">  return function() &#123;&#125;</div><div class="line">&#125;</div><div class="line">function People(name, sex) &#123;</div><div class="line">  return &#123;&#125;;</div><div class="line">&#125;</div><div class="line">// 以上并未正确实例化对象</div></pre></td></tr></table></figure>
+<p>构造函数自定义<code>return</code>，会造成<code>new</code>无法完成正确的实例化操作。如果返回值为基本类型，则返回其包装对象<code>Number/String/Bollean</code>。</p>
+<p><strong>TIPS: 原型链中的this指向其实例化的对象</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">People.prototype.say = function() &#123;</div><div class="line">  console.log(`我的名字：$&#123;this.name&#125;`);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var man = new People(&apos;亚当&apos;, &apos;男&apos;);</div><div class="line">man.say();  // 我的名字：亚当</div></pre></td></tr></table></figure></p>
+<h3 id="this绑定规则的优先级"><a href="#this绑定规则的优先级" class="headerlink" title="this绑定规则的优先级"></a>this绑定规则的优先级</h3><p>显示绑定 / <code>new</code>绑定 &gt; 隐式绑定 &gt; 默认绑定</p>
+<p><strong>TIPS: <code>new</code>无法跟<code>apply/call</code>同时使用</strong></p>
+<h3 id="this判定步骤"><a href="#this判定步骤" class="headerlink" title="this判定步骤"></a>this判定步骤</h3><ol>
+<li>函数被<code>new</code>操作符使用（<code>new</code>绑定）？ YES –&gt; <code>this</code>绑定的是<code>new</code>创建的新对象</li>
+<li>函数通过<code>call/apply/bind</code>（显示绑定）？ YES –&gt; <code>this</code>绑定的是指定的对象</li>
+<li>函数在某个上下文对象中调用（隐式绑定）？ YES –&gt; <code>this</code>绑定的是那个上下文对象</li>
+<li>默认绑定，严格模式指向<code>undefined</code>，否则指向全局对象</li>
+</ol>
+<h3 id="ES6的箭头函数（词法作用域的this机制，规则之外）"><a href="#ES6的箭头函数（词法作用域的this机制，规则之外）" class="headerlink" title="ES6的箭头函数（词法作用域的this机制，规则之外）"></a>ES6的箭头函数（词法作用域的this机制，规则之外）</h3><p>箭头函数的<code>this</code>机制不同于传统的<code>this</code>机制，它采取的是另外一种机制，词法作用域的<code>this</code>判定规则。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">// 例子一</div><div class="line">var name = &apos;无名氏&apos;;</div><div class="line">var myInfo = &#123;</div><div class="line">  name: &apos;以乐之名&apos;,</div><div class="line">  getName: () =&gt; &#123;</div><div class="line">    console.log(this.name);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">var getName = myInfo.getName;</div><div class="line">window.getName();     // 无名氏</div><div class="line">myInfo.getName();     // 无名氏</div><div class="line">// myInfo是在全局环境定义的，因此根据词法作用域，this指向全局对象</div><div class="line"></div><div class="line">// 例子二</div><div class="line">var name = &apos;无名氏&apos;;</div><div class="line">var myInfo = &#123;</div><div class="line">  name: &apos;以乐之名&apos;,</div><div class="line">  say: () =&gt; &#123;</div><div class="line">    setTimeout(() =&gt; &#123;</div><div class="line">      console.log(this.name);</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">myInfo.say();  // 无名氏</div><div class="line">// 箭头函数通过作用域链来逐层查找this，最终找到全局变量myInfo，this指向全局对象</div><div class="line"></div><div class="line">// 例子三</div><div class="line">var name = &apos;无名氏&apos;;</div><div class="line">var myInfo = &#123;</div><div class="line">  name: &apos;以乐之名&apos;,</div><div class="line">  say: function() =&gt; &#123;</div><div class="line">    setTimeout(() =&gt; &#123;</div><div class="line">      console.log(this.name);</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">myInfo.say(); // 以乐之名</div><div class="line">// 箭头函数找到say: function()&#123;&#125;，因此this的作用域来自myInfo</div></pre></td></tr></table></figure>
+<p><strong>TIPS: <code>setTimeout/setInterval/alert</code>的调用者都是全局对象</strong></p>
+<p><strong>“箭头函数的<code>this</code>始终指向函数定义时的<code>this</code>，而非执行（调用）时的<code>this</code>。箭头函数中的<code>this</code>必须通过作用域链一层一层向外查找，来确定<code>this</code>指向。”</strong></p>
+<h4 id="扩展：箭头函数的书写规则"><a href="#扩展：箭头函数的书写规则" class="headerlink" title="扩展：箭头函数的书写规则"></a>扩展：箭头函数的书写规则</h4><ol>
+<li><p>箭头函数只能用函数表达式，不能用函数声明式写法（不包括匿名函数）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 函数表达式</div><div class="line">const getName = (name) =&gt; &#123; return &apos;myName: &apos; + name &#125;;</div><div class="line"></div><div class="line">// 匿名函数</div><div class="line">setTimeout((name) =&gt; &#123;</div><div class="line">  console.log(name);</div><div class="line">&#125;, 1000)</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果参数只有一个，可不加括号<code>()</code>；如果没有参数或多个参数需加括号<code>()</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 只有一个参数</div><div class="line">const getName = name =&gt; &#123;</div><div class="line">  return `myName: $&#123;name&#125;`;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 无参数</div><div class="line">const getName = () =&gt; &#123;</div><div class="line">  return &apos;myName: &apos;以乐之名‘;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 多参数</div><div class="line">const getName = (firstName, lastName) =&gt; &#123;</div><div class="line">  return `myName: $&#123;firstName&#125; $&#123;lastName&#125;`;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数体只有一个可不加花括号<code>{}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const getName = name =&gt; return `myName: $&#123;name&#125;`;</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数体没有花括号<code>{}</code>，可不写return，会自动返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const getName = name =&gt; `myName: $&#123;name&#125;`;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p>参考文档：</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1488" target="_blank" rel="external">你不知道的JavaScript（上卷）</a></li>
+<li><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="external">彻底理解js中this的指向，不必硬背。</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">this|MDN</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
 </blockquote>
 
       
@@ -590,11 +621,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WEB/" rel="tag"># WEB</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
-          
-            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+            <a href="/tags/前端进击的巨人/" rel="tag"># 前端进击的巨人</a>
           
         </div>
       
@@ -607,8 +636,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/04/读书笔记-03-性能-JavaScript高级程序设计/" rel="next" title="读书笔记(03) - 性能 - JavaScript高级程序设计">
-                <i class="fa fa-chevron-left"></i> 读书笔记(03) - 性能 - JavaScript高级程序设计
+              <a href="/2019/01/22/前端进击的巨人（五）：学会函数柯里化（curry/" rel="next" title="前端进击的巨人（五）：学会函数柯里化（curry)">
+                <i class="fa fa-chevron-left"></i> 前端进击的巨人（五）：学会函数柯里化（curry)
               </a>
             
           </div>
@@ -616,10 +645,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/10/读书笔记-05-事件-JavaScript高级程序设计/" rel="prev" title="读书笔记(05) - 事件 - JavaScript高级程序设计">
-                读书笔记(05) - 事件 - JavaScript高级程序设计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -829,7 +854,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误类型"><span class="nav-number">1.</span> <span class="nav-text">错误类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的错误"><span class="nav-number">2.</span> <span class="nav-text">常见的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-类型转换错误"><span class="nav-number">2.1.</span> <span class="nav-text">1. 类型转换错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数据类型错误"><span class="nav-number">2.2.</span> <span class="nav-text">2.数据类型错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-通信错误"><span class="nav-number">2.3.</span> <span class="nav-text">3. 通信错误</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误的捕获方式"><span class="nav-number">3.</span> <span class="nav-text">错误的捕获方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#针对即时运行错误"><span class="nav-number">3.1.</span> <span class="nav-text">针对即时运行错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-try-catch"><span class="nav-number">3.2.</span> <span class="nav-text">1. try-catch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-window-onerror"><span class="nav-number">3.3.</span> <span class="nav-text">2. window.onerror</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#针对资源加载错误"><span class="nav-number">3.4.</span> <span class="nav-text">针对资源加载错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-object-onerror"><span class="nav-number">3.5.</span> <span class="nav-text">1. object.onerror</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-window-performance-getEntires"><span class="nav-number">3.6.</span> <span class="nav-text">2. window.performance.getEntires()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Error事件捕获"><span class="nav-number">3.7.</span> <span class="nav-text">3. Error事件捕获</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域的js错误捕获"><span class="nav-number">4.</span> <span class="nav-text">跨域的js错误捕获</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误上报"><span class="nav-number">5.</span> <span class="nav-text">错误上报</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Image标签"><span class="nav-number">5.1.</span> <span class="nav-text">Image标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#上报频率"><span class="nav-number">5.2.</span> <span class="nav-text">上报频率</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见this的误解"><span class="nav-number">1.</span> <span class="nav-text">常见this的误解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this的应用环境"><span class="nav-number">2.</span> <span class="nav-text">this的应用环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this的正解"><span class="nav-number">3.</span> <span class="nav-text">this的正解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this的绑定规则"><span class="nav-number">4.</span> <span class="nav-text">this的绑定规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认绑定下（函数单独调用）区分严格模式"><span class="nav-number">5.</span> <span class="nav-text">默认绑定下（函数单独调用）区分严格模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式绑定"><span class="nav-number">6.</span> <span class="nav-text">隐式绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply-call的区别"><span class="nav-number">7.</span> <span class="nav-text">apply/call的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind的特别（柯里化的应用）"><span class="nav-number">8.</span> <span class="nav-text">bind的特别（柯里化的应用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数中的this"><span class="nav-number">9.</span> <span class="nav-text">构造函数中的this</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new实例过程"><span class="nav-number">9.1.</span> <span class="nav-text">new实例过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this绑定规则的优先级"><span class="nav-number">10.</span> <span class="nav-text">this绑定规则的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this判定步骤"><span class="nav-number">11.</span> <span class="nav-text">this判定步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6的箭头函数（词法作用域的this机制，规则之外）"><span class="nav-number">12.</span> <span class="nav-text">ES6的箭头函数（词法作用域的this机制，规则之外）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展：箭头函数的书写规则"><span class="nav-number">12.1.</span> <span class="nav-text">扩展：箭头函数的书写规则</span></a></li></ol></li></ol></div>
             
 
           </div>
