@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-01-31T03:36:00.520Z</updated>
+  <updated>2019-02-18T13:43:37.114Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端进击的巨人（七）：走进面向对象，原型与原型链，继承方式</title>
+    <link href="http://wuliv.com/2019/02/18/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%B5%B0%E8%BF%9B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE%EF%BC%8C%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F/"/>
+    <id>http://wuliv.com/2019/02/18/前端进击的巨人（七）：走进面向对象，原型与原型链，继承方式/</id>
+    <published>2019-02-18T13:43:01.000Z</published>
+    <updated>2019-02-18T13:43:37.114Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/7324444-d54e856f02d99949.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://wuliv.com/tags/JavaScript/"/>
+    
+      <category term="前端进击的巨人" scheme="http://wuliv.com/tags/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://wuliv.com/2019/02/01/test/"/>
+    <id>http://wuliv.com/2019/02/01/test/</id>
+    <published>2019-02-01T06:30:40.577Z</published>
+    <updated>2019-02-01T06:34:02.986Z</updated>
+    
+    <summary type="html">
+    
+      说说烂大街的 if/if...else... ，程序中用得最多的流程判断语句。对着曾经满屏的 if/if...else...，心想能不能搞点事情，折腾点浪花浪里呀浪。对顶着“这个需求很简单，怎么实现我不管，明天上线”的程序猿，答案必须YES。&quot;Write Less, Do More&quot;，学习进步的本质就是为了更有效率地偷懒。
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>前端进击的巨人（六）：知否知否，须知this</title>
