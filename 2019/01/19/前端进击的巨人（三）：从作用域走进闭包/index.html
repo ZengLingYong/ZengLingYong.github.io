@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-f607589258cdd0e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-0beea06722023c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-19T05:12:35.511Z">
+<meta property="og:updated_time" content="2019-02-20T03:46:50.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（三）：从作用域走进闭包">
 <meta name="twitter:description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
@@ -561,7 +561,7 @@
 <p>所以，一名合格的前端，除了会用闭包，还要正确的解除闭包引用。<br>垃圾回收机制讲解时，通过设置变量值为<code>null</code>时可已解除变量的引用，以便下一次垃圾回收销毁它。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line"> var fooVal = &apos;2019&apos;;</div><div class="line"> var bar = function() &#123;</div><div class="line"> console.log(fooVal);     </div><div class="line"> &#125;</div><div class="line"> return bar;              </div><div class="line">&#125;</div><div class="line">var getValue = foo();</div><div class="line">var fooVal = &apos;2018&apos;;     </div><div class="line">getValue();</div><div class="line">getValue = null;         // 解除引用，下一次垃圾回收就会回收了</div></pre></td></tr></table></figure>
 <hr>
-<h3 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h3><p>闭包算是前端初学者的一个难点，能解释清除并不容易，涉及到作用域，执行上下文环境、变量对象等等。</p>
+<h3 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h3><p>闭包算是前端初学者的一个难点，能解释清楚并不容易，涉及到作用域，执行上下文环境、变量对象等等。</p>
 <p>零散知识的内聚汇总，正是是系列更文的初衷所在。</p>
 <p>知识不是小段子，听完笑过就忘，唯有形成体系，达成闭环，才能深植入记忆中。</p>
 <hr>

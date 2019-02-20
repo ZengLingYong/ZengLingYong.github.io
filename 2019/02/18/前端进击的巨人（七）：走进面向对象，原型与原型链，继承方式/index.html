@@ -113,7 +113,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-d54e856f02d99949.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-299deacb39f17a1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-19T01:39:56.076Z">
+<meta property="og:updated_time" content="2019-02-19T10:04:39.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（七）：走进面向对象，原型与原型链，继承方式">
 <meta name="twitter:description" content="“面向对象” 是以 “对象” 为中心的编程思想，它的思维方式是构造。 “面向对象” 编程的三大特点：“封装、继承、多态”：  封装：属性方法的抽象 继承：一个类继承（复制）另一个类的属性/方法 多态：方法（接口）重写  “面向对象” 编程的核心，离不开 “类” 的概念。简单地理解下 “类”，它是一种抽象方法。通过 “类” 的方式，可以创建出多个具有相同属性和方法的对象。 但是！但是！但是Java">
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  4,020
+                  4,019
                 </span>
               
 
@@ -543,7 +543,7 @@
 <li>构造函数的<code>this</code>会指向这个新对象，并对<code>this</code>属性进行赋值</li>
 <li>如果函数没有返回其他对象，则返回这个新对象（注意构造函数的<code>return</code>，一般不会有<code>return</code>)</li>
 </ol>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p><strong>“对象由函数创建”</strong>，既然 <code>prototype</code> 也是对象，那么它的 <code>__proto__</code> 原型链上应该还有属性。<code>Person.prototype.__proto__</code> 指向 <code>Function.prototype</code>，而<code>Function.prototype.__proto__</code> 最终指向 <code>Object.prototype.__proto__</code>。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p><strong>“对象由函数创建”</strong>，既然 <code>prototype</code> 也是对象，那么它的 <code>__proto__</code> 原型链上应该还有属性。<code>Person.prototype.__proto__</code> 指向 <code>Function.prototype</code>，而<code>Function.prototype.__proto__</code> 最终指向 <code>Object.prototype</code>。</p>
 <p><strong>TIPS：<code>Object.prototype.__proto__</code> 指向 <code>null</code>（特例）。</strong></p>
 <p>日常调用对象的 <code>toString()/valueOf()</code> 方法，虽然没有去定义它们，但却能正常使用。实际上这些方法来自 <code>Object.prototype</code>，所有普通对象的原型链最终都会指向 <code>Object.prototype</code>，而对象通过原型链关联（继承）的方式，使得实例对象可以调用 <code>Object.prototype</code> 上的属性 / 方法。</p>
 <p>访问一个对象的属性时，会先在其基础属性上查找，找到则返回值；如果没有，会沿着其原型链上进行查找，整条原型链查找不到则返回 <code>undefined</code>。这就是原型链查找。</p>
