@@ -113,8 +113,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-33396577c0faf675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/599584-b12fef30803a0c53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-15T06:06:41.872Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-5166cc18d6dff2bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-02-22T00:14:56.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
 <meta name="twitter:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
@@ -514,7 +514,7 @@
 <p>因为JS执行中最先进入全局环境，所以处于<strong>“栈底的永远是全局环境的执行上下文”</strong>。而处于<strong>“栈顶的是当前正在执行函数的执行上下文”</strong>，当函数调用完成后，它就会从栈顶被推出（理想的情况下，闭包会阻止该操作，闭包后续文章深入详解）。</p>
 <p><strong>“全局环境只有一个，对应的全局执行上下文也只有一个，只有当页面被关闭之后它才会从执行栈中被推出，否则一直存在于栈底”</strong></p>
 <p>文字太多不如上代码系列 ——》代码 + 图，一览无遗：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo () &#123;</div><div class="line">    function bar () &#123;</div><div class="line">        return &apos;I am bar&apos;;</div><div class="line">    &#125;</div><div class="line">    return bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="出入栈过程"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7324444-5166cc18d6dff2bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="出入栈过程"></p>
 <h3 id="执行上下文的生命周期"><a href="#执行上下文的生命周期" class="headerlink" title="执行上下文的生命周期"></a>执行上下文的生命周期</h3><p>执行上下文的生命周期有两个阶段：</p>
 <ol>
 <li><p>创建阶段（<strong>进入</strong>执行上下文）</p>
