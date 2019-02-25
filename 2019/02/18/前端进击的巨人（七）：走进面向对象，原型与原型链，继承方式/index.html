@@ -113,7 +113,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-d54e856f02d99949.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-299deacb39f17a1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-19T10:04:39.852Z">
+<meta property="og:updated_time" content="2019-02-25T03:34:30.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（七）：走进面向对象，原型与原型链，继承方式">
 <meta name="twitter:description" content="“面向对象” 是以 “对象” 为中心的编程思想，它的思维方式是构造。 “面向对象” 编程的三大特点：“封装、继承、多态”：  封装：属性方法的抽象 继承：一个类继承（复制）另一个类的属性/方法 多态：方法（接口）重写  “面向对象” 编程的核心，离不开 “类” 的概念。简单地理解下 “类”，它是一种抽象方法。通过 “类” 的方式，可以创建出多个具有相同属性和方法的对象。 但是！但是！但是Java">
@@ -527,7 +527,7 @@
 </ol>
 <h4 id="定义属性特性"><a href="#定义属性特性" class="headerlink" title="定义属性特性"></a>定义属性特性</h4><ol>
 <li><code>Object.defineProperty()</code> 定义单个属性</li>
-<li><code>Object.defineProperties()</code> 定义多个属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Person = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(<span class="string">'Person'</span>, <span class="string">'name'</span>, &#123;</div><div class="line">  writable: <span class="literal">true</span>,</div><div class="line">  enumerable: <span class="literal">true</span>,</div><div class="line">  configurable: <span class="literal">true</span>,</div><div class="line">  value: <span class="string">'以乐之名'</span></div><div class="line">&#125;);</div><div class="line">Person.name;   <span class="comment">// 以乐之名</span></div></pre></td></tr></table></figure>
+<li><code>Object.defineProperties()</code> 定义多个属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Person = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(Person, <span class="string">'name'</span>, &#123;</div><div class="line">  writable: <span class="literal">true</span>,</div><div class="line">  enumerable: <span class="literal">true</span>,</div><div class="line">  configurable: <span class="literal">true</span>,</div><div class="line">  value: <span class="string">'以乐之名'</span></div><div class="line">&#125;);</div><div class="line">Person.name;   <span class="comment">// 以乐之名</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><strong>TIPS：使用 <code>Object.defineProperty/defineProperties</code> 定义属性时，属性特性 <code>configurable/enumerable/writable</code> 值默认为 <code>false</code>，<code>value</code> 默认为 <code>undefined</code>。其它方式创建对象属性时，前三者值都为 <code>true</code>。</strong></p>
