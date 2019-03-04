@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,前端进击的巨人," />
 
 
 
@@ -103,17 +103,20 @@
 
 
 
-<meta name="description" content="google-site-verification: googled1a125e37a757634.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kenz&#39;s Blog">
-<meta property="og:url" content="http://wuliv.com/googled1a125e37a757634.html">
+<meta name="description" content="本篇课题，或许早已是烂大街的解读文章。不过春招系列面试下来，不少伙伴们还是似懂非懂地栽倒在（～面试官～）深意的笑容之下，权当温故知新。 JavaScript的执行过程，是基于栈来进行的。复杂的程序代码被封装到函数中，程序执行时，函数不断被推入执行栈中。所以 “执行栈” 也称 “函数执行栈”。 函数中封装的代码块，一般都有相对复杂的逻辑处理（计算/判断），例如函数中可能会涉及到 DOM 的渲染更新">
+<meta name="keywords" content="JavaScript,前端进击的巨人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端进击的巨人（八）：浅谈函数防抖与节流">
+<meta property="og:url" content="http://wuliv.com/2019/03/04/前端进击的巨人（八）：浅谈函数防抖与节流/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="google-site-verification: googled1a125e37a757634.html">
+<meta property="og:description" content="本篇课题，或许早已是烂大街的解读文章。不过春招系列面试下来，不少伙伴们还是似懂非懂地栽倒在（～面试官～）深意的笑容之下，权当温故知新。 JavaScript的执行过程，是基于栈来进行的。复杂的程序代码被封装到函数中，程序执行时，函数不断被推入执行栈中。所以 “执行栈” 也称 “函数执行栈”。 函数中封装的代码块，一般都有相对复杂的逻辑处理（计算/判断），例如函数中可能会涉及到 DOM 的渲染更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T05:07:01.004Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-a40e077c639a8471.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-03-04T10:12:45.764Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kenz&#39;s Blog">
-<meta name="twitter:description" content="google-site-verification: googled1a125e37a757634.html">
+<meta name="twitter:title" content="前端进击的巨人（八）：浅谈函数防抖与节流">
+<meta name="twitter:description" content="本篇课题，或许早已是烂大街的解读文章。不过春招系列面试下来，不少伙伴们还是似懂非懂地栽倒在（～面试官～）深意的笑容之下，权当温故知新。 JavaScript的执行过程，是基于栈来进行的。复杂的程序代码被封装到函数中，程序执行时，函数不断被推入执行栈中。所以 “执行栈” 也称 “函数执行栈”。 函数中封装的代码块，一般都有相对复杂的逻辑处理（计算/判断），例如函数中可能会涉及到 DOM 的渲染更新">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-a40e077c639a8471.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -142,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/googled1a125e37a757634.html"/>
+  <link rel="canonical" href="http://wuliv.com/2019/03/04/前端进击的巨人（八）：浅谈函数防抖与节流/"/>
 
 
 
 
 
-  <title> | Kenz's Blog</title>
+  <title>前端进击的巨人（八）：浅谈函数防抖与节流 | Kenz's Blog</title>
   
 
 
@@ -323,33 +326,303 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/03/04/前端进击的巨人（八）：浅谈函数防抖与节流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          google-site-verification: googled1a125e37a757634.html
+          <h1 class="post-title" itemprop="name headline">前端进击的巨人（八）：浅谈函数防抖与节流</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T18:12:03+08:00">
+                2019-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/04/前端进击的巨人（八）：浅谈函数防抖与节流/" class="leancloud_visitors" data-flag-title="前端进击的巨人（八）：浅谈函数防抖与节流">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,518
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-a40e077c639a8471.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端进击的巨人（八）：浅谈函数防抖与节流"></p>
+<p>本篇课题，或许早已是烂大街的解读文章。不过春招系列面试下来，不少伙伴们还是似懂非懂地栽倒在（～面试官～）深意的笑容之下，权当温故知新。</p>
+<p>JavaScript的执行过程，是基于栈来进行的。复杂的程序代码被封装到函数中，程序执行时，函数不断被推入执行栈中。所以 <strong>“执行栈”</strong> 也称 <strong>“函数执行栈”</strong>。</p>
+<p>函数中封装的代码块，一般都有相对复杂的逻辑处理（计算/判断），例如函数中可能会涉及到 <code>DOM</code> 的渲染更新，复杂的计算与验证， <code>Ajax</code> 数据请求等等。</p>
+<p>前端页面的操作权，大部分都是属于浏览断的客户爸爸们（单身三十年的手速，惹不起惹不起！！！）。如果函数被频繁调用，造成的性能开销绝对不只一点点。</p>
+<ul>
+<li>前： <code>DOM</code> 频繁重绘的卡顿让客户爸爸们想把你揪出来一顿大招。。。</li>
+<li>后： 后端同学正在提刀赶来的路上：“为什么我的接口被你玩挂了”。。。</li>
+</ul>
+<p>既要提升用户体验，又要减少后端服务开销，可见我们大前端的使命不只一页PPT。说好前因，接着就是后果了。既然有优化的需求，必然就要有相应的解决方案。隆重请出主角： <strong>“防抖”</strong> 与 <strong>“节流”</strong>。</p>
+<h3 id="防抖（debounce"><a href="#防抖（debounce" class="headerlink" title="防抖（debounce)"></a>防抖（debounce)</h3><blockquote>
+<p>在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时延迟时间。</p>
+</blockquote>
+<p>生活化理解：英雄的技能条，技能条读完才能使用技能（R大招60s）</p>
+<p>防抖的实现方式分两种 <strong>“立即执行”</strong> 和 <strong>“非立即执行”</strong>，区别在于第一次触发时，是否立即执行回调函数。</p>
+<h4 id="非立即执行"><a href="#非立即执行" class="headerlink" title="非立即执行"></a>非立即执行</h4><blockquote>
+<p><strong>”非立即执行防抖“</strong> 指事件触发后，回调函数不会立即执行，会在延迟时间 n 秒后执行，如果 n 秒内被调用多次，则重新计时延迟时间</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// e.g. 防抖 - 非立即执行</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, delay</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> timeout;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> context = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">arguments</span>;</div><div class="line">    <span class="comment">// &amp;&amp; 短路运算 == if(timeout) else &#123;...&#125; </span></div><div class="line">    timeout &amp;&amp; clearTimeout(timeout); </div><div class="line">    timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      func.apply(context, args);</div><div class="line">    &#125;, delay);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line"><span class="keyword">var</span> printUserName = debounce(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</div><div class="line">&#125;, <span class="number">800</span>);</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'username'</span>)</div><div class="line">  .addEventListener(<span class="string">'keyup'</span>, printUserName);</div></pre></td></tr></table></figure>
+<h4 id="立即执行"><a href="#立即执行" class="headerlink" title="立即执行"></a>立即执行</h4><blockquote>
+<p><strong>“立即执行防抖”</strong> 指事件触发后，回调函数会立即执行，之后要想触发执行回调函数，需等待 n 秒延迟</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// e.g. 防抖 - 立即执行</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, delay</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> timeout;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> context = <span class="keyword">this</span>;</div><div class="line">        <span class="keyword">var</span> args = <span class="built_in">arguments</span>;</div><div class="line">        callNow = !timeout;</div><div class="line">        timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            timeout = <span class="literal">null</span>;</div><div class="line">        &#125;, delay);</div><div class="line">        callNow &amp;&amp; func.apply(context, args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>函数防抖原理：通过维护一个定时器，其延迟计时以最后一次触发为计时起点，到达延迟时间后才会触发函数执行。</p>
+<h3 id="节流（throttle"><a href="#节流（throttle" class="headerlink" title="节流（throttle)"></a>节流（throttle)</h3><blockquote>
+<p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效（间隔执行）</p>
+</blockquote>
+<p>生活化理解：</p>
+<ol>
+<li>FPS射击游戏子弹射速（即使按住鼠标左键，射出子弹的速度也是限定的）</li>
+<li>水龙头的滴水（水滴攒到一定重量才会下落）</li>
+</ol>
+<p>函数节流实现的方式有 <strong>“时间戳”</strong> 和 <strong>“定时器”</strong> 两种。</p>
+<h4 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// e.g. 节流 - 时间戳</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, delay</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> lastTime = <span class="number">0</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> context = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">arguments</span>;</div><div class="line">    <span class="keyword">var</span> nowTime = +<span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">if</span> (nowTime &gt; lastTime + delay) &#123;</div><div class="line">      func.apply(context, args)</div><div class="line">      lastTime = nowTime;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>“时间戳”</strong> 的方式，函数在时间段开始时执行。</p>
+<p><strong>缺点：假定函数间隔1s执行，如果最后一次停止触发，卡在4.2s，则不会再执行。</strong></p>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// e.g. 节流 - 定时器</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, delay</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> timeout;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> context = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">arguments</span>;</div><div class="line">    <span class="keyword">if</span> (!timeout) &#123;</div><div class="line">      setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        func.apply(context, args);</div><div class="line">        timeout = <span class="literal">null</span>;</div><div class="line">      &#125;, delay)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>“定时器”</strong> 的方式，函数在时间段结束时执行。可理解为函数并不会立即执行，而是等待延迟计时完成才执行。<strong>（由于定时器延时，最后一次触发后，可能会再执行一次回调函数）</strong></p>
+<h4 id="时间戳-定时器（互补优化）"><a href="#时间戳-定时器（互补优化）" class="headerlink" title="时间戳 + 定时器（互补优化）"></a>时间戳 + 定时器（互补优化）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// e.g. 节流 - 时间戳 + 定时器</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, delay</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> lastTime, timeout;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> context = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</div><div class="line">    <span class="keyword">let</span> nowTime = +<span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">if</span> (lastTime &amp;&amp; nowTime &lt; lastTime + delay) &#123;</div><div class="line">      timeout &amp;&amp; clearTimeout(timeout);</div><div class="line">      timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        lastTime = nowTime;</div><div class="line">        func.apply(context, args);</div><div class="line">      &#125;, delay);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      lastTime = nowTime;</div><div class="line">      func.apply(context, args);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>合并优化的原理：“时间戳”方式让函数在时间段开始时执行（第一次触发立即执行），“定时器”方式让函数在最后一次事件触发后（如4.2s）也能触发。</strong></p>
+<p>函数节流原理：一定时间内只触发一次，间隔执行。通过判断是否到达指定触发时间，间隔时间固定。</p>
+<h3 id="“防抖”-与-“节流”-的异同"><a href="#“防抖”-与-“节流”-的异同" class="headerlink" title="“防抖” 与 “节流” 的异同"></a>“防抖” 与 “节流” 的异同</h3><p>相同：都是防止某一时间段内，函数被频繁调用执行，通过时间频率控制，减少回调函数执行次数，来实现相关性能优化。</p>
+<p>区别：“防抖”是某一时间内只执行一次，最后一次触发后过段时间执行，而“节流”则是间隔时间执行，间隔时间固定。</p>
+<h3 id="“防抖”-与-“节流”-的应用场景"><a href="#“防抖”-与-“节流”-的应用场景" class="headerlink" title="“防抖” 与 “节流” 的应用场景"></a>“防抖” 与 “节流” 的应用场景</h3><h4 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h4><ol>
+<li>文本输入搜索联想</li>
+<li>文本输入验证（包括 Ajax 后端验证）</li>
+</ol>
+<h4 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h4><ol>
+<li>鼠标点击</li>
+<li>监听滚动 <code>scroll</code></li>
+<li>窗口 <code>resize</code></li>
+<li><code>mousemove</code> 拖拽</li>
+</ol>
+<p>应用场景还有很多，具体场景需具体分析。只要涉及高频的函数调用，都可参考函数防抖节流的优化方案。</p>
+<p>鼓起勇气写在结尾：以上代码都不是 “完美” 的 “防抖 / 节流” 实现代码！！！仅就实现方式和基本原理，浅谈分解一二。</p>
+<p>实际代码开发中，一般会引入<code>lodash</code> 相对 “靠谱” 的第三方库，帮我们去实现防抖节流的工具函数。有兴趣的伙伴们可阅读 <code>lodash</code> 相关源码，加深印象理解可再读以下参考文章。</p>
+<hr>
+<p>参考文章</p>
+<ul>
+<li><a href="https://juejin.im/post/5b8de829f265da43623c4261" target="_blank" rel="external">7分钟理解JS的节流、防抖及使用场景</a></li>
+<li><a href="https://juejin.im/post/5b651dc15188251aa30c8669" target="_blank" rel="external">函数防抖和节流</a></li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/前端进击的巨人/" rel="tag"># 前端进击的巨人</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/18/前端进击的巨人（七）：走进面向对象，原型与原型链，继承方式/" rel="next" title="前端进击的巨人（七）：走进面向对象，原型与原型链，继承方式">
+                <i class="fa fa-chevron-left"></i> 前端进击的巨人（七）：走进面向对象，原型与原型链，继承方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -383,8 +656,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -522,6 +804,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#防抖（debounce"><span class="nav-number">1.</span> <span class="nav-text">防抖（debounce)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#非立即执行"><span class="nav-number">1.1.</span> <span class="nav-text">非立即执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#立即执行"><span class="nav-number">1.2.</span> <span class="nav-text">立即执行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节流（throttle"><span class="nav-number">2.</span> <span class="nav-text">节流（throttle)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳"><span class="nav-number">2.1.</span> <span class="nav-text">时间戳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器"><span class="nav-number">2.2.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳-定时器（互补优化）"><span class="nav-number">2.3.</span> <span class="nav-text">时间戳 + 定时器（互补优化）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“防抖”-与-“节流”-的异同"><span class="nav-number">3.</span> <span class="nav-text">“防抖” 与 “节流” 的异同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“防抖”-与-“节流”-的应用场景"><span class="nav-number">4.</span> <span class="nav-text">“防抖” 与 “节流” 的应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#防抖"><span class="nav-number">4.1.</span> <span class="nav-text">防抖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节流"><span class="nav-number">4.2.</span> <span class="nav-text">节流</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -628,10 +926,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
