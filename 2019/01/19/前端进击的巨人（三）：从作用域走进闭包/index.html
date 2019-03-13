@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-f607589258cdd0e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-877e59e3f3f01b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-0beea06722023c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-20T03:46:50.420Z">
+<meta property="og:updated_time" content="2019-03-13T01:43:04.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（三）：从作用域走进闭包">
 <meta name="twitter:description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,626
+                  2,628
                 </span>
               
 
@@ -493,9 +493,9 @@
 <li>块级作用域（ES6新增）</li>
 </ol>
 <h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>JavaScript中全局环境只有一个，对应的全局作用域也只有一个。没有用<code>var/let/const</code>声明的变量默认都会成为全局变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    a = 10;</div><div class="line">&#125;;</div><div class="line">console.log(a);    // 10 变全局变量（意外由此发生）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    a = 10;</div><div class="line">&#125;;</div><div class="line">foo();</div><div class="line">console.log(a);    // 10 变全局变量（意外由此发生）</div></pre></td></tr></table></figure>
 <h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>ES6之前，想要实现局部作用域的方式，都是是通过在函数中声明变量来实现的，所以也称函数作用域，支持嵌套多个。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = 20;</div><div class="line">function foo() &#123;</div><div class="line">    var a = 10;</div><div class="line">    console.log(a);    // 10;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = 20;</div><div class="line">function foo() &#123;</div><div class="line">    var a = 10;</div><div class="line">    console.log(a);    // 10;</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
 <p>函数中声明变量时，建议在函数起始部分声明所有变量，方便查看，切记要用<code>var/let/const</code>声明，防止手抖将局部变量变成成全局变量。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getClient() &#123;</div><div class="line">    var name;</div><div class="line">    var phone;</div><div class="line">    var sex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h4><p>我们先来理解什么是块？所谓块，其实就是被大括号<code>{}</code>包裹的代码部分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (true) &#123;</div><div class="line">    // 这里就是块了，也可称代码块</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
