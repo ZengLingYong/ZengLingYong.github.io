@@ -93,15 +93,22 @@
     </url>
 
     <url>
-        <loc>http://wuliv.com/tags/JavaScript/</loc>
-        <lastmod>2019-03-04T10:12:45.764Z</lastmod>
+        <loc>http://wuliv.com/tags/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/</loc>
+        <lastmod>2019-03-13T01:43:04.254Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://wuliv.com/tags/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/</loc>
-        <lastmod>2019-03-04T10:12:45.764Z</lastmod>
+        <loc>http://wuliv.com/tags/JavaScript/</loc>
+        <lastmod>2019-06-20T02:43:54.608Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuliv.com/tags/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+        <lastmod>2019-06-20T02:43:54.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

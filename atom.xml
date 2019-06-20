@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-03-06T10:36:17.077Z</updated>
+  <updated>2019-06-20T02:43:54.608Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript设计模式（一）：单例模式</title>
+    <link href="http://wuliv.com/2019/06/20/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://wuliv.com/2019/06/20/JavaScript设计模式（一）：单例模式/</id>
+    <published>2019-06-20T02:42:55.000Z</published>
+    <updated>2019-06-20T02:43:54.608Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;单例模式：限制类实例化次数只能一次，一个类只有一个实例，并提供全局访问点。(归属创建型设计模式)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;模式特点&quot;&gt;&lt;a href=&quot;#模式特点&quot; class=&quot;headerlink&quot; title=&quot;模
+    
+    </summary>
+    
+      <category term="前端" scheme="http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://wuliv.com/tags/JavaScript/"/>
+    
+      <category term="JavaScript设计模式" scheme="http://wuliv.com/tags/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>前端进击的巨人（八）：浅谈函数防抖与节流</title>

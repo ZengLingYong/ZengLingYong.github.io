@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,前端进击的巨人," />
+  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
 
 
 
@@ -103,24 +103,18 @@
 
 
 
-<meta name="description" content="面试经常遇到的深浅拷贝，事件轮询，函数调用栈，闭包等容易出错的题目，究其原因，都是跟JavaScript基础知识不牢固有关，下层地基没打好，上层就是豆腐渣工程，新人小白，踏实踩土才是关键。 打地基第二篇：本篇我们将对JavaScript数据结构的知识点详解一二。  JavaScript中有三种数据结构： 栈（stack) 、堆（heap)、 队列（queue)。 栈（stack）栈的特点是“LIF">
-<meta name="keywords" content="JavaScript,前端进击的巨人">
+<meta name="description" content="单例模式：限制类实例化次数只能一次，一个类只有一个实例，并提供全局访问点。(归属创建型设计模式)  模式特点 类只有一个实例 全局可访问该实例 自行实例化（主动实例化） 可推迟初始化，即延迟执行（与静态类/对象的区别）  实现方式 实现方式：使用一个变量存储类实例对象（值初始为 null/undefined ）。进行类实例化时，判断类实例对象是否存在，存在则返回该实例，不存在则创建类实例后返回。">
+<meta name="keywords" content="JavaScript,JavaScript设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端进击的巨人（二）：栈、堆、队列、内存空间">
-<meta property="og:url" content="http://wuliv.com/2019/01/15/前端进击的巨人（二）：栈、堆、队列、内存空间/index.html">
+<meta property="og:title" content="JavaScript设计模式（一）：单例模式">
+<meta property="og:url" content="http://wuliv.com/2019/06/20/JavaScript设计模式（一）：单例模式/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="面试经常遇到的深浅拷贝，事件轮询，函数调用栈，闭包等容易出错的题目，究其原因，都是跟JavaScript基础知识不牢固有关，下层地基没打好，上层就是豆腐渣工程，新人小白，踏实踩土才是关键。 打地基第二篇：本篇我们将对JavaScript数据结构的知识点详解一二。  JavaScript中有三种数据结构： 栈（stack) 、堆（heap)、 队列（queue)。 栈（stack）栈的特点是“LIF">
+<meta property="og:description" content="单例模式：限制类实例化次数只能一次，一个类只有一个实例，并提供全局访问点。(归属创建型设计模式)  模式特点 类只有一个实例 全局可访问该实例 自行实例化（主动实例化） 可推迟初始化，即延迟执行（与静态类/对象的区别）  实现方式 实现方式：使用一个变量存储类实例对象（值初始为 null/undefined ）。进行类实例化时，判断类实例对象是否存在，存在则返回该实例，不存在则创建类实例后返回。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-f2b7239e54b26969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/599584-b12fef30803a0c53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-6365dbe282af1f79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-ec714d1819276c1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-c3e0346a6a131052.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-15T06:06:59.091Z">
+<meta property="og:updated_time" content="2019-06-20T02:43:54.608Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端进击的巨人（二）：栈、堆、队列、内存空间">
-<meta name="twitter:description" content="面试经常遇到的深浅拷贝，事件轮询，函数调用栈，闭包等容易出错的题目，究其原因，都是跟JavaScript基础知识不牢固有关，下层地基没打好，上层就是豆腐渣工程，新人小白，踏实踩土才是关键。 打地基第二篇：本篇我们将对JavaScript数据结构的知识点详解一二。  JavaScript中有三种数据结构： 栈（stack) 、堆（heap)、 队列（queue)。 栈（stack）栈的特点是“LIF">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-f2b7239e54b26969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="JavaScript设计模式（一）：单例模式">
+<meta name="twitter:description" content="单例模式：限制类实例化次数只能一次，一个类只有一个实例，并提供全局访问点。(归属创建型设计模式)  模式特点 类只有一个实例 全局可访问该实例 自行实例化（主动实例化） 可推迟初始化，即延迟执行（与静态类/对象的区别）  实现方式 实现方式：使用一个变量存储类实例对象（值初始为 null/undefined ）。进行类实例化时，判断类实例对象是否存在，存在则返回该实例，不存在则创建类实例后返回。">
 
 
 
@@ -149,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2019/01/15/前端进击的巨人（二）：栈、堆、队列、内存空间/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/06/20/JavaScript设计模式（一）：单例模式/"/>
 
 
 
 
 
-  <title>前端进击的巨人（二）：栈、堆、队列、内存空间 | Kenz's Blog</title>
+  <title>JavaScript设计模式（一）：单例模式 | Kenz's Blog</title>
   
 
 
@@ -342,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/01/15/前端进击的巨人（二）：栈、堆、队列、内存空间/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/06/20/JavaScript设计模式（一）：单例模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -359,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端进击的巨人（二）：栈、堆、队列、内存空间</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（一）：单例模式</h1>
         
 
         <div class="post-meta">
@@ -371,8 +365,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-15T12:54:13+08:00">
-                2019-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T10:42:55+08:00">
+                2019-06-20
               </time>
             
 
@@ -411,7 +405,7 @@
 
           
           
-             <span id="/2019/01/15/前端进击的巨人（二）：栈、堆、队列、内存空间/" class="leancloud_visitors" data-flag-title="前端进击的巨人（二）：栈、堆、队列、内存空间">
+             <span id="/2019/06/20/JavaScript设计模式（一）：单例模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（一）：单例模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,782
+                  754
                 </span>
               
 
@@ -453,7 +447,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  7
+                  3
                 </span>
               
             </div>
@@ -474,70 +468,40 @@
       
 
       
-        <p>面试经常遇到的深浅拷贝，事件轮询，函数调用栈，闭包等容易出错的题目，究其原因，都是跟JavaScript基础知识不牢固有关，下层地基没打好，上层就是豆腐渣工程，新人小白，踏实踩土才是关键。</p>
-<p>打地基第二篇：本篇我们将对JavaScript数据结构的知识点详解一二。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-f2b7239e54b26969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.png"></p>
-<p>JavaScript中有三种数据结构： 栈（stack) 、堆（heap)、 队列（queue)。</p>
-<h3 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h3><p>栈的特点是<strong>“LIFO，即后进先出（Last in, first out）”</strong>。数据存储时只能从顶部逐个存入，取出时也需从顶部逐个取出。<a href="http://wuliv.com/2019/01/15/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E6%89%A7%E8%A1%8C%E6%A0%88%EF%BC%8C%E5%8F%98%E9%87%8F%E5%AF%B9%E8%B1%A1/">《前端进击的巨人（一）：执行上下文与执行栈，变量对象》</a>中解释执行栈时，举了一个乒乓球盒子的例子，来演示栈的存取方式，这里再举个栗子搭积木。</p>
-<p>举个栗子：乒乓球盒子/搭建积木<br><img src="https://upload-images.jianshu.io/upload_images/599584-b12fef30803a0c53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt="栈栗子：乒乓球盒子"></p>
-<p><strong>JavaScript中Array数组模拟栈：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2, 3, 4, 5];</div><div class="line"></div><div class="line">arr.push(6); // 存入数据 arr -&gt; [1, 2, 3, 4, 5, 6]</div><div class="line">arr.pop();   // 取出数据 arr -&gt; [1, 2, 3, 4, 5]</div></pre></td></tr></table></figure></p>
-<h3 id="堆（heap"><a href="#堆（heap" class="headerlink" title="堆（heap)"></a>堆（heap)</h3><p>堆的特点是<strong>“无序”</strong>的<code>key-value</code><strong>“键值对”</strong>存储方式。</p>
-<p>举个栗子：书架存书<br><img src="https://upload-images.jianshu.io/upload_images/7324444-6365dbe282af1f79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="堆栗子：书架"></p>
-<p>我们想要在书架上找到想要的书，最直接的方式就是通过查找书名，书名就是我们的key。拿着这把key，就可以轻松检索到对应的书籍。</p>
-<p><strong>“堆的存取方式跟顺序没有关系，不局限出入口”</strong>。</p>
-<h3 id="队列-（queue"><a href="#队列-（queue" class="headerlink" title="队列 （queue)"></a>队列 （queue)</h3><p>队列的特点是是<strong>“FIFO，即先进先出（First in, first out）”</strong> 。<br>数据存取时<strong>“从队尾插入，从队头取出”</strong>。</p>
-<p><strong>“与栈的区别：栈的存入取出都在顶部一个出入口，而队列分两个，一个出口，一个入口”</strong>。</p>
-<p>举个栗子：排队取餐</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-ec714d1819276c1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="队列栗子：排队取餐"></p>
-<p><strong>JavaScript中Array数组模拟队列：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2, 3, 4, 5];</div><div class="line"></div><div class="line">// 队尾in</div><div class="line">arr.push(6);    // 存入 arr -&gt; [1, 2, 3, 4, 5, 6]</div><div class="line">// 队头out</div><div class="line">arr.shift();    // 取出 arr -&gt; [2, 3, 4, 5, 6]</div></pre></td></tr></table></figure></p>
-<h3 id="栈、堆、队列在JavaScript中的应用"><a href="#栈、堆、队列在JavaScript中的应用" class="headerlink" title="栈、堆、队列在JavaScript中的应用"></a>栈、堆、队列在JavaScript中的应用</h3><h4 id="1-代码运行方式（栈应用-函数调用栈）"><a href="#1-代码运行方式（栈应用-函数调用栈）" class="headerlink" title="1. 代码运行方式（栈应用/函数调用栈）"></a>1. 代码运行方式（栈应用/函数调用栈）</h4><p><a href="&#39;http://wuliv.com/2019/01/15/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E6%89%A7%E8%A1%8C%E6%A0%88%EF%BC%8C%E5%8F%98%E9%87%8F%E5%AF%B9%E8%B1%A1/&#39;">《前端进击的巨人（一）：执行上下文与执行栈，变量对象》</a>详解了JavaScript运行时的函数调用过程，而其中执行栈（函数调用栈）就是用到栈的数据结构。</p>
-<blockquote>
-<p>JavaScript中函数的执行过程，其实就是一个入栈出栈的过程:</p>
-<ol>
-<li>当脚本要调用一个函数时，JS解析器把该函数推入栈中（push）并执行</li>
-<li>当函数运行结束后，JS解释器将它从堆栈中推出（pop）</li>
-</ol>
+        <blockquote>
+<p>单例模式：限制类实例化次数只能一次，一个类只有一个实例，并提供全局访问点。(归属创建型设计模式)</p>
 </blockquote>
-<p>具体执行过程可翻阅上篇文章<a href="http://wuliv.com/2019/01/15/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E6%89%A7%E8%A1%8C%E6%A0%88%EF%BC%8C%E5%8F%98%E9%87%8F%E5%AF%B9%E8%B1%A1/">《前端进击的巨人（一）：执行上下文与执行栈，变量对象》</a>，这里不再赘述。</p>
-<h4 id="2-内存存储（栈、堆）"><a href="#2-内存存储（栈、堆）" class="headerlink" title="2. 内存存储（栈、堆）"></a>2. 内存存储（栈、堆）</h4><p>JavaScript中变量类型有两种：</p>
-<ol>
-<li>基础类型（<code>Undefined, Null, Boolean, Number, String, Symbol</code>）一共6种</li>
-<li>引用类型（<code>Object</code>)</li>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
+<li>类只有一个实例</li>
+<li>全局可访问该实例</li>
+<li>自行实例化（主动实例化）</li>
+<li>可推迟初始化，即延迟执行（与静态类/对象的区别）</li>
 </ol>
-<p>基础类型的值保存在栈中，这些类型的值有固定大小，<strong>“按值来访问”</strong>；</p>
-<p>引用类型的值保存在堆中，栈中存储的是引用类型的引用地址（地址指针），<strong>“按引用访问”</strong>，引用类型的值没有固定大小，可扩展（一个对象我们可以添加多个属性）。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-c3e0346a6a131052.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="JS类型存储"></p>
-<h4 id="3-事件轮询（队列）"><a href="#3-事件轮询（队列）" class="headerlink" title="3. 事件轮询（队列）"></a>3. 事件轮询（队列）</h4><p>JavaScript中事件轮询（Event Loop）的执行机制，就是采用队列的存取方式，因事件轮询（Event Loop）也是JS基础中的一个比较难理解的知识点，后续另开一篇章再作详细探究。</p>
-<h3 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h3><p>将一个变量的值赋值给另一个变量，相当于在栈内存中创建了一个新的内存空间，然后从栈中复制值，存储到这个新空间中。对于基本类型，栈中存储的就是它自身的值，所以新内存空间存储的也是一个值。直接改变新变量的值，不会影响到旧变量的值，因为他们值存储的内存空间不同。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 基本类型复制变量</div><div class="line">var a = 10;</div><div class="line">var b = a;</div><div class="line">b = 20;</div><div class="line"></div><div class="line">a // 10</div><div class="line">b // 20</div></pre></td></tr></table></figure>
-<p>而对于引用类型来说，同样是复制栈中存储的值。但是栈存储的只是其引用地址，其具体的值存储在堆中。变量复制仅复制栈中存储的值，不会复制堆中存储的值，所以新变量在栈中的值是一个地址指针。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 引用类型复制变量</div><div class="line">var a = &#123; age: 27 &#125;;</div><div class="line">var b = a;</div><div class="line">b.age = 29;</div><div class="line"></div><div class="line">a.age == b.age; // 29</div></pre></td></tr></table></figure></p>
-<p>可见，变量复制赋值，都属于栈存储拷贝，因此深浅拷贝可以这样区分分：</p>
-<ul>
-<li><strong>“浅拷贝：栈存储拷贝”</strong></li>
-<li><strong>“深拷贝：栈堆存储拷贝”</strong></li>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><blockquote>
+<p>实现方式：使用一个变量存储类实例对象（值初始为 <code>null/undefined</code> ）。进行类实例化时，判断类实例对象是否存在，存在则返回该实例，不存在则创建类实例后返回。多次调用类生成实例方法，返回的同一个实例对象。</p>
+</blockquote>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(name) &#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">  getName() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">Singleton.getInstance = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> instance;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!instance) &#123;</div><div class="line">      instance = <span class="keyword">new</span> Singleton(name);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">  &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="keyword">var</span> Winner = Singleton.getInstance(<span class="string">'Winner'</span>);</div><div class="line"><span class="keyword">var</span> Looser = Singleton.getInstance(<span class="string">'Looser'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Winner === Looser); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(Winner.getName());  <span class="comment">// 'Wiinner'</span></div><div class="line"><span class="built_in">console</span>.log(Looser.getName());  <span class="comment">// 'Looser'</span></div></pre></td></tr></table></figure>
+<p>代码中定义了一个 <code>Singleton</code> 类，并定义 <code>Singleton.getInstance()</code> 方法来生成实例对象。而不是通过 <code>new</code> 操作符来创建类实例。</p>
+<p>在 <code>Singleton.getInstance()</code> 中，通过闭包引用存储类实例的对象，判断类是否实例化过。（这里闭包的使用能够使 <code>getInstance()</code> 多次调用都能获取到之前类实例的存储值）。因此无论执行多少次 <code>Singleton.getInstance()</code> 方法，都只会返回同一个Singleton类实例对象。 </p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p><strong>“单例模式的特点，意图解决：维护一个全局实例对象。”</strong></p>
+<ol>
+<li>引用第三方库</li>
+<li>弹窗登录框</li>
+<li>购物车</li>
+<li>全局态管理 store (Vuex / Redux)</li>
+</ol>
+<p>项目中引入第三方库时，重复加载库文件，全局只会实例化一个库对象，如 <code>jQuery</code>，<code>lodash</code>，<code>moment</code> …, 其实它们的实现方式也是单例模式应用的一种：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 引入代码库 libs(库别名）</span></div><div class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.libs != <span class="literal">null</span>) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">window</span>.libs;    <span class="comment">// 直接返回</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="built_in">window</span>.libs = <span class="string">'...'</span>;   <span class="comment">// 初始化</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>单例设计模式实现全局弹窗登录框：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginModal</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>() &#123;</div><div class="line">        <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">        div.innerHTML = <span class="string">'登录框HTML内容'</span>;</div><div class="line">        div.style.display = <span class="string">'none'</span>;</div><div class="line">        <span class="keyword">this</span>.el = div;</div><div class="line">        <span class="keyword">this</span>.visible = <span class="literal">false</span>;</div><div class="line">        <span class="built_in">document</span>.body.append(div);</div><div class="line">        <span class="keyword">return</span> div;</div><div class="line">    &#125;</div><div class="line">    show() &#123;</div><div class="line">        <span class="keyword">this</span>.el.style.display = <span class="string">'block'</span>;</div><div class="line">    &#125;</div><div class="line">    hide() &#123;</div><div class="line">        <span class="keyword">this</span>.el.style.display = <span class="string">'none'</span>;</div><div class="line">    &#125;</div><div class="line">    toggle() &#123;</div><div class="line">        <span class="keyword">this</span>.visible = !<span class="keyword">this</span>.visible;</div><div class="line">        <span class="keyword">this</span>.visible ? <span class="keyword">this</span>.show() : <span class="keyword">this</span>.hide();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">LoginModal.getInstance = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> instance;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!instance) &#123;</div><div class="line">            instance = <span class="keyword">new</span> LoginModal();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="comment">// 按钮切换显示登录框</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'btn-login'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    LoginModal.getInstance().toggle();</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：适用单一对象，只生成一个对象实例，减少内存开销，避免频繁创建和销毁实例。</li>
+<li>缺点：不适用动态扩展对象，如通过对象继承扩展新对象。</li>
 </ul>
-<p>深拷贝会同时开辟新的栈内存，堆内存空间。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 利用JSON对象方法实现深拷贝</div><div class="line">var a = &#123; age: 27 &#125;;</div><div class="line">var b = JSON.parse(JSON.stringify(a));</div><div class="line">b.age = 29;</div><div class="line"></div><div class="line">a.age // 27</div><div class="line">b.age // 29</div></pre></td></tr></table></figure>
-<h4 id="函数传参数是按值传递？按引用传递？"><a href="#函数传参数是按值传递？按引用传递？" class="headerlink" title="函数传参数是按值传递？按引用传递？"></a>函数传参数是按值传递？按引用传递？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line"> age: 27</div><div class="line">&#125;;</div><div class="line">function foo (person) &#123;</div><div class="line">  person.age = 29;</div><div class="line">&#125;</div><div class="line">foo(person);</div><div class="line">person.age // 29;</div></pre></td></tr></table></figure>
-<p>函数调用时，会对参数赋值。而参数传递过程其实同样是变量复制的过程，所以它是按值传递。<code>var person = person</code>，因为传递参数是对象时，变量复制仅复制的栈存储（浅拷贝），所以修改对象属性会造成外部变量对象的修改。</p>
-<p>至此，当我们理清栈、堆数据结构，以及JS中数据类型存取方式。深浅拷贝问题也就通顺了。</p>
-<h3 id="内存空间管理"><a href="#内存空间管理" class="headerlink" title="内存空间管理"></a>内存空间管理</h3><p>JavaScript执行过程中内存分配：</p>
-<ol>
-<li>为变量对象分配需要的内存</li>
-<li>在分配到的内存中进行<strong>读/写</strong>操作</li>
-<li>不再使用时将其销毁，释放内存</li>
-</ol>
-<p>内存管理不善，会出现内存泄露，造成浏览器内存占用过多，页面卡顿等问题。（后续性能优化篇章续讲）</p>
-<h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><p>JavaScript中有自动垃圾回收机制，会通过标记清除的算法识别哪些变量对象不再使用，对其进行销毁。开发者也可在代码中手动设置变量值为null（<code>a = null</code>）进行标记清除，让其失去引用，以便下一次垃圾回收时进行有效回收。</p>
-<p>局部环境中，函数执行完成后，函数局部环境声明的变量不再需要时，就会被垃圾回收销毁（理想的情况下，闭包会阻止这一过程）。</p>
-<p>全局环境只有页面退出时才会出栈，解除变量引用。所以开发者应尽量避免在全局环境中创建全局变量，如需使用，也要在不需要时手动标记清除，将其内存释放掉。</p>
-<p>垃圾回收算法除了<strong>“标记清除”</strong>，还有一种<strong>“引用计数”</strong>，不常用，仅作了解。</p>
+<p>TIPS: 多线程编程语言中，单例模式会涉及同步锁的问题。而JavaScript是单线程的编程语言，可忽略该问题。</p>
 <hr>
-<p>参考文档：</p>
+<p>参考文章</p>
 <ul>
-<li><a href="http://www.ruanyifeng.com/blog/2013/11/stack.html" target="_blank" rel="external">stack的三种含义</a></li>
-<li><a href="https://www.jianshu.com/p/996671d4dcc4" target="_blank" rel="external">内存空间详细图解</a></li>
-<li><a href="https://blog.csdn.net/xdd19910505/article/details/41900693" target="_blank" rel="external">JavaScript变量——栈内存or堆内存</a></li>
+<li><a href="https://book.douban.com/subject/24744217/" target="_blank" rel="external">《JavaScript 设计模式》</a></li>
+<li><a href="https://coding.imooc.com/class/255.html" target="_blank" rel="external">《JavaScript 设计模式系统讲解与应用》</a></li>
 </ul>
 <p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <blockquote>
@@ -593,7 +557,7 @@
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/前端进击的巨人/" rel="tag"># 前端进击的巨人</a>
+            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
           
         </div>
       
@@ -606,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/15/前端进击的巨人（一）：执行上下文与执行栈，变量对象/" rel="next" title="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
-                <i class="fa fa-chevron-left"></i> 前端进击的巨人（一）：执行上下文与执行栈，变量对象
+              <a href="/2019/03/04/前端进击的巨人（八）：浅谈函数防抖与节流/" rel="next" title="前端进击的巨人（八）：浅谈函数防抖与节流">
+                <i class="fa fa-chevron-left"></i> 前端进击的巨人（八）：浅谈函数防抖与节流
               </a>
             
           </div>
@@ -615,10 +579,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/19/前端进击的巨人（三）：从作用域走进闭包/" rel="prev" title="前端进击的巨人（三）：从作用域走进闭包">
-                前端进击的巨人（三）：从作用域走进闭包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -828,7 +788,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈（stack）"><span class="nav-number">1.</span> <span class="nav-text">栈（stack）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆（heap"><span class="nav-number">2.</span> <span class="nav-text">堆（heap)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列-（queue"><span class="nav-number">3.</span> <span class="nav-text">队列 （queue)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈、堆、队列在JavaScript中的应用"><span class="nav-number">4.</span> <span class="nav-text">栈、堆、队列在JavaScript中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-代码运行方式（栈应用-函数调用栈）"><span class="nav-number">4.1.</span> <span class="nav-text">1. 代码运行方式（栈应用/函数调用栈）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-内存存储（栈、堆）"><span class="nav-number">4.2.</span> <span class="nav-text">2. 内存存储（栈、堆）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-事件轮询（队列）"><span class="nav-number">4.3.</span> <span class="nav-text">3. 事件轮询（队列）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">5.</span> <span class="nav-text">深浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数传参数是按值传递？按引用传递？"><span class="nav-number">5.1.</span> <span class="nav-text">函数传参数是按值传递？按引用传递？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存空间管理"><span class="nav-number">6.</span> <span class="nav-text">内存空间管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收机制"><span class="nav-number">7.</span> <span class="nav-text">垃圾回收机制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">2.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">4.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">5.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
             
 
           </div>
