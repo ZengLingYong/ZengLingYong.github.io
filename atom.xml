@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-06-24T06:19:12.291Z</updated>
+  <updated>2019-06-24T07:06:01.416Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -16,11 +16,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaScript设计模式（二）：策略模式</title>
+    <link href="http://wuliv.com/2019/06/24/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://wuliv.com/2019/06/24/JavaScript设计模式（二）：策略模式/</id>
+    <published>2019-06-24T07:04:32.000Z</published>
+    <updated>2019-06-24T07:06:01.416Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/7324444-60478fc659efd61e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript设计模式（一）：单例模式</title>
     <link href="http://wuliv.com/2019/06/20/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>http://wuliv.com/2019/06/20/JavaScript设计模式（一）：单例模式/</id>
     <published>2019-06-20T02:42:55.000Z</published>
-    <updated>2019-06-24T06:19:12.291Z</updated>
+    <updated>2019-06-24T07:03:06.636Z</updated>
     
     <summary type="html">
     

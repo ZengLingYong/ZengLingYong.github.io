@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,前端进击的巨人," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -103,22 +103,19 @@
 
 
 
-<meta name="description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
-<meta name="keywords" content="JavaScript,前端进击的巨人">
+<meta name="description" content="策略模式：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换  生活小栗子：诸葛锦囊 诸葛给刘备的锦囊妙计，遇到任何困难都有应对计策。策略模式实现的也是类似的场景。 再来一栗：给喜欢的女生买冰淇淋，事先不了解其喜好，只能集齐各种味道，总会命种。就是比较 “费钱”，这也是策略模式的缺点，需事先考虑所有应对场景。 模式特点 策略类：算法封装成独立的函数/对象 环境类：根据不同参数调用对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
-<meta property="og:url" content="http://wuliv.com/2019/01/15/前端进击的巨人（一）：执行上下文与执行栈，变量对象/index.html">
+<meta property="og:title" content="JavaScript设计模式（二）：策略模式">
+<meta property="og:url" content="http://wuliv.com/2019/06/24/JavaScript设计模式（二）：策略模式/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
+<meta property="og:description" content="策略模式：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换  生活小栗子：诸葛锦囊 诸葛给刘备的锦囊妙计，遇到任何困难都有应对计策。策略模式实现的也是类似的场景。 再来一栗：给喜欢的女生买冰淇淋，事先不了解其喜好，只能集齐各种味道，总会命种。就是比较 “费钱”，这也是策略模式的缺点，需事先考虑所有应对场景。 模式特点 策略类：算法封装成独立的函数/对象 环境类：根据不同参数调用对">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-33396577c0faf675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/599584-b12fef30803a0c53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-5166cc18d6dff2bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-22T00:14:56.081Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-60478fc659efd61e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-06-24T07:06:01.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
-<meta name="twitter:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-33396577c0faf675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="JavaScript设计模式（二）：策略模式">
+<meta name="twitter:description" content="策略模式：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换  生活小栗子：诸葛锦囊 诸葛给刘备的锦囊妙计，遇到任何困难都有应对计策。策略模式实现的也是类似的场景。 再来一栗：给喜欢的女生买冰淇淋，事先不了解其喜好，只能集齐各种味道，总会命种。就是比较 “费钱”，这也是策略模式的缺点，需事先考虑所有应对场景。 模式特点 策略类：算法封装成独立的函数/对象 环境类：根据不同参数调用对">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-60478fc659efd61e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -147,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2019/01/15/前端进击的巨人（一）：执行上下文与执行栈，变量对象/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/06/24/JavaScript设计模式（二）：策略模式/"/>
 
 
 
 
 
-  <title>前端进击的巨人（一）：执行上下文与执行栈，变量对象 | Kenz's Blog</title>
+  <title>JavaScript设计模式（二）：策略模式 | Kenz's Blog</title>
   
 
 
@@ -340,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/01/15/前端进击的巨人（一）：执行上下文与执行栈，变量对象/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/06/24/JavaScript设计模式（二）：策略模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -357,7 +354,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端进击的巨人（一）：执行上下文与执行栈，变量对象</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（二）：策略模式</h1>
         
 
         <div class="post-meta">
@@ -369,8 +366,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-15T12:52:42+08:00">
-                2019-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-24T15:04:32+08:00">
+                2019-06-24
               </time>
             
 
@@ -380,28 +377,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -409,7 +384,7 @@
 
           
           
-             <span id="/2019/01/15/前端进击的巨人（一）：执行上下文与执行栈，变量对象/" class="leancloud_visitors" data-flag-title="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
+             <span id="/2019/06/24/JavaScript设计模式（二）：策略模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（二）：策略模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -435,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,835
+                  1,311
                 </span>
               
 
@@ -451,7 +426,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  5
                 </span>
               
             </div>
@@ -472,103 +447,65 @@
       
 
       
-        <h3 id="写在开篇"><a href="#写在开篇" class="headerlink" title="写在开篇"></a>写在开篇</h3><p>已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。</p>
-<p>正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。</p>
-<p>那么没有年终完美总结，来个新年莽撞开始可好。</p>
-<p>进击巨人系列开篇，不忘初心，砥砺前行。</p>
-<hr>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-33396577c0faf675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前端进击的巨人（一）：执行上下文与执行栈，变量对象"></p>
-<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
-<h3 id="理解执行上下文"><a href="#理解执行上下文" class="headerlink" title="理解执行上下文"></a>理解执行上下文</h3><blockquote>
-<p>执行上下文(Execution Context): 函数执行前进行的准备工作（也称执行上下文环境）</p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-60478fc659efd61e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="策略模式"></p>
+<blockquote>
+<p>策略模式：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换</p>
 </blockquote>
-<p>运行JavaScript代码时，当代码执行进入一个环境时，就会为该环境创建一个执行上下文，它会在你运行代码前做一些准备工作，如确定作用域，创建局部变量对象等。</p>
-<p>具体做了什么先按下不表，先来看下JavaScript执行环境有哪些？</p>
-<h4 id="JavaScript中执行环境"><a href="#JavaScript中执行环境" class="headerlink" title="JavaScript中执行环境"></a>JavaScript中执行环境</h4><ol>
-<li>全局环境</li>
-<li>函数环境</li>
-<li>eval函数环境 （已不推荐使用）</li>
+<p>生活小栗子：诸葛锦囊</p>
+<p>诸葛给刘备的锦囊妙计，遇到任何困难都有应对计策。策略模式实现的也是类似的场景。</p>
+<p>再来一栗：给喜欢的女生买冰淇淋，事先不了解其喜好，只能集齐各种味道，总会命种。就是比较 “费钱”，这也是策略模式的缺点，需事先考虑所有应对场景。</p>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
+<li>策略类：算法封装成独立的函数/对象</li>
+<li>环境类：根据不同参数调用对应的策略函数/对象执行</li>
 </ol>
-<p>那么与之对应的执行上下文类型同样有3种：</p>
-<h4 id="执行上下文的类型"><a href="#执行上下文的类型" class="headerlink" title="执行上下文的类型"></a>执行上下文的类型</h4><ol>
-<li>全局执行上下文</li>
-<li>函数执行上下文</li>
-<li>eval函数执行上下文</li>
-</ol>
-<p>JavaScript运行时首先会进入全局环境，对应会生成全局上下文。程序代码中基本都会存在函数，那么调用函数，就会进入函数执行环境，对应就会生成该函数的执行上下文。</p>
-<p>先插播一个知识点：<strong>“JS是单线程”</strong>! <strong>“单线程”</strong>! <strong>“单线程”</strong>!</p>
-<p>简单理解下单线程，就是同个时间段只能做一件任务，完成之后才可以继续下一个任务。正如女朋友只有一个，各位面向对象的小伙伴们你们说对不对？有女票的必须说没毛病。</p>
-<p>既然是这样，必须要有一个排队机制，不然就会出现几个流氓霸着车道不让过，”还有王法么？”</p>
-<h3 id="JS中管理多个执行上下文"><a href="#JS中管理多个执行上下文" class="headerlink" title="JS中管理多个执行上下文"></a>JS中管理多个执行上下文</h3><p>函数编程中，代码中会声明多个函数，对应的执行上下文也会存在多个。在JavaScript中，通过栈的存取方式来管理执行上下文，我们可称其为执行栈，或函数调用栈(Call Stack)。</p>
-<p>在说明执行栈前，先来补下<strong>“栈数据结构”</strong>知识点。</p>
-<h3 id="栈数据结构"><a href="#栈数据结构" class="headerlink" title="栈数据结构"></a>栈数据结构</h3><p><img src="https://upload-images.jianshu.io/upload_images/599584-b12fef30803a0c53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt="乒乓球盒子理解栈存储"><br>借助前端大神的例子，用乒乓球盒子来理解栈的存取方式。（这个例子让我彻底记住了栈数据结构）</p>
-<p>栈遵循<strong>“先进后出，后进先出”</strong>的规则，或称<strong>LIFO</strong> (“Last In First Out”) 规则。</p>
-<p>如图所示，我们只能从栈顶取出或放入乒乓球，最先放进盒子的总是最后才能取出。<br>栈中<strong>“放入/取出”</strong>，也可称为<strong>“入栈/出栈”</strong>。</p>
-<p>总结栈数据结构的特点：</p>
+<h3 id="模式实现"><a href="#模式实现" class="headerlink" title="模式实现"></a>模式实现</h3><blockquote>
+<p>实现方式：一个基于策略模式的程序至少由两部分组成，第一个部分是一组策略类 Strategies（可变），策略类封装类具体的算法，并负责具体的计算过程。第二个部分是环境类 Context（不变）， Context 接收客户的请求，随后把请求委托给某一个策略类。</p>
+</blockquote>
+<p>假设我们一个开发团队，人员组成包括（开发组长，后端，前端，测试）。开发组长领取开发任务（不变），但具体的任务执行人员可根据类型划分（可变）。</p>
+<p>比如开发任务有以下几项：</p>
 <ol>
-<li>后进先出，先进后出</li>
-<li>出口在顶部，且仅有一个</li>
+<li>优化服务器缓存（后端任务）</li>
+<li>优化首屏加载速度（前端任务）</li>
+<li>完成系统并发测试（测试任务）</li>
 </ol>
-<h3 id="执行栈（函数调用栈）"><a href="#执行栈（函数调用栈）" class="headerlink" title="执行栈（函数调用栈）"></a>执行栈（函数调用栈）</h3><p>理解完栈的存取方式，我们接着分析JavaScript中如何通过栈来管理多个执行上下文。</p>
-<p>程序执行进入一个执行环境时，它的执行上下文就会被创建，并被推入执行栈中(入栈)；<br>程序执行完成时，它的执行上下文就会被销毁，并从栈顶被推出(出栈)，控制权交由下一个执行上下文。</p>
-<p>因为JS执行中最先进入全局环境，所以处于<strong>“栈底的永远是全局环境的执行上下文”</strong>。而处于<strong>“栈顶的是当前正在执行函数的执行上下文”</strong>，当函数调用完成后，它就会从栈顶被推出（理想的情况下，闭包会阻止该操作，闭包后续文章深入详解）。</p>
-<p><strong>“全局环境只有一个，对应的全局执行上下文也只有一个，只有当页面被关闭之后它才会从执行栈中被推出，否则一直存在于栈底”</strong></p>
-<p>文字太多不如上代码系列 ——》代码 + 图，一览无遗：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo () &#123;</div><div class="line">    function bar () &#123;</div><div class="line">        return &apos;I am bar&apos;;</div><div class="line">    &#125;</div><div class="line">    return bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-5166cc18d6dff2bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="出入栈过程"></p>
-<h3 id="执行上下文的生命周期"><a href="#执行上下文的生命周期" class="headerlink" title="执行上下文的生命周期"></a>执行上下文的生命周期</h3><p>执行上下文的生命周期有两个阶段：</p>
+<p>开发组长会根据任务类型，分发到对应的开发人员头上，组长不承担具体开发任务。所以每一个开发人员就承担 Strategy 的作用（独立的任务执行），而组长拥有并可支配所有开发人员的资源，充当 Context 的角色。团队每一个开发人员<strong>“组合”</strong>起来就是一个 Strategies 类（执行开发任务）。 这个 Strategies 是可变的，如果说后续开发任务需要安卓的、IOS的支持，只要添加安卓、IOS开发人员配置即可（可扩展）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 策略类（开发人员）</div><div class="line">var Strategies = &#123;</div><div class="line">    &quot;backend&quot;: function(task) &#123;</div><div class="line">        console.log(&apos;进行后端任务：&apos;, task);</div><div class="line">    &#125;,</div><div class="line">    &quot;frontend&quot;: function(task) &#123;</div><div class="line">        console.log(&apos;进行前端任务：&apos;, task);</div><div class="line">    &#125;,</div><div class="line">    &quot;testend&quot;: function(task) &#123;</div><div class="line">        console.log(&apos;进行测试任务：&apos;, task);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//  环境类（开发组长）</div><div class="line">var Context = function(type, task) &#123;</div><div class="line">    typeof Strategies[type] === &apos;function&apos; &amp;&amp; Strategies[type](task);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Context(&apos;backend&apos;, &apos;优化服务器缓存&apos;);</div><div class="line">Context(&apos;frontend&apos;, &apos;优化首页加载速度&apos;);</div><div class="line">Context(&apos;testend&apos;, &apos;完成系统并发测试&apos;);</div></pre></td></tr></table></figure>
+<p>上述代码带来的好处：</p>
 <ol>
-<li><p>创建阶段（<strong>进入</strong>执行上下文）</p>
-</li>
-<li><p>执行阶段（代码<strong>执行</strong>）</p>
-</li>
+<li>算法独立封装，任务分发；<br> 开发组长不承担具体开发任务（只做顶层设计，不跟年轻人抢饭碗）</li>
+<li>复用性更好，不局限于 Context 调用；<br> 开发人员不愁下家（去哪写代码都是写代码）</li>
 </ol>
-<p>创建阶段：函数被调用时，进入函数环境，为其创建一个执行上下文，此时进入创建阶段</p>
-<p>执行阶段：执行函数中代码时，此时执行上下文进入执行阶段</p>
-<h4 id="创建阶段的操作"><a href="#创建阶段的操作" class="headerlink" title="创建阶段的操作"></a>创建阶段的操作</h4><ol>
-<li>创建变量对象<ul>
-<li>函数环境会初始化创建<code>Arguments</code>对象（<strong>并赋值</strong>）</li>
-<li>函数声明（<strong>并赋值</strong>）</li>
-<li>变量声明，函数表达式声明（<strong>未赋值</strong>）</li>
+<p>策略模式的另一个好处就是，消除了大部分的 <code>if...else</code> / <code>switch...case</code> 条件分支语句，代码阅读性提高。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 没有使用策略模式的组长...</div><div class="line">var Context = function(type, task) &#123;</div><div class="line">    if (type === &apos;backend&apos;) &#123;</div><div class="line">        // 把后端给我叫来</div><div class="line">    &#125; else if (type === &apos;frontend&apos;) &#123;</div><div class="line">        // 把前端给我叫来</div><div class="line">    &#125; else if (type === &apos;testend&apos;) &#123;</div><div class="line">        // 把测试给我叫来</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>JavaScript 中，函数作为“一等公民“，也称“一等对象”。JavaScript 中 ”高阶函数“ 应用中，函数可被作为变量或参数进行传递或调用。因此在 JavaScript 中，我们可将算法封装成独立的函数，并将它作为参数传递给另一个函数调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 封装独立的函数</div><div class="line">var backend = function(task) &#123;</div><div class="line">    console.log(&apos;进行后端任务：&apos;, task);</div><div class="line">&#125;;</div><div class="line">var frontend = function(task) &#123;</div><div class="line">    console.log(&apos;进行前端任务：&apos;, task);</div><div class="line">&#125;;</div><div class="line">var testend = function(task) &#123;</div><div class="line">    console.log(&apos;进行测试任务：&apos;, task);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//  环境类（开发组长）</div><div class="line">var Context = function(func, task) &#123;</div><div class="line">    typeof func === &apos;function&apos; &amp;&amp; func(task);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Context(backend, &apos;优化服务器缓存&apos;);</div><div class="line">Context(frontend, &apos;优化首页加载速度&apos;);</div><div class="line">Context(testend, &apos;完成系统并发测试&apos;);</div></pre></td></tr></table></figure>
+<p>少了 Strategies 策略类的外层包裹，函数更加独立，并不妨碍其调用。使用函数替代策略类方式，正是我们日常开发中经常用到的 “隐形” 策略模式。</p>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ol>
+<li>多重条件语句判断，执行对应的算法场景</li>
+<li>表单校验（validator)</li>
+</ol>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：<ol>
+<li>利用组合、委托、多态的技术和思想，避免多重条件选择语句 <code>if...else/switch...case</code>；</li>
+<li>复用性更高，算法函数可在系统其它地方使用；</li>
+<li>支持设计模式 “开发-封闭原则“ ，算法封装在独立的 Strategy 中，易于维护和扩展；</li>
+<li>策略模式使用 “组合和委托” 来让 Context 拥有执行算法的能力，一种替换对象继承的可行方案</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>增加了许多策略类或对象（开发人员职能划分明确，人员成本有所增加）；</li>
+<li>必须了解各个 Strategy 的不同点，违反 “最少知识原则”（组长手底下有对应的开发人员，才不用自己那么苦逼）</li>
+</ol>
+</li>
 </ul>
-</li>
-<li>确定this指向（<strong>this由调用者确定</strong>）</li>
-<li>确定作用域（<strong>词法环境决定，哪里声明定义，就在哪里确定</strong>）</li>
-</ol>
-<h4 id="执行阶段的操作"><a href="#执行阶段的操作" class="headerlink" title="执行阶段的操作"></a>执行阶段的操作</h4><ol>
-<li>变量对象赋值<ul>
-<li>变量赋值</li>
-<li>函数表达式赋值</li>
-</ul>
-</li>
-<li>调用函数</li>
-<li>顺序执行其它代码</li>
-</ol>
-<p>看到这里，我们不经会问变量对象是什么鬼，它与代码中常见的函数声明，变量声明有神马关系？？？</p>
-<h4 id="变量对象和活动对象的区别："><a href="#变量对象和活动对象的区别：" class="headerlink" title="变量对象和活动对象的区别："></a>变量对象和活动对象的区别：</h4><p>当进入到一个执行上下文后，这个变量对象才会被激活，所以叫活动对象(AO)，这时候活动对象上的各种属性才能被访问。</p>
-<p><strong>“创建阶段对函数声明做赋值，变量及函数表达式仅做声明，真正的赋值操作要等到执行上下文代码执行阶段”</strong>。</p>
-<p>代码例子1：变量提升<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);         <span class="comment">// 输出undefined</span></div><div class="line">  <span class="keyword">var</span> a = <span class="string">'I am here'</span>;    <span class="comment">// 赋值</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"></div><div class="line"><span class="comment">// 实际执行过程</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a;                <span class="comment">// 变量声明，var初始化undefined</span></div><div class="line">  <span class="built_in">console</span>.log(a); </div><div class="line">  a = <span class="string">'I am here'</span>;     <span class="comment">// 变量重新赋值</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>代码例子2：函数声明优先级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    console.log(bar);</div><div class="line">    var bar = 20;</div><div class="line">    function bar() &#123;</div><div class="line">      return 10;</div><div class="line">    &#125;</div><div class="line">    var bar = function() &#123;</div><div class="line">        return 30;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">foo();  // 输出bar()整个函数声明</div></pre></td></tr></table></figure></p>
-<h4 id="函数声明，变量声明，函数表达式的优先级"><a href="#函数声明，变量声明，函数表达式的优先级" class="headerlink" title="函数声明，变量声明，函数表达式的优先级"></a>函数声明，变量声明，函数表达式的优先级</h4><ol>
-<li>函数声明，如果有同名属性，会替换掉</li>
-<li>变量，函数表达式</li>
-<li>函数声明优先 &gt; 变量，函数表达式</li>
-</ol>
-<h3 id="执行上下文的数量限制（堆栈溢出）"><a href="#执行上下文的数量限制（堆栈溢出）" class="headerlink" title="执行上下文的数量限制（堆栈溢出）"></a>执行上下文的数量限制（堆栈溢出）</h3><p>执行上下文可存在多个，虽然没有明确的数量限制，但如果超出栈分配的空间，会造成堆栈溢出。常见于递归调用，没有终止条件造成死循环的场景。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 递归调用自身</div><div class="line">function foo() &#123;</div><div class="line">  foo();</div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"></div><div class="line">// 报错： Uncaught RangeError: Maximum call stack size exceeded</div></pre></td></tr></table></figure>
-<h3 id="文末总结"><a href="#文末总结" class="headerlink" title="文末总结"></a>文末总结</h3><ol>
-<li>JavaScript是单线程</li>
-<li>栈顶的执行上下文处于执行中，其它需要排队</li>
-<li>全局上下文只有一个处于栈底，页面关闭时出栈</li>
-<li>函数执行上下文可存在多个，但应避免递归时堆栈溢出</li>
-<li>函数调用时就会创建新的上下文，即使调用自身，也会创建不同的执行上下文</li>
-</ol>
 <hr>
-<p>参考文档：</p>
+<p>参考文章</p>
 <ul>
-<li><a href="https://www.jianshu.com/p/a6d37c77e8db" target="_blank" rel="external">执行上下文详细图解</a></li>
-<li><a href="https://github.com/yygmind/blog/issues/12" target="_blank" rel="external">理解JavaScript 中的执行上下文和执行栈</a></li>
-<li><a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="external">这一次，彻底弄懂 JavaScript 执行机制</a></li>
+<li><a href="https://book.douban.com/subject/24744217/" target="_blank" rel="external">《JavaScript 设计模式》</a></li>
+<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
+<li><a href="https://coding.imooc.com/class/255.html" target="_blank" rel="external">《JavaScript 设计模式系统讲解与应用》</a></li>
 </ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <blockquote>
 <p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
 </blockquote>
@@ -618,14 +555,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
-            <a href="/tags/前端进击的巨人/" rel="tag"># 前端进击的巨人</a>
-          
-        </div>
-      
 
       
       
@@ -635,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/26/读书笔记-06-语法基础-JavaScript高级程序设计/" rel="next" title="读书笔记(06) - 语法基础 - JavaScript高级程序设计">
-                <i class="fa fa-chevron-left"></i> 读书笔记(06) - 语法基础 - JavaScript高级程序设计
+              <a href="/2019/06/20/JavaScript设计模式（一）：单例模式/" rel="next" title="JavaScript设计模式（一）：单例模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（一）：单例模式
               </a>
             
           </div>
@@ -644,10 +573,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/15/前端进击的巨人（二）：栈、堆、队列、内存空间/" rel="prev" title="前端进击的巨人（二）：栈、堆、队列、内存空间">
-                前端进击的巨人（二）：栈、堆、队列、内存空间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -857,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在开篇"><span class="nav-number">1.</span> <span class="nav-text">写在开篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解执行上下文"><span class="nav-number">2.</span> <span class="nav-text">理解执行上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript中执行环境"><span class="nav-number">2.1.</span> <span class="nav-text">JavaScript中执行环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行上下文的类型"><span class="nav-number">2.2.</span> <span class="nav-text">执行上下文的类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS中管理多个执行上下文"><span class="nav-number">3.</span> <span class="nav-text">JS中管理多个执行上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈数据结构"><span class="nav-number">4.</span> <span class="nav-text">栈数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行栈（函数调用栈）"><span class="nav-number">5.</span> <span class="nav-text">执行栈（函数调用栈）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文的生命周期"><span class="nav-number">6.</span> <span class="nav-text">执行上下文的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建阶段的操作"><span class="nav-number">6.1.</span> <span class="nav-text">创建阶段的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行阶段的操作"><span class="nav-number">6.2.</span> <span class="nav-text">执行阶段的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量对象和活动对象的区别："><span class="nav-number">6.3.</span> <span class="nav-text">变量对象和活动对象的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数声明，变量声明，函数表达式的优先级"><span class="nav-number">6.4.</span> <span class="nav-text">函数声明，变量声明，函数表达式的优先级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文的数量限制（堆栈溢出）"><span class="nav-number">7.</span> <span class="nav-text">执行上下文的数量限制（堆栈溢出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文末总结"><span class="nav-number">8.</span> <span class="nav-text">文末总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现"><span class="nav-number">2.</span> <span class="nav-text">模式实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">3.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">4.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
             
 
           </div>
