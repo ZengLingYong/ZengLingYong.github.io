@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kenz's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="代理模式：为一个对象提供一个代用品或占位符，以便控制它的访问。  当我们不方便直接访问某个对象时，或不满足需求时，可考虑使用一个替身对象来控制该对象的访问。替身对象可对请求预先进行处理，再决定是否转交给本体对象。 生活小栗子：  代购； 明星经纪人； 和谐上网  经常 shopping 的同学，对代购应该不陌生。自己不方便直接购买或买不到某件商品时，会选择委托给第三方，让代购或黄牛去做购买动作">
+<meta name="keywords" content="JavaScript,JavaScript设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式（三）：代理模式">
+<meta property="og:url" content="http://wuliv.com/2019/06/25/JavaScript设计模式（三）：代理模式/index.html">
+<meta property="og:site_name" content="Kenz&#39;s Blog">
+<meta property="og:description" content="代理模式：为一个对象提供一个代用品或占位符，以便控制它的访问。  当我们不方便直接访问某个对象时，或不满足需求时，可考虑使用一个替身对象来控制该对象的访问。替身对象可对请求预先进行处理，再决定是否转交给本体对象。 生活小栗子：  代购； 明星经纪人； 和谐上网  经常 shopping 的同学，对代购应该不陌生。自己不方便直接购买或买不到某件商品时，会选择委托给第三方，让代购或黄牛去做购买动作">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-dc654648f1401cd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-06-25T06:42:14.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript设计模式（三）：代理模式">
+<meta name="twitter:description" content="代理模式：为一个对象提供一个代用品或占位符，以便控制它的访问。  当我们不方便直接访问某个对象时，或不满足需求时，可考虑使用一个替身对象来控制该对象的访问。替身对象可对请求预先进行处理，再决定是否转交给本体对象。 生活小栗子：  代购； 明星经纪人； 和谐上网  经常 shopping 的同学，对代购应该不陌生。自己不方便直接购买或买不到某件商品时，会选择委托给第三方，让代购或黄牛去做购买动作">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-dc654648f1401cd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'FHMDM3YMN2',
+      apiKey: '220a42a46af7a0d48d39bf3a26cceb70',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuliv.com/2019/06/25/JavaScript设计模式（三）：代理模式/"/>
+
+
+
+
+
+  <title>JavaScript设计模式（三）：代理模式 | Kenz's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ce4d6999af520bf3c8f319e576ba6832";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kenz's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/06/25/JavaScript设计模式（三）：代理模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（三）：代理模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T14:41:26+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/25/JavaScript设计模式（三）：代理模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（三）：代理模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,704
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-dc654648f1401cd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="代理模式"></p>
+<blockquote>
+<p>代理模式：为一个对象提供一个代用品或占位符，以便控制它的访问。</p>
+</blockquote>
+<p>当我们不方便直接访问某个对象时，或不满足需求时，可考虑使用一个替身对象来控制该对象的访问。替身对象可对请求预先进行处理，再决定是否转交给本体对象。</p>
+<p>生活小栗子：</p>
+<ol>
+<li>代购；</li>
+<li>明星经纪人；</li>
+<li>和谐上网</li>
+</ol>
+<p>经常 shopping 的同学，对代购应该不陌生。自己不方便直接购买或买不到某件商品时，会选择委托给第三方，让代购或黄牛去做购买动作。程序世界的代理者也是如此，我们不直接操作原有对象，而是委托代理者去进行。代理者的作用，就是对我们的请求预先进行处理或转接给实际对象。</p>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
+<li>代理对象可预先处理请求，再决定是否转交给本体；</li>
+<li>代理和本体对外显示接口保持一致性</li>
+<li>代理对象仅对本体做一次包装</li>
+</ol>
+<h3 id="模式细分"><a href="#模式细分" class="headerlink" title="模式细分"></a>模式细分</h3><ol>
+<li>虚拟代理（将开销大的运算延迟到需要时执行）</li>
+<li>缓存代理（为开销大的运算结果提供缓存）</li>
+<li>保护代理（黑白双簧，代理充当黑脸，拦截非分要求）</li>
+<li>防火墙代理（控制网络资源的访问）</li>
+<li>远程代理（为一个对象在不同的地址控件提供局部代表）</li>
+<li>智能引用代理（访问对象执行一些附加操作）</li>
+<li>写时复制代理（延迟对象复制过程，对象需要真正修改时才进行）</li>
+</ol>
+<p><strong>JavaScript 中常用的代理模式为 “虚拟代理” 和 “缓存代理”。</strong></p>
+<h3 id="模式实现"><a href="#模式实现" class="headerlink" title="模式实现"></a>模式实现</h3><blockquote>
+<p>实现方式：创建一个代理对象，代理对象可预先对请求进行处理，再决定是否转交给本体，代理和本体对外接口保持一致性（接口名相同）。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 例子：代理接听电话，实现拦截黑名单</span></div><div class="line"><span class="keyword">var</span> backPhoneList = [<span class="string">'189XXXXX140'</span>];       <span class="comment">// 黑名单列表</span></div><div class="line"><span class="comment">// 代理</span></div><div class="line"><span class="keyword">var</span> ProxyAcceptPhone = <span class="function"><span class="keyword">function</span>(<span class="params">phone</span>) </span>&#123;</div><div class="line">    <span class="comment">// 预处理</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'电话正在接入...'</span>);</div><div class="line">    <span class="keyword">if</span> (backPhoneList.includes(phone)) &#123;</div><div class="line">        <span class="comment">// 屏蔽</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'屏蔽黑名单电话'</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// 转接</span></div><div class="line">        AcceptPhone.call(<span class="keyword">this</span>, phone);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 本体</span></div><div class="line"><span class="keyword">var</span> AcceptPhone = <span class="function"><span class="keyword">function</span>(<span class="params">phone</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'接听电话:'</span>, phone);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 外部调用代理</span></div><div class="line">ProxyAcceptPhone(<span class="string">'189XXXXX140'</span>); </div><div class="line">ProxyAcceptPhone(<span class="string">'189XXXXX141'</span>);</div></pre></td></tr></table></figure>
+<p>代理并不会改变本体对象，遵循 <strong>“单一职责原则”</strong>，即 “自扫门前雪，各找各家”。不同对象承担独立职责，不过于紧密耦合，具体执行功能还是本体对象，只是引入代理可以选择性地预先处理请求。例如上述代码中，我们向 “接听电话功能” 本体添加了一个屏蔽黑名单的功能（保护代理），预先处理电话接入请求。</p>
+<h4 id="虚拟代理（延迟执行）"><a href="#虚拟代理（延迟执行）" class="headerlink" title="虚拟代理（延迟执行）"></a>虚拟代理（延迟执行）</h4><p>虚拟代理的目的，是将开销大的运算延迟到需要时再执行。</p>
+<p>虚拟代理在图片预加载的应用，代码例子来至 <a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 本体</span></div><div class="line"><span class="keyword">var</span> myImage = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> imgNode = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</div><div class="line">    <span class="built_in">document</span>.body.appendChild(imgNode);</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        setSrc: <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</div><div class="line">            imgNode.src = src;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="comment">// 代理</span></div><div class="line"><span class="keyword">var</span> proxyImage = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image;</div><div class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        myImage.setSrc(<span class="keyword">this</span>.src);             <span class="comment">// 图片加载完设置真实图片src</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        setSrc: <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</div><div class="line">            myImage.setSrc(<span class="string">'./loading.gif'</span>);  <span class="comment">// 预先设置图片src为loading图</span></div><div class="line">            img.src = src;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="comment">// 外部调用</span></div><div class="line">proxyImage.setSrc(<span class="string">'./product.png'</span>);           <span class="comment">// 有loading图的图片预加载效果</span></div></pre></td></tr></table></figure>
+<h4 id="缓存代理（暂时存储）"><a href="#缓存代理（暂时存储）" class="headerlink" title="缓存代理（暂时存储）"></a>缓存代理（暂时存储）</h4><p>缓存代理的目的，是为一些开销大的运算结果提供暂时存储，以便下次调用时，参数与结果不变情况下，从缓存返回结果，而不是重新进行本体运算，减少本体调用次数。</p>
+<p>应用缓存代理的本体，要求运算函数应是一个纯函数，简单理解比如一个求和函数 <code>sum</code>， 输入参数 <code>(1, 1)</code>, 得到的结果应该永远是 <code>2</code>。</p>
+<blockquote>
+<p>纯函数：固定的输入，有固定的输出，不影响外部数据。</p>
+</blockquote>
+<p><strong>模拟场景：60道判断题测试，每三道题计分一次，根据计分筛选下一步的三道题目?</strong></p>
+<p>三道判断题得分结果：</p>
+<ol>
+<li>(0, 0 ,0)</li>
+<li>(0, 0, 1)</li>
+<li>(0, 1, 0)</li>
+<li>(0, 1, 1) </li>
+<li>(1, 0, 0)</li>
+<li>(1, 0, 1)</li>
+<li>(1, 1, 0)</li>
+<li>(1, 1, 1)</li>
+</ol>
+<p>总共七种计分结果。<code>60/3 = 20</code>，共进行 20 次计分，每次计分执行 3 个循环累计，共 60 个循环。接下来，借用 “缓存代理” 方式，来实现最少本体运算次数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 本体：对三道题答案进行计分</span></div><div class="line"><span class="keyword">var</span> countScore = <span class="function"><span class="keyword">function</span>(<span class="params">ansList</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> [a, b, c] = ansList;</div><div class="line">    <span class="keyword">return</span> a + b + c;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 代理：对计分请求预先处理</span></div><div class="line"><span class="keyword">var</span> proxyCountScore = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> existScore = &#123;&#125;;    <span class="comment">// 设定存储对象</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">ansList</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> attr = ansList.join(<span class="string">','</span>);  <span class="comment">// eg. ['0,0,0']</span></div><div class="line">        <span class="keyword">if</span> (existScore[attr] != <span class="literal">null</span>) &#123;</div><div class="line">            <span class="comment">// 从内存返回</span></div><div class="line">            <span class="keyword">return</span> existScore[attr];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 内存不存在，转交本体计算并存入内存</span></div><div class="line">            <span class="keyword">return</span> existScore[attr] = countScore(ansList);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="comment">// 调用计分</span></div><div class="line">proxyCountScore([<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]);</div></pre></td></tr></table></figure>
+<p>60 道题目，每 3 道题一次计分，共 20 次计分运算，但总的计分结果只有 7 种，那么实际上本体 <code>countScore()</code> 最多只需运算 7 次，即可囊括所有计算结果。</p>
+<p>通过缓存代理的方式，对计分结果进行临时存储。用答案字符串组成属性名 <code>[&#39;0,1,0&#39;]</code> 作为 <code>key</code> 值检索内存，若存在直接从内存返回，减少包含复杂运算的本体被调用的次数。之后如果我们的题目增加至 90 道， 120 道，150 道题时，本体 <code>countScore()</code> 运算次数仍旧保持 7 次，中间节省了复杂运算的开销。</p>
+<h4 id="ES6-的-Proxy"><a href="#ES6-的-Proxy" class="headerlink" title="ES6 的 Proxy"></a>ES6 的 Proxy</h4><p>ES6新增的 <code>Proxy</code> 代理对象的操作，具体的实现方式是在 <code>handler</code> 上定义对象自定义方法集合，以便预先管控对象的操作。</p>
+<blockquote>
+<p>ES6 的 Proxy语法：let proxyObj = new Proxy(target, handler);</p>
+</blockquote>
+<ul>
+<li>target: 本体，要代理的对象</li>
+<li>handler: 自定义操作方法集合</li>
+<li>proxyObj: 返回的代理对象，拥有本体的方法，不过会被 <code>handler</code> 预处理</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ES6的Proxy</span></div><div class="line"><span class="keyword">let</span> Person = &#123;</div><div class="line">    name: <span class="string">'以乐之名'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> ProxyPerson = <span class="keyword">new</span> <span class="built_in">Proxy</span>(Person, &#123;</div><div class="line">    get(target, key, value) &#123;</div><div class="line">        <span class="keyword">if</span> (key != <span class="string">'age'</span>) &#123;</div><div class="line">            <span class="keyword">return</span> target[key];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">'保密'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    set(target, key, value) &#123;</div><div class="line">        <span class="keyword">if</span> (key === <span class="string">'rate'</span>) &#123;</div><div class="line">            target[key] = value === <span class="string">'A'</span> ? <span class="string">'推荐'</span> : <span class="string">'待提高'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(ProxyPerson.name);  <span class="comment">// '以乐之名'</span></div><div class="line"><span class="built_in">console</span>.log(ProxyPerson.age);   <span class="comment">// '保密'</span></div><div class="line">ProxyPerson.rate = <span class="string">'A'</span>;         </div><div class="line"><span class="built_in">console</span>.log(ProxyPerson.rate);  <span class="comment">// '推荐'</span></div><div class="line">ProxyPerson.rate = <span class="string">'B'</span>;         </div><div class="line"><span class="built_in">console</span>.log(ProxyPerson.rate);  <span class="comment">// '待提高'</span></div></pre></td></tr></table></figure>
+<p><code>handler</code> 除常用的 <code>set/get</code>，总共支持 13 种方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">handler.getPrototypeOf()</div><div class="line"><span class="comment">// 在读取代理对象的原型时触发该操作，比如在执行 Object.getPrototypeOf(proxy) 时</span></div><div class="line"></div><div class="line">handler.setPrototypeOf()</div><div class="line"><span class="comment">// 在设置代理对象的原型时触发该操作，比如在执行 Object.setPrototypeOf(proxy, null) 时</span></div><div class="line"></div><div class="line">handler.isExtensible()</div><div class="line"><span class="comment">// 在判断一个代理对象是否是可扩展时触发该操作，比如在执行 Object.isExtensible(proxy) 时</span></div><div class="line"></div><div class="line">handler.preventExtensions()</div><div class="line"><span class="comment">// 在让一个代理对象不可扩展时触发该操作，比如在执行 Object.preventExtensions(proxy) 时</span></div><div class="line"></div><div class="line">handler.getOwnPropertyDescriptor()</div><div class="line"><span class="comment">// 在获取代理对象某个属性的属性描述时触发该操作，比如在执行 Object.getOwnPropertyDescriptor(proxy, "foo") 时</span></div><div class="line"></div><div class="line">handler.defineProperty()</div><div class="line"><span class="comment">// 在定义代理对象某个属性时的属性描述时触发该操作，比如在执行 Object.defineProperty(proxy, "foo", &#123;&#125;) 时</span></div><div class="line"></div><div class="line">handler.has()</div><div class="line"><span class="comment">// 在判断代理对象是否拥有某个属性时触发该操作，比如在执行 "foo" in proxy 时</span></div><div class="line"></div><div class="line">handler.get()</div><div class="line"><span class="comment">// 在读取代理对象的某个属性时触发该操作，比如在执行 proxy.foo 时</span></div><div class="line"></div><div class="line">handler.set()</div><div class="line"><span class="comment">// 在给代理对象的某个属性赋值时触发该操作，比如在执行 proxy.foo = 1 时</span></div><div class="line"></div><div class="line">handler.deleteProperty()</div><div class="line"><span class="comment">// 在删除代理对象的某个属性时触发该操作，比如在执行 delete proxy.foo 时</span></div><div class="line"></div><div class="line">handler.ownKeys()</div><div class="line"><span class="comment">// 在获取代理对象的所有属性键时触发该操作，比如在执行 Object.getOwnPropertyNames(proxy) 时</span></div><div class="line"></div><div class="line">handler.apply()</div><div class="line"><span class="comment">// 在调用一个目标对象为函数的代理对象时触发该操作，比如在执行 proxy() 时。</span></div><div class="line"></div><div class="line">handler.construct()</div><div class="line"><span class="comment">// 在给一个目标对象为构造函数的代理对象构造实例时触发该操作，比如在执行 new proxy() 时</span></div></pre></td></tr></table></figure></p>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>虚拟代理：<ol>
+<li>图片预加载（loading 图）</li>
+<li>合并HTTP请求（数据上报汇总）</li>
+</ol>
+</li>
+<li>缓存代理：（前提本体是纯函数）<ol>
+<li>缓存异步请求数据</li>
+<li>缓存较复杂的运算结果</li>
+</ol>
+</li>
+<li>ES6 的 Proxy：<ol>
+<li>实现对象私有属性</li>
+<li>实现表单验证</li>
+</ol>
+</li>
+</ul>
+<p>“策略模式” 可应用于表单验证信息，“代理方式” 也可实现。这里引用 Github - <a href="https://github.com/jawil" target="_blank" rel="external">jawil</a> 的一个例子，思路供大家分享。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 利用 proxy 拦截格式不符数据</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">validator</span>(<span class="params">target, validator, errorMsg</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, &#123;</div><div class="line">        _validator: validator,</div><div class="line">        set(target, key, value, proxy) &#123;</div><div class="line">            <span class="keyword">let</span> errMsg = errorMsg;</div><div class="line">            <span class="keyword">if</span> (value == <span class="literal">null</span> || !value.length) &#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;errMsg[key]&#125;</span> 不能为空`</span>);</div><div class="line">                <span class="keyword">return</span> target[key] = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">let</span> va = <span class="keyword">this</span>._validator[key];  <span class="comment">// 这里有策略模式的应用</span></div><div class="line">            <span class="keyword">if</span> (!!va(value)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, value, proxy);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;errMsg[key]&#125;</span> 格式不正确`</span>);</div><div class="line">                <span class="keyword">return</span> target[key] = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 负责校验的逻辑代码</span></div><div class="line"><span class="keyword">const</span> validators = &#123;</div><div class="line">    name(value) &#123;</div><div class="line">        <span class="keyword">return</span> value.length &gt;= <span class="number">6</span>;</div><div class="line">    &#125;,</div><div class="line">    passwd(value) &#123;</div><div class="line">        <span class="keyword">return</span> value.length &gt;= <span class="number">6</span>;</div><div class="line">    &#125;,</div><div class="line">    moblie(value) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="regexp">/^1(3|5|7|8|9)[0-9]&#123;9&#125;$/</span>.test(value);</div><div class="line">    &#125;,</div><div class="line">    email(value) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="regexp">/^\w+([+-.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/</span>.test(value)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用代码</span></div><div class="line"><span class="keyword">const</span> errorMsg = &#123;</div><div class="line">    name: <span class="string">'用户名'</span>,</div><div class="line">    passwd: <span class="string">'密码'</span>,</div><div class="line">    moblie: <span class="string">'手机号码'</span>,</div><div class="line">    email: <span class="string">'邮箱地址'</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> vali = validator(&#123;&#125;, validators, errorMsg)</div><div class="line"><span class="keyword">let</span> registerForm = <span class="built_in">document</span>.querySelector(<span class="string">'#registerForm'</span>)</div><div class="line">registerForm.addEventListener(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> validatorNext = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">yield</span> vali.name = registerForm.userName.value</div><div class="line">        <span class="keyword">yield</span> vali.passwd = registerForm.passWord.value</div><div class="line">        <span class="keyword">yield</span> vali.moblie = registerForm.phone.value</div><div class="line">        <span class="keyword">yield</span> vali.email = registerForm.email.value</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> validator = validatorNext();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> field <span class="keyword">of</span> validator) &#123;</div><div class="line">        validator.next();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现思路： 利用 ES6 的 proxy 自定义 <code>handler</code> 的 <code>set()</code> ，进行表单校验并返回结果，并且借用 “策略模式” 独立封装验证逻辑。使得表单对象，验证逻辑，验证器各自独立。代码整洁性，维护性及复用性都得到增强。</p>
+<p>关于 “设计模式” 在表单验证的应用，可参考 jawil 原文：<a href="https://github.com/jawil/blog/issues/19" target="_blank" rel="external">《探索两种优雅的表单验证——策略设计模式和ES6的Proxy代理模式》</a>。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：<ol>
+<li>可拦截和监听外部对本体对象的访问；</li>
+<li>复杂运算前可以进行校验或资源管理；</li>
+<li>对象职能粒度细分，函数功能复杂度降低，符合 “单一职责原则”；</li>
+<li>依托代理，可额外添加扩展功能，而不修改本体对象，符合 “开发-封闭原则”</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>额外代理对象的创建，增加部分内存开销；</li>
+<li>处理请求速度可能有差别，非直接访问存在开销，但 “虚拟代理” 及 “缓存代理” 均能提升性能</li>
+</ol>
+</li>
+</ul>
+<hr>
+<p>参考文章</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
+<li><a href="https://juejin.im/post/5a5227ce6fb9a01c927e85c4" target="_blank" rel="external">《ES6中的代理模式—–Proxy》</a></li>
+<li><a href="https://github.com/jawil/blog/issues/19" target="_blank" rel="external">《探索两种优雅的表单验证——策略设计模式和ES6的Proxy代理模式》</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/24/JavaScript设计模式（二）：策略模式/" rel="next" title="JavaScript设计模式（二）：策略模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（二）：策略模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzY0OS8xMDIwNA"></div>
+      
+    </div>
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar_g.png"
+               alt="以乐之名" />
+          <p class="site-author-name" itemprop="name">以乐之名</p>
+           
+              <p class="site-description motion-element" itemprop="description">Try · Enjoy · Documentary</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZengLingYong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/1928083625" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.jianshu.com/u/052cec4cf325" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      简书
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/yilezhiming" target="_blank" title="segmenftault">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      segmenftault
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/kenz520/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      博客园
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://resume.isixer.com" target="_blank" title="简历">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      简历
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式细分"><span class="nav-number">2.</span> <span class="nav-text">模式细分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现"><span class="nav-number">3.</span> <span class="nav-text">模式实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟代理（延迟执行）"><span class="nav-number">3.1.</span> <span class="nav-text">虚拟代理（延迟执行）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存代理（暂时存储）"><span class="nav-number">3.2.</span> <span class="nav-text">缓存代理（暂时存储）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-的-Proxy"><span class="nav-number">3.3.</span> <span class="nav-text">ES6 的 Proxy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">4.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">5.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">以乐之名</span>
+</div>
+
+<div>
+  <span class="post-count">博客全站共51.0k字</span> - 
+  <div style="display:inline-block">Hosted by <a href="https://pages.coding.me" target="_blank">Coding Pages</a></div>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("uY2wTh3IGYoCW9EC28SXFsEp-gzGzoHsz", "ox7oLubkIeglLK2VGeUE8qNk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
