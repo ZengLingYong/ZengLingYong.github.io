@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
 
 
 
@@ -103,16 +103,20 @@
 
 
 
-<meta name="description" content="Try · Enjoy · Documentary">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kenz&#39;s Blog">
-<meta property="og:url" content="http://wuliv.com/tags/NodeJS/index.html">
+<meta name="description" content="适配器模式：将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），使得原本由于接口不兼容而不能一起工作的那些类（对象）可以正常协作。简单理解就是为兼容而生的 “转换器”。  对于强迫症患者，那么多形状各异的接口，对应着不同数据线。如果可以有一个转接口实现集合兼容，岂不美哉。没错，这样一个适配器，你值得拥有。（各大厂商加把劲。。。） 生活小栗子：  港式插头转换器 笔记">
+<meta name="keywords" content="JavaScript,JavaScript设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式（四）：适配器模式">
+<meta property="og:url" content="http://wuliv.com/2019/06/26/JavaScript设计模式（四）：适配器模式/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="Try · Enjoy · Documentary">
+<meta property="og:description" content="适配器模式：将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），使得原本由于接口不兼容而不能一起工作的那些类（对象）可以正常协作。简单理解就是为兼容而生的 “转换器”。  对于强迫症患者，那么多形状各异的接口，对应着不同数据线。如果可以有一个转接口实现集合兼容，岂不美哉。没错，这样一个适配器，你值得拥有。（各大厂商加把劲。。。） 生活小栗子：  港式插头转换器 笔记">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-5dc396fe42f3d3a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-06-26T07:46:24.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kenz&#39;s Blog">
-<meta name="twitter:description" content="Try · Enjoy · Documentary">
+<meta name="twitter:title" content="JavaScript设计模式（四）：适配器模式">
+<meta name="twitter:description" content="适配器模式：将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），使得原本由于接口不兼容而不能一起工作的那些类（对象）可以正常协作。简单理解就是为兼容而生的 “转换器”。  对于强迫症患者，那么多形状各异的接口，对应着不同数据线。如果可以有一个转接口实现集合兼容，岂不美哉。没错，这样一个适配器，你值得拥有。（各大厂商加把劲。。。） 生活小栗子：  港式插头转换器 笔记">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-5dc396fe42f3d3a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -141,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/tags/NodeJS/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/06/26/JavaScript设计模式（四）：适配器模式/"/>
 
 
 
 
 
-  <title>标签: NodeJS | Kenz's Blog</title>
+  <title>JavaScript设计模式（四）：适配器模式 | Kenz's Blog</title>
   
 
 
@@ -182,7 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,54 +324,276 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>NodeJS<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/06/26/JavaScript设计模式（四）：适配器模式/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/10/04/npm常用命令整理/" itemprop="url">
-              
-                <span itemprop="name">npm常用命令整理</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（四）：适配器模式</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-04T10:01:19+08:00"
-              content="2017-10-04" >
-          10-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T15:46:04+08:00">
+                2019-06-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/26/JavaScript设计模式（四）：适配器模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（四）：适配器模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,140
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-5dc396fe42f3d3a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="适配者模式"></p>
+<blockquote>
+<p>适配器模式：将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），使得原本由于接口不兼容而不能一起工作的那些类（对象）可以正常协作。简单理解就是为兼容而生的 “转换器”。</p>
+</blockquote>
+<p>对于强迫症患者，那么多形状各异的接口，对应着不同数据线。如果可以有一个转接口实现集合兼容，岂不美哉。没错，这样一个适配器，你值得拥有。（各大厂商加把劲。。。）</p>
+<p>生活小栗子：</p>
+<ol>
+<li>港式插头转换器</li>
+<li>笔记本电源适配器</li>
+<li>Type-C 转接口</li>
+</ol>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
+<li>新包装对象（适配器对象）实现对原对象接口的访问（接口名可不同）</li>
+<li>适配器对象不对请求数据做预处理，直接传入原对象接口处理</li>
+<li>适配器对象对外接口名统一，外部调用者可统一接口调用多对象方法</li>
+</ol>
+<h3 id="模式实现"><a href="#模式实现" class="headerlink" title="模式实现"></a>模式实现</h3><blockquote>
+<p>实现方式：在不改变原有对象接口的基础上，定义一个包装对象，新对象转接调用原有接口，使外部调用者可以正常使用。</p>
+</blockquote>
+<h4 id="第三方SDK的应用"><a href="#第三方SDK的应用" class="headerlink" title="第三方SDK的应用"></a>第三方SDK的应用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 适配器实现地图SDK统一渲染</span></div><div class="line"><span class="keyword">var</span> googleMap = &#123;</div><div class="line">    show: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'开始渲染谷歌地图'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> baiduMap = &#123;</div><div class="line">    display: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'开始渲染百度地图'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 外部实际调用的适配器对象</span></div><div class="line"><span class="keyword">var</span> baiduMapAdapter = &#123;</div><div class="line">    show: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> baiduMap.display();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 外部调用者</span></div><div class="line"><span class="keyword">var</span> renderMap = <span class="function"><span class="keyword">function</span>(<span class="params">map</span>) </span>&#123;</div><div class="line">    map.show();   <span class="comment">// 统一接口调用</span></div><div class="line">&#125;；</div><div class="line"></div><div class="line">renderMap(googleMap);</div><div class="line">renderMap(baiduMapAdapter);</div></pre></td></tr></table></figure>
+<h4 id="ES6实现适配器"><a href="#ES6实现适配器" class="headerlink" title="ES6实现适配器"></a>ES6实现适配器</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用ES6改写适配器实现地图SDK统一渲染</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">googleMap</span> </span>&#123;</div><div class="line">  show() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'开始渲染谷歌地图'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">baiduMap</span> </span>&#123;</div><div class="line">  display() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'开始渲染百度地图'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">baiduMapAdapter</span> <span class="keyword">extends</span> <span class="title">baiduMap</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>() &#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  show() &#123;</div><div class="line">    <span class="keyword">this</span>.display();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 外部调用者</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderMap</span>(<span class="params">map</span>) </span>&#123;</div><div class="line">  map.show();   <span class="comment">// 统一接口调用</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">renderMap(<span class="keyword">new</span> googleMap());</div><div class="line">renderMap(<span class="keyword">new</span> baiduMapAdapter());</div></pre></td></tr></table></figure>
+<h4 id="jQuery中的应用"><a href="#jQuery中的应用" class="headerlink" title="jQuery中的应用"></a>jQuery中的应用</h4><p>适配器模式非常适用于跨浏览器兼容，例如强大的 jQuery 封装了事件处理的适配器，解决跨浏览器兼容性问题，极大简化我们日常编程操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// $('selector').on 的实现</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params">target, event, callback</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (target.addEventListener) &#123;</div><div class="line">        <span class="comment">// 标准事件监听</span></div><div class="line">        target.addEventListener(event, callback);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target.attachEvent) &#123;</div><div class="line">        <span class="comment">// IE低版本事件监听</span></div><div class="line">        target.attachEvent(event, callback)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// 低版本浏览器事件监听</span></div><div class="line">        target[<span class="string">`on<span class="subst">$&#123;event&#125;</span>`</span>] = callback</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ol>
+<li>跨浏览器兼容</li>
+<li>整合第三方SDK</li>
+<li>新老接口兼容</li>
+</ol>
+<p>适配器模式的初衷是为了解决多对象（接口）兼容问题，如果存在多对象协同工作时，不方便直接修改原对象的基础上，可考虑用适配器封装，以便外部调用者统一使用。</p>
+<h3 id="与其它模式的异同"><a href="#与其它模式的异同" class="headerlink" title="与其它模式的异同"></a>与其它模式的异同</h3><p>适配器模式不会改变原有接口，这一点与装饰者模式和代理模式类似。</p>
+<h4 id="VS-代理模式"><a href="#VS-代理模式" class="headerlink" title="VS 代理模式"></a>VS 代理模式</h4><p>适配器模式与代理模式最相似，同样都是创建一个新对象（包装一次），实现对本体的调用。</p>
+<p>两者的区别：代理模式是为了管控原有对象（本体）的访问，代理的初衷并不是为兼容，并主张代理与本体对外接口保持一致。</p>
+<p>而适配器则是为兼容而生的 “转换器”，并不预处理请求，直接将请求转接给原接口，新接口与原接口名可能不同。</p>
+<blockquote>
+<p>“代理模式“（严父）：学校缴费要一千块，这么多？<br>“适配器模式” (慈母）：学校缴费要一千块，给给给。</p>
+</blockquote>
+<p><em>装饰者模式及外观模式，会在之后的篇章整理，这里稍作了解。</em></p>
+<h4 id="VS-装饰者模式"><a href="#VS-装饰者模式" class="headerlink" title="VS 装饰者模式"></a>VS 装饰者模式</h4><p>装饰者模式的作用是为对象添加功能，可添加多次，形成装饰链。而适配器只会对原有对象包装一次。</p>
+<h4 id="VS-外观模式"><a href="#VS-外观模式" class="headerlink" title="VS 外观模式"></a>VS 外观模式</h4><p>外观模式与适配器模式最大的区别，是定义了一个新的接口。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：兼容性，保证外部可统一接口调用</li>
+<li>缺点：额外对象的创建，非直接调用，存在一定的开销（且不像代理模式在某些功能点上可实现性能优化）。</li>
+</ul>
+<hr>
+<p>参考文章</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
+<li><a href="https://coding.imooc.com/class/255.html" target="_blank" rel="external">《JavaScript 设计模式系统讲解与应用》</a></li>
+<li><a href="https://www.cnblogs.com/jiasm/p/9674222.html" target="_blank" rel="external">《适配器在JavaScript中的体现》</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/25/JavaScript设计模式（三）：代理模式/" rel="next" title="JavaScript设计模式（三）：代理模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（三）：代理模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -375,6 +601,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzY0OS8xMDIwNA"></div>
+      
+    </div>
+  
         </div>
         
           
@@ -394,8 +626,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -533,6 +774,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现"><span class="nav-number">2.</span> <span class="nav-text">模式实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第三方SDK的应用"><span class="nav-number">2.1.</span> <span class="nav-text">第三方SDK的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6实现适配器"><span class="nav-number">2.2.</span> <span class="nav-text">ES6实现适配器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery中的应用"><span class="nav-number">2.3.</span> <span class="nav-text">jQuery中的应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">3.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与其它模式的异同"><span class="nav-number">4.</span> <span class="nav-text">与其它模式的异同</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VS-代理模式"><span class="nav-number">4.1.</span> <span class="nav-text">VS 代理模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VS-装饰者模式"><span class="nav-number">4.2.</span> <span class="nav-text">VS 装饰者模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VS-外观模式"><span class="nav-number">4.3.</span> <span class="nav-text">VS 外观模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">5.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -639,10 +896,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -671,6 +928,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
