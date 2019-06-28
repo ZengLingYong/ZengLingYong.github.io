@@ -111,14 +111,14 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="作用域链查找作用域链的查找是逐层向上查找。查找的层次越多，速度越慢。随着硬件性能的提升和浏览器引擎的优化，这个慢我们基本可以忽略。 除了层级查找损耗的问题，变量的修改应只在局部环境进行，尽量避免在局部环境下去操作修改父级变量的值。（react/vue 单向数据流的数据传输方式） 优化方法：声明一个变量存储引用（该方法应用甚多） 不必要的属性查找1234567// 未优化（window.locat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-cd88edf91da4bdee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-ee9950e6ad5be98a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-4b78e22a65ec2c73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-10T02:22:55.272Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyx5n8rcj30dw0b3dfr.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyxkckyyj30ae0aet8s.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1g4gyxxz0bcj30d70bct8r.jpg">
+<meta property="og:updated_time" content="2019-06-28T08:54:07.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记(03) - 性能 - JavaScript高级程序设计">
 <meta name="twitter:description" content="作用域链查找作用域链的查找是逐层向上查找。查找的层次越多，速度越慢。随着硬件性能的提升和浏览器引擎的优化，这个慢我们基本可以忽略。 除了层级查找损耗的问题，变量的修改应只在局部环境进行，尽量避免在局部环境下去操作修改父级变量的值。（react/vue 单向数据流的数据传输方式） 优化方法：声明一个变量存储引用（该方法应用甚多） 不必要的属性查找1234567// 未优化（window.locat">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-cd88edf91da4bdee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyx5n8rcj30dw0b3dfr.jpg">
 
 
 
@@ -472,12 +472,12 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-cd88edf91da4bdee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="coding"></p>
+        <p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyx5n8rcj30dw0b3dfr.jpg" alt="coding"></p>
 <h3 id="作用域链查找"><a href="#作用域链查找" class="headerlink" title="作用域链查找"></a>作用域链查找</h3><p>作用域链的查找是逐层向上查找。查找的层次越多，速度越慢。随着硬件性能的提升和浏览器引擎的优化，这个慢我们基本可以忽略。</p>
 <p>除了层级查找损耗的问题，变量的修改应只在局部环境进行，尽量避免在局部环境下去操作修改父级变量的值。（react/vue 单向数据流的数据传输方式）</p>
 <p>优化方法：声明一个变量存储引用（该方法应用甚多）</p>
 <h3 id="不必要的属性查找"><a href="#不必要的属性查找" class="headerlink" title="不必要的属性查找"></a>不必要的属性查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 未优化（window.location.href 3*2 6次）</div><div class="line">var query = window.location.href.substring(window.location.href.indexOf(&apos;?&apos;));</div><div class="line"></div><div class="line">// 优化后（3次，以后多次调用url，查询次数不会增加）</div><div class="line">var url = window.location.href;</div><div class="line">var query = url.substring(url.indexOf(&apos;?&apos;));</div><div class="line">url = null;</div></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-ee9950e6ad5be98a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.location.href"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyxkckyyj30ae0aet8s.jpg" alt="window.location.href"></p>
 <p>函数里面声明的变量，在函数调用栈执行后退出时，会自动清除引用。而全局变量和闭包则会与之相反，继续保存，所以使用用后需手动标记清除，以免造成内存泄漏。</p>
 <h3 id="优化循环"><a href="#优化循环" class="headerlink" title="优化循环"></a>优化循环</h3><ol>
 <li>减值迭代</li>
@@ -514,7 +514,7 @@
 <h4 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h4><p>合并插入代码一次性设置innerHTML。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 优化前：操作多次DOM</div><div class="line">var list = document.getElementById(&quot;myList&quot;);</div><div class="line">for (var i=0; i &lt; 10; i++) &#123;</div><div class="line">    list.innerHTML += &quot;&lt;li&gt;Item &quot; + i + &quot;&lt;/li&gt;&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 优化后：操作一次DOM</div><div class="line">var innerHtml = &apos;&apos;;</div><div class="line">for (var i = 0; i &lt; 10; i++) &#123;</div><div class="line">    innerHtml += &apos;&lt;li&gt;Item&apos; + i + &apos;&lt;/li&gt;&apos;;</div><div class="line">&#125;</div><div class="line">list.innerHTML = innerHtml;</div></pre></td></tr></table></figure>
 <h4 id="事件代理（事件委托）"><a href="#事件代理（事件委托）" class="headerlink" title="事件代理（事件委托）"></a>事件代理（事件委托）</h4><p>通过事件流——冒泡机制实现代理，子元素事件触发冒泡到父元素，由父元素绑定一个事件进行统一处理，避免多个事件绑定影响性能。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-4b78e22a65ec2c73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="事件冒泡"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g4gyxxz0bcj30d70bct8r.jpg" alt="事件冒泡"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;list&quot;&gt;</div><div class="line">    &lt;li class=&quot;item&quot;&gt;HTML&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item&quot;&gt;CSS&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item&quot;&gt;JavaScript&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">var listEle = document.getElementById(&apos;list&apos;);</div><div class="line"></div><div class="line">listEle.addEventListener(&apos;click&apos;, function(event) &#123;</div><div class="line">    if (event.target.className.indexOf(&apos;item&apos;) &gt; -1) &#123;</div><div class="line">        console.log(event.target.innerHTML); </div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// jquery</div><div class="line">$(&apos;#list&apos;).on(&apos;click&apos;, &apos;.item&apos;, function(event)&#123;</div><div class="line">    console.log($(this).html());</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h4 id="注意HTMLCollection"><a href="#注意HTMLCollection" class="headerlink" title="注意HTMLCollection"></a>注意HTMLCollection</h4><blockquote>
 <p>任何时候要访问 HTMLCollection，不管它是一个属性还是一个方法，都是在文档上进行一个查询，这个查询开销很昂贵。</p>

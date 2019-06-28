@@ -111,12 +111,12 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="HTTP是应用层协议，是基于TCP底层协议而来。 TCP的机制限定，每建立一个连接需要3次握手，断开连接则需要4次挥手。 HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，完成之后立即断开连接。如果有新的请求，则要重新创建请求连接（HTTP协议为无连接的协议）。 这样不免造成了网络传输数据一定的延迟，1999年推出HTTP1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-83d4cb235ce8f922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-04T04:02:47.219Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyl113naj30go0c8q2u.jpg">
+<meta property="og:updated_time" content="2019-06-28T08:41:36.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂谈：HTTP1.1 与 HTTP2.0 知多少？">
 <meta name="twitter:description" content="HTTP是应用层协议，是基于TCP底层协议而来。 TCP的机制限定，每建立一个连接需要3次握手，断开连接则需要4次挥手。 HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，完成之后立即断开连接。如果有新的请求，则要重新创建请求连接（HTTP协议为无连接的协议）。 这样不免造成了网络传输数据一定的延迟，1999年推出HTTP1">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-83d4cb235ce8f922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyl113naj30go0c8q2u.jpg">
 
 
 
@@ -475,7 +475,7 @@
 <p>HTTP协议采用“请求-应答”模式，HTTP1.0下，HTTP1.1非Keep-Alive模式下，每个请求都要新建一个连接，完成之后立即断开连接。如果有新的请求，则要重新创建请求连接（HTTP协议为无连接的协议）。</p>
 <p>这样不免造成了网络传输数据一定的延迟，1999年推出HTTP1.1，虽然可以通过设置延迟时间，让连接延迟关闭。但仍然有线头阻塞，max-connection最大连接限制了并行请求数量等痛点，难以应对日益增长的大数据实时传输。</p>
 <p>新一代HTTP2.0协议应运而生，提高HTTP应对高并发场景下的数据传输能力。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-83d4cb235ce8f922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="杂谈：HTTP1.1 与 HTTP2.0 知多少？"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyl113naj30go0c8q2u.jpg" alt="杂谈：HTTP1.1 与 HTTP2.0 知多少？"></p>
 <h3 id="「-HTTP1-1」"><a href="#「-HTTP1-1」" class="headerlink" title="「 HTTP1.1」"></a>「 HTTP1.1」</h3><h4 id="Pipelining管道化"><a href="#Pipelining管道化" class="headerlink" title="Pipelining管道化"></a>Pipelining管道化</h4><p>提出管道化方案解决连接延迟，服务端可设置Keep-Alive来让连接延迟关闭时间，但因为浏览器自身的Max-Connection最大连接限制，同一个域名 (host) 下的请求连接限制（同域下谷歌浏览器是一次限制最多6个连接），只能通过多开域名来实现，这也就是我们的静态资源选择放到CDN上或其它域名下，来提高资源加载速度。</p>
 <p>pipelining方案需要前后端支持，但绝大部分的HTTP代理器对pipelining的支持并不友好。</p>
 <h4 id="只支持GET-HEAD"><a href="#只支持GET-HEAD" class="headerlink" title="只支持GET/HEAD"></a>只支持GET/HEAD</h4><p>pipelining只支持GET/HEAD方式传送数据，不支持POST等其它方式传输。</p>

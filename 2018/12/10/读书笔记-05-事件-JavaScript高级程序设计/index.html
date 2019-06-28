@@ -111,14 +111,14 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="HTML依托于JavaScript来实现用户与WEB网页之间的动态交互，接收用户操作并做出相应的反馈，而事件在此间则充当桥梁的重要角色。 日常开发中，经常会为某个元素绑定一个事件，编写相应的业务逻辑，在元素被点击时执行，并反馈到用户操作界面。 这个过程中，事件就像一个侦听器，当点击动作发生时，才会执行对应的程序。这种模式可称之为观察员模式。 接下来就讲讲DOM事件相关知识。 何为事件 事件就是用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-f4f4615c26bb5bf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-da0f01864160c603.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-71e2c4c5b58235c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-12T00:41:07.752Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyjz3yl6j30dv0b40su.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyugpxwij30bq0bat8w.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyuofi8nj30bw0bwt8x.jpg">
+<meta property="og:updated_time" content="2019-06-28T08:50:50.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记(05) - 事件 - JavaScript高级程序设计">
 <meta name="twitter:description" content="HTML依托于JavaScript来实现用户与WEB网页之间的动态交互，接收用户操作并做出相应的反馈，而事件在此间则充当桥梁的重要角色。 日常开发中，经常会为某个元素绑定一个事件，编写相应的业务逻辑，在元素被点击时执行，并反馈到用户操作界面。 这个过程中，事件就像一个侦听器，当点击动作发生时，才会执行对应的程序。这种模式可称之为观察员模式。 接下来就讲讲DOM事件相关知识。 何为事件 事件就是用">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7324444-f4f4615c26bb5bf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyjz3yl6j30dv0b40su.jpg">
 
 
 
@@ -472,7 +472,7 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/7324444-f4f4615c26bb5bf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="coding"></p>
+        <p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyjz3yl6j30dv0b40su.jpg" alt="coding"></p>
 <p>HTML依托于JavaScript来实现用户与WEB网页之间的动态交互，接收用户操作并做出相应的反馈，而事件在此间则充当桥梁的重要角色。</p>
 <p>日常开发中，经常会为某个元素绑定一个事件，编写相应的业务逻辑，在元素被点击时执行，并反馈到用户操作界面。</p>
 <p>这个过程中，事件就像一个侦听器，当点击动作发生时，才会执行对应的程序。这种模式可称之为观察员模式。</p>
@@ -491,13 +491,13 @@
 </blockquote>
 <p>规范要求事件冒泡到<code>document</code>对象，而浏览器则会将事件一直冒泡到<code>window</code>对象。</p>
 <p>所有浏览器都支持事件冒泡（包括IE9以下）。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-da0f01864160c603.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="事件冒泡"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gyugpxwij30bq0bat8w.jpg" alt="事件冒泡"></p>
 <h5 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h5><blockquote>
 <p>事件捕获：（与事件冒泡相反）事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件</p>
 </blockquote>
 <p>与冒泡一样，虽然规定事件应该从<code>document</code>对象开始传播，但浏览器普遍都是从<code>window</code>对象开始捕获。</p>
 <p><strong>IE9以下不支持事件捕获</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/7324444-71e2c4c5b58235c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="事件捕获"></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyuofi8nj30bw0bwt8x.jpg" alt="事件捕获"></p>
 <h4 id="DOM-事件流"><a href="#DOM-事件流" class="headerlink" title="DOM 事件流"></a>DOM 事件流</h4><blockquote>
 <p>“DOM2级事件”规定事件流包括三个阶段，顺序进行</p>
 <ol>
