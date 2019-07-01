@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="日更文集," />
+  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
 
 
 
@@ -103,20 +103,20 @@
 
 
 
-<meta name="description" content="“你不努力，谁也给不了你想要的生活。欲带皇冠，必承其重。你想过上自己梦想的生活，就应该选择一条属于自己的道路，并为此付出别人无法企及的努力。”——韦娜 《世界不曾亏欠每一个努力的人》   新知识的快感，让知识瘫痪当我们尝试去学习新知识时，会有很多的新鲜感。而相比在旧有知识继续升华沉淀，你会感到越来越枯燥，甚至开始厌恶。的确，旧知识的学习遇到瓶颈，需要花费更多的时间精力来沉淀。而新知识，相当于把玩">
-<meta name="keywords" content="日更文集">
+<meta name="description" content="文章内容分两部分：  前半部分为 “迭代器模式” 概念； 后半部分为 ES6 中 Iterator (迭代器）   上半部分开始…  迭代器模式：提供一种方法顺序访问一个聚合对象中的各个元素，而又不需要暴露该对象的内部表示。  简单理解（白话理解）：统一 “集合” 型数据结构的遍历接口，实现可循环遍历获取集合中各数据项（不关心数据项中的数据结构）。 生活小栗子：清单 TodoList。每日清单有">
+<meta name="keywords" content="JavaScript,JavaScript设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不曾停歇 | “超级个体”">
-<meta property="og:url" content="http://wuliv.com/2018/01/29/不曾停歇-超级个体/index.html">
+<meta property="og:title" content="JavaScript设计模式（五）：迭代器模式">
+<meta property="og:url" content="http://wuliv.com/2019/07/01/JavaScript设计模式（五）：迭代器模式/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="“你不努力，谁也给不了你想要的生活。欲带皇冠，必承其重。你想过上自己梦想的生活，就应该选择一条属于自己的道路，并为此付出别人无法企及的努力。”——韦娜 《世界不曾亏欠每一个努力的人》   新知识的快感，让知识瘫痪当我们尝试去学习新知识时，会有很多的新鲜感。而相比在旧有知识继续升华沉淀，你会感到越来越枯燥，甚至开始厌恶。的确，旧知识的学习遇到瓶颈，需要花费更多的时间精力来沉淀。而新知识，相当于把玩">
+<meta property="og:description" content="文章内容分两部分：  前半部分为 “迭代器模式” 概念； 后半部分为 ES6 中 Iterator (迭代器）   上半部分开始…  迭代器模式：提供一种方法顺序访问一个聚合对象中的各个元素，而又不需要暴露该对象的内部表示。  简单理解（白话理解）：统一 “集合” 型数据结构的遍历接口，实现可循环遍历获取集合中各数据项（不关心数据项中的数据结构）。 生活小栗子：清单 TodoList。每日清单有">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyqzf1qxj30go0b40tp.jpg">
-<meta property="og:updated_time" content="2019-06-28T08:47:16.829Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4kpw3umvoj30m80goq3l.jpg">
+<meta property="og:updated_time" content="2019-07-01T14:43:12.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不曾停歇 | “超级个体”">
-<meta name="twitter:description" content="“你不努力，谁也给不了你想要的生活。欲带皇冠，必承其重。你想过上自己梦想的生活，就应该选择一条属于自己的道路，并为此付出别人无法企及的努力。”——韦娜 《世界不曾亏欠每一个努力的人》   新知识的快感，让知识瘫痪当我们尝试去学习新知识时，会有很多的新鲜感。而相比在旧有知识继续升华沉淀，你会感到越来越枯燥，甚至开始厌恶。的确，旧知识的学习遇到瓶颈，需要花费更多的时间精力来沉淀。而新知识，相当于把玩">
-<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyqzf1qxj30go0b40tp.jpg">
+<meta name="twitter:title" content="JavaScript设计模式（五）：迭代器模式">
+<meta name="twitter:description" content="文章内容分两部分：  前半部分为 “迭代器模式” 概念； 后半部分为 ES6 中 Iterator (迭代器）   上半部分开始…  迭代器模式：提供一种方法顺序访问一个聚合对象中的各个元素，而又不需要暴露该对象的内部表示。  简单理解（白话理解）：统一 “集合” 型数据结构的遍历接口，实现可循环遍历获取集合中各数据项（不关心数据项中的数据结构）。 生活小栗子：清单 TodoList。每日清单有">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4kpw3umvoj30m80goq3l.jpg">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2018/01/29/不曾停歇-超级个体/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/07/01/JavaScript设计模式（五）：迭代器模式/"/>
 
 
 
 
 
-  <title>不曾停歇 | “超级个体” | Kenz's Blog</title>
+  <title>JavaScript设计模式（五）：迭代器模式 | Kenz's Blog</title>
   
 
 
@@ -338,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2018/01/29/不曾停歇-超级个体/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/07/01/JavaScript设计模式（五）：迭代器模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -355,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">不曾停歇 | “超级个体”</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（五）：迭代器模式</h1>
         
 
         <div class="post-meta">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T14:46:14+08:00">
-                2018-01-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T22:42:28+08:00">
+                2019-07-01
               </time>
             
 
@@ -378,28 +378,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日更文集/" itemprop="url" rel="index">
-                    <span itemprop="name">日更文集</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -407,7 +385,7 @@
 
           
           
-             <span id="/2018/01/29/不曾停歇-超级个体/" class="leancloud_visitors" data-flag-title="不曾停歇 | “超级个体”">
+             <span id="/2019/07/01/JavaScript设计模式（五）：迭代器模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（五）：迭代器模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,369
+                  1,968
                 </span>
               
 
@@ -449,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5
+                  8
                 </span>
               
             </div>
@@ -470,18 +448,138 @@
       
 
       
-        <blockquote>
-<p>“你不努力，谁也给不了你想要的生活。欲带皇冠，必承其重。你想过上自己梦想的生活，就应该选择一条属于自己的道路，并为此付出别人无法企及的努力。”<br>——韦娜 《世界不曾亏欠每一个努力的人》</p>
+        <p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4kpw3umvoj30m80goq3l.jpg" alt="迭代器模式"></p>
+<p>文章内容分两部分：</p>
+<ol>
+<li>前半部分为 “迭代器模式” 概念；</li>
+<li>后半部分为 ES6 中 Iterator (迭代器）</li>
+</ol>
+<hr>
+<p>上半部分开始…</p>
+<blockquote>
+<p>迭代器模式：提供一种方法顺序访问一个聚合对象中的各个元素，而又不需要暴露该对象的内部表示。</p>
 </blockquote>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g4gyqzf1qxj30go0b40tp.jpg" alt=""></p>
-<h3 id="新知识的快感，让知识瘫痪"><a href="#新知识的快感，让知识瘫痪" class="headerlink" title="新知识的快感，让知识瘫痪"></a>新知识的快感，让知识瘫痪</h3><p>当我们尝试去学习新知识时，会有很多的新鲜感。而相比在旧有知识继续升华沉淀，你会感到越来越枯燥，甚至开始厌恶。的确，旧知识的学习遇到瓶颈，需要花费更多的时间精力来沉淀。而新知识，相当于把玩一件新式物件，调起你喜新厌旧的本性。所以很多人，包括我自己，满足于新知识的快感，学得多但不精，略懂皮毛而不深究。久而久之，知识越来越多，不规整，不成体系，根基不稳，最后受不住顶端压力，以崩塌告终。想要知识大厦牢固，逻辑清晰不混乱，合理地利用大脑储藏就是必经之路。抽出时间精力对旧有知识形成体系沉淀，打好地基，再逐步扩展汲取新知识，添砖加瓦。这样你的知识殿堂才足够牢固，又具扩展性。</p>
-<h3 id="成功不是从零开始，而是在其领域中知识能力的积累"><a href="#成功不是从零开始，而是在其领域中知识能力的积累" class="headerlink" title="成功不是从零开始，而是在其领域中知识能力的积累"></a>成功不是从零开始，而是在其领域中知识能力的积累</h3><p>成功不是让你去开创一个你从未接触过的行业，从零开始去做起来，这样你成功的可能性极低。正如我们从小到大的学习生涯，数理化知识的积累，从语数英再到物理，化学，历史，政治等。没有语数英的基础，不会有后面科目的扩展学习。许多人创业当老板，程序员跑去当产品经理，产品经理跑来当投资人，都是利用自己原有的知识和经验，融入到自己新的工作上并取得成功，而不是摒弃掉你之前的果实，重新栽种一颗新的树苗，再拾起浇水驱虫的工作。</p>
-<h3 id="白日梦想家"><a href="#白日梦想家" class="headerlink" title="白日梦想家"></a>白日梦想家</h3><p>乐观无疑是好事，但是过于乐观，你的大脑缺乏压力，没有紧迫感，放松了对问题的思考。居安而思危，对危机要有足够的警惕性，做好危机应对的准备，方可让你离梦想更进一步，不至于危机到来时，一脸懵逼。</p>
-<h3 id="安全感的奴隶"><a href="#安全感的奴隶" class="headerlink" title="安全感的奴隶"></a>安全感的奴隶</h3><p>熟悉的工作岗位，固定的生活方式。会让我们形成一种安全感，对其依赖。不求改变，不敢尝试，不敢跳出自己的舒适圈，觉得自己的人生足够安逸，日复一日直到退休，似乎你已经看到自己退休的样子。殊不知现在企业的寿命比员工的寿命还要更短，世界500强的企业，寿命也不过30-40年左右。很明显，我们为企业工作到退休的时间可远远不止这点时间。所以只有求变，不断适应社会的步伐，不断学习挑战突破自己，提升自己的软技能，职场竞争能力，方可收获真正的安全感。</p>
-<h3 id="什么时候适合陪伴父母亲"><a href="#什么时候适合陪伴父母亲" class="headerlink" title="什么时候适合陪伴父母亲"></a>什么时候适合陪伴父母亲</h3><p>我们总觉得年轻时到大城市打拼，不能常伴父母身旁，特变是中国“百行孝为先”的传统思想，让我们对父母总有一份愧疚。换个角度思考，我们二三十岁时，父母亲的身体都还健壮，生活可以自理，甚至还未到退休年龄，不至于丧失生存能力。而到父母亲七十八十岁左右，年纪比较大了，身体病痛也随之增加，这个时候，我们大概四五十岁左右，作为子女的我们在这个阶段需要花费大量的时间、精力、财力去照顾父母。那么你想在四五十岁阶段具备充裕的时间，财务自由，时间自由，靠的是什么，靠的不就是在你年轻的时候去拼搏去奋斗，到大城市去打拼换取而来，自己四五十岁时的时间及财富么。<br>所以，趁年轻，多出去浪浪。</p>
-<h3 id="适者生存"><a href="#适者生存" class="headerlink" title="适者生存"></a>适者生存</h3><p>这个时代什么样的人会生存下来，智者？强者？都不是，这个时代，不是“智者生存”，也不是“强者生存”，而是“适者生存”，是能够适应自己的生存环境，才不至于被淘汰在任何一个时代的个体。</p>
-<h3 id="乐高式能力组合"><a href="#乐高式能力组合" class="headerlink" title="乐高式能力组合"></a>乐高式能力组合</h3><p>单一的能力并不能使你更强大，在这个快节奏的时代，每个行业的知识都有可能被取代替换，科技带来的行业冲击，生活方式的改变，没有谁可以保证你所在的行业，你的工作不会被其它人或机器所替代。<br>所谓技不压身，多一项能力，多一种技术，就意味着你比别人多一份机会，多一份优势。不断学习将单一的能力拼接合成你自己的软实力。</p>
-<h3 id="结尾-——-成为“超级个体”"><a href="#结尾-——-成为“超级个体”" class="headerlink" title="结尾 —— 成为“超级个体”"></a>结尾 —— 成为“超级个体”</h3><p>每个人都有机会依靠自己的努力和才华成功。<br>这个时代，有才而不成功的几率变小，缺的是怕你没有才华还不努力。</p>
+<p>简单理解（白话理解）：统一 “集合” 型数据结构的遍历接口，实现可循环遍历获取集合中各数据项（不关心数据项中的数据结构）。</p>
+<p>生活小栗子：清单 TodoList。每日清单有学习类、生活类、工作类、运动类等项目，清单列表只管罗列，不管类别。</p>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
+<li>为遍历不同数据结构的 “集合” 提供统一的接口；</li>
+<li>能遍历访问 “集合” 数据中的项，不关心项的数据结构</li>
+</ol>
+<h3 id="模式实现"><a href="#模式实现" class="headerlink" title="模式实现"></a>模式实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 统一遍历接口实现</span></div><div class="line"><span class="keyword">var</span> each = <span class="function"><span class="keyword">function</span>(<span class="params">arr, callBack</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">    <span class="comment">// 将值，索引返回给回调函数callBack处理</span></div><div class="line">    <span class="keyword">if</span> (callBack(i, arr[i]) === <span class="literal">false</span>) &#123;</div><div class="line">      <span class="keyword">break</span>;  <span class="comment">// 中止迭代器，跳出循环</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 外部调用</span></div><div class="line">each([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], <span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (value &gt; <span class="number">3</span>) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 返回false中止each</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log([index, value]);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 输出：[0, 1]  [1, 2]  [2, 3]</span></div></pre></td></tr></table></figure>
+<p><strong>“迭代器模式的核心，就是实现统一遍历接口。”</strong></p>
+<h3 id="模式细分"><a href="#模式细分" class="headerlink" title="模式细分"></a>模式细分</h3><ol>
+<li>内部迭代器 （jQuery 的 $.each / for…of)</li>
+<li>外部迭代器 （ES6 的 yield)</li>
+</ol>
+<h4 id="内部迭代器"><a href="#内部迭代器" class="headerlink" title="内部迭代器"></a>内部迭代器</h4><blockquote>
+<p>内部迭代器: 内部定义迭代规则，控制整个迭代过程，外部只需一次初始调用</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery 的 $.each（跟上文each函数实现原理类似）</span></div><div class="line">$.each([<span class="string">'Angular'</span>, <span class="string">'React'</span>, <span class="string">'Vue'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log([index, value]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 输出：[0, Angular]  [1, React]  [2, Vue]</span></div></pre></td></tr></table></figure>
+<p>优点：调用方式简单，外部仅需一次调用<br>缺点：迭代规则预先设置，欠缺灵活性。无法实现复杂遍历需求（如: 同时迭代比对两个数组）</p>
+<h4 id="外部迭代器"><a href="#外部迭代器" class="headerlink" title="外部迭代器"></a>外部迭代器</h4><blockquote>
+<p>外部迭代器： 外部显示（手动）地控制迭代下一个数据项</p>
+</blockquote>
+<p>借助 ES6 新增的 <code>Generator</code> 函数中的 <code>yield*</code> 表达式来实现外部迭代器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ES6 的 yield 实现外部迭代器</span></div><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generatorEach</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> [index, value] <span class="keyword">of</span> arr.entries()) &#123;</div><div class="line">    <span class="keyword">yield</span> <span class="built_in">console</span>.log([index, value]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> each = generatorEach([<span class="string">'Angular'</span>, <span class="string">'React'</span>, <span class="string">'Vue'</span>]);</div><div class="line">each.next();</div><div class="line">each.next();</div><div class="line">each.next();</div><div class="line"></div><div class="line"><span class="comment">// 输出：[0, 'Angular']  [1, 'React']  [2, 'Vue']</span></div></pre></td></tr></table></figure>
+<p>优点：灵活性更佳，适用面广，能应对更加复杂的迭代需求<br>缺点：需显示调用迭代进行（手动控制迭代过程），外部调用方式较复杂</p>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><p>不同数据结构类型的 “数据集合”，需要对外提供统一的遍历接口，而又不暴露或修改内部结构时，可应用迭代器模式实现。</p>
+<hr>
+<p>下半部分开始…</p>
+<h3 id="ES6-的-Iterator-迭代器"><a href="#ES6-的-Iterator-迭代器" class="headerlink" title="ES6 的 Iterator 迭代器"></a>ES6 的 Iterator 迭代器</h3><p><strong>“迭代器等同于遍历器。在某些文章中，可能会出现遍历器的字眼，其实两者的意思一致。”</strong></p>
+<p>JavaScript 中 原有表示 “集合” 的数据结构主要是 “数组(Array)” 和 “对象(Object)”，ES6又新增了 <code>Map</code> 和 <code>Set</code>，共四种数据集合，浏览器端还有 <code>NodeList</code> 类数组结构。为 “集合” 型数据寻求统一的遍历接口，正是 ES6 的 Iterator 诞生的背景。</p>
+<p>ES6 中迭代器 Iterator 作为一个接口，作用就是为各种不同数据结构提供统一的访问机制。任何数据结构只要部署了 Iterator 接口，就可以完成遍历操作。</p>
+<p>Iterator 作用：</p>
+<ol>
+<li>为各种数据结构，提供一个统一的、简便的访问接口；</li>
+<li>使得数据结构的成员能够按某种次序排列；</li>
+<li>为新的遍历语法 <code>for...of</code> 实现循环遍历</li>
+</ol>
+<p><strong>Iterator只是一种接口，与遍历的数据结构是分开的。</strong> 重温迭代器模式特点：我只要统一遍历数据项的接口，不关心其数据结构。</p>
+<p>ES6 默认的 Iterator 接口部署在数据结构的 <code>Symbol.iterator</code> 属性上，该属性本身是一个函数，代表当前数据结构默认的遍历器生成函数。执行该函数 <code>[Symbol.iterator]()</code>，会返回一个遍历器对象。只要数据结构拥有 <code>Symbol.iterator</code> 属性，那么它就是 “可遍历的” 。</p>
+<p>遍历器对象的特征：</p>
+<ol>
+<li>拥有 <code>next</code> 属性方法；</li>
+<li>执行 <code>next()</code>，会返回一个包含 <code>value</code> 和 <code>done</code> 属性的对象<ul>
+<li><code>value</code>: 当前数据结构成员的值</li>
+<li><code>done</code>: 布尔值，表示遍历是否结束</li>
+</ul>
+</li>
+</ol>
+<p>原生具备 Iterator 接口的数据结构：</p>
+<ol>
+<li>Array</li>
+<li>Map</li>
+<li>Set</li>
+<li>String</li>
+<li>TypedArray</li>
+<li>函数的 arguments 对象</li>
+<li>NodeList 对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line"><span class="keyword">let</span> iterator = arr[<span class="built_in">Symbol</span>.iterator]();</div><div class="line"></div><div class="line">iterator.next();  <span class="comment">// &#123; value: 'a', done: false &#125;</span></div><div class="line">iterator.next();  <span class="comment">// &#123; value: 'b', done: false &#125;</span></div><div class="line">iterator.next();  <span class="comment">// &#123; value: 'c', done: false &#125;</span></div><div class="line">iterator.next();  <span class="comment">// &#123; value: undefined, done: false &#125;</span></div></pre></td></tr></table></figure>
+<p>原生部署 Iterator 接口的数据结构，无需手动执行遍历器生成函数，可使用 <code>for...of</code> 自动循环遍历。 </p>
+<p><code>for...of</code> 运行原理：</p>
+<ol>
+<li>首先调用遍历对象 <code>[Symobo.iterator]()</code> 方法，拿到遍历器对象;</li>
+<li>每次循环，调用遍历器对象 <code>next()</code> 方法，得到 <code>{value: ..., done: ... }</code> 对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// for...of 自动遍历拥有 Iterator 接口的数据结构</span></div><div class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> arr) &#123;</div><div class="line">  <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出：a  b  c</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>类数组对象：存在数值键名和 <code>length</code> 属性的对象</p>
+</blockquote>
+<p>类数组对象部署 Iterator 方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方法一：</span></div><div class="line">NodeList.prototype[<span class="built_in">Symbol</span>.iterator] = <span class="built_in">Array</span>.prototype[Sybmol.iterator];</div><div class="line"></div><div class="line"><span class="comment">// 方法二：</span></div><div class="line">NodeList.prototype[<span class="built_in">Symbol</span>.iterator] = [][<span class="built_in">Symbol</span>.iterator];</div><div class="line"></div><div class="line"><span class="comment">// for...of 遍历类数组对象</span></div><div class="line"><span class="keyword">let</span> arrLike = &#123;</div><div class="line">  <span class="number">0</span>: <span class="string">'a'</span>,</div><div class="line">  <span class="number">1</span>: <span class="string">'b'</span>,</div><div class="line">  <span class="number">2</span>: <span class="string">'c'</span>,</div><div class="line">  length: <span class="number">3</span>,</div><div class="line">  [<span class="built_in">Symbol</span>.iterator]: <span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.iterator]</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> arrLike) &#123;</div><div class="line">  <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出：a  b  c</span></div></pre></td></tr></table></figure></p>
+<p><strong>对象(Object)没有默认 Iterator 接口，因为对象属性遍历顺序不确定，需开发者手动指定。</strong></p>
+<p>注意：</p>
+<ol>
+<li>普通对象部署数组的 <code>Symbol.iterator</code> 方法，并无效果；</li>
+<li>普通对象若 <code>Symbol.iterator</code> 方法对应的部署遍历器生成函数（即返回一个遍历器对象），解释引擎会报错。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">obj[<span class="built_in">Symbol</span>.iterator] = <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">1</span>;</div><div class="line">[...obj]; <span class="comment">// TypeError: [] is not a function</span></div></pre></td></tr></table></figure>
+<p><code>for...of</code> 遍历普通对象的解决方法：</p>
+<ol>
+<li>使用 <code>Objet.keys</code> 将对象键名生成一个数组，然后遍历该数组；</li>
+<li>Generator 函数重新包装对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> person = &#123;</div><div class="line">  name: <span class="string">'Ken'</span>,</div><div class="line">  sex: <span class="string">'Male'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Object.keys</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(person)) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>: <span class="subst">$&#123;person[key]&#125;</span>`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Generator 包装对象</span></div><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">entries</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</div><div class="line">    <span class="keyword">yield</span> [key, obj[key]];</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> entries(person)) &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>: <span class="subst">$&#123;value&#125;</span>`</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出：</span></div><div class="line"><span class="comment">// name: Ken </span></div><div class="line"><span class="comment">// sex: Male</span></div></pre></td></tr></table></figure>
+<h4 id="ES6-的-Iterator-应用场景"><a href="#ES6-的-Iterator-应用场景" class="headerlink" title="ES6 的 Iterator 应用场景"></a>ES6 的 Iterator 应用场景</h4><ol>
+<li>解构赋值</li>
+<li>扩展运算符</li>
+<li><code>yield*</code></li>
+<li>任何以数组为参数的遍历的场景：<ul>
+<li><code>for...of</code></li>
+<li><code>Array.from()</code></li>
+<li><code>Map()/Set()/WeakMap()/WeakSet()</code></li>
+<li><code>Promise.all()/Promise.race()</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="for…of-对比-for-for…in-forEach"><a href="#for…of-对比-for-for…in-forEach" class="headerlink" title="for…of 对比 for / for…in / forEach"></a>for…of 对比 for / for…in / forEach</h4><p>for 循环 ：需定义索引变量，指定循环终结条件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">  <span class="built_in">console</span>.log(arr[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>forEach: 无法中途跳出循环，<code>break/return</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">forEach(arr, <span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(item, index);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>for…in: </p>
+<ol>
+<li>只能获取键名，不能获取键值</li>
+<li>以字符串为键名（但数组的键名为数值类型索引）</li>
+<li>任意顺序遍历键名（？？？）</li>
+<li>会遍历手动添加的其它键（原型链上的键）</li>
+<li>为遍历对象设计，不适用数组</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> triangle = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ColoredTriangle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.color = <span class="string">'red'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ColoredTriangle.prototype = triangle;</div><div class="line"></div><div class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> ColoredTriangle();</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</div><div class="line">  <span class="comment">// 需手动判断是否属于自身属性，而不是原型链属性</span></div><div class="line">  <span class="keyword">if</span> (obj.hasOwnProperty(prop)) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`obj.<span class="subst">$&#123;prop&#125;</span> = <span class="subst">$&#123;obj[prop]&#125;</span>`</span>);</div><div class="line">  &#125; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出：obj.color = red</span></div></pre></td></tr></table></figure>
+<p>for…of 较其它三者优点：</p>
+<ol>
+<li>和 <code>for...in</code> 一样简洁，但没有 <code>for...in</code> 的缺点；</li>
+<li>不同于 <code>forEach</code>, 可使用 <code>break/return/continue</code> 退出循环；</li>
+<li>提供了遍历所有数据的统一接口</li>
+</ol>
+<p>缺点：遍历普通对象时，不能直接使用。</p>
+<hr>
+<p>参考文章</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
+<li><a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="external">《阮一峰ES6入门：Iterator 和 for…of 循环》</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
 
       
     </div>
@@ -530,7 +628,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/日更文集/" rel="tag"># 日更文集</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
           
         </div>
       
@@ -543,8 +643,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/28/你有我的知识焦虑么/" rel="next" title="你有我的知识焦虑么？">
-                <i class="fa fa-chevron-left"></i> 你有我的知识焦虑么？
+              <a href="/2019/06/26/JavaScript设计模式（四）：适配器模式/" rel="next" title="JavaScript设计模式（四）：适配器模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（四）：适配器模式
               </a>
             
           </div>
@@ -552,10 +652,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/10/天才迈向传奇-硅谷钢铁侠-埃隆马斯克/" rel="prev" title="天才迈向传奇 | 《硅谷钢铁侠:埃隆·马斯克》">
-                天才迈向传奇 | 《硅谷钢铁侠:埃隆·马斯克》 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -765,7 +861,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#新知识的快感，让知识瘫痪"><span class="nav-number">1.</span> <span class="nav-text">新知识的快感，让知识瘫痪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功不是从零开始，而是在其领域中知识能力的积累"><span class="nav-number">2.</span> <span class="nav-text">成功不是从零开始，而是在其领域中知识能力的积累</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#白日梦想家"><span class="nav-number">3.</span> <span class="nav-text">白日梦想家</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全感的奴隶"><span class="nav-number">4.</span> <span class="nav-text">安全感的奴隶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候适合陪伴父母亲"><span class="nav-number">5.</span> <span class="nav-text">什么时候适合陪伴父母亲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适者生存"><span class="nav-number">6.</span> <span class="nav-text">适者生存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乐高式能力组合"><span class="nav-number">7.</span> <span class="nav-text">乐高式能力组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾-——-成为“超级个体”"><span class="nav-number">8.</span> <span class="nav-text">结尾 —— 成为“超级个体”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现"><span class="nav-number">2.</span> <span class="nav-text">模式实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式细分"><span class="nav-number">3.</span> <span class="nav-text">模式细分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部迭代器"><span class="nav-number">3.1.</span> <span class="nav-text">内部迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外部迭代器"><span class="nav-number">3.2.</span> <span class="nav-text">外部迭代器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">4.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-的-Iterator-迭代器"><span class="nav-number">5.</span> <span class="nav-text">ES6 的 Iterator 迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-的-Iterator-应用场景"><span class="nav-number">5.1.</span> <span class="nav-text">ES6 的 Iterator 应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for…of-对比-for-for…in-forEach"><span class="nav-number">5.2.</span> <span class="nav-text">for…of 对比 for / for…in / forEach</span></a></li></ol></li></ol></div>
             
 
           </div>
