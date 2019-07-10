@@ -104,14 +104,10 @@
 <hr>
 <p>参考文章：</p>
 <ul>
-<li><p><a href="https://juejin.im/post/5bb1bb616fb9a05d2b6dccfa" target="_blank" rel="external">谈谈观察者模式和发布订阅模式</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/lm278858445/article/details/78287492" target="_blank" rel="external">原生JavaScript实现观察者模式</a></p>
-</li>
-<li><p><a href="https://juejin.im/post/5c0a9d9bf265da612909ff1b" target="_blank" rel="external">观察者模式 vs 发布订阅模式</a></p>
-</li>
-<li><p><a href="https://juejin.im/post/5b86119a6fb9a019f928d82d#heading-5" target="_blank" rel="external">vue双向数据绑定原理</a></p>
-</li>
+<li><a href="https://juejin.im/post/5bb1bb616fb9a05d2b6dccfa" target="_blank" rel="external">谈谈观察者模式和发布订阅模式</a></li>
+<li><a href="https://blog.csdn.net/lm278858445/article/details/78287492" target="_blank" rel="external">原生JavaScript实现观察者模式</a></li>
+<li><a href="https://juejin.im/post/5c0a9d9bf265da612909ff1b" target="_blank" rel="external">观察者模式 vs 发布订阅模式</a></li>
+<li><a href="https://juejin.im/post/5b86119a6fb9a019f928d82d#heading-5" target="_blank" rel="external">vue双向数据绑定原理</a></li>
 </ul>
 <p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <blockquote>
