@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-07-01T14:43:12.938Z</updated>
+  <updated>2019-07-10T08:42:26.697Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript设计模式（六）：观察者模式与发布订阅模式</title>
+    <link href="http://wuliv.com/2019/07/10/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://wuliv.com/2019/07/10/JavaScript设计模式（六）：观察者模式与发布订阅模式/</id>
+    <published>2019-07-10T08:41:49.000Z</published>
+    <updated>2019-07-10T08:42:26.697Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;观察者模式（Observer）&quot;&gt;&lt;a href=&quot;#观察者模式（Observer）&quot; class=&quot;headerlink&quot; title=&quot;观察者模式（Observer）&quot;&gt;&lt;/a&gt;观察者模式（Observer）&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;观察者模式
+    
+    </summary>
+    
+      <category term="前端" scheme="http://wuliv.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://wuliv.com/tags/JavaScript/"/>
+    
+      <category term="JavaScript设计模式" scheme="http://wuliv.com/tags/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript设计模式（五）：迭代器模式</title>
