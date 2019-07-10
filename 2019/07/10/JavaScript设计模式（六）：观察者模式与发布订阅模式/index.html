@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kenz's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="观察者模式（Observer） 观察者模式：定义了对象间一种一对多的依赖关系，当目标对象 Subject 的状态发生改变时，所有依赖它的对象 Observer 都会得到通知。  简单点：女神有男朋友了，朋友圈晒个图，甜蜜宣言 “老娘成功脱单，希望你们欢喜”。各位潜藏备胎纷纷失恋，只能安慰自己你不是唯一一个。 模式特征 一个目标者对象 Subject，拥有方法：添加 / 删除 / 通知 Observ">
+<meta name="keywords" content="JavaScript,JavaScript设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式（六）：观察者模式与发布订阅模式">
+<meta property="og:url" content="http://wuliv.com/2019/07/10/JavaScript设计模式（六）：观察者模式与发布订阅模式/index.html">
+<meta property="og:site_name" content="Kenz&#39;s Blog">
+<meta property="og:description" content="观察者模式（Observer） 观察者模式：定义了对象间一种一对多的依赖关系，当目标对象 Subject 的状态发生改变时，所有依赖它的对象 Observer 都会得到通知。  简单点：女神有男朋友了，朋友圈晒个图，甜蜜宣言 “老娘成功脱单，希望你们欢喜”。各位潜藏备胎纷纷失恋，只能安慰自己你不是唯一一个。 模式特征 一个目标者对象 Subject，拥有方法：添加 / 删除 / 通知 Observ">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4uu40o2u1j30ij0e5dg0.jpg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-6b45812da5328998.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-07-10T08:43:08.371Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript设计模式（六）：观察者模式与发布订阅模式">
+<meta name="twitter:description" content="观察者模式（Observer） 观察者模式：定义了对象间一种一对多的依赖关系，当目标对象 Subject 的状态发生改变时，所有依赖它的对象 Observer 都会得到通知。  简单点：女神有男朋友了，朋友圈晒个图，甜蜜宣言 “老娘成功脱单，希望你们欢喜”。各位潜藏备胎纷纷失恋，只能安慰自己你不是唯一一个。 模式特征 一个目标者对象 Subject，拥有方法：添加 / 删除 / 通知 Observ">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4uu40o2u1j30ij0e5dg0.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'FHMDM3YMN2',
+      apiKey: '220a42a46af7a0d48d39bf3a26cceb70',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuliv.com/2019/07/10/JavaScript设计模式（六）：观察者模式与发布订阅模式/"/>
+
+
+
+
+
+  <title>JavaScript设计模式（六）：观察者模式与发布订阅模式 | Kenz's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ce4d6999af520bf3c8f319e576ba6832";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kenz's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/07/10/JavaScript设计模式（六）：观察者模式与发布订阅模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（六）：观察者模式与发布订阅模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T16:41:49+08:00">
+                2019-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/10/JavaScript设计模式（六）：观察者模式与发布订阅模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（六）：观察者模式与发布订阅模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,011
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="观察者模式（Observer）"><a href="#观察者模式（Observer）" class="headerlink" title="观察者模式（Observer）"></a>观察者模式（Observer）</h3><blockquote>
+<p>观察者模式：定义了对象间一种一对多的依赖关系，当目标对象 Subject 的状态发生改变时，所有依赖它的对象 Observer 都会得到通知。</p>
+</blockquote>
+<p>简单点：女神有男朋友了，朋友圈晒个图，甜蜜宣言 “老娘成功脱单，希望你们欢喜”。各位潜藏备胎纷纷失恋，只能安慰自己你不是唯一一个。</p>
+<h4 id="模式特征"><a href="#模式特征" class="headerlink" title="模式特征"></a>模式特征</h4><ol>
+<li><p>一个目标者对象 <code>Subject</code>，拥有方法：添加 / 删除 / 通知 <code>Observer</code>；</p>
+</li>
+<li><p>多个观察者对象 <code>Observer</code>，拥有方法：接收 <code>Subject</code> 状态变更通知并处理；</p>
+</li>
+<li><p>目标对象 <code>Subject</code> 状态变更时，通知所有 <code>Observer</code>。</p>
+</li>
+</ol>
+<p><code>Subject</code> 添加一系列 <code>Observer</code>， <code>Subject</code> 负责维护与这些 <code>Observer</code> 之间的联系，“你对我有兴趣，我更新就会通知你”。</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">// 目标者类</div><div class="line">class Subject &#123;</div><div class="line">  constructor() &#123;</div><div class="line">    this.observers = [];  // 观察者列表</div><div class="line">  &#125;</div><div class="line">  // 添加</div><div class="line">  add(observer) &#123;</div><div class="line">    this.observers.push(observer);</div><div class="line">  &#125;</div><div class="line">  // 删除</div><div class="line">  remove(observer) &#123;</div><div class="line">    let idx = this.observers.findIndex(item =&gt; item === observer);</div><div class="line">    idx &gt; -1 &amp;&amp; this.observers.splice(idx, 1);</div><div class="line">  &#125;</div><div class="line">  // 通知</div><div class="line">  notify() &#123;</div><div class="line">    for (let observer of this.observers) &#123;</div><div class="line">      observer.update();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 观察者类</div><div class="line">class Observer &#123;</div><div class="line">  constructor(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">  &#125;</div><div class="line">  // 目标对象更新时触发的回调</div><div class="line">  update() &#123;</div><div class="line">    console.log(`目标者通知我更新了，我是：$&#123;this.name&#125;`);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 实例化目标者</div><div class="line">let subject = new Subject();</div><div class="line"></div><div class="line">// 实例化两个观察者</div><div class="line">let obs1 = new Observer(&apos;前端开发者&apos;);</div><div class="line">let obs2 = new Observer(&apos;后端开发者&apos;);</div><div class="line"></div><div class="line">// 向目标者添加观察者</div><div class="line">subject.add(obs1);</div><div class="line">subject.add(obs2);</div><div class="line"></div><div class="line">// 目标者通知更新</div><div class="line">subject.notify();  </div><div class="line">// 输出：</div><div class="line">// 目标者通知我更新了，我是前端开发者</div><div class="line">// 目标者通知我更新了，我是后端开发者</div></pre></td></tr></table></figure>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ol>
+<li><p>目标者与观察者，功能耦合度降低，专注自身功能逻辑；</p>
+</li>
+<li><p>观察者被动接收更新，时间上解耦，实时接收目标者更新状态。</p>
+</li>
+</ol>
+<h4 id="不完美"><a href="#不完美" class="headerlink" title="不完美"></a>不完美</h4><p>观察者模式虽然实现了对象间依赖关系的低耦合，但却不能对事件通知进行细分管控，如 “筛选通知”，“指定主题事件通知” 。</p>
+<p>比如上面的例子，仅通知 “前端开发者” ？观察者对象如何只接收自己需要的更新通知？上例中，两个观察者接收目标者状态变更通知后，都执行了 <code>update()</code>，并无区分。</p>
+<p>“00后都在追求个性的时代，我能不能有点不一样？”，这就引出我们的下一个模式。进阶版的观察者模式。“发布订阅模式”，部分文章对两者是否一样都存在争议。</p>
+<p>仅代表个人观点：两种模式很类似，但是还是略有不同，就是多了个第三者，因 JavaScript 非正规面向对象语言，且函数回调编程的特点，使得 “发布订阅模式” 在 JavaScript 中代码实现可等同为 “观察模式”。</p>
+<h3 id="发布订阅模式（Publisher-amp-amp-Subscriber）"><a href="#发布订阅模式（Publisher-amp-amp-Subscriber）" class="headerlink" title="发布订阅模式（Publisher &amp;&amp; Subscriber）"></a>发布订阅模式（Publisher &amp;&amp; Subscriber）</h3><blockquote>
+<p>发布订阅模式：基于一个事件（主题）通道，希望接收通知的对象 Subscriber 通过自定义事件订阅主题，被激活事件的对象 Publisher 通过发布主题事件的方式通知各个订阅该主题的 Subscriber 对象。</p>
+</blockquote>
+<p>发布订阅模式与观察者模式的不同，“第三者” （事件中心）出现。目标对象并不直接通知观察者，而是通过事件中心来派发通知。</p>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">// 事件中心</div><div class="line">let pubSub = &#123;</div><div class="line">  list: [],</div><div class="line">  subscribe: function (key, fn) &#123;   // 订阅</div><div class="line">    if (!this.list[key]) &#123;</div><div class="line">      this.list[key] = [];</div><div class="line">    &#125;</div><div class="line">    this.list[key].push(fn);</div><div class="line">  &#125;,</div><div class="line">  publish: function(key, ...arg) &#123;  // 发布</div><div class="line">    for(let fn of this.list[key]) &#123;</div><div class="line">      fn.call(this, ...arg);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  unSubscribe: function (key) &#123;     // 取消订阅</div><div class="line">    let fnList = this.list[key];</div><div class="line">    if (!fnList) return false;</div><div class="line"></div><div class="line">    if (!fn) &#123;</div><div class="line">      // 不传入指定取消的订阅方法，则清空所有key下的订阅</div><div class="line">      fnList &amp;&amp; (fnList.length = 0);</div><div class="line">    &#125; else &#123;</div><div class="line">      fnList.forEach((item, index) =&gt; &#123;</div><div class="line">        if (item === fn) &#123;</div><div class="line">          fnList.splice(index, 1);</div><div class="line">        &#125;</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 订阅</div><div class="line">pubSub.subscribe(&apos;onwork&apos;, time =&gt; &#123;</div><div class="line">  console.log(`上班了：$&#123;time&#125;`);</div><div class="line">&#125;)</div><div class="line">pubSub.subscribe(&apos;offwork&apos;, time =&gt; &#123;</div><div class="line">  console.log(`下班了：$&#123;time&#125;`);</div><div class="line">&#125;)</div><div class="line">pubSub.subscribe(&apos;launch&apos;, time =&gt; &#123;</div><div class="line">  console.log(`吃饭了：$&#123;time&#125;`);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 发布</div><div class="line">pubSub.publish(&apos;offwork&apos;, &apos;18:00:00&apos;); </div><div class="line">pubSub.publish(&apos;launch&apos;, &apos;12:00:00&apos;);</div><div class="line"></div><div class="line">// 取消订阅</div><div class="line">pubSub.unSubscribe(&apos;onwork&apos;);</div></pre></td></tr></table></figure>
+<p>发布订阅模式中，订阅者各自实现不同的逻辑，且只接收自己对应的事件通知。实现你想要的 “不一样”。</p>
+<p><strong>DOM 事件监听也是 “发布订阅模式” 的应用：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let loginBtn = document.getElementById(&apos;#loginBtn&apos;);</div><div class="line"></div><div class="line">// 监听回调函数（指定事件）</div><div class="line">function notifyClick() &#123;</div><div class="line">    console.log(&apos;我被点击了&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 添加事件监听</div><div class="line">loginBtn.addEventListener(&apos;click&apos;, notifyClick);</div><div class="line">// 触发点击, 事件中心派发指定事件</div><div class="line">loginBtn.click();             </div><div class="line"></div><div class="line">// 取消事件监听</div><div class="line">loginBtn.removeEventListener(&apos;click&apos;, notifyClick);</div></pre></td></tr></table></figure>
+<p>发布订阅的通知顺序：</p>
+<ol>
+<li><p>先订阅后发布时才通知（常规）</p>
+</li>
+<li><p>订阅后可获取过往以后的发布通知 （QQ离线消息，上线后获取之前的信息）</p>
+</li>
+</ol>
+<h4 id="流行库的应用"><a href="#流行库的应用" class="headerlink" title="流行库的应用"></a>流行库的应用</h4><ol>
+<li><p>jQuery 的 <code>on</code> 和 <code>trigger</code>，<code>$.callback()</code>;</p>
+</li>
+<li><p>Vue 的双向数据绑定;</p>
+</li>
+<li><p>Vue 的父子组件通信 <code>$on/$emit</code></p>
+</li>
+</ol>
+<h5 id="jQuery-的-Callback"><a href="#jQuery-的-Callback" class="headerlink" title="jQuery 的 $.Callback()"></a>jQuery 的 $.Callback()</h5><p>jQuery 的 $.Callback() 更像是观察者模式的应用，不能更细粒度管控。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function notifyHim(value) &#123;</div><div class="line"> console.log(&apos;He say &apos; + value);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function notifyHer(value) &#123;</div><div class="line"> console.log(&apos;She say &apos; + value);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$cb = $.Callbacks();    // 声明一个回调容器：订阅列表 </div><div class="line"></div><div class="line">$cb.add(notifyHim);     // 向回调列表添加回调：订阅</div><div class="line">$cb.add(notifyHer);     // 向回调列表添加回调：订阅</div><div class="line"></div><div class="line">$cb.fire(&apos;help&apos;);       // 调用所有回调： 发布</div></pre></td></tr></table></figure></p>
+<h5 id="Vue-的双向数据绑定"><a href="#Vue-的双向数据绑定" class="headerlink" title="Vue 的双向数据绑定"></a>Vue 的双向数据绑定</h5><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4uu40o2u1j30ij0e5dg0.jpg" alt="Vue双向数据绑定"></p>
+<p>利用 <code>Object.defineProperty()</code> 对数据进行劫持，设置一个监听器 <code>Observer</code>，用来监听数据对象的属性，如果属性上发生变化了，交由 <code>Dep</code> 通知订阅者 <code>Watcher</code> 去更新数据，最后指令解析器 <code>Compile</code> 解析对应的指令，进而会执行对应的更新函数，从而更新视图，实现了双向绑定。</p>
+<ol>
+<li><code>Observer</code> (数据劫持)</li>
+<li><code>Dep</code> (发布订阅) </li>
+<li><code>Watcher</code> (数据监听)</li>
+<li><code>Compile</code> (模版编译)</li>
+</ol>
+<p>关于 Vue 双向数据绑定原理，可自行参考其它文章，或推荐本篇 <a href="https://juejin.im/post/5b86119a6fb9a019f928d82d#heading-5" target="_blank" rel="external">《 vue双向数据绑定原理》</a>。</p>
+<ul>
+<li><a href="https://github.com/vuejs/vue/blob/dev/src/core/observer/index.js" target="_blank" rel="external">Vue源码传送门</a></li>
+</ul>
+<h5 id="Vue-的父子组件通信"><a href="#Vue-的父子组件通信" class="headerlink" title="Vue 的父子组件通信"></a>Vue 的父子组件通信</h5><p><code>Vue</code> 中，父组件通过 <code>props</code> 向子组件传递数据（自上而下的单向数据流）。父子组件之间的通信，通过自定义事件即 <code>$on</code> , <code>$emit</code> 来实现（子组件 <code>$emit</code>，父组件 <code>$on</code>)。</p>
+<p>原理其实就是 <code>$emit</code> 发布更新通知，而 <code>$on</code> 订阅接收通知。<code>Vue</code> 中还实现了 <code>$once</code>（一次监听），<code>$off</code>（取消订阅）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 订阅</div><div class="line">vm.$on(&apos;test&apos;, function (msg) &#123;</div><div class="line">    console.log(msg)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 发布</div><div class="line">vm.$emit(&apos;test&apos;, &apos;hi&apos;)</div></pre></td></tr></table></figure>
+<ul>
+<li><p><a href="https://github.com/vuejs/vue/blob/c24f3e4208cd045832002ee9916559f6fe0dc2b5/src/core/instance/events.js" target="_blank" rel="external">Vue源码传送门</a></p>
+</li>
+<li><p><a href="https://cn.vuejs.org/v2/api/#vm-on" target="_blank" rel="external">Vue文档传送门</a></p>
+</li>
+</ul>
+<h4 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h4><ol>
+<li>对象间功能解耦，弱化对象间的引用关系；</li>
+<li>更细粒度地管控，分发指定订阅主题通知</li>
+</ol>
+<h4 id="不完美-1"><a href="#不完美-1" class="headerlink" title="不完美"></a>不完美</h4><ol>
+<li>对间间解耦后，代码阅读不够直观，不易维护；</li>
+<li>额外对象创建，消耗时间和内存（很多设计模式的通病）</li>
+</ol>
+<h3 id="观察者模式-VS-发布订阅模式"><a href="#观察者模式-VS-发布订阅模式" class="headerlink" title="观察者模式 VS 发布订阅模式"></a>观察者模式 VS 发布订阅模式</h3><p><img src="https://upload-images.jianshu.io/upload_images/7324444-6b45812da5328998.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="观察者模式 VS 发布订阅模式"></p>
+<h4 id="类似点"><a href="#类似点" class="headerlink" title="类似点"></a>类似点</h4><p>都是定义一个一对多的依赖关系，有关状态发生变更时执行相应的通知。</p>
+<h4 id="区别点"><a href="#区别点" class="headerlink" title="区别点"></a>区别点</h4><p>发布订阅模式更灵活，是进阶版的观察者模式，指定对应分发。</p>
+<ol>
+<li><p>观察者模式维护单一事件对应多个依赖该事件的对象关系；</p>
+</li>
+<li><p>发布订阅维护多个事件（主题）及依赖各事件（主题）的对象之间的关系；</p>
+</li>
+<li><p>观察者模式是目标对象直接触发通知（全部通知），观察对象被迫接收通知。发布订阅模式多了个中间层（事件中心），由其去管理通知广播（只通知订阅对应事件的对象）；</p>
+</li>
+<li><p>观察者模式对象间依赖关系较强，发布订阅模式中对象之间实现真正的解耦。</p>
+</li>
+</ol>
+<hr>
+<h4 id="对象属性数据拦截方式："><a href="#对象属性数据拦截方式：" class="headerlink" title="对象属性数据拦截方式："></a>对象属性数据拦截方式：</h4><ol>
+<li><code>Object.defineProperty()</code> 属性描述符；</li>
+<li>ES6 Class set ；</li>
+<li>ES6 <code>Proxy</code> 代理；</li>
+</ol>
+<hr>
+<p>参考文章：</p>
+<ul>
+<li><p><a href="https://juejin.im/post/5bb1bb616fb9a05d2b6dccfa" target="_blank" rel="external">谈谈观察者模式和发布订阅模式</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/lm278858445/article/details/78287492" target="_blank" rel="external">原生JavaScript实现观察者模式</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/5c0a9d9bf265da612909ff1b" target="_blank" rel="external">观察者模式 vs 发布订阅模式</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/5b86119a6fb9a019f928d82d#heading-5" target="_blank" rel="external">vue双向数据绑定原理</a></p>
+</li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/JavaScript设计模式（五）：迭代器模式/" rel="next" title="JavaScript设计模式（五）：迭代器模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（五）：迭代器模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzY0OS8xMDIwNA"></div>
+      
+    </div>
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar_g.png"
+               alt="以乐之名" />
+          <p class="site-author-name" itemprop="name">以乐之名</p>
+           
+              <p class="site-description motion-element" itemprop="description">Try · Enjoy · Documentary</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZengLingYong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/1928083625" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.jianshu.com/u/052cec4cf325" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      简书
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/yilezhiming" target="_blank" title="segmenftault">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      segmenftault
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/kenz520/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      博客园
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://resume.isixer.com" target="_blank" title="简历">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      简历
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模式（Observer）"><span class="nav-number">1.</span> <span class="nav-text">观察者模式（Observer）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模式特征"><span class="nav-number">1.1.</span> <span class="nav-text">模式特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优势"><span class="nav-number">1.3.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不完美"><span class="nav-number">1.4.</span> <span class="nav-text">不完美</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布订阅模式（Publisher-amp-amp-Subscriber）"><span class="nav-number">2.</span> <span class="nav-text">发布订阅模式（Publisher && Subscriber）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">2.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流行库的应用"><span class="nav-number">2.2.</span> <span class="nav-text">流行库的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#jQuery-的-Callback"><span class="nav-number">2.2.1.</span> <span class="nav-text">jQuery 的 $.Callback()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Vue-的双向数据绑定"><span class="nav-number">2.2.2.</span> <span class="nav-text">Vue 的双向数据绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Vue-的父子组件通信"><span class="nav-number">2.2.3.</span> <span class="nav-text">Vue 的父子组件通信</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优势-1"><span class="nav-number">2.3.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不完美-1"><span class="nav-number">2.4.</span> <span class="nav-text">不完美</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模式-VS-发布订阅模式"><span class="nav-number">3.</span> <span class="nav-text">观察者模式 VS 发布订阅模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类似点"><span class="nav-number">3.1.</span> <span class="nav-text">类似点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区别点"><span class="nav-number">3.2.</span> <span class="nav-text">区别点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象属性数据拦截方式："><span class="nav-number">3.3.</span> <span class="nav-text">对象属性数据拦截方式：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">以乐之名</span>
+</div>
+
+<div>
+  <span class="post-count">博客全站共56.1k字</span> - 
+  <div style="display:inline-block">Hosted by <a href="https://pages.coding.me" target="_blank">Coding Pages</a></div>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("uY2wTh3IGYoCW9EC28SXFsEp-gzGzoHsz", "ox7oLubkIeglLK2VGeUE8qNk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
