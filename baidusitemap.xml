@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://wuliv.com/2019/07/01/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2019-07-10T08:54:53.472Z</lastmod>
+  </url>  <url>
+    <loc>http://wuliv.com/2019/06/26/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2019-07-10T08:54:36.026Z</lastmod>
+  </url>  <url>
     <loc>http://wuliv.com/2019/07/10/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2019-07-10T08:43:08.371Z</lastmod>
-  </url>  <url>
-    <loc>http://wuliv.com/2019/07/01/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2019-07-01T14:43:12.938Z</lastmod>
   </url>  <url>
     <loc>http://wuliv.com/2018/12/06/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-04-%E9%94%99%E8%AF%AF%E7%9B%91%E6%8E%A7-JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2019-06-28T09:01:53.672Z</lastmod>
@@ -42,9 +45,6 @@
   </url>  <url>
     <loc>http://wuliv.com/2018/01/10/Mac%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%8CDIY%E4%BD%A0%E7%9A%84Terminal%EF%BC%88iTerm2-Oh-My-Zsh%EF%BC%89/</loc>
     <lastmod>2019-06-28T08:46:26.862Z</lastmod>
-  </url>  <url>
-    <loc>http://wuliv.com/2019/06/26/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2019-06-28T08:44:52.958Z</lastmod>
   </url>  <url>
     <loc>http://wuliv.com/2019/06/20/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2019-06-28T08:44:38.816Z</lastmod>
