@@ -3,6 +3,86 @@
   
     
     <entry>
+      <title><![CDATA[JavaScript设计模式（七）：命令模式]]></title>
+      <url>/2019/07/14/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4zd3ji2gdj30m80go3yv.jpg" alt="命令模式"></p>
+<blockquote>
+<p>命令模式：请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。</p>
+</blockquote>
+<p>生活小栗子：客户下单，订单记录了客户购买的产品，仓库根据订单给客户备货。</p>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><p>命令模式由三种角色构成：</p>
+<ol>
+<li>发布者 <code>invoker</code>（发出命令，调用命令对象，不知道如何执行与谁执行）；</li>
+<li>接收者 <code>receiver</code> (提供对应接口处理请求，不知道谁发起请求）；</li>
+<li>命令对象 <code>command</code>（接收命令，调用接收者对应接口处理发布者的请求）。</li>
+</ol>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4zd12dwhfj30eq09g3ye.jpg" alt="命令模式"></p>
+<p>发布者 <code>invoker</code> 和接收者 <code>receiver</code> 各自独立，将请求封装成命令对象 <code>command</code> ，请求的具体执行由命令对象 <code>command</code> 调用接收者 <code>receiver</code> 对应接口执行。</p>
+<p>命令对象 <code>command</code> 充当发布者 <code>invoker</code> 与接收者 <code>receiver</code> 之间的连接桥梁（中间对象介入）。实现发布者与接收之间的解耦，对比过程化请求调用，命令对象 <code>command</code> 拥有更长的生命周期，接收者 <code>receiver</code> 属性方法被封装在命令对象 <code>command</code> 属性中，使得程序执行时可任意时刻调用接收者对象 <code>receiver</code> 。因此 <code>command</code> 可对请求进行进一步管控处理，如实现延时、预定、排队、撤销等功能。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Receiver</span> </span>&#123;  <span class="comment">// 接收者类</span></div><div class="line">  execute() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'接收者执行请求'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span> </span>&#123;   <span class="comment">// 命令对象类</span></div><div class="line">  <span class="keyword">constructor</span>(receiver) &#123;</div><div class="line">    <span class="keyword">this</span>.receiver = receiver;</div><div class="line">  &#125;</div><div class="line">  execute () &#123;    <span class="comment">// 调用接收者对应接口执行</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'命令对象-&gt;接收者-&gt;对应接口执行'</span>);</div><div class="line">    <span class="keyword">this</span>.receiver.execute();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Invoker</span> </span>&#123;   <span class="comment">// 发布者类</span></div><div class="line">  <span class="keyword">constructor</span>(command) &#123;</div><div class="line">    <span class="keyword">this</span>.command = command;</div><div class="line">  &#125;</div><div class="line">  invoke() &#123;      <span class="comment">// 发布请求，调用命令对象</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'发布者发布请求'</span>);</div><div class="line">    <span class="keyword">this</span>.command.cmd();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> warehouse = <span class="keyword">new</span> Receiver();       <span class="comment">// 仓库</span></div><div class="line"><span class="keyword">const</span> order = <span class="keyword">new</span> Command(warehouse);   <span class="comment">// 订单</span></div><div class="line"><span class="keyword">const</span> client = <span class="keyword">new</span> Invoker(order);      <span class="comment">// 客户</span></div><div class="line">client.invoke();</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">输出：</span></div><div class="line"><span class="comment">  发布者发布请求</span></div><div class="line"><span class="comment">  命令对象-&gt;接收者-&gt;对应接口执行</span></div><div class="line"><span class="comment">  接收者执行请求</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><blockquote>
+<p>有时候需要向某些对象发送请求，但是并不知道请求的接收者是谁，也不知道被请求的操作是什么。需要一种松耦合的方式来设计程序，使得发送者和接收者能够消除彼此之间的耦合关系。<br>——《JavaScript 设计模式与开发实践》</p>
+</blockquote>
+<ol>
+<li>不关注执行者，不关注执行过程；</li>
+<li>只要结果，支持撤销请求、延后处理、日志记录等。</li>
+</ol>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：<ul>
+<li>发布者与接收者实现解耦；</li>
+<li>可扩展命令，对请求可进行排队或日志记录。（支持撤销，队列，宏命令等功能）。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>额外增加命令对象，非直接调用，存在一定开销。</li>
+</ul>
+</li>
+</ul>
+<h3 id="宏命令"><a href="#宏命令" class="headerlink" title="宏命令"></a>宏命令</h3><blockquote>
+<p>宏命令：一组命令集合（命令模式与组合模式的产物）</p>
+</blockquote>
+<p>发布者发布一个请求，命令对象会遍历命令集合下的一系列子命令并执行，完成多任务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 宏命令对象</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MacroCommand</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>() &#123;</div><div class="line">    <span class="keyword">this</span>.commandList = [];  <span class="comment">// 缓存子命令对象</span></div><div class="line">  &#125;</div><div class="line">  add(command) &#123;            <span class="comment">// 向缓存中添加子命令</span></div><div class="line">    <span class="keyword">this</span>.commandList.push(command);</div><div class="line">  &#125;</div><div class="line">  exceute() &#123;               <span class="comment">// 对外命令执行接口</span></div><div class="line">    <span class="comment">// 遍历自命令对象并执行其 execute 方法</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> command <span class="keyword">of</span> <span class="keyword">this</span>.commandList) &#123;</div><div class="line">      command.execute();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> openWechat = &#123;  <span class="comment">// 命令对象</span></div><div class="line">  execute: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'打开微信'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> openChrome = &#123;  <span class="comment">// 命令对象</span></div><div class="line">  execute: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'打开Chrome'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> openEmail = &#123;   <span class="comment">// 命令对象</span></div><div class="line">  execute: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'打开Email'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> macroCommand = <span class="keyword">new</span> MacroCommand();</div><div class="line"></div><div class="line">macroCommand.add(openWechat); <span class="comment">// 宏命令中添加子命令</span></div><div class="line">macroCommand.add(openChrome); <span class="comment">// 宏命令中添加子命令</span></div><div class="line">macroCommand.add(openEmail);  <span class="comment">// 宏命令中添加子命令</span></div><div class="line"></div><div class="line">macroCommand.execute();       <span class="comment">// 执行宏命令</span></div><div class="line"><span class="comment">/* 输出：</span></div><div class="line"><span class="comment">打开微信</span></div><div class="line"><span class="comment">打开Chrome</span></div><div class="line"><span class="comment">打开Email</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<h3 id="傻瓜命令与智能命令"><a href="#傻瓜命令与智能命令" class="headerlink" title="傻瓜命令与智能命令"></a>傻瓜命令与智能命令</h3><blockquote>
+<p>傻瓜命令：命令对象需要接收者来执行客户的请求。</p>
+<p>智能命令：命令对象直接实现请求，不需要接收者，“聪明”的命令对象。</p>
+</blockquote>
+<p><strong>“傻瓜命令” 与 “智能命令” 的区别在于是否有 “接收者” 对象。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// openWechat 是智能命令对象，并没有传入 receiver 接收对象</span></div><div class="line"><span class="keyword">const</span> openWechat = &#123;</div><div class="line">  execute: <span class="function"><span class="params">()</span> =&gt;</span> &#123;  <span class="comment">// 命令对象直接处理请求</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'打开微信'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>没有 “接收者” 的智能命令与策略模式很类似。代码实现类似，区别在于实现目标不同。</p>
+<ol>
+<li>策略模式中实现的目标是一致的，只是实现算法不同（如目标：根据KPI计算奖金)；</li>
+<li>智能命令的解决问题更广，目标更具散发性。(如目标：计算奖金/计算出勤率等)。</li>
+</ol>
+<hr>
+<p>参考文章</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> JavaScript设计模式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[JavaScript设计模式（六）：观察者模式与发布订阅模式]]></title>
       <url>/2019/07/10/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<h3 id="观察者模式（Observer）"><a href="#观察者模式（Observer）" class="headerlink" title="观察者模式（Observer）"></a>观察者模式（Observer）</h3><blockquote>
