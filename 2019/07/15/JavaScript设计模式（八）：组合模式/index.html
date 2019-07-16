@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
 
 
 
@@ -103,16 +103,21 @@
 
 
 
-<meta name="description" content="Try · Enjoy · Documentary">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kenz&#39;s Blog">
-<meta property="og:url" content="http://wuliv.com/archives/2017/08/index.html">
+<meta name="description" content="组合模式：又叫 “部分整体” 模式，将对象组合成树形结构，以表示 “部分-整体” 的层次结构。通过对象的多态性表现，使得用户对单个对象和组合对象的使用具有一致性。  生活小栗子：文件目录，DOM 文档树 模式特点 表示 “部分-整体” 的层次结构，生成 “树叶型” 结构； 一致操作性，树叶对象对外接口保存一致（操作与数据结构一致）； 自上而下的的请求流向，从树对象传递给叶对象； 调用顶层对象，">
+<meta name="keywords" content="JavaScript,JavaScript设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式（八）：组合模式">
+<meta property="og:url" content="http://wuliv.com/2019/07/15/JavaScript设计模式（八）：组合模式/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="Try · Enjoy · Documentary">
+<meta property="og:description" content="组合模式：又叫 “部分整体” 模式，将对象组合成树形结构，以表示 “部分-整体” 的层次结构。通过对象的多态性表现，使得用户对单个对象和组合对象的使用具有一致性。  生活小栗子：文件目录，DOM 文档树 模式特点 表示 “部分-整体” 的层次结构，生成 “树叶型” 结构； 一致操作性，树叶对象对外接口保存一致（操作与数据结构一致）； 自上而下的的请求流向，从树对象传递给叶对象； 调用顶层对象，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g51ehn6pi3j30m80godfw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g51g1we1pdj30e80aedfr.jpg">
+<meta property="og:updated_time" content="2019-07-16T02:03:13.890Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kenz&#39;s Blog">
-<meta name="twitter:description" content="Try · Enjoy · Documentary">
+<meta name="twitter:title" content="JavaScript设计模式（八）：组合模式">
+<meta name="twitter:description" content="组合模式：又叫 “部分整体” 模式，将对象组合成树形结构，以表示 “部分-整体” 的层次结构。通过对象的多态性表现，使得用户对单个对象和组合对象的使用具有一致性。  生活小栗子：文件目录，DOM 文档树 模式特点 表示 “部分-整体” 的层次结构，生成 “树叶型” 结构； 一致操作性，树叶对象对外接口保存一致（操作与数据结构一致）； 自上而下的的请求流向，从树对象传递给叶对象； 调用顶层对象，">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g51ehn6pi3j30m80godfw.jpg">
 
 
 
@@ -141,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/archives/2017/08/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/07/15/JavaScript设计模式（八）：组合模式/"/>
 
 
 
 
 
-  <title>归档 | Kenz's Blog</title>
+  <title>JavaScript设计模式（八）：组合模式 | Kenz's Blog</title>
   
 
 
@@ -182,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,110 +325,290 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 36 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/07/15/JavaScript设计模式（八）：组合模式/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（八）：组合模式</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T08:38:45+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/31/preventDefault-stopPropagation-return-false三者的区别/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">preventDefault,stopPropagation,return false三者的区别</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-31T22:40:04+08:00"
-              content="2017-08-31" >
-          08-31
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
+             <span id="/2019/07/15/JavaScript设计模式（八）：组合模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（八）：组合模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,213
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/27/HTTP中GET与POST的区别-99-的错误认识/" itemprop="url">
-              
-                <span itemprop="name">HTTP中GET与POST的区别 99%的错误认识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-27T09:30:13+08:00"
-              content="2017-08-27" >
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g51ehn6pi3j30m80godfw.jpg" alt="组合模式"></p>
+<blockquote>
+<p>组合模式：又叫 “部分整体” 模式，将对象组合成树形结构，以表示 “部分-整体” 的层次结构。通过对象的多态性表现，使得用户对单个对象和组合对象的使用具有一致性。</p>
+</blockquote>
+<p>生活小栗子：文件目录，DOM 文档树</p>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
+<li>表示 “部分-整体” 的层次结构，生成 “树叶型” 结构；</li>
+<li>一致操作性，树叶对象对外接口保存一致（操作与数据结构一致）；</li>
+<li>自上而下的的请求流向，从树对象传递给叶对象；</li>
+<li>调用顶层对象，会自行遍历其下的叶对象执行。</li>
+</ol>
+<p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g51g1we1pdj30e80aedfr.jpg" alt="树叶型结构"></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>树对象和叶对象接口统一，树对象增加一个缓存数组，存储叶对象。执行树对象方法时，将请求传递给其下叶对象执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 树对象 - 文件目录</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CFolder</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.files = [];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    add(file) &#123;</div><div class="line">        <span class="keyword">this</span>.files.push(file);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    scan() &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> file <span class="keyword">of</span> <span class="keyword">this</span>.files) &#123;</div><div class="line">            file.scan();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 叶对象 - 文件</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CFile</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    add(file) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'文件下面不能再添加文件'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    scan() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">`开始扫描文件：<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> mediaFolder = <span class="keyword">new</span> CFolder(<span class="string">'娱乐'</span>);</div><div class="line"><span class="keyword">let</span> movieFolder = <span class="keyword">new</span> CFolder(<span class="string">'电影'</span>);</div><div class="line"><span class="keyword">let</span> musicFolder = <span class="keyword">new</span> CFolder(<span class="string">'音乐'</span>);</div><div class="line"></div><div class="line"><span class="keyword">let</span> file1 = <span class="keyword">new</span> CFile(<span class="string">'钢铁侠.mp4'</span>);</div><div class="line"><span class="keyword">let</span> file2 = <span class="keyword">new</span> CFile(<span class="string">'再谈记忆.mp3'</span>);</div><div class="line">movieFolder.add(file1);</div><div class="line">musicFolder.add(file2);</div><div class="line">mediaFolder.add(movieFolder);</div><div class="line">mediaFolder.add(musicFolder);</div><div class="line">mediaFolder.scan();</div><div class="line"></div><div class="line"><span class="comment">/* 输出:</span></div><div class="line"><span class="comment">开始扫描文件：钢铁侠.mp4</span></div><div class="line"><span class="comment">开始扫描文件：再谈记忆.mp3</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure></p>
+<p><code>CFolder</code> 与 <code>CFile</code> 接口保持一致。执行 <code>scan()</code> 时，若发现是树对象，则继续遍历其下的叶对象，执行 <code>scan()</code>。</p>
+<p>JavaScript 不同于其它静态编程语言，实现组合模式的难点是保持树对象与叶对象之间接口保持统一，可借助 TypeScript 定制接口规范，实现类型约束。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义接口规范</span></div><div class="line"><span class="keyword">interface</span> Compose &#123;</div><div class="line">    name: <span class="built_in">string</span>,</div><div class="line">    add(file: CFile): <span class="built_in">void</span>,</div><div class="line">    scan(): <span class="built_in">void</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 树对象 - 文件目录</span></div><div class="line"><span class="keyword">class</span> CFolder <span class="keyword">implements</span> Compose &#123;</div><div class="line">    fileList = [];</div><div class="line">    name: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    add(file: CFile) &#123;</div><div class="line">        <span class="keyword">this</span>.fileList.push(file);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    scan() &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> file of <span class="keyword">this</span>.fileList) &#123;</div><div class="line">            file.scan();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 叶对象 - 文件</span></div><div class="line"><span class="keyword">class</span> CFile <span class="keyword">implements</span> Compose &#123;</div><div class="line">    name: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    add(file: CFile) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'文件下面不能再添加文件'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    scan() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">`开始扫描：<span class="subst">$&#123;this.name&#125;</span>`</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> mediaFolder = <span class="keyword">new</span> CFolder(<span class="string">'娱乐'</span>);</div><div class="line"><span class="keyword">let</span> movieFolder = <span class="keyword">new</span> CFolder(<span class="string">'电影'</span>);</div><div class="line"><span class="keyword">let</span> musicFolder = <span class="keyword">new</span> CFolder(<span class="string">'音乐'</span>);</div><div class="line"></div><div class="line"><span class="keyword">let</span> file1 = <span class="keyword">new</span> CFile(<span class="string">'钢铁侠.mp4'</span>);</div><div class="line"><span class="keyword">let</span> file2 = <span class="keyword">new</span> CFile(<span class="string">'再谈记忆.mp3'</span>);</div><div class="line">movieFolder.add(file1);</div><div class="line">musicFolder.add(file2);</div><div class="line">mediaFolder.add(movieFolder);</div><div class="line">mediaFolder.add(musicFolder);</div><div class="line">mediaFolder.scan();</div><div class="line"></div><div class="line"><span class="comment">/* 输出:</span></div><div class="line"><span class="comment">开始扫描文件：钢铁侠.mp4</span></div><div class="line"><span class="comment">开始扫描文件：再谈记忆.mp3</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<h3 id="透明性的安全问题"><a href="#透明性的安全问题" class="headerlink" title="透明性的安全问题"></a>透明性的安全问题</h3><p>组合模式的透明性，指的是树叶对象接口保持统一，外部调用时无需区分。但是这会带来一些问题，如上述文件目录的例子，文件（叶对象）下不可再添加文件，因此需在文件类的 <code>add()</code> 方法中抛出异常，以作提醒。</p>
+<h3 id="误区规避"><a href="#误区规避" class="headerlink" title="误区规避"></a>误区规避</h3><h4 id="1-组合不是继承，树叶对象并不是父子对象"><a href="#1-组合不是继承，树叶对象并不是父子对象" class="headerlink" title="1. 组合不是继承，树叶对象并不是父子对象"></a>1. 组合不是继承，树叶对象并不是父子对象</h4><p>组合模式的树型结构是一种 HAS-A（聚合）的关系，而不是 IS-A 。树叶对象能够合作的关键，是它们对外保持统一接口，而不是叶对象继承树对象的属性方法，两者之间不是父子关系。</p>
+<h4 id="2-叶对象操作保持一致性"><a href="#2-叶对象操作保持一致性" class="headerlink" title="2. 叶对象操作保持一致性"></a>2. 叶对象操作保持一致性</h4><p>叶对象除了与树对象接口一致外，操作也必须保持一致性。一片叶子只能生在一颗树上。调用顶层对象时，每个叶对象只能接收一次请求，一个叶对象不能从属多个树对象。</p>
+<h4 id="3-叶对象实现冒泡传递"><a href="#3-叶对象实现冒泡传递" class="headerlink" title="3. 叶对象实现冒泡传递"></a>3. 叶对象实现冒泡传递</h4><p>请求传递由树向叶传递，如果想逆转传递过程，需在叶对象中保留对树对象的引用，冒泡传递给树对象处理。</p>
+<h4 id="4-不只是简单的子集遍历"><a href="#4-不只是简单的子集遍历" class="headerlink" title="4. 不只是简单的子集遍历"></a>4. 不只是简单的子集遍历</h4><p>调用对象的接口方法时，如果该对象是树对象，则会将请求传递给叶对象，由叶对象执行方法，以此类推。不同于迭代器模式，迭代器模式遍历并不会做请求传导。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li>优化处理递归或分级数据结构（文件系统 - 目录文件管理）；</li>
+<li>与其它设计模式联用，如与命令模式联用实现 “宏命令”。</li>
+</ol>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>优点：<ul>
+<li>忽略组合对象和单个对象的差别，对外一致接口使用；</li>
+<li>解耦调用者与复杂元素之间的联系，处理方式变得简单。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>树叶对象接口一致，无法区分，只有在运行时方可辨别；</li>
+<li>包裹对象创建太多，额外增加内存负担。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>参考文章</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/14/JavaScript设计模式（七）：命令模式/" rel="next" title="JavaScript设计模式（七）：命令模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（七）：命令模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -431,6 +616,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzY0OS8xMDIwNA"></div>
+      
+    </div>
+  
         </div>
         
           
@@ -450,8 +641,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -589,6 +789,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#透明性的安全问题"><span class="nav-number">3.</span> <span class="nav-text">透明性的安全问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#误区规避"><span class="nav-number">4.</span> <span class="nav-text">误区规避</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-组合不是继承，树叶对象并不是父子对象"><span class="nav-number">4.1.</span> <span class="nav-text">1. 组合不是继承，树叶对象并不是父子对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-叶对象操作保持一致性"><span class="nav-number">4.2.</span> <span class="nav-text">2. 叶对象操作保持一致性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-叶对象实现冒泡传递"><span class="nav-number">4.3.</span> <span class="nav-text">3. 叶对象实现冒泡传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-不只是简单的子集遍历"><span class="nav-number">4.4.</span> <span class="nav-text">4. 不只是简单的子集遍历</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">5.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">6.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -695,11 +911,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -729,6 +943,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
