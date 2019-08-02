@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
 
 
 
@@ -103,16 +103,18 @@
 
 
 
-<meta name="description" content="Try · Enjoy · Documentary">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kenz&#39;s Blog">
-<meta property="og:url" content="http://wuliv.com/archives/2017/10/index.html">
+<meta name="description" content="模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。  生活小栗子： 模式特点 抽象父类（封装子类算法框架，公共方法，执行顺序） 具体子类（继承父类算法结构，可重写父类方法）  抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。 抽象方法被声明在抽象类中，并没有具体的实现。">
+<meta name="keywords" content="JavaScript,JavaScript设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式（九）：模版方法模式">
+<meta property="og:url" content="http://wuliv.com/2019/07/23/JavaScript设计模式（九）：模版方法模式/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="Try · Enjoy · Documentary">
+<meta property="og:description" content="模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。  生活小栗子： 模式特点 抽象父类（封装子类算法框架，公共方法，执行顺序） 具体子类（继承父类算法结构，可重写父类方法）  抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。 抽象方法被声明在抽象类中，并没有具体的实现。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-23T03:29:00.705Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kenz&#39;s Blog">
-<meta name="twitter:description" content="Try · Enjoy · Documentary">
+<meta name="twitter:title" content="JavaScript设计模式（九）：模版方法模式">
+<meta name="twitter:description" content="模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。  生活小栗子： 模式特点 抽象父类（封装子类算法框架，公共方法，执行顺序） 具体子类（继承父类算法结构，可重写父类方法）  抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。 抽象方法被声明在抽象类中，并没有具体的实现。">
 
 
 
@@ -141,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/archives/2017/10/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/07/23/JavaScript设计模式（九）：模版方法模式/"/>
 
 
 
 
 
-  <title>归档 | Kenz's Blog</title>
+  <title>JavaScript设计模式（九）：模版方法模式 | Kenz's Blog</title>
   
 
 
@@ -182,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,73 +322,286 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 37 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/07/23/JavaScript设计模式（九）：模版方法模式/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="以乐之名">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar_g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenz's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/10/04/npm常用命令整理/" itemprop="url">
-              
-                <span itemprop="name">npm常用命令整理</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（九）：模版方法模式</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-04T10:01:19+08:00"
-              content="2017-10-04" >
-          10-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T10:27:14+08:00">
+                2019-07-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/23/JavaScript设计模式（九）：模版方法模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（九）：模版方法模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  483
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <blockquote>
+<p>模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。</p>
+</blockquote>
+<p>生活小栗子：</p>
+<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
+<li>抽象父类（封装子类算法框架，公共方法，执行顺序）</li>
+<li>具体子类（继承父类算法结构，可重写父类方法）</li>
+</ol>
+<p>抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。</p>
+<p>抽象方法被声明在抽象类中，并没有具体的实现。子类继承抽象类时，必须重写父类的抽象方法。</p>
+<p>模版方法：封装子类的算法框架，指导子类方法执行顺序。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h4 id="借助TypeScript实现"><a href="#借助TypeScript实现" class="headerlink" title="借助TypeScript实现"></a>借助TypeScript实现</h4><h4 id="JavaScript原型继承实现"><a href="#JavaScript原型继承实现" class="headerlink" title="JavaScript原型继承实现"></a>JavaScript原型继承实现</h4><ol>
+<li>使用原型继承来模拟类式继承，无编译器自动校验</li>
+<li>其它方式接口检查<ul>
+<li>鸭子类型模拟接口检查<ul>
+<li>缺点：增加代码复杂性，额外与逻辑无关的判断代码</li>
+</ul>
+</li>
+<li>抽象方法抛出异常，如果子类实现覆盖，则不会执行，否则抛出异常提醒<ul>
+<li>优点：实现简单，缺点：得到错误信息时间靠后</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="JavaScript-非继承实现"><a href="#JavaScript-非继承实现" class="headerlink" title="JavaScript 非继承实现"></a>JavaScript 非继承实现</h4><p>高阶函数的实现</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li>搭建项目框架；</li>
+<li>UI组件构建</li>
+</ol>
+<h3 id="钩子方法（hook）增强个性化"><a href="#钩子方法（hook）增强个性化" class="headerlink" title="钩子方法（hook）增强个性化"></a>钩子方法（hook）增强个性化</h3><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：封装变化提高系统扩展性的设计模式。子类可添加扩展，符合开发-封闭原则。<br>缺点：</p>
+<hr>
+<p>参考文章</p>
+<ul>
+<li><a href="https://book.douban.com/subject/24744217/" target="_blank" rel="external">《JavaScript 设计模式》</a></li>
+<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
+<li><a href="https://coding.imooc.com/class/255.html" target="_blank" rel="external">《JavaScript 设计模式系统讲解与应用》</a></li>
+</ul>
+<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<blockquote>
+<p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
+</blockquote>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div id="rewardLine">
+    <span>坚持原创技术分享，您的支持将鼓励我创作出的更好文章分享！</span>
+  </div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/15/JavaScript设计模式（八）：组合模式/" rel="next" title="JavaScript设计模式（八）：组合模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（八）：组合模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -394,6 +609,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzY0OS8xMDIwNA"></div>
+      
+    </div>
+  
         </div>
         
           
@@ -413,8 +634,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar_g.png"
@@ -552,6 +782,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#借助TypeScript实现"><span class="nav-number">2.1.</span> <span class="nav-text">借助TypeScript实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript原型继承实现"><span class="nav-number">2.2.</span> <span class="nav-text">JavaScript原型继承实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-非继承实现"><span class="nav-number">2.3.</span> <span class="nav-text">JavaScript 非继承实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">3.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#钩子方法（hook）增强个性化"><span class="nav-number">4.</span> <span class="nav-text">钩子方法（hook）增强个性化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">5.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -658,11 +904,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -692,6 +936,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
