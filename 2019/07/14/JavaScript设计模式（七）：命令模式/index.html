@@ -111,13 +111,13 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="命令模式：请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。  生活小栗子：客户下单，订单记录了客户购买的产品，仓库根据订单给客户备货。 模式特点命令模式由三种角色构成：  发布者 invoker（发出命令，调用命令对象，不知道如何执行与谁执行）； 接收者 receiver (提供对应接口处理请求，不知道谁发起请求）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4zd3ji2gdj30m80go3yv.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4zd12dwhfj30eq09g3ye.jpg">
-<meta property="og:updated_time" content="2019-07-15T00:15:26.647Z">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4zd3ji2gdj30m80go3yv.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4zd12dwhfj30eq09g3ye.jpg">
+<meta property="og:updated_time" content="2019-08-07T09:03:40.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript设计模式（七）：命令模式">
 <meta name="twitter:description" content="命令模式：请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。  生活小栗子：客户下单，订单记录了客户购买的产品，仓库根据订单给客户备货。 模式特点命令模式由三种角色构成：  发布者 invoker（发出命令，调用命令对象，不知道如何执行与谁执行）； 接收者 receiver (提供对应接口处理请求，不知道谁发起请求）">
-<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4zd3ji2gdj30m80go3yv.jpg">
+<meta name="twitter:image" content="http://img.wuliv.com/006tNc79gy1g4zd3ji2gdj30m80go3yv.jpg">
 
 
 
@@ -471,7 +471,7 @@
       
 
       
-        <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4zd3ji2gdj30m80go3yv.jpg" alt="命令模式"></p>
+        <p><img src="http://img.wuliv.com/006tNc79gy1g4zd3ji2gdj30m80go3yv.jpg" alt="命令模式"></p>
 <blockquote>
 <p>命令模式：请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。</p>
 </blockquote>
@@ -482,7 +482,7 @@
 <li>接收者 <code>receiver</code> (提供对应接口处理请求，不知道谁发起请求）；</li>
 <li>命令对象 <code>command</code>（接收命令，调用接收者对应接口处理发布者的请求）。</li>
 </ol>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4zd12dwhfj30eq09g3ye.jpg" alt="命令模式"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4zd12dwhfj30eq09g3ye.jpg" alt="命令模式"></p>
 <p>发布者 <code>invoker</code> 和接收者 <code>receiver</code> 各自独立，将请求封装成命令对象 <code>command</code> ，请求的具体执行由命令对象 <code>command</code> 调用接收者 <code>receiver</code> 对应接口执行。</p>
 <p>命令对象 <code>command</code> 充当发布者 <code>invoker</code> 与接收者 <code>receiver</code> 之间的连接桥梁（中间对象介入）。实现发布者与接收之间的解耦，对比过程化请求调用，命令对象 <code>command</code> 拥有更长的生命周期，接收者 <code>receiver</code> 属性方法被封装在命令对象 <code>command</code> 属性中，使得程序执行时可任意时刻调用接收者对象 <code>receiver</code> 。因此 <code>command</code> 可对请求进行进一步管控处理，如实现延时、预定、排队、撤销等功能。</p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Receiver</span> </span>&#123;  <span class="comment">// 接收者类</span></div><div class="line">  execute() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'接收者执行请求'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span> </span>&#123;   <span class="comment">// 命令对象类</span></div><div class="line">  <span class="keyword">constructor</span>(receiver) &#123;</div><div class="line">    <span class="keyword">this</span>.receiver = receiver;</div><div class="line">  &#125;</div><div class="line">  execute () &#123;    <span class="comment">// 调用接收者对应接口执行</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'命令对象-&gt;接收者-&gt;对应接口执行'</span>);</div><div class="line">    <span class="keyword">this</span>.receiver.execute();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Invoker</span> </span>&#123;   <span class="comment">// 发布者类</span></div><div class="line">  <span class="keyword">constructor</span>(command) &#123;</div><div class="line">    <span class="keyword">this</span>.command = command;</div><div class="line">  &#125;</div><div class="line">  invoke() &#123;      <span class="comment">// 发布请求，调用命令对象</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'发布者发布请求'</span>);</div><div class="line">    <span class="keyword">this</span>.command.execute();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> warehouse = <span class="keyword">new</span> Receiver();       <span class="comment">// 仓库</span></div><div class="line"><span class="keyword">const</span> order = <span class="keyword">new</span> Command(warehouse);   <span class="comment">// 订单</span></div><div class="line"><span class="keyword">const</span> client = <span class="keyword">new</span> Invoker(order);      <span class="comment">// 客户</span></div><div class="line">client.invoke();</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">输出：</span></div><div class="line"><span class="comment">  发布者发布请求</span></div><div class="line"><span class="comment">  命令对象-&gt;接收者-&gt;对应接口执行</span></div><div class="line"><span class="comment">  接收者执行请求</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
@@ -551,14 +551,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <img id="wechat_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <img id="alipay_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
         <p>Alipay</p>
       </div>
     

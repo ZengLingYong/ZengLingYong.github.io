@@ -111,13 +111,13 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="观察者模式（Observer） 观察者模式：定义了对象间一种一对多的依赖关系，当目标对象 Subject 的状态发生改变时，所有依赖它的对象 Observer 都会得到通知。  简单点：女神有男朋友了，朋友圈晒个图，甜蜜宣言 “老娘成功脱单，希望你们欢喜”。各位潜藏备胎纷纷失恋，只能安慰自己你不是唯一一个。 模式特征 一个目标者对象 Subject，拥有方法：添加 / 删除 / 通知 Observ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4uu40o2u1j30ij0e5dg0.jpg">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7324444-6b45812da5328998.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-07-10T09:40:27.617Z">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4uu40o2u1j30ij0e5dg0.png">
+<meta property="og:image" content="http://img.wuliv.com/7324444-6b45812da5328998.jpg">
+<meta property="og:updated_time" content="2019-08-07T09:09:36.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript设计模式（六）：观察者模式与发布订阅模式">
 <meta name="twitter:description" content="观察者模式（Observer） 观察者模式：定义了对象间一种一对多的依赖关系，当目标对象 Subject 的状态发生改变时，所有依赖它的对象 Observer 都会得到通知。  简单点：女神有男朋友了，朋友圈晒个图，甜蜜宣言 “老娘成功脱单，希望你们欢喜”。各位潜藏备胎纷纷失恋，只能安慰自己你不是唯一一个。 模式特征 一个目标者对象 Subject，拥有方法：添加 / 删除 / 通知 Observ">
-<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4uu40o2u1j30ij0e5dg0.jpg">
+<meta name="twitter:image" content="http://img.wuliv.com/006tNc79gy1g4uu40o2u1j30ij0e5dg0.png">
 
 
 
@@ -519,7 +519,7 @@
 </li>
 </ol>
 <h5 id="jQuery-的-Callback"><a href="#jQuery-的-Callback" class="headerlink" title="jQuery 的 $.Callback()"></a>jQuery 的 $.Callback()</h5><p>jQuery 的 $.Callback() 更像是观察者模式的应用，不能更细粒度管控。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function notifyHim(value) &#123;</div><div class="line"> console.log(&apos;He say &apos; + value);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function notifyHer(value) &#123;</div><div class="line"> console.log(&apos;She say &apos; + value);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$cb = $.Callbacks();    // 声明一个回调容器：订阅列表 </div><div class="line"></div><div class="line">$cb.add(notifyHim);     // 向回调列表添加回调：订阅</div><div class="line">$cb.add(notifyHer);     // 向回调列表添加回调：订阅</div><div class="line"></div><div class="line">$cb.fire(&apos;help&apos;);       // 调用所有回调： 发布</div></pre></td></tr></table></figure></p>
-<h5 id="Vue-的双向数据绑定"><a href="#Vue-的双向数据绑定" class="headerlink" title="Vue 的双向数据绑定"></a>Vue 的双向数据绑定</h5><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4uu40o2u1j30ij0e5dg0.jpg" alt="Vue双向数据绑定"></p>
+<h5 id="Vue-的双向数据绑定"><a href="#Vue-的双向数据绑定" class="headerlink" title="Vue 的双向数据绑定"></a>Vue 的双向数据绑定</h5><p><img src="http://img.wuliv.com/006tNc79gy1g4uu40o2u1j30ij0e5dg0.png" alt="Vue双向数据绑定"></p>
 <p>利用 <code>Object.defineProperty()</code> 对数据进行劫持，设置一个监听器 <code>Observer</code>，用来监听数据对象的属性，如果属性上发生变化了，交由 <code>Dep</code> 通知订阅者 <code>Watcher</code> 去更新数据，最后指令解析器 <code>Compile</code> 解析对应的指令，进而会执行对应的更新函数，从而更新视图，实现了双向绑定。</p>
 <ol>
 <li><code>Observer</code> (数据劫持)</li>
@@ -548,7 +548,7 @@
 <li>对间间解耦后，代码阅读不够直观，不易维护；</li>
 <li>额外对象创建，消耗时间和内存（很多设计模式的通病）</li>
 </ol>
-<h3 id="观察者模式-VS-发布订阅模式"><a href="#观察者模式-VS-发布订阅模式" class="headerlink" title="观察者模式 VS 发布订阅模式"></a>观察者模式 VS 发布订阅模式</h3><p><img src="https://upload-images.jianshu.io/upload_images/7324444-6b45812da5328998.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="观察者模式 VS 发布订阅模式"></p>
+<h3 id="观察者模式-VS-发布订阅模式"><a href="#观察者模式-VS-发布订阅模式" class="headerlink" title="观察者模式 VS 发布订阅模式"></a>观察者模式 VS 发布订阅模式</h3><p><img src="http://img.wuliv.com/7324444-6b45812da5328998.jpg" alt="观察者模式 VS 发布订阅模式"></p>
 <h4 id="类似点"><a href="#类似点" class="headerlink" title="类似点"></a>类似点</h4><p>都是定义一个一对多的依赖关系，有关状态发生变更时执行相应的通知。</p>
 <h4 id="区别点"><a href="#区别点" class="headerlink" title="区别点"></a>区别点</h4><p>发布订阅模式更灵活，是进阶版的观察者模式，指定对应分发。</p>
 <ol>
@@ -601,14 +601,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <img id="wechat_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <img id="alipay_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
         <p>Alipay</p>
       </div>
     

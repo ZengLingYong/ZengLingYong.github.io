@@ -111,16 +111,16 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1g4gymz3ythj30yg0mzmxh.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1g4gz1dqbg1j30m80bjt90.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1g4gz1ofl53j30jg0ciaam.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1g4gz1wphinj30qf09awf2.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gz2hfs0vj30m80a2wf4.jpg">
-<meta property="og:updated_time" content="2019-06-28T08:58:28.269Z">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gymz3ythj30yg0mzmxh.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gz1dqbg1j30m80bjt90.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gz1ofl53j30jg0ciaam.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gz1wphinj30qf09awf2.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gz2hfs0vj30m80a2wf4.jpg">
+<meta property="og:updated_time" content="2019-08-07T09:34:10.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（三）：从作用域走进闭包">
 <meta name="twitter:description" content="进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。  作用域 作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限 ——《你不知道的JavaScript上卷》  作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。 1234567891011var globaValue = &amp;ap">
-<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1g4gymz3ythj30yg0mzmxh.jpg">
+<meta name="twitter:image" content="http://img.wuliv.com/006tNc79gy1g4gymz3ythj30yg0mzmxh.jpg">
 
 
 
@@ -475,14 +475,14 @@
 
       
         <p>进击的巨人第三篇，本篇就作用域、作用域链、闭包等知识点，一一击破。</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g4gymz3ythj30yg0mzmxh.jpg" alt="前端进击的巨人（三）：从作用域走进闭包"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gymz3ythj30yg0mzmxh.jpg" alt="前端进击的巨人（三）：从作用域走进闭包"></p>
 <h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><blockquote>
 <p>作用域：负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符（变量）的访问权限</p>
 <p>——《你不知道的JavaScript上卷》</p>
 </blockquote>
 <p>作用域有点像圈地盘，大家划好区域，然后各自经营管理，井水不犯河水。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var globaValue = &apos;我是全局作用域&apos;;</div><div class="line">function foo() &#123;</div><div class="line">    var fooValue = &apos;我是foo作用域&apos;;</div><div class="line">    function bar() &#123;</div><div class="line">        var barValue = &apos;我是bar作用域&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function other() &#123;</div><div class="line">    var otherValue = &apos;我是other作用域&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g4gz1dqbg1j30m80bjt90.jpg" alt="作用域"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gz1dqbg1j30m80bjt90.jpg" alt="作用域"></p>
 <h3 id="作用域的变量声明"><a href="#作用域的变量声明" class="headerlink" title="作用域的变量声明"></a>作用域的变量声明</h3><p>不同作用域下命名相同的变量不会发生冲突，<strong>“就近原则”</strong>选取。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var name = &apos;任何名字&apos;;</div><div class="line">function getName() &#123;</div><div class="line">    var name = &apos;以乐之名&apos;;</div><div class="line">    console.log(name);    // &apos;以乐之名&apos;</div><div class="line">&#125;</div><div class="line">console.log(name);        // &apos;任何名字&apos;</div></pre></td></tr></table></figure>
 <h3 id="作用域的类型"><a href="#作用域的类型" class="headerlink" title="作用域的类型"></a>作用域的类型</h3><p>执行上下文环境有：全局、函数、eval。那么作用域也有三种，ES6新增了块级作用域。</p>
@@ -512,7 +512,7 @@
 </blockquote>
 <p><strong>“在当前执行环境开始查找使用到的变量，如果找到，则返回其值。如果找不到，会逐层往上级（父作用域）查找，直到全局作用域”</strong>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var money = 100;</div><div class="line">function foo() &#123;</div><div class="line">    function bar() &#123;</div><div class="line">        console.log(money);</div><div class="line">    &#125;</div><div class="line">    bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g4gz1ofl53j30jg0ciaam.jpg" alt="作用域链上的变量查找"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gz1ofl53j30jg0ciaam.jpg" alt="作用域链上的变量查找"></p>
 <h3 id="自由变量"><a href="#自由变量" class="headerlink" title="自由变量"></a>自由变量</h3><p>变量我们见的不少，但”自由变量”听着是不是挺唬人的。其实对它，我们并不陌生。</p>
 <p><strong>“自由变量：当前执行环境使用到，但并未在当前执行环境声明的变量（函数参数arguments排除）”</strong></p>
 <p>函数调用时，进入执行上下文创建阶段，会对<code>argument</code>进行隐式的变量声明。</p>
@@ -522,7 +522,7 @@
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>开篇第一文我们就执行环境，执行栈做出了详解，有所遗忘的可再温习。执行栈是我们理解闭包原理基础中的基础。</p>
 <p>函数调用栈过程的图再晒出来，顺便温习下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo () &#123;</div><div class="line">    function bar () &#123;</div><div class="line">        return &apos;I am bar&apos;;</div><div class="line">    &#125;</div><div class="line">    return bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g4gz1wphinj30qf09awf2.jpg" alt="正常出入栈过程"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gz1wphinj30qf09awf2.jpg" alt="正常出入栈过程"></p>
 <p>函数调用时入栈，调用结束出栈。执行函数时，会创建一个变量对象去存储函数中的变量，方法，参数<code>arguments</code>等，结束调用时，该变量对象就会被销毁。(理想的情况下，不理想的情况就是出现<strong>“闭包”</strong>调用了)。</p>
 <h4 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h4><blockquote>
 <p>闭包是指有权访问另外一个函数作用域的变量的函数。</p>
@@ -539,7 +539,7 @@
 <p>对函数中谁是闭包，各文档解释不一。在此我们遵照Chrome的方式，暂且称<code>foo</code>是闭包。</p>
 <p>因为作用域和作用域链规则的限定，子环境的自由变量只能逐层向上到父环境查找。</p>
 <p>但是通过闭包，我们在外部环境也可以获取到变量<code>fooVal</code>，虽然<code>foo()</code>函数执行完成了，但它并没从函数调用栈中销毁，其变量对象存储仍然能被访问到。</p>
-<p>实际执行过程请看图：<br><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gz2hfs0vj30m80a2wf4.jpg" alt="存在闭包的出入栈过程"></p>
+<p>实际执行过程请看图：<br><img src="http://img.wuliv.com/006tNc79gy1g4gz2hfs0vj30m80a2wf4.jpg" alt="存在闭包的出入栈过程"></p>
 <p>把上述代码改以下，接着看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line"> var fooVal = &apos;2019&apos;;</div><div class="line"> var bar = function() &#123;</div><div class="line"> console.log(fooVal);     // bar中使用到了自由变量fooVal</div><div class="line"> &#125;</div><div class="line"> return bar;              // 函数作为参数返回</div><div class="line">&#125;</div><div class="line">var getValue = foo();</div><div class="line">var fooVal = &apos;2018&apos;;      // 这里的fooVal是全局作用域的变量</div><div class="line">getValue();               // 2019</div></pre></td></tr></table></figure></p>
 <p>答案与结果不符的小伙伴要回头理解下自由变量了。<strong>“自由变量的作用域在代码书写时（函数创建时）就确定了”</strong>，所以函数中<code>getValue()</code>使用的<code>fooVal</code>在<code>foo</code>的作用域下，而不是在全局作用域下。</p>
 <p>答对的小伙伴们再来一道题，加深你的记忆</p>
@@ -595,14 +595,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <img id="wechat_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <img id="alipay_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
         <p>Alipay</p>
       </div>
     

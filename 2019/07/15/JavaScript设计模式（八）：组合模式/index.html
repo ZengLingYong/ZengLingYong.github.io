@@ -111,13 +111,13 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="组合模式：又叫 “部分整体” 模式，将对象组合成树形结构，以表示 “部分-整体” 的层次结构。通过对象的多态性表现，使得用户对单个对象和组合对象的使用具有一致性。  生活小栗子：文件目录，DOM 文档树 模式特点 表示 “部分-整体” 的层次结构，生成 “树叶型” 结构； 一致操作性，树叶对象对外接口保存一致（操作与数据结构一致）； 自上而下的的请求流向，从树对象传递给叶对象； 调用顶层对象，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g51ehn6pi3j30m80godfw.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g51g1we1pdj30e80aedfr.jpg">
-<meta property="og:updated_time" content="2019-08-02T08:23:57.455Z">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g51ehn6pi3j30m80godfw.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g51g1we1pdj30e80aedfr.jpg">
+<meta property="og:updated_time" content="2019-08-07T08:54:56.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript设计模式（八）：组合模式">
 <meta name="twitter:description" content="组合模式：又叫 “部分整体” 模式，将对象组合成树形结构，以表示 “部分-整体” 的层次结构。通过对象的多态性表现，使得用户对单个对象和组合对象的使用具有一致性。  生活小栗子：文件目录，DOM 文档树 模式特点 表示 “部分-整体” 的层次结构，生成 “树叶型” 结构； 一致操作性，树叶对象对外接口保存一致（操作与数据结构一致）； 自上而下的的请求流向，从树对象传递给叶对象； 调用顶层对象，">
-<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g51ehn6pi3j30m80godfw.jpg">
+<meta name="twitter:image" content="http://img.wuliv.com/006tNc79gy1g51ehn6pi3j30m80godfw.jpg">
 
 
 
@@ -471,7 +471,7 @@
       
 
       
-        <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g51ehn6pi3j30m80godfw.jpg" alt="组合模式"></p>
+        <p><img src="http://img.wuliv.com/006tNc79gy1g51ehn6pi3j30m80godfw.jpg" alt="组合模式"></p>
 <blockquote>
 <p>组合模式：又叫 “部分整体” 模式，将对象组合成树形结构，以表示 “部分-整体” 的层次结构。通过对象的多态性表现，使得用户对单个对象和组合对象的使用具有一致性。</p>
 </blockquote>
@@ -482,7 +482,7 @@
 <li>自上而下的的请求流向，从树对象传递给叶对象；</li>
 <li>调用顶层对象，会自行遍历其下的叶对象执行。</li>
 </ol>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g51g1we1pdj30e80aedfr.jpg" alt="树叶型结构"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g51g1we1pdj30e80aedfr.jpg" alt="树叶型结构"></p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>树对象和叶对象接口统一，树对象增加一个缓存数组，存储叶对象。执行树对象方法时，将请求传递给其下叶对象执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 树对象 - 文件目录</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CFolder</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.files = [];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    add(file) &#123;</div><div class="line">        <span class="keyword">this</span>.files.push(file);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    scan() &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> file <span class="keyword">of</span> <span class="keyword">this</span>.files) &#123;</div><div class="line">            file.scan();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 叶对象 - 文件</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CFile</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    add(file) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'文件下面不能再添加文件'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    scan() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">`开始扫描文件：<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> mediaFolder = <span class="keyword">new</span> CFolder(<span class="string">'娱乐'</span>);</div><div class="line"><span class="keyword">let</span> movieFolder = <span class="keyword">new</span> CFolder(<span class="string">'电影'</span>);</div><div class="line"><span class="keyword">let</span> musicFolder = <span class="keyword">new</span> CFolder(<span class="string">'音乐'</span>);</div><div class="line"></div><div class="line"><span class="keyword">let</span> file1 = <span class="keyword">new</span> CFile(<span class="string">'钢铁侠.mp4'</span>);</div><div class="line"><span class="keyword">let</span> file2 = <span class="keyword">new</span> CFile(<span class="string">'再谈记忆.mp3'</span>);</div><div class="line">movieFolder.add(file1);</div><div class="line">musicFolder.add(file2);</div><div class="line">mediaFolder.add(movieFolder);</div><div class="line">mediaFolder.add(musicFolder);</div><div class="line">mediaFolder.scan();</div><div class="line"></div><div class="line"><span class="comment">/* 输出:</span></div><div class="line"><span class="comment">开始扫描文件：钢铁侠.mp4</span></div><div class="line"><span class="comment">开始扫描文件：再谈记忆.mp3</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure></p>
 <p><code>CFolder</code> 与 <code>CFile</code> 接口保持一致。执行 <code>scan()</code> 时，若发现是树对象，则继续遍历其下的叶对象，执行 <code>scan()</code>。</p>
 <p>JavaScript 不同于其它静态编程语言，实现组合模式的难点是保持树对象与叶对象之间接口保持统一，可借助 TypeScript 定制接口规范，实现类型约束。</p>
@@ -539,14 +539,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <img id="wechat_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <img id="alipay_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
         <p>Alipay</p>
       </div>
     

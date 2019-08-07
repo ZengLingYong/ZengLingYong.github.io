@@ -111,16 +111,16 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="面试经常遇到的深浅拷贝，事件轮询，函数调用栈，闭包等容易出错的题目，究其原因，都是跟JavaScript基础知识不牢固有关，下层地基没打好，上层就是豆腐渣工程，新人小白，踏实踩土才是关键。 打地基第二篇：本篇我们将对JavaScript数据结构的知识点详解一二。  JavaScript中有三种数据结构： 栈（stack) 、堆（heap)、 队列（queue)。 栈（stack）栈的特点是“LIF">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gymazis4j30m80goaac.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gz01dvzyj30jg0famxv.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gz08u7thj30d609k0t0.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1g4gz0mk3moj30jg07s74l.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1g4gz0wr5s8j30fk0bhwet.jpg">
-<meta property="og:updated_time" content="2019-06-28T08:56:48.673Z">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gymazis4j30m80goaad.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gysjrqymj30jg0famxv.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gz08u7thj30d609k0t0.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gz0mk3moj30jg07s74l.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gz0wr5s8j30fk0bhwet.jpg">
+<meta property="og:updated_time" content="2019-08-07T09:37:48.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（二）：栈、堆、队列、内存空间">
 <meta name="twitter:description" content="面试经常遇到的深浅拷贝，事件轮询，函数调用栈，闭包等容易出错的题目，究其原因，都是跟JavaScript基础知识不牢固有关，下层地基没打好，上层就是豆腐渣工程，新人小白，踏实踩土才是关键。 打地基第二篇：本篇我们将对JavaScript数据结构的知识点详解一二。  JavaScript中有三种数据结构： 栈（stack) 、堆（heap)、 队列（queue)。 栈（stack）栈的特点是“LIF">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gymazis4j30m80goaac.jpg">
+<meta name="twitter:image" content="http://img.wuliv.com/006tNc79gy1g4gymazis4j30m80goaad.jpg">
 
 
 
@@ -476,19 +476,19 @@
       
         <p>面试经常遇到的深浅拷贝，事件轮询，函数调用栈，闭包等容易出错的题目，究其原因，都是跟JavaScript基础知识不牢固有关，下层地基没打好，上层就是豆腐渣工程，新人小白，踏实踩土才是关键。</p>
 <p>打地基第二篇：本篇我们将对JavaScript数据结构的知识点详解一二。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gymazis4j30m80goaac.jpg" alt="前端进击的巨人（二）：栈、堆、队列、内存空间"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gymazis4j30m80goaad.jpg" alt="前端进击的巨人（二）：栈、堆、队列、内存空间"></p>
 <p>JavaScript中有三种数据结构： 栈（stack) 、堆（heap)、 队列（queue)。</p>
 <h3 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h3><p>栈的特点是<strong>“LIFO，即后进先出（Last in, first out）”</strong>。数据存储时只能从顶部逐个存入，取出时也需从顶部逐个取出。<a href="http://wuliv.com/2019/01/15/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E6%89%A7%E8%A1%8C%E6%A0%88%EF%BC%8C%E5%8F%98%E9%87%8F%E5%AF%B9%E8%B1%A1/">《前端进击的巨人（一）：执行上下文与执行栈，变量对象》</a>中解释执行栈时，举了一个乒乓球盒子的例子，来演示栈的存取方式，这里再举个栗子搭积木。</p>
-<p>举个栗子：乒乓球盒子/搭建积木<br><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gz01dvzyj30jg0famxv.jpg" alt="栈栗子：乒乓球盒子"></p>
+<p>举个栗子：乒乓球盒子/搭建积木<br><img src="http://img.wuliv.com/006tNc79gy1g4gysjrqymj30jg0famxv.jpg" alt="栈栗子：乒乓球盒子"></p>
 <p><strong>JavaScript中Array数组模拟栈：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2, 3, 4, 5];</div><div class="line"></div><div class="line">arr.push(6); // 存入数据 arr -&gt; [1, 2, 3, 4, 5, 6]</div><div class="line">arr.pop();   // 取出数据 arr -&gt; [1, 2, 3, 4, 5]</div></pre></td></tr></table></figure></p>
 <h3 id="堆（heap"><a href="#堆（heap" class="headerlink" title="堆（heap)"></a>堆（heap)</h3><p>堆的特点是<strong>“无序”</strong>的<code>key-value</code><strong>“键值对”</strong>存储方式。</p>
-<p>举个栗子：书架存书<br><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gz08u7thj30d609k0t0.jpg" alt="堆栗子：书架"></p>
+<p>举个栗子：书架存书<br><img src="http://img.wuliv.com/006tNc79gy1g4gz08u7thj30d609k0t0.jpg" alt="堆栗子：书架"></p>
 <p>我们想要在书架上找到想要的书，最直接的方式就是通过查找书名，书名就是我们的key。拿着这把key，就可以轻松检索到对应的书籍。</p>
 <p><strong>“堆的存取方式跟顺序没有关系，不局限出入口”</strong>。</p>
 <h3 id="队列-（queue"><a href="#队列-（queue" class="headerlink" title="队列 （queue)"></a>队列 （queue)</h3><p>队列的特点是是<strong>“FIFO，即先进先出（First in, first out）”</strong> 。<br>数据存取时<strong>“从队尾插入，从队头取出”</strong>。</p>
 <p><strong>“与栈的区别：栈的存入取出都在顶部一个出入口，而队列分两个，一个出口，一个入口”</strong>。</p>
 <p>举个栗子：排队取餐</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g4gz0mk3moj30jg07s74l.jpg" alt="队列栗子：排队取餐"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gz0mk3moj30jg07s74l.jpg" alt="队列栗子：排队取餐"></p>
 <p><strong>JavaScript中Array数组模拟队列：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2, 3, 4, 5];</div><div class="line"></div><div class="line">// 队尾in</div><div class="line">arr.push(6);    // 存入 arr -&gt; [1, 2, 3, 4, 5, 6]</div><div class="line">// 队头out</div><div class="line">arr.shift();    // 取出 arr -&gt; [2, 3, 4, 5, 6]</div></pre></td></tr></table></figure></p>
 <h3 id="栈、堆、队列在JavaScript中的应用"><a href="#栈、堆、队列在JavaScript中的应用" class="headerlink" title="栈、堆、队列在JavaScript中的应用"></a>栈、堆、队列在JavaScript中的应用</h3><h4 id="1-代码运行方式（栈应用-函数调用栈）"><a href="#1-代码运行方式（栈应用-函数调用栈）" class="headerlink" title="1. 代码运行方式（栈应用/函数调用栈）"></a>1. 代码运行方式（栈应用/函数调用栈）</h4><p><a href="&#39;http://wuliv.com/2019/01/15/%E5%89%8D%E7%AB%AF%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E6%89%A7%E8%A1%8C%E6%A0%88%EF%BC%8C%E5%8F%98%E9%87%8F%E5%AF%B9%E8%B1%A1/&#39;">《前端进击的巨人（一）：执行上下文与执行栈，变量对象》</a>详解了JavaScript运行时的函数调用过程，而其中执行栈（函数调用栈）就是用到栈的数据结构。</p>
 <blockquote>
@@ -506,7 +506,7 @@
 </ol>
 <p>基础类型的值保存在栈中，这些类型的值有固定大小，<strong>“按值来访问”</strong>；</p>
 <p>引用类型的值保存在堆中，栈中存储的是引用类型的引用地址（地址指针），<strong>“按引用访问”</strong>，引用类型的值没有固定大小，可扩展（一个对象我们可以添加多个属性）。</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g4gz0wr5s8j30fk0bhwet.jpg" alt="JS类型存储"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gz0wr5s8j30fk0bhwet.jpg" alt="JS类型存储"></p>
 <h4 id="3-事件轮询（队列）"><a href="#3-事件轮询（队列）" class="headerlink" title="3. 事件轮询（队列）"></a>3. 事件轮询（队列）</h4><p>JavaScript中事件轮询（Event Loop）的执行机制，就是采用队列的存取方式，因事件轮询（Event Loop）也是JS基础中的一个比较难理解的知识点，后续另开一篇章再作详细探究。</p>
 <h3 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h3><p>将一个变量的值赋值给另一个变量，相当于在栈内存中创建了一个新的内存空间，然后从栈中复制值，存储到这个新空间中。对于基本类型，栈中存储的就是它自身的值，所以新内存空间存储的也是一个值。直接改变新变量的值，不会影响到旧变量的值，因为他们值存储的内存空间不同。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 基本类型复制变量</div><div class="line">var a = 10;</div><div class="line">var b = a;</div><div class="line">b = 20;</div><div class="line"></div><div class="line">a // 10</div><div class="line">b // 20</div></pre></td></tr></table></figure>
@@ -565,14 +565,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <img id="wechat_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <img id="alipay_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
         <p>Alipay</p>
       </div>
     

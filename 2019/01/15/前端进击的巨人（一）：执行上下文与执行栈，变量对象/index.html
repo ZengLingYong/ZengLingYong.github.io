@@ -111,14 +111,14 @@
 <meta property="og:site_name" content="Kenz&#39;s Blog">
 <meta property="og:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1g4gytr3fyyj30go0ci0st.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g4gysjrqymj30jg0famxv.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1g4gytbo7afj30r109ldgf.jpg">
-<meta property="og:updated_time" content="2019-06-28T08:50:08.194Z">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gytr3fyyj30go0ci0st.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gysjrqymj30jg0famxv.jpg">
+<meta property="og:image" content="http://img.wuliv.com/006tNc79gy1g4gytbo7afj30r109ldgf.jpg">
+<meta property="og:updated_time" content="2019-08-07T09:31:10.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端进击的巨人（一）：执行上下文与执行栈，变量对象">
 <meta name="twitter:description" content="写在开篇已经不敢自称前端小白，曾经吹过的牛逼总要一点点去实现。 正如前领导说的，自己喝酒吹过的牛皮，跪着都得含着泪去实现。 那么没有年终完美总结，来个新年莽撞开始可好。 进击巨人系列开篇，不忘初心，砥砺前行。   本文首发Github，期待Star！https://github.com/ZengLingYong/blog 理解执行上下文 执行上下文(Execution Context): 函数执行">
-<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1g4gytr3fyyj30go0ci0st.jpg">
+<meta name="twitter:image" content="http://img.wuliv.com/006tNc79gy1g4gytr3fyyj30go0ci0st.jpg">
 
 
 
@@ -477,7 +477,7 @@
 <p>那么没有年终完美总结，来个新年莽撞开始可好。</p>
 <p>进击巨人系列开篇，不忘初心，砥砺前行。</p>
 <hr>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g4gytr3fyyj30go0ci0st.jpg" alt="前端进击的巨人（一）：执行上下文与执行栈，变量对象"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gytr3fyyj30go0ci0st.jpg" alt="前端进击的巨人（一）：执行上下文与执行栈，变量对象"></p>
 <p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <h3 id="理解执行上下文"><a href="#理解执行上下文" class="headerlink" title="理解执行上下文"></a>理解执行上下文</h3><blockquote>
 <p>执行上下文(Execution Context): 函数执行前进行的准备工作（也称执行上下文环境）</p>
@@ -501,7 +501,7 @@
 <p>既然是这样，必须要有一个排队机制，不然就会出现几个流氓霸着车道不让过，”还有王法么？”</p>
 <h3 id="JS中管理多个执行上下文"><a href="#JS中管理多个执行上下文" class="headerlink" title="JS中管理多个执行上下文"></a>JS中管理多个执行上下文</h3><p>函数编程中，代码中会声明多个函数，对应的执行上下文也会存在多个。在JavaScript中，通过栈的存取方式来管理执行上下文，我们可称其为执行栈，或函数调用栈(Call Stack)。</p>
 <p>在说明执行栈前，先来补下<strong>“栈数据结构”</strong>知识点。</p>
-<h3 id="栈数据结构"><a href="#栈数据结构" class="headerlink" title="栈数据结构"></a>栈数据结构</h3><p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g4gysjrqymj30jg0famxv.jpg" alt="乒乓球盒子理解栈存储"><br>借助前端大神的例子，用乒乓球盒子来理解栈的存取方式。（这个例子让我彻底记住了栈数据结构）</p>
+<h3 id="栈数据结构"><a href="#栈数据结构" class="headerlink" title="栈数据结构"></a>栈数据结构</h3><p><img src="http://img.wuliv.com/006tNc79gy1g4gysjrqymj30jg0famxv.jpg" alt="乒乓球盒子理解栈存储"><br>借助前端大神的例子，用乒乓球盒子来理解栈的存取方式。（这个例子让我彻底记住了栈数据结构）</p>
 <p>栈遵循<strong>“先进后出，后进先出”</strong>的规则，或称<strong>LIFO</strong> (“Last In First Out”) 规则。</p>
 <p>如图所示，我们只能从栈顶取出或放入乒乓球，最先放进盒子的总是最后才能取出。<br>栈中<strong>“放入/取出”</strong>，也可称为<strong>“入栈/出栈”</strong>。</p>
 <p>总结栈数据结构的特点：</p>
@@ -514,7 +514,7 @@
 <p>因为JS执行中最先进入全局环境，所以处于<strong>“栈底的永远是全局环境的执行上下文”</strong>。而处于<strong>“栈顶的是当前正在执行函数的执行上下文”</strong>，当函数调用完成后，它就会从栈顶被推出（理想的情况下，闭包会阻止该操作，闭包后续文章深入详解）。</p>
 <p><strong>“全局环境只有一个，对应的全局执行上下文也只有一个，只有当页面被关闭之后它才会从执行栈中被推出，否则一直存在于栈底”</strong></p>
 <p>文字太多不如上代码系列 ——》代码 + 图，一览无遗：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo () &#123;</div><div class="line">    function bar () &#123;</div><div class="line">        return &apos;I am bar&apos;;</div><div class="line">    &#125;</div><div class="line">    return bar();</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure></p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g4gytbo7afj30r109ldgf.jpg" alt="出入栈过程"></p>
+<p><img src="http://img.wuliv.com/006tNc79gy1g4gytbo7afj30r109ldgf.jpg" alt="出入栈过程"></p>
 <h3 id="执行上下文的生命周期"><a href="#执行上下文的生命周期" class="headerlink" title="执行上下文的生命周期"></a>执行上下文的生命周期</h3><p>执行上下文的生命周期有两个阶段：</p>
 <ol>
 <li><p>创建阶段（<strong>进入</strong>执行上下文）</p>
@@ -594,14 +594,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
+        <img id="wechat_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aa2juquj208c0a53zm.jpg" alt="以乐之名 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://wx3.sinaimg.cn/mw690/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
+        <img id="alipay_qr" src="http://img.wuliv.com/72ec38a9gy1fk6aahmbhlj208c0a5t9n.jpg" alt="以乐之名 Alipay"/>
         <p>Alipay</p>
       </div>
     
