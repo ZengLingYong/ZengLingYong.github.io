@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wuliv.com/"/>
-  <updated>2019-08-11T01:41:52.952Z</updated>
+  <updated>2019-08-11T02:35:01.724Z</updated>
   <id>http://wuliv.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>日积硅步，apply/call/bind 自我实现</title>
-    <link href="http://wuliv.com/2019/08/10/%E6%97%A5%E7%A7%AF%E7%A1%85%E6%AD%A5%EF%BC%8Capply-call-bind-%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://wuliv.com/2019/08/10/日积硅步，apply-call-bind-自我实现/</id>
+    <title>日积跬步，apply/call/bind 自我实现</title>
+    <link href="http://wuliv.com/2019/08/10/%E6%97%A5%E7%A7%AF%E8%B7%AC%E6%AD%A5%EF%BC%8Capply-call-bind-%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://wuliv.com/2019/08/10/日积跬步，apply-call-bind-自我实现/</id>
     <published>2019-08-10T14:56:55.000Z</published>
-    <updated>2019-08-11T01:41:52.952Z</updated>
+    <updated>2019-08-11T02:35:01.724Z</updated>
     
     <summary type="html">
     

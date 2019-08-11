@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,JavaScript设计模式," />
+  <meta name="keywords" content="JavaScript,前端进击的巨人," />
 
 
 
@@ -103,18 +103,18 @@
 
 
 
-<meta name="description" content="模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。  生活小栗子： 模式特点 抽象父类（封装子类算法框架，公共方法，执行顺序） 具体子类（继承父类算法结构，可重写父类方法）  抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。 抽象方法被声明在抽象类中，并没有具体的实现。">
-<meta name="keywords" content="JavaScript,JavaScript设计模式">
+<meta name="description" content="call/apply/bind 日常编码中被开发者用来实现 “对象冒充”，也即 “显示绑定 this“。 面试题：“call/apply/bind源码实现”，事实上是对 JavaScript 基础知识的一个综合考核。 相关知识点：  作用域； this 指向； 函数柯里化； 原型与原型链；  call/apply/bind 的区别 三者都可用于显示绑定 this; call/apply 的区别方式">
+<meta name="keywords" content="JavaScript,前端进击的巨人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript设计模式（九）：模版方法模式">
-<meta property="og:url" content="http://wuliv.com/2019/07/23/JavaScript设计模式（九）：模版方法模式/index.html">
+<meta property="og:title" content="日积跬步，apply&#x2F;call&#x2F;bind 自我实现">
+<meta property="og:url" content="http://wuliv.com/2019/08/10/日积跬步，apply-call-bind-自我实现/index.html">
 <meta property="og:site_name" content="Kenz&#39;s Blog">
-<meta property="og:description" content="模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。  生活小栗子： 模式特点 抽象父类（封装子类算法框架，公共方法，执行顺序） 具体子类（继承父类算法结构，可重写父类方法）  抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。 抽象方法被声明在抽象类中，并没有具体的实现。">
+<meta property="og:description" content="call/apply/bind 日常编码中被开发者用来实现 “对象冒充”，也即 “显示绑定 this“。 面试题：“call/apply/bind源码实现”，事实上是对 JavaScript 基础知识的一个综合考核。 相关知识点：  作用域； this 指向； 函数柯里化； 原型与原型链；  call/apply/bind 的区别 三者都可用于显示绑定 this; call/apply 的区别方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-23T03:29:00.705Z">
+<meta property="og:updated_time" content="2019-08-11T02:35:01.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript设计模式（九）：模版方法模式">
-<meta name="twitter:description" content="模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。  生活小栗子： 模式特点 抽象父类（封装子类算法框架，公共方法，执行顺序） 具体子类（继承父类算法结构，可重写父类方法）  抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。 抽象方法被声明在抽象类中，并没有具体的实现。">
+<meta name="twitter:title" content="日积跬步，apply&#x2F;call&#x2F;bind 自我实现">
+<meta name="twitter:description" content="call/apply/bind 日常编码中被开发者用来实现 “对象冒充”，也即 “显示绑定 this“。 面试题：“call/apply/bind源码实现”，事实上是对 JavaScript 基础知识的一个综合考核。 相关知识点：  作用域； this 指向； 函数柯里化； 原型与原型链；  call/apply/bind 的区别 三者都可用于显示绑定 this; call/apply 的区别方式">
 
 
 
@@ -143,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://wuliv.com/2019/07/23/JavaScript设计模式（九）：模版方法模式/"/>
+  <link rel="canonical" href="http://wuliv.com/2019/08/10/日积跬步，apply-call-bind-自我实现/"/>
 
 
 
 
 
-  <title>JavaScript设计模式（九）：模版方法模式 | Kenz's Blog</title>
+  <title>日积跬步，apply/call/bind 自我实现 | Kenz's Blog</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/07/23/JavaScript设计模式（九）：模版方法模式/">
+    <link itemprop="mainEntityOfPage" href="http://wuliv.com/2019/08/10/日积跬步，apply-call-bind-自我实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="以乐之名">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript设计模式（九）：模版方法模式</h1>
+          <h1 class="post-title" itemprop="name headline">日积跬步，apply/call/bind 自我实现</h1>
         
 
         <div class="post-meta">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T10:27:14+08:00">
-                2019-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T22:56:55+08:00">
+                2019-08-10
               </time>
             
 
@@ -405,7 +405,7 @@
 
           
           
-             <span id="/2019/07/23/JavaScript设计模式（九）：模版方法模式/" class="leancloud_visitors" data-flag-title="JavaScript设计模式（九）：模版方法模式">
+             <span id="/2019/08/10/日积跬步，apply-call-bind-自我实现/" class="leancloud_visitors" data-flag-title="日积跬步，apply/call/bind 自我实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  483
+                  1,310
                 </span>
               
 
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  6
                 </span>
               
             </div>
@@ -468,45 +468,61 @@
       
 
       
-        <blockquote>
-<p>模版方法模式：定义一个操作中算法的骨架（稳定），而将一些步骤延迟（变化）到子类。子类可（复用）其算法结构，也可重新定义该算法的特定步骤。</p>
+        <p><code>call/apply/bind</code> 日常编码中被开发者用来实现 “对象冒充”，也即 “显示绑定 <code>this</code>“。</p>
+<p>面试题：“call/apply/bind源码实现”，事实上是对 JavaScript 基础知识的一个综合考核。</p>
+<p>相关知识点：</p>
+<ol>
+<li>作用域；</li>
+<li>this 指向；</li>
+<li>函数柯里化；</li>
+<li>原型与原型链；</li>
+</ol>
+<h3 id="call-apply-bind-的区别"><a href="#call-apply-bind-的区别" class="headerlink" title="call/apply/bind 的区别"></a>call/apply/bind 的区别</h3><ol>
+<li>三者都可用于显示绑定 <code>this</code>;</li>
+<li><code>call/apply</code> 的区别方式在于参数传递方式的不同；<ul>
+<li><code>fn.call(obj, arg1, arg2, ...)</code>， 传参数列表，以逗号隔开；</li>
+<li><code>fn.call(obj, [arg1, arg2, ...])</code>， 传参数数组；</li>
+</ul>
+</li>
+<li><code>bind</code> 返回的是一个待执行函数，是函数柯里化的应用，而 <code>call/apply</code> 则是立即执行函数</li>
+</ol>
+<h3 id="思路初探"><a href="#思路初探" class="headerlink" title="思路初探"></a>思路初探</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</div><div class="line">    <span class="comment">// 原型中 this 指向的是实例对象，所以这里指向 [Function: bar]</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// [Function: bar]</span></div><div class="line">    <span class="comment">// 在传入的上下文对象中，创建一个属性，值指向方法 bar</span></div><div class="line">    context.fn = <span class="keyword">this</span>;  <span class="comment">// foo.fn = [Function: bar]</span></div><div class="line">    <span class="comment">// 调用这个方法，此时调用者是 foo，this 指向 foo</span></div><div class="line">    context.fn();</div><div class="line">    <span class="comment">// 执行后删除它，仅使用一次，避免该属性被其它地方使用（遍历）</span></div><div class="line">    <span class="keyword">delete</span> context.fn;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">let</span> foo = &#123;</div><div class="line">    value: <span class="number">2</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</div><div class="line">&#125;</div><div class="line"><span class="comment">// bar 函数的声明等同于：var bar = new Function("console.log(this.value)");</span></div><div class="line"></div><div class="line">bar.call(foo);   <span class="comment">// 2;</span></div></pre></td></tr></table></figure>
+<h3 id="call-的源码实现"><a href="#call-的源码实现" class="headerlink" title="call 的源码实现"></a>call 的源码实现</h3><p>初步思路有个大概，剩下的就是完善代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ES6 版本</span></div><div class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span>(<span class="params">context, ...params</span>) </span>&#123;</div><div class="line">  <span class="comment">// ES6 函数 Rest 参数，使其可指定一个对象，接收函数的剩余参数，合成数组</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> context === <span class="string">'object'</span>) &#123;</div><div class="line">    context = context || <span class="built_in">window</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    context = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 用 Symbol 来作属性 key 值，保持唯一性，避免冲突</span></div><div class="line">  <span class="keyword">let</span> fn = <span class="built_in">Symbol</span>();</div><div class="line">  context[fn] = <span class="keyword">this</span>;</div><div class="line">  <span class="comment">// 将参数数组展开，作为多个参数传入</span></div><div class="line">  <span class="keyword">const</span> result = context[fn](...params);</div><div class="line">  <span class="comment">// 删除避免永久存在</span></div><div class="line">  <span class="keyword">delete</span>(context[fn]);</div><div class="line">  <span class="comment">// 函数可以有返回值</span></div><div class="line">  <span class="keyword">return</span> result;            </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 测试</span></div><div class="line"><span class="keyword">var</span> mine = &#123;</div><div class="line">    name: <span class="string">'以乐之名'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  name: <span class="string">'无名氏'</span>,</div><div class="line">  sayHi: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'我的名字：'</span> + <span class="keyword">this</span>.name + <span class="string">'，'</span>, msg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">person.sayHi.myCall(mine, <span class="string">'很高兴认识你！'</span>);  </div><div class="line"><span class="comment">// 我的名字：以乐之名，很高兴认识你！</span></div></pre></td></tr></table></figure>
+<p><em>知识点补充：</em></p>
+<ol>
+<li>ES6 新的原始数据类型 <code>Symbol</code>，表示独一无二的值;</li>
+<li><code>Object.create(null)</code> 创建一个空对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 创建一个空对象的方式</div><div class="line"></div><div class="line">// eg.A </div><div class="line">let emptyObj = &#123;&#125;;</div><div class="line"></div><div class="line">// eg.B</div><div class="line">let emptyObj = new Object();</div><div class="line"></div><div class="line">// eg.C</div><div class="line">let emptyObj = Object.create(null);</div></pre></td></tr></table></figure>
+<p>使用 <code>Object.create(null)</code> 创建的空对象，不会受到原型链的干扰。原型链终端指向 <code>null</code>，不会有构造函数，也不会有 <code>toString</code>、 <code>hasOwnProperty</code>、<code>valueOf</code> 等属性，这些属性来自 <code>Object.prototype</code>。有原型链基础的伙伴们，应该都知道，所有普通对象的原型链都会指向 <code>Object.prototype</code>。</p>
+<p>所以 <code>Object.create(null)</code> 创建的空对象比其它两种方式，更干净，不会有 <code>Object</code> 原型链上的属性。</p>
+<p>ES5 版本：</p>
+<ol>
+<li>自行处理参数；</li>
+<li>自实现 <code>Symobo</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ES5 版本</span></div><div class="line"></div><div class="line"><span class="comment">// 模拟Symbol</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSymbol</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> uniqAttr = <span class="string">'00'</span> + <span class="built_in">Math</span>.random();</div><div class="line">  <span class="keyword">if</span> (obj.hasOwnProperty(uniqAttr)) &#123;</div><div class="line">    <span class="comment">// 如果已存在，则递归自调用函数</span></div><div class="line">    <span class="built_in">arguments</span>.callee(obj);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> uniqAttr;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> args = <span class="built_in">arguments</span>;</div><div class="line">  <span class="keyword">if</span> (!args.length) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> context = [].shift.apply(args);</div><div class="line">  context = context || <span class="built_in">window</span>;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> fn = getSymbol(context);</div><div class="line">  context[fn] = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 无其它参数传入</span></div><div class="line">  <span class="keyword">if</span> (!<span class="built_in">arguments</span>.length) &#123;</div><div class="line">    <span class="keyword">return</span> context[fn];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> param = args[i];</div><div class="line">  <span class="comment">// 类型判断，不然 eval 运行会出错</span></div><div class="line">  <span class="keyword">var</span> paramType = <span class="keyword">typeof</span> param;</div><div class="line">  <span class="keyword">switch</span>(paramType) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'string'</span>:</div><div class="line">      param = <span class="string">'"'</span> + param + <span class="string">'"'</span></div><div class="line">    <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'object'</span>:</div><div class="line">      param = <span class="built_in">JSON</span>.stringify(param);</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  &#125; </div><div class="line"></div><div class="line">  fnStr += i == args.length - <span class="number">1</span> ? param : param + <span class="string">','</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 借助 eval 执行</span></div><div class="line">  <span class="keyword">var</span> result = <span class="built_in">eval</span>(fnStr);</div><div class="line">  <span class="keyword">delete</span> context[fn];</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 测试</span></div><div class="line"><span class="keyword">var</span> mine = &#123;</div><div class="line">    name: <span class="string">'以乐之名'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  name: <span class="string">'无名氏'</span>,</div><div class="line">  sayHi: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'我的名字：'</span> + <span class="keyword">this</span>.name + <span class="string">'，'</span>, msg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">person.sayHi.myCall(mine, <span class="string">'很高兴认识你！'</span>);  </div><div class="line"><span class="comment">// 我的名字：以乐之名，很高兴认识！</span></div></pre></td></tr></table></figure>
+<h3 id="apply-的源码实现"><a href="#apply-的源码实现" class="headerlink" title="apply 的源码实现"></a>apply 的源码实现</h3><p><code>call</code> 的源码实现，那么 <code>apply</code> 就简单，两者只是传递参数方式不同而已。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span>(<span class="params">context, params</span>) </span>&#123;</div><div class="line">    <span class="comment">// apply 与 call 的区别，第二个参数是数组，且不会有第三个参数</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> context === <span class="string">'object'</span>) &#123;</div><div class="line">        context = context || <span class="built_in">window</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        context = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> fn = <span class="built_in">Symbol</span>();</div><div class="line">    context[fn] = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">const</span> result context[fn](...params);</div><div class="line">    <span class="keyword">delete</span> context[fn];</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="bind-的源码实现"><a href="#bind-的源码实现" class="headerlink" title="bind 的源码实现"></a>bind 的源码实现</h3><ol>
+<li><code>bind</code> 与 <code>call/apply</code> 的区别就是返回的是一个待执行的函数，而不是函数的执行结果;</li>
+<li><code>bind</code> 返回的函数作为构造函数与 <code>new</code> 一起使用，绑定的 <code>this</code> 需要被忽略;</li>
+</ol>
+<blockquote>
+<p>调用绑定函数时作为this参数传递给目标函数的值。 如果使用new运算符构造绑定函数，则忽略该值。 —— MDN</p>
 </blockquote>
-<p>生活小栗子：</p>
-<h3 id="模式特点"><a href="#模式特点" class="headerlink" title="模式特点"></a>模式特点</h3><ol>
-<li>抽象父类（封装子类算法框架，公共方法，执行顺序）</li>
-<li>具体子类（继承父类算法结构，可重写父类方法）</li>
-</ol>
-<p>抽象类不能被实例化，主要作用是为子类定义公共接口（抽象方法），由子类自行具体实行接口功能。</p>
-<p>抽象方法被声明在抽象类中，并没有具体的实现。子类继承抽象类时，必须重写父类的抽象方法。</p>
-<p>模版方法：封装子类的算法框架，指导子类方法执行顺序。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h4 id="借助TypeScript实现"><a href="#借助TypeScript实现" class="headerlink" title="借助TypeScript实现"></a>借助TypeScript实现</h4><h4 id="JavaScript原型继承实现"><a href="#JavaScript原型继承实现" class="headerlink" title="JavaScript原型继承实现"></a>JavaScript原型继承实现</h4><ol>
-<li>使用原型继承来模拟类式继承，无编译器自动校验</li>
-<li>其它方式接口检查<ul>
-<li>鸭子类型模拟接口检查<ul>
-<li>缺点：增加代码复杂性，额外与逻辑无关的判断代码</li>
-</ul>
-</li>
-<li>抽象方法抛出异常，如果子类实现覆盖，则不会执行，否则抛出异常提醒<ul>
-<li>优点：实现简单，缺点：得到错误信息时间靠后</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="JavaScript-非继承实现"><a href="#JavaScript-非继承实现" class="headerlink" title="JavaScript 非继承实现"></a>JavaScript 非继承实现</h4><p>高阶函数的实现</p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
-<li>搭建项目框架；</li>
-<li>UI组件构建</li>
-</ol>
-<h3 id="钩子方法（hook）增强个性化"><a href="#钩子方法（hook）增强个性化" class="headerlink" title="钩子方法（hook）增强个性化"></a>钩子方法（hook）增强个性化</h3><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：封装变化提高系统扩展性的设计模式。子类可添加扩展，符合开发-封闭原则。<br>缺点：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context, ...initArgs</span>) </span>&#123;</div><div class="line">    <span class="comment">// bind 调用的方法一定要是一个函数</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">'function'</span>) &#123;</div><div class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'not a function'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span>;  </div><div class="line">    <span class="keyword">let</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">    F.prototype = <span class="keyword">this</span>.prototype;</div><div class="line">    <span class="keyword">let</span> bound = <span class="function"><span class="keyword">function</span>(<span class="params">...finnalyArgs</span>) </span>&#123;</div><div class="line">      <span class="comment">// 将前后参数合并传入</span></div><div class="line">      <span class="keyword">return</span> self.call(<span class="keyword">this</span> <span class="keyword">instanceof</span> F ? <span class="keyword">this</span> : context || <span class="keyword">this</span>, ...initArgs, ...finnalyArgs);</div><div class="line">    &#125;</div><div class="line">    bound.prototype = <span class="keyword">new</span> F();</div><div class="line">    <span class="keyword">return</span> bound;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不少伙伴还会遇到这样的追问，不使用 <code>call/apply</code>，如何实现 <code>bind</code> ？</p>
+<p>骚年先别慌，不用 <code>call/apply</code>，不就是相当于把 <code>call/apply</code> 换成对应的自我实现方法，算是偷懒取个巧吧。</p>
+<p>本篇 <code>call/apply/bind</code> 源码实现，算是对之前文章系列知识点的一次加深巩固。</p>
+<p><strong>“心中有码，前路莫慌。”</strong></p>
 <hr>
-<p>参考文章</p>
+<p>参考文档：</p>
 <ul>
-<li><a href="https://book.douban.com/subject/24744217/" target="_blank" rel="external">《JavaScript 设计模式》</a></li>
-<li><a href="http://www.ituring.com.cn/book/1632" target="_blank" rel="external">《JavaScript 设计模式与开发实践》</a></li>
-<li><a href="https://coding.imooc.com/class/255.html" target="_blank" rel="external">《JavaScript 设计模式系统讲解与应用》</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">MDN - Function.prototype.bind()</a></li>
+<li><a href="https://github.com/jawil/blog/issues/16" target="_blank" rel="external">不用call和apply方法模拟实现ES5的bind方法</a></li>
 </ul>
-<p>本文首发Github，期待Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
+<p>更多前端基石搭建，尽在 Github，期待 Star！<br><a href="https://github.com/ZengLingYong/blog" target="_blank" rel="external">https://github.com/ZengLingYong/blog</a></p>
 <blockquote>
 <p>作者：以乐之名<br>本文原创，有不当的地方欢迎指出。转载请指明出处。</p>
 </blockquote>
@@ -560,7 +576,7 @@
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/JavaScript设计模式/" rel="tag"># JavaScript设计模式</a>
+            <a href="/tags/前端进击的巨人/" rel="tag"># 前端进击的巨人</a>
           
         </div>
       
@@ -573,8 +589,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/15/JavaScript设计模式（八）：组合模式/" rel="next" title="JavaScript设计模式（八）：组合模式">
-                <i class="fa fa-chevron-left"></i> JavaScript设计模式（八）：组合模式
+              <a href="/2019/07/23/JavaScript设计模式（九）：模版方法模式/" rel="next" title="JavaScript设计模式（九）：模版方法模式">
+                <i class="fa fa-chevron-left"></i> JavaScript设计模式（九）：模版方法模式
               </a>
             
           </div>
@@ -582,10 +598,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/10/日积跬步，apply-call-bind-自我实现/" rel="prev" title="日积跬步，apply/call/bind 自我实现">
-                日积跬步，apply/call/bind 自我实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -795,7 +807,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式特点"><span class="nav-number">1.</span> <span class="nav-text">模式特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#借助TypeScript实现"><span class="nav-number">2.1.</span> <span class="nav-text">借助TypeScript实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript原型继承实现"><span class="nav-number">2.2.</span> <span class="nav-text">JavaScript原型继承实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript-非继承实现"><span class="nav-number">2.3.</span> <span class="nav-text">JavaScript 非继承实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">3.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#钩子方法（hook）增强个性化"><span class="nav-number">4.</span> <span class="nav-text">钩子方法（hook）增强个性化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">5.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#call-apply-bind-的区别"><span class="nav-number">1.</span> <span class="nav-text">call/apply/bind 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路初探"><span class="nav-number">2.</span> <span class="nav-text">思路初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call-的源码实现"><span class="nav-number">3.</span> <span class="nav-text">call 的源码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply-的源码实现"><span class="nav-number">4.</span> <span class="nav-text">apply 的源码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind-的源码实现"><span class="nav-number">5.</span> <span class="nav-text">bind 的源码实现</span></a></li></ol></div>
             
 
           </div>
